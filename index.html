@@ -23,9 +23,10 @@
 
   <nav class="nav">
     <div class="container">
-      <a href="index.html" class="brand"><span class="brand-mark">🧪</span><span>AI Radionica Beograd</span></a>
+      <a href="index.html" class="brand"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span><span class="brand-sub">AI Radionica Beograd</span></a>
       <div class="nav-links">
         <a href="index.html" class="active">Početna</a>
+        <a href="#setup">Setup</a>
         <a href="#sekcije">Wiki</a>
         <a href="#pojmovnik">Pojmovnik</a>
         <a href="zadatak.html">Zadatak</a>
@@ -44,7 +45,8 @@
         da odgovor pronađeš bez čekanja na Jovana ili Stefana.
       </p>
       <div class="cta-row">
-        <a href="zadatak.html" class="btn btn-primary">Tvoj prvi zadatak →</a>
+        <a href="#setup" class="btn btn-primary">Korak 0: Pripremi računar ↓</a>
+        <a href="zadatak.html" class="btn btn-ghost">Tvoj zadatak</a>
         <a href="ljudi/index.html" class="btn btn-ghost">Upoznaj ekipu</a>
       </div>
 
@@ -56,6 +58,125 @@
       </div>
     </div>
   </header>
+
+  <!-- ================= KORAK 0: SETUP ================= -->
+  <section id="setup" style="padding-top:1rem">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="label">Korak 0 · dok traje uvod</span>
+        <h2>Neka agent pripremi tvoj računar <span class="hl">dok mi pričamo.</span></h2>
+        <p>Dok Jovan i Stefan drže uvod, tvoj AI agent (Claude Code ili Codex) instalira i podešava sve što ti treba za zadatak. Radi u 6 faza i posle svake staje, javlja dokle je stigao i pita da li da nastavi. Tako svi vidimo ko je gde — i znamo kome da pritrčimo.</p>
+      </div>
+
+      <div class="howto reveal">
+        <div><b>01</b>Otvori terminal i pokreni svog agenta: <code>claude</code> ili <code>codex</code>.</div>
+        <div><b>02</b>Kopiraj prompt ispod, zalepi ga agentu i pošalji. Na svakom checkpointu odgovori „da".</div>
+        <div><b>03</b>Posle svakog checkpointa javi u Slack: <code>Ime — Checkpoint 3/6 ✅</code>. Zaglavio si? 🆘 Podigni ruku.</div>
+      </div>
+
+      <div class="phases reveal">
+        <div class="phase"><span class="num">FAZA 1/6</span><h3>Pregled</h3><p>Šta već imaš instalirano</p></div>
+        <div class="phase"><span class="num">FAZA 2/6</span><h3>Instalacija</h3><p>git, gh, python, node, VS Code</p></div>
+        <div class="phase"><span class="num">FAZA 3/6</span><h3>Git</h3><p>Tvoje ime i mejl</p></div>
+        <div class="phase"><span class="num">FAZA 4/6</span><h3>GitHub</h3><p>Prijava i pristup repou</p></div>
+        <div class="phase"><span class="num">FAZA 5/6</span><h3>Projekat</h3><p>Clone i tvoja grana</p></div>
+        <div class="phase"><span class="num">FAZA 6/6</span><h3>Probna vožnja</h3><p>Tvoja stranica u browseru</p></div>
+      </div>
+
+      <article class="prompt reveal">
+        <div class="prompt-head">
+          <div>
+            <span class="num">Setup prompt · prvi zadatak za agenta</span>
+            <h3>Pripremi mi računar za radionicu</h3>
+            <p>Agent ništa ne instalira bez tvog odobrenja i nikad ne traži lozinke u chatu. Ako prekineš, ponovo ga pokreni i napiši: „Nastavi setup od Faze X".</p>
+          </div>
+          <button class="copy" data-target="setup-prompt">Kopiraj prompt</button>
+        </div>
+<pre id="setup-prompt"><span class="ph"># ULOGA</span>
+Ti si strpljiv tehnički asistent koji mi priprema računar za AI radionicu. Ja sam početnik. Pričaj sa mnom na srpskom, jednostavno i bez žargona. Kad moraš da upotrebiš tehnički termin, objasni ga u jednoj rečenici.
+
+<span class="ph"># KONTEKST — odakle počinjemo</span>
+Na "AI Radionici Beograd" (VibeCode Academy × n8n Lab) svaki polaznik menja svoju stranicu na zajedničkom sajtu uz pomoć AI agenta i šalje promene na GitHub.
+- Repozitorijum: https://github.com/n8nlab/aiworkshop
+- Sajt uživo: https://n8nlab.github.io/aiworkshop/
+- Moja stranica je u folderu ljudi/&lt;moj-folder&gt;/
+- Sajt je čist HTML + CSS, bez build koraka.
+Ako ti napišem "Nastavi setup od Faze X", brzo proveri prethodne faze i nastavi od Faze X.
+
+<span class="ph"># ZADATAK</span>
+Pripremi moj računar tako da mogu da uradim zadatak na radionici. Radi u 6 faza, strogo redom. Na kraju SVAKE faze STANI, prikaži CHECKPOINT i sačekaj da napišem "da" pre nego što nastaviš.
+
+FAZA 1 — Pregled računara (samo proveravaš, ništa ne instaliraš)
+- Utvrdi operativni sistem (Windows / macOS / Linux) i terminal koji koristim.
+- Proveri da li su instalirani i koja je verzija: git, gh (GitHub CLI), python, node, npm, VS Code (code).
+- Prikaži mi tabelu: alat → instaliran? → verzija → obavezan ili preporučen.
+
+FAZA 2 — Instalacija onoga što fali
+- Obavezno: git, gh (GitHub CLI), python 3 (za lokalni server).
+- Preporučeno: node LTS (sa npm) i VS Code.
+- Koristi zvanični menadžer paketa: Windows → winget, macOS → Homebrew, Linux → apt ili dnf.
+- PRE svake instalacije pokaži mi tačnu komandu i sačekaj moje odobrenje.
+- Ako komanda traži lozinku računara, reci mi da je ukucam sam/a u terminalu. Lozinku nikad ne piši u chat.
+- Posle instalacije proveri verziju. Ako komanda nije prepoznata, pokušaj da osvežiš PATH. Ako ni to ne ide, reci mi da otvorim novi terminal i ponovo te pokrenem sa porukom "Nastavi setup od Faze 2".
+
+FAZA 3 — Git podešavanje
+- Pitaj me za ime i prezime i mejl koji koristim na GitHub-u.
+- Podesi globalno git user.name i user.email, i podrazumevanu granu na main.
+- Pokaži mi rezultat (samo te tri linije iz git config --global --list).
+
+FAZA 4 — GitHub nalog i pristup
+- Pitaj me da li imam GitHub nalog. Ako nemam, uputi me na https://github.com/signup i sačekaj.
+- Proveri gh auth status. Ako nisam prijavljen/a, reci mi da SAM/A pokrenem "gh auth login" u terminalu (izbor: GitHub.com → HTTPS → Login with a web browser) i sačekaj da potvrdim.
+- Proveri da li imam poziv za repozitorijum n8nlab/aiworkshop (gh api user/repository_invitations). Ako postoji, pitaj me pa ga prihvati. Ako ne postoji, reci mi da Jovanu ili Stefanu javim svoje GitHub korisničko ime.
+- Proveri pravo pisanja: gh api repos/n8nlab/aiworkshop --jq .permissions.push mora da vrati true.
+
+FAZA 5 — Preuzimanje projekta
+- Predloži mi folder za rad (npr. Dokumenti/radionica) i sačekaj potvrdu.
+- Kloniraj https://github.com/n8nlab/aiworkshop.git u taj folder.
+- Pokaži mi spisak foldera u ljudi/ i pitaj me koji je moj.
+- Napravi moju granu: git checkout -b &lt;moj-folder&gt;/moja-stranica
+
+FAZA 6 — Probna vožnja
+- U folderu projekta pokreni lokalni server tako da ne blokira naš razgovor: python -m http.server 8000 (na macOS/Linux: python3).
+- Proveri da http://localhost:8000/ljudi/&lt;moj-folder&gt;/ vraća HTTP 200.
+- Daj mi taj link i otvori ga u browseru ako možeš.
+
+<span class="ph"># FORMAT CHECKPOINTA — posle svake faze</span>
+✅ CHECKPOINT X/6 — &lt;naziv faze&gt;
+• Urađeno: &lt;kratko, 1–3 stavke&gt;
+• Problemi: &lt;nema / kratak opis&gt;
+📣 Javi u Slack: "&lt;moje ime&gt; — Checkpoint X/6 ✅"
+➡️ Sledeće: Faza X+1 — &lt;naziv&gt;. Da nastavimo? (da/ne)
+
+<span class="ph"># AKO NEŠTO NE RADI</span>
+- Probaj najviše 2 rešenja. Ako ni jedno ne uspe, STANI i prikaži:
+🆘 ZAGLAVIO/LA SAM NA FAZI X/6
+• Šta sam pokušao: &lt;kratko&gt;
+• Tačna poruka greške: &lt;kopija&gt;
+📣 Podigni ruku ili javi u Slack — Jovan ili Stefan dolaze da pomognu.
+- Ne preskači fazu i nikad ne tvrdi da je nešto uspelo ako nisi proverio.
+
+<span class="ph"># OGRANIČENJA</span>
+- Ništa ne instaliraj i ne menjaj bez mog odobrenja.
+- Ne menjaj fajlove u projektu — u ovom zadatku samo pripremamo teren.
+- Nikad ne prikazuj i ne traži lozinke, tokene ni API ključeve.
+- Administratorska prava (sudo / "Run as administrator") traži samo kad je neophodno i objasni zašto.
+
+<span class="ph"># CILJ</span>
+Na kraju treba da imam: instalirane alate, podešen Git, GitHub nalog sa pravom pisanja na repozitorijum, projekat na računaru, svoju granu i svoju stranicu otvorenu u browseru. Tada sam spreman/na za zadatak.
+
+<span class="ph"># ZAVRŠNI IZVEŠTAJ — posle Faze 6</span>
+🏁 SETUP ZAVRŠEN
+• Tabela: alat → verzija → ✅/❌
+• Moj folder: … | Moja grana: … | Link: http://localhost:8000/ljudi/&lt;moj-folder&gt;/
+📣 Javi u Slack: "&lt;moje ime&gt; — Setup gotov 🏁"
+➡️ Sledeći korak: otvori svoju stranicu i kopiraj Prompt 01 — Upoznaj teren.
+
+Kreni sa Fazom 1.</pre>
+        <div class="lesson">💡 <span><b>Obrati pažnju kako je prompt napravljen:</b> faze sa jasnim koracima, obavezni checkpoint posle svake faze, plan za slučaj greške i jasna ograničenja. Isti obrazac koristićeš kad budeš davao agentu veće zadatke.</span></div>
+      </article>
+    </div>
+  </section>
 
   <!-- ================= KAKO KORISTITI ================= -->
   <section id="kako">
@@ -288,7 +409,7 @@
 
   <footer>
     <div class="container">
-      <span>🧪 AI Radionica Beograd · 2026</span>
+      <a href="https://vibecodeacademy.io/" class="brand" target="_blank" rel="noopener"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span></a>
       <span>Napravljeno uz pomoć AI agenata — kao i sve što ćete vi napraviti.</span>
     </div>
   </footer>
