@@ -480,3 +480,6 @@ footer .brand .brandtype { color: var(--text); font-size: 15px; }
 .howto b { color: var(--accent); font-family: var(--mono); margin-right: .4rem; }
 @media (max-width: 1000px) { .phases { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 760px) { .phases, .howto { grid-template-columns: 1fr; } }
+.phases { grid-template-columns: repeat(5, 1fr); }
+.phase.you { border-color: rgba(213, 255, 69, .45); }
+@media (max-width: 1000px) { .phases { grid-template-columns: repeat(2, 1fr); } }
