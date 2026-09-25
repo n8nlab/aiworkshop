@@ -79,7 +79,7 @@
         <div>
           <h3 style="margin-bottom:.5rem">Tri pravila pre nego što kreneš</h3>
           <p>
-            <strong>1.</strong> Menjaj <strong>samo svoj fajl</strong> <code>ljudi/tvoje-ime.html</code>. Ako ti trebaju slike, stavi ih u <code>ljudi/slike/tvoje-ime/</code>.<br />
+            <strong>1.</strong> Menjaj <strong>samo svoj folder</strong> <code>ljudi/tvoje-ime/</code>. U njemu smeš da praviš nove stranice i podfoldere, a slike stavi u <code>ljudi/tvoje-ime/slike/</code>.<br />
             <strong>2.</strong> Ne diraj <code>assets/style.css</code> i tuđe stranice — tako niko nikome ne kvari rad.<br />
             <strong>3.</strong> Nikad ne stavljaj API ključeve, lozinke ni privatne podatke u kod. Repo je javan.
           </p>
@@ -119,28 +119,29 @@ cd aiworkshop</pre>
           <div>
             <h3>Napravi svoju granu (branch)</h3>
             <p>Grana je tvoja lična kopija projekta u kojoj možeš slobodno da eksperimentišeš, bez rizika da pokvariš glavni sajt.</p>
-<pre><span class="c"># zameni "marija" svojim imenom</span>
-git checkout -b marija/moja-stranica</pre>
+<pre><span class="c"># zameni "marija-babic" imenom svog foldera</span>
+git checkout -b marija-babic/moja-stranica</pre>
           </div>
         </div>
 
         <div class="step reveal">
           <div>
-            <h3>Pronađi svoj fajl</h3>
-            <p>Tvoja stranica je u folderu <code>ljudi/</code>, npr. <code>ljudi/marija-babic.html</code>. Otvori je u browseru (dupli klik na fajl) da vidiš kako trenutno izgleda. Ne znaš koji je tvoj? Pogledaj <a href="ljudi/index.html" style="color:var(--accent)">stranicu Ljudi</a>.</p>
+            <h3>Pronađi svoj folder</h3>
+            <p>Svako ima svoj folder u <code>ljudi/</code>, npr. <code>ljudi/marija-babic/</code>, a glavna stranica je <code>ljudi/marija-babic/index.html</code>. Otvori je u browseru (dupli klik na fajl) da vidiš kako trenutno izgleda. Ne znaš koji je tvoj? Pogledaj <a href="ljudi/index.html" style="color:var(--accent)">stranicu Ljudi</a>.</p>
           </div>
         </div>
 
         <div class="step reveal">
           <div>
-            <h3>Zamoli AI agenta da je promeni</h3>
-            <p>Pokreni agenta (Claude Code, GitHub Copilot ili Cursor) u folderu projekta i opiši šta želiš. Budi konkretan i uvek naglasi koji fajl sme da menja. Primer prompta:</p>
-<pre>Izmeni SAMO fajl ljudi/marija-babic.html.
-Upiši moje pravo ime i kratku biografiju: [2–3 rečenice o tebi].
-Promeni boje stranice u toplu narandžastu paletu.
-Dodaj sekciju "Šta želim da automatizujem" sa 3 ideje iz mog posla.
-Dodaj jedan interaktivni element (npr. dugme koje menja citat).
-Ne menjaj nijedan drugi fajl.</pre>
+            <h3>Kreni od svojih startnih promptova</h3>
+            <p>Na dnu tvoje stranice čeka te <strong>5 promptova</strong> spremnih za kopiranje. Idu redom: upoznaj teren → moj identitet → mini alat iz mog posla → mini sajt sa više stranica → provera i objava. Pokreni agenta (Claude Code, GitHub Copilot ili Cursor) u folderu projekta, kopiraj prvi prompt, <strong>popuni žuta polja</strong> i pošalji.</p>
+            <p>Svaki prompt ima istu šemu, a nju učiš na ovoj radionici:</p>
+<pre><span class="c"># ULOGA</span>        ko je agent (npr. web dizajner)
+<span class="c"># KONTEKST</span>     odakle počinjemo: koji fajl, šta već postoji, ko si ti
+<span class="c"># ZADATAK</span>      šta tačno tražimo
+<span class="c"># ZAHTEVI</span>      kako rezultat mora da izgleda
+<span class="c"># OGRANIČENJA</span>  šta agent NE sme (npr. da dira tuđe fajlove)
+<span class="c"># CILJ</span>         zašto sve ovo — agent bolje odlučuje kad zna svrhu</pre>
             <p>Osveži stranicu u browseru, pogledaj rezultat i traži ispravke dok nisi zadovoljan. To je ceo trik: <strong>opiši → proveri → ispravi</strong>.</p>
           </div>
         </div>
@@ -148,18 +149,18 @@ Ne menjaj nijedan drugi fajl.</pre>
         <div class="step reveal">
           <div>
             <h3>Sačuvaj promenu (commit)</h3>
-            <p>Commit je snimak tvoje promene sa kratkim opisom. Proveri da si menjao samo svoj fajl, pa sačuvaj:</p>
-<pre>git status                       <span class="c"># treba da vidiš samo svoj fajl</span>
-git add ljudi/marija-babic.html
+            <p>Commit je snimak tvoje promene sa kratkim opisom. Proveri da si menjao samo svoj folder, pa sačuvaj:</p>
+<pre>git status                       <span class="c"># treba da vidiš samo svoj folder</span>
+git add ljudi/marija-babic/
 git commit -m "Marija: nova verzija moje stranice"</pre>
-            <p>Možeš i da kažeš agentu: <em>„Napravi commit sa mojim izmenama"</em> — ali pročitaj šta je uradio.</p>
+            <p>Prompt 05 na tvojoj stranici radi ovo umesto tebe — ali uvek pročitaj šta je agent uradio.</p>
           </div>
         </div>
 
         <div class="step reveal">
           <div>
             <h3>Pošalji na GitHub (push)</h3>
-<pre>git push -u origin marija/moja-stranica</pre>
+<pre>git push -u origin marija-babic/moja-stranica</pre>
             <p>Terminal će ti ispisati link za <strong>Pull Request</strong>. Ako te pita za prijavu, koristi svoj GitHub nalog.</p>
           </div>
         </div>
@@ -167,14 +168,14 @@ git commit -m "Marija: nova verzija moje stranice"</pre>
         <div class="step reveal">
           <div>
             <h3>Otvori Pull Request</h3>
-            <p>Na GitHub-u klikni <strong>Compare &amp; pull request</strong>. U naslov upiši svoje ime, a u opis šta si promenio i koji prompt ti je najbolje radio. Vercel će automatski napraviti <strong>preview link</strong> tvoje verzije sajta.</p>
+            <p>Na GitHub-u klikni <strong>Compare &amp; pull request</strong>. U naslov upiši svoje ime, a u opis šta si promenio i koji prompt ti je najbolje radio. Kad Jovan ili Stefan spoje tvoj PR, sajt se sam objavi za minut-dva na <a href="https://n8nlab.github.io/aiworkshop/" style="color:var(--accent)">n8nlab.github.io/aiworkshop</a>. Do tada svoju verziju gledaš lokalno u browseru.</p>
           </div>
         </div>
 
         <div class="step reveal">
           <div>
             <h3>Showcase — gledamo šta je ko napravio 🎉</h3>
-            <p>Kad su svi PR-ovi spojeni, sajt se objavljuje uživo. Svako ima 2 minuta da pokaže svoju stranicu i kaže jednu stvar koju je naučio. Najbolji prompt ide u <strong>Prompt Library</strong>, a najzanimljiviji kvar u <strong>Debug Diary</strong>.</p>
+            <p>Kad su svi PR-ovi spojeni, sve stranice su uživo na GitHub Pages. Svako ima 2 minuta da pokaže svoju stranicu i kaže jednu stvar koju je naučio. Najbolji prompt ide u <strong>Prompt Library</strong>, a najzanimljiviji kvar u <strong>Debug Diary</strong>.</p>
           </div>
         </div>
       </div>
@@ -210,11 +211,13 @@ git commit -m "Marija: nova verzija moje stranice"</pre>
         <details class="term"><summary>„Permission denied" kod push-a</summary>
           <p><strong>Uzrok:</strong> nisi prihvatio poziv ili nisi prijavljen. <strong>Rešenje:</strong> prihvati poziv na mejlu, pa pokreni <code>gh auth login</code> ili se prijavi kad te Git pita.</p></details>
         <details class="term"><summary>Agent je menjao i druge fajlove</summary>
-          <p><strong>Uzrok:</strong> prompt nije bio dovoljno jasan. <strong>Rešenje:</strong> <code>git checkout -- putanja/do/fajla</code> vraća tuđi fajl, a u promptu uvek napiši „menjaj SAMO fajl …".</p></details>
+          <p><strong>Uzrok:</strong> prompt nije imao sekciju OGRANIČENJA. <strong>Rešenje:</strong> <code>git checkout -- putanja/do/fajla</code> vraća tuđi fajl, a u promptu uvek napiši „menjaj SAMO fajlove u ljudi/tvoje-ime/".</p></details>
         <details class="term"><summary>Stranica izgleda „polomljeno"</summary>
           <p><strong>Uzrok:</strong> obično nezatvoren tag ili pogrešna putanja do CSS-a. <strong>Rešenje:</strong> otvori DevTools (F12 → Console) i daj agentu tačnu poruku greške.</p></details>
+        <details class="term"><summary>Podstranica nema stil / linkovi ne rade</summary>
+          <p><strong>Uzrok:</strong> pogrešna putanja. Sajt živi na <code>/aiworkshop/</code>, pa putanje koje počinju sa <code>/</code> ne rade. <strong>Rešenje:</strong> relativne putanje — iz tvog foldera <code>../../assets/style.css</code>, iz podfoldera <code>../../../assets/style.css</code>. Prompt 04 ovo već traži.</p></details>
         <details class="term"><summary>Conflict kod spajanja</summary>
-          <p><strong>Uzrok:</strong> neko je menjao isti fajl. <strong>Rešenje:</strong> ako si menjao samo svoj fajl, ovo se ne dešava 😉 Ako se ipak desi, pozovi Jovana ili Stefana.</p></details>
+          <p><strong>Uzrok:</strong> neko je menjao isti fajl. <strong>Rešenje:</strong> ako si menjao samo svoj folder, ovo se ne dešava 😉 Ako se ipak desi, pozovi Jovana ili Stefana.</p></details>
       </div>
     </div>
   </section>

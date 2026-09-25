@@ -381,3 +381,62 @@ footer a:hover { color: var(--accent); }
   .brand span:last-child { display: none; }
   .step { grid-template-columns: 1fr; }
 }
+
+/* ---------- Promptovi ---------- */
+.anatomy { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.2rem 0 0; }
+.anatomy span {
+  font-family: var(--mono); font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  padding: .4rem .7rem; border-radius: 8px;
+  border: 1px solid var(--border-2); background: var(--bg-2); color: var(--text);
+}
+.anatomy span b { color: var(--accent); margin-right: .35rem; }
+
+.prompts { display: grid; gap: 1.2rem; }
+.prompt {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  overflow: hidden;
+}
+.prompt-head {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+  padding: 1.5rem 1.6rem 1.2rem;
+}
+.prompt-head .num {
+  font-family: var(--mono); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent); display: block; margin-bottom: .4rem;
+}
+.prompt-head h3 { font-size: 1.35rem; margin-bottom: .35rem; }
+.prompt-head p { color: var(--muted); font-size: .95rem; max-width: 720px; }
+.prompt pre {
+  margin: 0;
+  border: 0; border-top: 1px solid var(--border); border-radius: 0;
+  padding: 1.4rem 1.6rem;
+  white-space: pre-wrap; word-break: break-word;
+  font-size: .86rem;
+}
+.prompt pre .ph { color: var(--accent); font-weight: 700; }
+.prompt pre .fill { color: var(--bg); background: var(--warn); border-radius: 4px; padding: 0 .25rem; }
+.prompt .lesson {
+  display: flex; gap: .7rem;
+  padding: 1rem 1.6rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-2);
+  color: var(--muted); font-size: .92rem;
+}
+.prompt .lesson b { color: var(--text); }
+.copy {
+  flex-shrink: 0;
+  font-family: var(--sans); font-weight: 800; font-size: .88rem;
+  padding: .7rem 1.1rem; border-radius: 12px; border: 0;
+  background: var(--accent); color: var(--accent-ink);
+  cursor: pointer; transition: transform .2s, background .2s;
+}
+.copy:hover { transform: translateY(-2px); background: #e2ff75; }
+.copy.done { background: var(--text); }
+
+.tips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.2rem; }
+@media (max-width: 760px) {
+  .tips { grid-template-columns: 1fr; }
+  .prompt-head { flex-direction: column; }
+}
