@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pavle — AI Radionica Beograd</title>
+  <title>Pavle Varsaković — AI Radionica Beograd</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,27 +16,54 @@
        slike stavi u ljudi/pavle/slike/ i nikad ne upisuj lozinke ni API ključeve.
        ===================================================================== -->
   <style>
-    :root { --c: #8fb8ff; }
+    /* Moja boja: teget, dovoljno svetla za tamnu pozadinu */
+    :root {
+      --c: #4a7bd0;
+      --accent: #4a7bd0;
+      --accent-ink: #ffffff;
+      --navy-deep: #13233f;
+    }
 
-    .me-hero { padding: 5rem 0 3rem; }
+    .me-hero { padding: 5rem 0 3rem; position: relative; }
+    .me-hero::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: radial-gradient(60% 80% at 15% 0%, rgba(74, 123, 208, .22), transparent 70%);
+    }
+    .me-hero .hero-row { display: flex; align-items: center; gap: 2.2rem; }
     .me-hero .avatar {
-      width: 120px; height: 120px; border-radius: 32px;
-      font-size: 2.4rem; margin-bottom: 1.8rem;
+      width: 140px; height: 140px; border-radius: 50%; flex-shrink: 0;
+      overflow: hidden; padding: 0;
+      border: 3px solid var(--c);
+      box-shadow: 0 0 0 8px rgba(74, 123, 208, .15);
+    }
+    .me-hero .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
+    .me-hero .lab-label {
+      display: inline-block; margin-bottom: .8rem;
+      font-family: var(--mono); font-size: .75rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--c);
     }
     .me-hero h1 { margin-bottom: .6rem; }
-    .me-hero .role { color: var(--muted); font-size: 1.1rem; }
+    .me-hero .role { color: var(--text); font-size: 1.15rem; font-weight: 600; }
+    .me-hero .bio { color: var(--muted); max-width: 720px; margin-top: 1.4rem; font-size: 1.05rem; }
+    .me-links { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+    .me-links .btn { padding: .8rem 1.2rem; font-size: .95rem; }
+    .me-links .btn:hover { border-color: var(--c); }
 
-    .todo-banner {
-      display: inline-flex; align-items: center; gap: .6rem;
-      margin-top: 1.6rem; padding: .6rem 1.1rem;
-      border-radius: 10px; border: 1px dashed var(--warn);
-      color: var(--warn); font-size: .9rem; font-weight: 600;
-      background: rgba(255, 211, 61, .06);
+    .me-stats { margin-top: 3rem; }
+    .me-stats .stat b { color: var(--c); }
+
+    .me-section h2 { margin-bottom: 1.4rem; }
+    .me-card { position: relative; }
+    .me-card h3 { padding-right: 5.5rem; }
+    .me-card p { color: var(--muted); }
+    .me-card.featured { background: linear-gradient(160deg, var(--navy-deep), var(--card) 70%); }
+
+    @media (max-width: 760px) {
+      .me-hero { padding: 3rem 0 2rem; }
+      .me-hero .hero-row { flex-direction: column; align-items: flex-start; gap: 1.4rem; }
+      .me-hero .avatar { width: 110px; height: 110px; }
+      .me-links .btn { flex: 1 1 100%; justify-content: center; }
     }
-
-    .me-card h2 { font-size: 1.35rem; margin-bottom: .8rem; }
-    .me-card p, .me-card li { color: var(--muted); }
-    .placeholder { color: var(--dim) !important; font-style: italic; }
   </style>
 </head>
 <body>
@@ -62,30 +89,87 @@
 
   <header class="me-hero">
     <div class="container">
-      <div class="avatar">PA</div>
-      <h1>Pavle</h1>
-      <p class="role">Polaznik radionice</p>
-      <a href="#promptovi" class="todo-banner">✏️ Ova stranica čeka tvoju prvu promenu — kreni od promptova ispod ↓</a>
+      <div class="hero-row">
+        <div class="avatar"><img src="slike/pavle.jpg" alt="Pavle Varsaković" /></div>
+        <div>
+          <span class="lab-label">🧪 Moja AI laboratorija</span>
+          <h1>Pavle Varsaković</h1>
+          <p class="role">Projektni menadžer · EU fondovi · AI automatizacija</p>
+        </div>
+      </div>
+      <p class="bio">
+        Više od 12 godina vodim EU i domaće projekte i optimizujem poslovne procese za firme, opštine i organizacije.
+        Na radionicu sam došao jer sam stigao do tačke gde samostalno učenje više nije dovoljno.
+        Cilj mi je da pravim korisne AI alate za postojeće i buduće klijente.
+      </p>
+      <div class="me-links">
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/pavle-varsakovi%C4%87-58787b108/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://srbija-info.rs" target="_blank" rel="noopener">srbija-info.rs ↗</a>
+        <a class="btn btn-ghost" href="https://bjresidence.rs" target="_blank" rel="noopener">bjresidence.rs ↗</a>
+      </div>
+
+      <div class="stats me-stats">
+        <div class="stat"><b>12+</b><span>godina u projektima</span></div>
+        <div class="stat"><b>€2,5M+</b><span>vođenih projekata</span></div>
+        <div class="stat"><b>250+</b><span>finansiranih projekata</span></div>
+        <div class="stat"><b>15+</b><span>zemalja partnera</span></div>
+      </div>
     </div>
   </header>
 
-  <section style="padding-top:1rem">
+  <section class="me-section" style="padding-top:1rem">
     <div class="container">
-      <div class="grid grid-2">
-        <article class="card me-card">
-          <div class="icon">🙋</div>
-          <h2>O meni</h2>
-          <p class="placeholder">Ovde napiši 2–3 rečenice o sebi: čime se baviš, gde radiš i zašto si došao/la na radionicu.</p>
-        </article>
+      <div class="section-head">
+        <span class="label">Moj put</span>
+        <h2>Od EU projekata <span class="hl">do AI alata.</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div>
+            <h3>EU projekti i fondovi</h3>
+            <p>Interreg, IPA, Horizon Europe, Erasmus+, IPARD — od ideje i konzorcijuma do izveštaja i evaluacije.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Optimizacija procesa za firme i opštine</h3>
+            <p>Savetovanje za preduzeća i lokalne samouprave: analiza, finansiranje inovacija, strategija razvoja.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>AI alati i automatizacija <strong>— sada</strong></h3>
+            <p>Učim kako da iskustvo iz projekata pretvorim u alate koji rade umesto mene i mojih klijenata.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="me-section" style="padding-top:2rem">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Laboratorija</span>
+        <h2>Šta želim da <span class="hl">automatizujem.</span></h2>
+      </div>
+      <div class="grid grid-3">
         <article class="card me-card">
-          <div class="icon">⚙️</div>
-          <h2>Šta želim da automatizujem</h2>
-          <ul>
-            <li class="placeholder">Ideja 1 — proces koji ti oduzima najviše vremena</li>
-            <li class="placeholder">Ideja 2 — nešto što stalno ručno kopiraš</li>
-            <li class="placeholder">Ideja 3 — nešto što bi agent mogao da radi dok spavaš</li>
-          </ul>
+          <span class="tag">Sada</span>
+          <div class="icon">🧰</div>
+          <h3>Alati koje već koristim</h3>
+          <p>Radim sa Claude Cowork i GPT-om. Prave jednostavnije stvari, ali ima mnogo prostora za unapređenje.</p>
+        </article>
+        <article class="card me-card">
+          <span class="tag">Sledeće</span>
+          <div class="icon">📄</div>
+          <h3>Obrada dokumenata</h3>
+          <p>Agent iz dokumenata izvlači ono što je korisno, obrađuje i šalje dalje — u mejl, tabelu ili izveštaj.</p>
+        </article>
+        <article class="card me-card featured">
+          <span class="tag">San</span>
+          <div class="icon">🌙</div>
+          <h3>Agent koji radi dok spavam</h3>
+          <p>Pretražuje vesti i otvorene pozive, strukturira i analizira ih, piše predloge projekata, popunjava tabele, piše mejlove partnerima i prikuplja pitanja.</p>
         </article>
       </div>
     </div>
