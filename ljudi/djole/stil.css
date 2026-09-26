@@ -1,0 +1,197 @@
+/* ==========================================================================
+   Đorđe Milićević — stilovi mog mini sajta (ljudi/djole/)
+   Povezani su na svim mojim stranicama, POSLE ../../assets/style.css.
+   ========================================================================== */
+
+/* ===== Luksuzni crno-zlatni stil ===== */
+:root {
+  --c: #d4af37;              /* zlato — moja boja naglaska */
+  --gold-soft: rgba(212, 175, 55, .35);
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  /* Na mojoj stranici i zajednički elementi dobijaju crno-zlatne tonove */
+  --accent: #d4af37;
+  --accent-ink: #0a0907;
+  --bg: #070605;
+  --bg-2: #0e0c09;
+  --card: #12100c;
+  --card-hover: #1a1610;
+  --border: #2a2418;
+  --border-2: #4a3f27;
+}
+body::after {
+  background-image: radial-gradient(ellipse at top, rgba(212,175,55,.08), transparent 60%);
+  background-size: auto;
+}
+.btn-primary:hover, .copy:hover { background: #e6c65a; }
+.gold-rule { width: 64px; height: 1px; background: var(--c); margin: 1.6rem auto; }
+
+/* Hero */
+.me-hero { padding: 5.5rem 0 4rem; text-align: center; }
+.me-hero .avatar {
+  width: 124px; height: 124px; border-radius: 50%;
+  margin: 0 auto 2rem;
+  background: transparent; color: var(--c);
+  border: 1px solid var(--c);
+  box-shadow: 0 0 0 8px var(--bg), 0 0 0 9px var(--gold-soft);
+  font-family: var(--serif); font-size: 2.8rem; font-weight: 600; letter-spacing: .02em;
+}
+.me-hero .kicker {
+  display: block; font-family: var(--mono); font-size: .78rem; font-weight: 700;
+  letter-spacing: .32em; text-transform: uppercase; color: var(--c);
+}
+.me-hero h1 {
+  font-family: var(--serif); font-weight: 600; letter-spacing: -.01em; line-height: 1;
+  font-size: clamp(3rem, 8vw, 6.5rem); margin: 1rem 0 0;
+}
+.me-hero h1 em { font-style: italic; color: var(--c); font-weight: 500; }
+.words {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: .4rem 1.1rem;
+  font-family: var(--serif); font-size: clamp(1.2rem, 2.4vw, 1.5rem); font-style: italic; color: var(--text);
+}
+.words span + span::before { content: "◆"; color: var(--c); font-style: normal; font-size: .7em; margin-right: 1.1rem; vertical-align: middle; }
+
+/* Sekcije */
+.lux { max-width: 860px; margin-inline: auto; }
+.lux-head { text-align: center; margin-bottom: 2.4rem; }
+.lux-head .num { font-family: var(--mono); font-size: .75rem; letter-spacing: .3em; color: var(--c); text-transform: uppercase; }
+.lux-head h2 { font-family: var(--serif); font-weight: 600; letter-spacing: 0; font-size: clamp(2rem, 4.5vw, 3rem); margin-top: .6rem; }
+.lux-head h2 em { color: var(--c); }
+.lux-block { padding: 3.5rem 0; border-top: 1px solid var(--border); }
+
+.bio { font-family: var(--serif); font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.55; text-align: center; color: var(--text); }
+.bio + .bio { margin-top: 1rem; color: var(--muted); }
+
+.ideas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.idea {
+  padding: 2rem 1.6rem; border: 1px solid var(--border); border-radius: 4px;
+  background: linear-gradient(180deg, var(--card), var(--bg-2));
+  transition: border-color .25s, transform .25s;
+}
+.idea:hover { border-color: var(--c); transform: translateY(-3px); }
+.idea .roman { font-family: var(--serif); font-size: 2rem; color: var(--c); line-height: 1; display: block; margin-bottom: 1rem; }
+.idea p { color: var(--muted); }
+
+.quote { text-align: center; font-family: var(--serif); font-style: italic; font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.4; }
+.quote-by { display: block; text-align: center; margin-top: 1rem; font-family: var(--mono); font-size: .75rem; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); }
+.quote-by::before { content: "— "; color: var(--c); }
+
+.faq { display: grid; gap: .75rem; }
+.faq .term { border-radius: 4px; }
+.faq .term summary { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; }
+.faq a { color: var(--c); border-bottom: 1px solid var(--gold-soft); }
+
+@media (max-width: 760px) {
+  .ideas { grid-template-columns: 1fr; }
+  .me-hero { padding: 3.5rem 0 2.5rem; }
+  .lux-block { padding: 2.5rem 0; }
+}
+
+/* ===== Kviz: šta da automatizujem ===== */
+.quiz {
+  border: 1px solid var(--border-2); border-radius: 6px;
+  background: linear-gradient(180deg, var(--card), var(--bg-2));
+  padding: clamp(1.4rem, 4vw, 2.6rem);
+}
+.quiz-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.quiz-step { font-family: var(--mono); font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--c); }
+.quiz-bar { height: 2px; background: var(--border); margin-bottom: 1.8rem; }
+.quiz-bar i { display: block; height: 100%; width: 0; background: var(--c); transition: width .35s ease; }
+.quiz-q { font-family: var(--serif); font-weight: 600; font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1.2; margin-bottom: 1.4rem; }
+.quiz-options { display: grid; gap: .7rem; }
+.quiz-opt {
+  width: 100%; text-align: left; cursor: pointer;
+  padding: 1rem 1.2rem; border-radius: 4px;
+  border: 1px solid var(--border); background: var(--bg);
+  color: var(--text); font-family: var(--sans); font-size: 1rem;
+  transition: border-color .2s, background .2s, transform .2s;
+}
+.quiz-opt:hover, .quiz-opt:focus-visible { border-color: var(--c); background: var(--card-hover); outline: none; transform: translateX(4px); }
+.quiz-opt.picked { border-color: var(--c); background: rgba(212, 175, 55, .1); }
+.quiz-back {
+  background: none; border: 0; cursor: pointer; color: var(--muted);
+  font-family: var(--mono); font-size: .75rem; letter-spacing: .15em; text-transform: uppercase;
+}
+.quiz-back:hover { color: var(--c); }
+.quiz-back[hidden] { display: none; }
+
+.quiz-result .label { font-family: var(--mono); font-size: .75rem; letter-spacing: .25em; text-transform: uppercase; color: var(--c); }
+.quiz-result h3 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.9rem, 4.5vw, 2.8rem); letter-spacing: 0; margin: .5rem 0 1rem; }
+.quiz-result p { color: var(--muted); font-size: 1.05rem; }
+.quiz-result p + p { margin-top: .8rem; }
+.quiz-result strong { color: var(--text); }
+.quiz-save {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+  background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+  margin: 1.6rem 0;
+}
+.quiz-save div { background: var(--bg); padding: 1.2rem; }
+.quiz-save b { display: block; font-family: var(--serif); font-size: 2.2rem; color: var(--c); line-height: 1; margin-bottom: .35rem; }
+.quiz-save span { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.quiz-step1 { border-left: 2px solid var(--c); padding: .9rem 1.1rem; background: var(--bg); margin: 1.2rem 0; }
+.quiz-actions { display: flex; gap: .7rem; flex-wrap: wrap; margin-top: 1.6rem; }
+.quiz-actions .btn { border-radius: 4px; padding: .85rem 1.3rem; }
+
+/* ===== Meni mog mini sajta (isti na svim stranicama) ===== */
+.mini-nav { border-bottom: 1px solid var(--border); background: var(--bg-2); }
+.mini-nav .container {
+  display: flex; align-items: center; justify-content: space-between; gap: .5rem 1rem;
+  flex-wrap: wrap; min-height: 54px; padding: .4rem 0;
+}
+.mini-nav .who { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--text); }
+.mini-nav .who em { color: var(--c); }
+.mini-nav .links { display: flex; flex-wrap: wrap; gap: .2rem; }
+.mini-nav .links a {
+  padding: .4rem .8rem; border-radius: 4px;
+  font-family: var(--mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); transition: color .2s, background .2s;
+}
+.mini-nav .links a:hover { color: var(--text); background: var(--card); }
+.mini-nav .links a.active { color: var(--c); }
+.mini-nav .links a.back { color: var(--dim); }
+
+/* ===== Podstranice ===== */
+.page-hero { padding: 4.5rem 0 2.5rem; text-align: center; }
+.page-hero .kicker {
+  display: block; font-family: var(--mono); font-size: .78rem; font-weight: 700;
+  letter-spacing: .32em; text-transform: uppercase; color: var(--c);
+}
+.page-hero h1 { font-family: var(--serif); font-weight: 600; letter-spacing: 0; font-size: clamp(2.6rem, 7vw, 5rem); margin: .8rem 0 0; }
+.page-hero h1 em { color: var(--c); }
+.page-hero .lead { margin: 0 auto; text-align: center; }
+.crumbs { font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; color: var(--muted); margin-bottom: 1.2rem; }
+.crumbs a { color: var(--c); }
+
+/* Kartice za usluge i projekte */
+.lux-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.lux-card {
+  display: block; padding: 2rem 1.8rem; border: 1px solid var(--border); border-radius: 4px;
+  background: linear-gradient(180deg, var(--card), var(--bg-2));
+  transition: border-color .25s, transform .25s;
+}
+a.lux-card:hover, .lux-card:hover { border-color: var(--c); transform: translateY(-3px); }
+.lux-card .roman { font-family: var(--serif); font-size: 2rem; color: var(--c); line-height: 1; display: block; margin-bottom: 1rem; }
+.lux-card h3 { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; letter-spacing: 0; margin-bottom: .6rem; }
+.lux-card p { color: var(--muted); }
+.lux-card .more { display: inline-block; margin-top: 1.2rem; font-family: var(--mono); font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: var(--c); }
+.lux-card .status { font-family: var(--mono); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: .8rem; }
+
+/* Tekst na stranici projekta */
+.prose { max-width: 720px; margin-inline: auto; }
+.prose h2 { font-family: var(--serif); font-weight: 600; letter-spacing: 0; font-size: clamp(1.7rem, 3.5vw, 2.3rem); margin: 2.4rem 0 .8rem; }
+.prose h2 em { color: var(--c); }
+.prose p, .prose li { color: var(--muted); font-size: 1.06rem; line-height: 1.8; }
+.prose ul { list-style: none; margin-top: .6rem; }
+.prose li { padding: .25rem 0 .25rem 1.6rem; position: relative; }
+.prose li::before { content: "◆"; position: absolute; left: 0; color: var(--c); font-size: .7em; top: .55em; }
+.prose strong { color: var(--text); }
+.pager { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--border); }
+.pager a { font-family: var(--mono); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--c); }
+
+/* Linkovi ka podstranicama na glavnoj stranici */
+.site-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
+
+@media (max-width: 760px) {
+  .lux-grid, .site-links { grid-template-columns: 1fr; }
+  .page-hero { padding: 3rem 0 1.5rem; }
+  .mini-nav .container { justify-content: center; }
+}
