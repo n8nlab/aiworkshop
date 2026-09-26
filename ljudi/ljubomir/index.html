@@ -75,14 +75,14 @@
       border-radius: 50%;
     }
     .hero-mark::after {
-      content: "";
+      content: "✳";
       position: absolute;
-      width: 54px;
-      height: 54px;
       top: 14%;
       right: 12%;
-      background: var(--text);
-      border-radius: 50%;
+      color: var(--text);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+      transform: rotate(12deg);
     }
     .me-hero .avatar {
       z-index: 1;
@@ -127,6 +127,13 @@
     #promptovi .section-head { max-width: 780px; margin-bottom: 2.5rem; }
     #promptovi .section-head .label { color: var(--muted); }
     #promptovi .section-head h2 { max-width: 14ch; font-size: clamp(2.7rem, 5.5vw, 5rem); }
+    #promptovi .hl {
+      display: inline-block;
+      padding: 0 .08em;
+      background: var(--accent);
+      color: var(--accent-ink);
+      transform: rotate(-1deg);
+    }
     #promptovi .section-head p { max-width: 560px; }
     .anatomy { display: none; }
     .prompts { display: grid; gap: .8rem; }
@@ -145,7 +152,10 @@
       padding: 1.35rem 1.5rem;
       cursor: pointer;
       list-style: none;
+      transition: background-color .2s ease;
     }
+    .prompt-summary:hover { background: var(--card-hover); }
+    .prompt-summary:focus-visible { outline: 3px solid var(--accent); outline-offset: -4px; }
     .prompt-summary::-webkit-details-marker { display: none; }
     .prompt-summary .num {
       color: var(--accent);
@@ -180,17 +190,139 @@
     .prompt .copy { border-radius: 8px; }
     .prompt .lesson { margin-top: .85rem; }
     @media (max-width: 760px) {
-      .hero-layout { grid-template-columns: 1fr; gap: 1rem; }
+      .hero-layout { grid-template-columns: minmax(0, 1fr) 118px; gap: .5rem; }
       .me-hero { padding: 4rem 0 2rem; }
       .me-hero h1 { max-width: 10ch; }
-      .hero-mark { display: none; }
+      .hero-mark { min-height: 170px; align-self: start; margin-top: 4rem; }
+      .hero-mark::before { width: 128px; }
+      .hero-mark::after { top: 4%; right: 0; }
+      .me-hero .avatar { width: 94px; font-size: 3rem; }
       .about-line { grid-template-columns: 1fr; gap: .7rem; }
       .prompt-summary { grid-template-columns: minmax(0, 1fr) 34px; gap: .7rem; padding: 1rem; }
       .prompt-content { padding: 0 1rem 1rem; }
     }
 
+    @media (max-width: 480px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-mark { display: none; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .me-hero .avatar, .prompt-toggle { transition: none; }
+    }
+
+    /* Canva portfolio inspiration: warm editorial type and a bold cover panel. */
+    :root {
+      --bg: #fbf4e9;
+      --bg-2: #fffaf2;
+      --card: #fffaf2;
+      --card-hover: #f7e8da;
+      --border: #e3d4c5;
+      --border-2: #a48978;
+      --text: #251d1a;
+      --muted: #65564e;
+      --dim: #807067;
+      --accent: #f48666;
+      --accent-ink: #251d1a;
+      --c: #f48666;
+      --radius: 6px;
+    }
+    body {
+      background:
+        radial-gradient(ellipse at 88% 8%, rgba(244, 100, 76, .34), transparent 35rem),
+        radial-gradient(ellipse at 8% 82%, rgba(248, 217, 119, .28), transparent 38rem),
+        linear-gradient(135deg, #fbf4e9 0%, #f8d9c7 48%, #f2b398 100%);
+      background-attachment: fixed;
+    }
+    .nav { background: rgba(251, 244, 233, .88); backdrop-filter: blur(12px); }
+    .me-hero { padding: clamp(4rem, 8vw, 7rem) 0 4rem; }
+    .hero-layout { grid-template-columns: minmax(0, 1.15fr) minmax(250px, .85fr); gap: clamp(2rem, 6vw, 6rem); }
+    .me-hero h1, .about-line p, #promptovi .section-head h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -.065em;
+    }
+    .me-hero h1 { max-width: 9ch; font-size: clamp(4rem, 9vw, 8.5rem); line-height: .88; }
+    .hero-copy .eyebrow { border-left-color: var(--text); }
+    .me-hero .lead { max-width: 30rem; font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
+    .hero-mark {
+      min-height: 370px;
+      overflow: hidden;
+      border: 1px solid var(--text);
+      border-radius: 48% 48% 8px 8px;
+      background: #f4b59a;
+      box-shadow: 12px 12px 0 var(--text);
+      transform: rotate(2deg);
+    }
+    .hero-mark::before {
+      top: 14%;
+      z-index: 0;
+      width: min(25vw, 270px);
+      background: #f8d977;
+      border: 1px solid var(--text);
+    }
+    .hero-mark::after {
+      top: 9%;
+      right: 10%;
+      z-index: 3;
+      color: var(--text);
+      font-size: 3rem;
+    }
+    .hero-mark::after { display: none; }
+    .me-hero .avatar {
+      width: min(19vw, 205px);
+      border: 1px solid var(--text);
+      border-radius: 46% 46% 8px 8px;
+      background: var(--text);
+      color: #f8d977;
+      box-shadow: 8px 8px 0 var(--bg-2);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(4.5rem, 8vw, 7rem);
+    }
+    .hero-mark:hover { transform: rotate(0); transition: transform .25s ease; }
+    .hero-mark:hover .avatar { transform: rotate(0) translateY(-4px); }
+    .hero-image {
+      position: relative;
+      z-index: 2;
+      display: block;
+      width: min(86%, 320px);
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center;
+      border: 6px solid var(--bg-2);
+      border-radius: 46% 46% 8px 8px;
+      outline: 1px solid var(--text);
+      box-shadow: 8px 8px 0 var(--text);
+      transform: rotate(-2deg);
+      transition: transform .25s ease;
+    }
+    .hero-mark:hover .hero-image { transform: rotate(0) translateY(-4px); }
+    .btn-primary { border-radius: 3px; box-shadow: 5px 5px 0 var(--text); }
+    .about-band { padding-top: 1rem; }
+    .about-line { border-top: 1px solid var(--text); }
+    .about-line h2, #promptovi .section-head .label { color: var(--muted); }
+    .about-line p { max-width: 760px; font-size: clamp(1.65rem, 3vw, 2.8rem); line-height: 1.08; }
+    #promptovi { padding-top: 5rem; }
+    #promptovi .section-head h2 { max-width: 13ch; line-height: .98; }
+    #promptovi .hl { padding: 0 .12em .03em; background: #f8d977; }
+    .prompt { border-radius: 4px; }
+    .prompt-summary .num { color: var(--text); background: #f8d977; }
+    .prompt-toggle { border-radius: 4px; }
+    .prompt[open] { border-color: var(--accent); }
+    .prompt pre .fill { background: #f8d977; }
+    footer { border-color: var(--border); }
+    @media (max-width: 760px) {
+      .hero-layout { grid-template-columns: minmax(0, 1fr) 196px; gap: .5rem; }
+      .hero-mark { min-height: 240px; border-radius: 48% 48% 5px 5px; box-shadow: 5px 5px 0 var(--text); }
+      .hero-mark::before { width: 128px; }
+      .me-hero .avatar { width: 94px; font-size: 3rem; }
+      .hero-image { width: min(88%, 180px); }
+    }
+    @media (max-width: 480px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-mark { display: grid; width: min(88%, 330px); min-height: 330px; justify-self: end; margin-top: .25rem; }
+      .hero-image { width: min(86%, 280px); }
+      .me-hero h1 { font-size: clamp(3.8rem, 17vw, 5.7rem); }
     }
   </style>
 </head>
@@ -212,11 +344,11 @@
       <div class="hero-copy">
         <span class="eyebrow">Kreativan freelancer</span>
         <h1>Ljubomir Ruskaji</h1>
-        <p class="lead">Lična stranica i pet početnih promptova sa AI radionice.</p>
+        <p class="lead">Freelance način rada, kreativne ideje i pet promptova za sledeći korak.</p>
         <a href="#promptovi" class="btn btn-primary">Pogledaj promptove</a>
       </div>
-      <div class="hero-mark" aria-hidden="true">
-        <div class="avatar">LR</div>
+      <div class="hero-mark">
+        <img class="hero-image" src="slike/profile.jpg" alt="Porodična fotografija u vrtu sa palmama" />
       </div>
     </div>
   </header>
@@ -225,7 +357,7 @@
     <div class="container">
       <div class="about-line">
         <h2>O meni</h2>
-        <p>Ljubomir Ruskaji je kreativan freelancer.</p>
+        <p>Kreativan freelancer. Ovo je moj kutak za ideje, AI alate i nove projekte.</p>
       </div>
     </div>
   </section>
@@ -234,7 +366,7 @@
     <div class="container">
       <div class="section-head">
         <span class="label">Moji promptovi</span>
-        <h2>Od prve ideje do objavljene stranice.</h2>
+        <h2>Od prve ideje do <span class="hl">objavljene stranice.</span></h2>
         <p>Izaberi korak, pročitaj prompt i kopiraj ga u svog AI agenta. Žuta polja popuni svojim podacima.</p>
       </div>
 
