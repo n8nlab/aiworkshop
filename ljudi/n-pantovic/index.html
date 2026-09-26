@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>N. Pantović — AI Radionica Beograd</title>
+  <title>Nemanja Pantović — AI Radionica Beograd</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,27 +16,50 @@
        slike stavi u ljudi/n-pantovic/slike/ i nikad ne upisuj lozinke ni API ključeve.
        ===================================================================== -->
   <style>
-    :root { --c: #7cf5b0; }
+    /* Minimalistički stil: jedna mirna boja, puno prostora, tanke linije */
+    :root {
+      --c: #9ec5ff;
+      --accent: var(--c);   /* moja boja umesto limete, samo na ovoj stranici */
+    }
+    body::after { display: none; } /* bez mreže u pozadini */
 
-    .me-hero { padding: 5rem 0 3rem; }
+    .me-hero { padding: 7rem 0 5rem; border-bottom: 1px solid var(--border); }
     .me-hero .avatar {
-      width: 120px; height: 120px; border-radius: 32px;
-      font-size: 2.4rem; margin-bottom: 1.8rem;
+      width: 72px; height: 72px; border-radius: 50%;
+      font-size: 1.4rem; font-weight: 800; margin-bottom: 2.5rem;
     }
-    .me-hero h1 { margin-bottom: .6rem; }
-    .me-hero .role { color: var(--muted); font-size: 1.1rem; }
-
-    .todo-banner {
-      display: inline-flex; align-items: center; gap: .6rem;
-      margin-top: 1.6rem; padding: .6rem 1.1rem;
-      border-radius: 10px; border: 1px dashed var(--warn);
-      color: var(--warn); font-size: .9rem; font-weight: 600;
-      background: rgba(255, 211, 61, .06);
+    .me-hero .kicker {
+      font-family: var(--mono); font-size: .8rem; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--c); margin-bottom: 1.2rem;
     }
+    .me-hero h1 { font-weight: 700; letter-spacing: -.04em; margin-bottom: 2.5rem; }
+    .traits { list-style: none; display: flex; flex-wrap: wrap; }
+    .traits li {
+      font-size: 1.1rem; color: var(--muted);
+      padding: 0 1.4rem; border-left: 1px solid var(--border-2);
+    }
+    .traits li:first-child { padding-left: 0; border-left: 0; }
 
-    .me-card h2 { font-size: 1.35rem; margin-bottom: .8rem; }
-    .me-card p, .me-card li { color: var(--muted); }
-    .placeholder { color: var(--dim) !important; font-style: italic; }
+    .me-row {
+      display: grid; grid-template-columns: 220px 1fr; gap: 2rem;
+      padding: 4rem 0; border-bottom: 1px solid var(--border);
+    }
+    .me-row h2 {
+      font-family: var(--mono); font-size: .8rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--dim);
+      line-height: 1.8;
+    }
+    .me-row p { font-size: 1.2rem; line-height: 1.7; max-width: 640px; }
+    .me-row ul { list-style: none; max-width: 640px; }
+    .me-row li { padding: .8rem 0; border-top: 1px solid var(--border); color: var(--muted); }
+    .me-row li:first-child { border-top: 0; padding-top: 0; }
+
+    @media (max-width: 760px) {
+      .me-hero { padding: 4rem 0 3rem; }
+      .me-row { grid-template-columns: 1fr; gap: 1rem; padding: 3rem 0; }
+      .me-row p { font-size: 1.08rem; }
+      .traits li { font-size: 1rem; padding: 0 .9rem; }
+    }
   </style>
 </head>
 <body>
@@ -63,30 +86,30 @@
   <header class="me-hero">
     <div class="container">
       <div class="avatar">NP</div>
-      <h1>N. Pantović</h1>
-      <p class="role">Polaznik radionice</p>
-      <a href="#promptovi" class="todo-banner">✏️ Ova stranica čeka tvoju prvu promenu — kreni od promptova ispod ↓</a>
+      <p class="kicker">Freelancer · Prodaja</p>
+      <h1>Nemanja Pantović</h1>
+      <ul class="traits">
+        <li>Precizan</li>
+        <li>Sistematičan</li>
+        <li>Fleksibilan</li>
+      </ul>
     </div>
   </header>
 
-  <section style="padding-top:1rem">
+  <section style="padding:0">
     <div class="container">
-      <div class="grid grid-2">
-        <article class="card me-card">
-          <div class="icon">🙋</div>
-          <h2>O meni</h2>
-          <p class="placeholder">Ovde napiši 2–3 rečenice o sebi: čime se baviš, gde radiš i zašto si došao/la na radionicu.</p>
-        </article>
+      <div class="me-row">
+        <h2>O meni</h2>
+        <p>Ja sam Nemanja Pantović i radim kao freelancer u prodaji. U svaki posao unosim preciznost i sistem, a ostajem fleksibilan kad se okolnosti promene. Na AI radionici učim kako da deo svog posla prepustim AI agentima.</p>
+      </div>
 
-        <article class="card me-card">
-          <div class="icon">⚙️</div>
-          <h2>Šta želim da automatizujem</h2>
-          <ul>
-            <li class="placeholder">Ideja 1 — proces koji ti oduzima najviše vremena</li>
-            <li class="placeholder">Ideja 2 — nešto što stalno ručno kopiraš</li>
-            <li class="placeholder">Ideja 3 — nešto što bi agent mogao da radi dok spavaš</li>
-          </ul>
-        </article>
+      <div class="me-row">
+        <h2>Šta želim da automatizujem</h2>
+        <ul>
+          <li>Obrada prijava na edukaciju</li>
+          <li>Slanje instrukcija za plaćanje</li>
+          <li>Slanje uplatnica sa QR kodom kao podsetnik za plaćanje</li>
+        </ul>
       </div>
     </div>
   </section>
