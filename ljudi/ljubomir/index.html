@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ljubomir — AI Radionica Beograd</title>
+  <title>Ljubomir Ruskaji | AI Radionica Beograd</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,38 +16,152 @@
        slike stavi u ljudi/ljubomir/slike/ i nikad ne upisuj lozinke ni API ključeve.
        ===================================================================== -->
   <style>
-    :root { --c: #c7a8ff; }
+    :root {
+      --c: #d5ff45;
+      --radius: 12px;
+    }
 
-    .me-hero { padding: 5rem 0 3rem; }
+    .topbar { display: none; }
+    body::after { display: none; }
+    .me-hero { padding: clamp(4rem, 9vw, 8rem) 0 5rem; }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(220px, .8fr);
+      align-items: center;
+      gap: clamp(2rem, 7vw, 7rem);
+    }
+    .hero-copy { max-width: 760px; }
+    .hero-copy .eyebrow { margin-bottom: 1.5rem; }
+    .me-hero h1 {
+      max-width: 9ch;
+      margin-bottom: 1.5rem;
+      font-size: clamp(3.5rem, 8vw, 7.5rem);
+      letter-spacing: -.075em;
+    }
+    .me-hero .lead { max-width: 34rem; margin-bottom: 1.8rem; }
+    .hero-mark {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 330px;
+    }
+    .hero-mark::before {
+      content: "";
+      position: absolute;
+      width: min(25vw, 290px);
+      aspect-ratio: 1;
+      border: 1px solid var(--border-2);
+      border-radius: 50%;
+    }
+    .hero-mark::after {
+      content: "";
+      position: absolute;
+      width: min(22vw, 250px);
+      aspect-ratio: 1;
+      border: 1px solid var(--accent);
+      transform: rotate(14deg);
+    }
     .me-hero .avatar {
-      width: 120px; height: 120px; border-radius: 32px;
-      font-size: 2.4rem; margin-bottom: 1.8rem;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: min(20vw, 220px);
+      aspect-ratio: 1;
+      border-radius: 38% 62% 58% 42% / 46% 42% 58% 54%;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-size: clamp(4rem, 8vw, 7rem);
+      font-weight: 900;
+      letter-spacing: -.08em;
+      transition: transform .35s ease;
     }
-    .me-hero h1 { margin-bottom: .6rem; }
-    .me-hero .role { color: var(--muted); font-size: 1.1rem; }
+    .hero-mark:hover .avatar { transform: rotate(5deg) scale(1.03); }
+    .btn-primary { box-shadow: 5px 5px 0 var(--text); }
+    .btn-primary:hover { box-shadow: 2px 2px 0 var(--text); }
 
-    .todo-banner {
-      display: inline-flex; align-items: center; gap: .6rem;
-      margin-top: 1.6rem; padding: .6rem 1.1rem;
-      border-radius: 10px; border: 1px dashed var(--warn);
-      color: var(--warn); font-size: .9rem; font-weight: 600;
-      background: rgba(255, 211, 61, .06);
+    .about-band { padding: 1.5rem 0 5rem; }
+    .about-line {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      align-items: baseline;
+      gap: 2rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.4rem;
+    }
+    .about-line h2 {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: .82rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .about-line p { max-width: 720px; font-size: clamp(1.3rem, 2.4vw, 2.2rem); font-weight: 600; letter-spacing: -.04em; }
+
+    #promptovi { padding: 4rem 0 6rem; }
+    #promptovi .section-head { max-width: 780px; margin-bottom: 2.5rem; }
+    #promptovi .section-head .label { color: var(--muted); }
+    #promptovi .section-head h2 { max-width: 14ch; font-size: clamp(2.7rem, 5.5vw, 5rem); }
+    #promptovi .section-head p { max-width: 560px; }
+    .anatomy { display: none; }
+    .prompts { display: grid; gap: .8rem; }
+    .prompt {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-2);
+    }
+    .prompt[open] { border-color: var(--border-2); }
+    .prompt-summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 36px;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.35rem 1.5rem;
+      cursor: pointer;
+      list-style: none;
+    }
+    .prompt-summary::-webkit-details-marker { display: none; }
+    .prompt-summary .num {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: .82rem;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+    .prompt-summary h3 { margin-bottom: .3rem; }
+    .prompt-summary p { max-width: 700px; color: var(--muted); font-size: .92rem; }
+    .prompt-toggle {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border-2);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: 1.2rem;
+      transition: transform .2s;
+    }
+    .prompt[open] .prompt-toggle { transform: rotate(45deg); }
+    .prompt-content { padding: 0 1.5rem 1.5rem; }
+    .prompt-actions { display: flex; justify-content: flex-end; margin-bottom: .8rem; }
+    .prompt pre { max-height: none; overflow: visible; }
+    .prompt .lesson { margin-top: .85rem; }
+    @media (max-width: 760px) {
+      .hero-layout { grid-template-columns: 1fr; gap: 1rem; }
+      .me-hero { padding: 4rem 0 2rem; }
+      .me-hero h1 { max-width: 10ch; }
+      .hero-mark { display: none; }
+      .about-line { grid-template-columns: 1fr; gap: .7rem; }
+      .prompt-summary { grid-template-columns: minmax(0, 1fr) 34px; gap: .7rem; padding: 1rem; }
+      .prompt-content { padding: 0 1rem 1rem; }
     }
 
-    .me-card h2 { font-size: 1.35rem; margin-bottom: .8rem; }
-    .me-card p, .me-card li { color: var(--muted); }
-    .placeholder { color: var(--dim) !important; font-style: italic; }
+    @media (prefers-reduced-motion: reduce) {
+      .me-hero .avatar, .prompt-toggle { transition: none; }
+    }
   </style>
 </head>
 <body>
-
-  <div class="topbar">
-    <div class="container">
-      <span><span class="dot"></span>AI radionica · Beograd</span>
-      <span>2 dana · Build + Business</span>
-      <a href="../../zadatak.html">Tvoj zadatak →</a>
-    </div>
-  </div>
 
   <nav class="nav">
     <div class="container">
@@ -61,78 +175,60 @@
   </nav>
 
   <header class="me-hero">
-    <div class="container">
-      <div class="avatar">LJ</div>
-      <h1>Ljubomir</h1>
-      <p class="role">Polaznik radionice</p>
-      <a href="#promptovi" class="todo-banner">✏️ Ova stranica čeka tvoju prvu promenu — kreni od promptova ispod ↓</a>
+    <div class="container hero-layout">
+      <div class="hero-copy">
+        <span class="eyebrow">Kreativan freelancer</span>
+        <h1>Ljubomir Ruskaji</h1>
+        <p class="lead">Lična stranica i pet početnih promptova sa AI radionice.</p>
+        <a href="#promptovi" class="btn btn-primary">Pogledaj promptove</a>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <div class="avatar">LR</div>
+      </div>
     </div>
   </header>
 
-  <section style="padding-top:1rem">
+  <section class="about-band">
     <div class="container">
-      <div class="grid grid-2">
-        <article class="card me-card">
-          <div class="icon">🙋</div>
-          <h2>O meni</h2>
-          <p class="placeholder">Ovde napiši 2–3 rečenice o sebi: čime se baviš, gde radiš i zašto si došao/la na radionicu.</p>
-        </article>
-
-        <article class="card me-card">
-          <div class="icon">⚙️</div>
-          <h2>Šta želim da automatizujem</h2>
-          <ul>
-            <li class="placeholder">Ideja 1 — proces koji ti oduzima najviše vremena</li>
-            <li class="placeholder">Ideja 2 — nešto što stalno ručno kopiraš</li>
-            <li class="placeholder">Ideja 3 — nešto što bi agent mogao da radi dok spavaš</li>
-          </ul>
-        </article>
+      <div class="about-line">
+        <h2>O meni</h2>
+        <p>Ljubomir Ruskaji je kreativan freelancer.</p>
       </div>
     </div>
   </section>
 
-  <!-- ================= STARTNI PROMPTOVI ================= -->
-  <section id="promptovi" style="padding-top:2rem">
+  <section id="promptovi">
     <div class="container">
       <div class="section-head">
-        <span class="label">Moji startni promptovi</span>
-        <h2>Pet promptova. <span class="hl">Jedna stranica koja je samo tvoja.</span></h2>
-        <p>
-          Kopiraj prompt, zalepi ga AI agentu (Claude Code, Copilot, Cursor) i gledaj šta radi. Idi redom — svaki korak se nadovezuje na prethodni.
-          <strong style="color:var(--text)">Žuta polja obavezno zameni svojim podacima</strong> — tu nastaje razlika između tvoje i tuđe stranice.
-        </p>
-        <div class="anatomy">
-          <span><b>01</b>Uloga — ko je agent</span>
-          <span><b>02</b>Kontekst — odakle počinjemo</span>
-          <span><b>03</b>Zadatak — šta tražimo</span>
-          <span><b>04</b>Zahtevi — kako to mora da izgleda</span>
-          <span><b>05</b>Ograničenja — šta ne sme</span>
-          <span><b>06</b>Cilj — zašto sve ovo</span>
-        </div>
+        <span class="label">Moji promptovi</span>
+        <h2>Od prve ideje do objavljene stranice.</h2>
+        <p>Izaberi korak, pročitaj prompt i kopiraj ga u svog AI agenta. Žuta polja popuni svojim podacima.</p>
       </div>
 
       <div class="prompts">
-        <article class="prompt">
-          <div class="prompt-head">
-            <div>
-              <span class="num">Prompt 01</span>
+        <details class="prompt" open>
+  <summary class="prompt-summary">
+    <div>
+              <span class="num">01</span>
               <h3>Upoznaj teren</h3>
               <p>Pre nego što išta menjaš, neka agent pročita projekat i objasni ti ga. Ovaj prompt ne menja nijedan fajl.</p>
             </div>
-            <button class="copy" data-target="p1">Kopiraj prompt</button>
-          </div>
-<pre id="p1"><span class="ph"># ULOGA</span>
+    <span class="prompt-toggle" aria-hidden="true">+</span>
+  </summary>
+  <div class="prompt-content">
+    <div class="prompt-actions"><button class="copy" data-target="p1">Kopiraj prompt</button></div>
+    <pre id="p1"><span class="ph"># ULOGA</span>
 Ti si iskusan web developer i mentor koji radi sa početnikom. Objašnjavaj jednostavno i na srpskom.
 
-<span class="ph"># KONTEKST — odakle počinjemo</span>
+<span class="ph"># KONTEKST - odakle počinjemo</span>
 Nalazimo se u repozitorijumu sajta "AI Radionica Beograd". Sajt je čist HTML + CSS, bez frameworka i bez build koraka. Objavljuje se na GitHub Pages: https://n8nlab.github.io/aiworkshop/
 - Zajednički stilovi: assets/style.css (njih NE menjamo)
 - Moja stranica: ljudi/ljubomir/index.html
-- Moj folder: ljudi/ljubomir/ — ovde smem da pravim nove stranice i dodajem slike
+- Moj folder: ljudi/ljubomir/ - ovde smem da pravim nove stranice i dodajem slike
 
 <span class="ph"># ZADATAK</span>
 1. Pročitaj README.md, assets/style.css i ljudi/ljubomir/index.html.
-2. Objasni mi u 5–7 rečenica kako je sajt organizovan.
+2. Objasni mi u 5-7 rečenica kako je sajt organizovan.
 3. Nabroj gotove CSS klase (kartice, dugmad, grid…) koje mogu da koristim na svojoj stranici.
 4. Predloži mi 3 potpuno različita pravca kako bi moja stranica mogla da izgleda.
 
@@ -141,18 +237,21 @@ Nalazimo se u repozitorijumu sajta "AI Radionica Beograd". Sajt je čist HTML + 
 
 <span class="ph"># CILJ</span>
 Da razumem teren pre nego što počnem da gradim i da izaberem svoj pravac.</pre>
-          <div class="lesson">💡 <span><b>Zašto ovako:</b> agent koji prvo pročita projekat pravi mnogo manje grešaka. Uvek prvo kontekst, pa tek onda akcija.</span></div>
-        </article>
-        <article class="prompt">
-          <div class="prompt-head">
-            <div>
-              <span class="num">Prompt 02</span>
+    <div class="lesson">💡 <span><b>Zašto ovako:</b> agent koji prvo pročita projekat pravi mnogo manje grešaka. Uvek prvo kontekst, pa tek onda akcija.</span></div>
+  </div>
+</details>
+        <details class="prompt">
+  <summary class="prompt-summary">
+    <div>
+              <span class="num">02</span>
               <h3>Moj identitet</h3>
               <p>Pretvori generičku stranicu u svoju: ime, priča, boje i stil. Popuni žuta polja pre slanja.</p>
             </div>
-            <button class="copy" data-target="p2">Kopiraj prompt</button>
-          </div>
-<pre id="p2"><span class="ph"># ULOGA</span>
+    <span class="prompt-toggle" aria-hidden="true">+</span>
+  </summary>
+  <div class="prompt-content">
+    <div class="prompt-actions"><button class="copy" data-target="p2">Kopiraj prompt</button></div>
+    <pre id="p2"><span class="ph"># ULOGA</span>
 Ti si web dizajner koji pravi lične stranice sa jakim, prepoznatljivim stilom.
 
 <span class="ph"># KONTEKST</span>
@@ -166,8 +265,8 @@ O meni:
 Redizajniraj moju stranicu tako da odražava mene i moj posao.
 
 <span class="ph"># ZAHTEVI</span>
-1. Upiši moje pravo ime, inicijale u avataru i kratku biografiju (2–3 rečenice) na osnovu podataka iznad.
-2. Vizuelni stil: <span class="fill">[IZABERI: minimalistički / retro 80-e / luksuzni crno-zlatni / razigran i šaren / brutalistički / ili opiši svoj]</span>
+1. Upiši moje pravo ime, inicijale u avataru i kratku biografiju (2-3 rečenice) na osnovu podataka iznad.
+2. Vizuelni stil: <span class="fill">razigran i šaren</span>
 3. Promeni boju naglaska (--c) i sve svoje stilove piši u &lt;style&gt; blok na vrhu fajla.
 4. Stranica mora lepo da izgleda i na telefonu.
 5. Ukloni žuti baner "Ova stranica čeka tvoju prvu promenu".
@@ -176,25 +275,28 @@ Redizajniraj moju stranicu tako da odražava mene i moj posao.
 <span class="ph"># OGRANIČENJA</span>
 - Menjaj SAMO fajl ljudi/ljubomir/index.html.
 - Ne menjaj assets/style.css niti tuđe stranice.
-- Ne izmišljaj činjenice o meni — ako ti nešto fali, pitaj me.
+- Ne izmišljaj činjenice o meni - ako ti nešto fali, pitaj me.
 
 <span class="ph"># CILJ</span>
 Kad neko otvori moju stranicu, za 5 sekundi treba da zna ko sam i čime se bavim.
 
 <span class="ph"># NA KRAJU</span>
 Napiši mi kratak spisak svega što si promenio.</pre>
-          <div class="lesson">💡 <span><b>Zašto ovako:</b> što su podaci o tebi konkretniji, rezultat je ličniji. Žuta polja su razlika između tvoje i tuđe stranice.</span></div>
-        </article>
-        <article class="prompt">
-          <div class="prompt-head">
-            <div>
-              <span class="num">Prompt 03</span>
+    <div class="lesson">💡 <span><b>Zašto ovako:</b> što su podaci o tebi konkretniji, rezultat je ličniji. Žuta polja su razlika između tvoje i tuđe stranice.</span></div>
+  </div>
+</details>
+        <details class="prompt">
+  <summary class="prompt-summary">
+    <div>
+              <span class="num">03</span>
               <h3>Mini alat iz mog posla</h3>
               <p>Dodaj nešto interaktivno što rešava pravi problem iz tvog posla: kalkulator, kviz, generator ponude…</p>
             </div>
-            <button class="copy" data-target="p3">Kopiraj prompt</button>
-          </div>
-<pre id="p3"><span class="ph"># ULOGA</span>
+    <span class="prompt-toggle" aria-hidden="true">+</span>
+  </summary>
+  <div class="prompt-content">
+    <div class="prompt-actions"><button class="copy" data-target="p3">Kopiraj prompt</button></div>
+    <pre id="p3"><span class="ph"># ULOGA</span>
 Ti si frontend developer koji pravi male, korisne alate u čistom JavaScript-u.
 
 <span class="ph"># KONTEKST</span>
@@ -219,31 +321,34 @@ Primeri: kalkulator cene, kviz "šta ti odgovara", generator ponude, forma koja 
 
 <span class="ph"># CILJ</span>
 Da moja stranica ne bude samo vizitkarta, nego nešto što stvarno koristi meni ili mojim klijentima.</pre>
-          <div class="lesson">💡 <span><b>Zašto ovako:</b> tražiš 3 ideje pre koda. Agent predlaže, ti odlučuješ — tako ostaješ vlasnik rezultata.</span></div>
-        </article>
-        <article class="prompt">
-          <div class="prompt-head">
-            <div>
-              <span class="num">Prompt 04</span>
-              <h3>Moj mini sajt — više stranica i nivoa</h3>
+    <div class="lesson">💡 <span><b>Zašto ovako:</b> tražiš 3 ideje pre koda. Agent predlaže, ti odlučuješ - tako ostaješ vlasnik rezultata.</span></div>
+  </div>
+</details>
+        <details class="prompt">
+  <summary class="prompt-summary">
+    <div>
+              <span class="num">04</span>
+              <h3>Moj mini sajt - više stranica i nivoa</h3>
               <p>Napravi dodatne stranice u svom folderu, pa i podfoldere (npr. projekti → projekat-1). Ovde se najlakše pokvare linkovi, zato je prompt strožiji.</p>
             </div>
-            <button class="copy" data-target="p4">Kopiraj prompt</button>
-          </div>
-<pre id="p4"><span class="ph"># ULOGA</span>
+    <span class="prompt-toggle" aria-hidden="true">+</span>
+  </summary>
+  <div class="prompt-content">
+    <div class="prompt-actions"><button class="copy" data-target="p4">Kopiraj prompt</button></div>
+    <pre id="p4"><span class="ph"># ULOGA</span>
 Ti si web developer koji pravi uredne sajtove sa više stranica.
 
 <span class="ph"># KONTEKST</span>
 Moj folder je ljudi/ljubomir/, a glavna stranica je ljudi/ljubomir/index.html.
-Sajt živi na podadresi https://n8nlab.github.io/aiworkshop/ — zato su putanje bitne:
+Sajt živi na podadresi https://n8nlab.github.io/aiworkshop/ - zato su putanje bitne:
 - iz ljudi/ljubomir/ do zajedničkog CSS-a:        ../../assets/style.css
 - iz ljudi/ljubomir/podfolder/ do zajedničkog CSS-a: ../../../assets/style.css
 
 <span class="ph"># ZADATAK</span>
 Napravi mi mini sajt unutar mog foldera sa ovim stranicama:
-- ljudi/ljubomir/<span class="fill">[NPR. usluge]</span>.html — <span class="fill">[ŠTA IDE NA TU STRANICU]</span>
-- ljudi/ljubomir/<span class="fill">[NPR. projekti]</span>/index.html — <span class="fill">[SPISAK MOJIH PROJEKATA]</span>
-- ljudi/ljubomir/<span class="fill">[NPR. projekti]</span>/<span class="fill">[NPR. projekat-1]</span>.html — <span class="fill">[DETALJI JEDNOG PROJEKTA]</span>
+- ljudi/ljubomir/<span class="fill">[NPR. usluge]</span>.html - <span class="fill">[ŠTA IDE NA TU STRANICU]</span>
+- ljudi/ljubomir/<span class="fill">[NPR. projekti]</span>/index.html - <span class="fill">[SPISAK MOJIH PROJEKATA]</span>
+- ljudi/ljubomir/<span class="fill">[NPR. projekti]</span>/<span class="fill">[NPR. projekat-1]</span>.html - <span class="fill">[DETALJI JEDNOG PROJEKTA]</span>
 
 <span class="ph"># ZAHTEVI</span>
 1. Svaka stranica ima isti meni sa linkovima ka svim mojim stranicama + link "← Svi polaznici" ka ljudi/index.html.
@@ -258,18 +363,21 @@ Napravi mi mini sajt unutar mog foldera sa ovim stranicama:
 
 <span class="ph"># CILJ</span>
 Da naučim kako se sajt organizuje u više stranica i nivoa, i da moj deo sajta izgleda kao pravi mali sajt.</pre>
-          <div class="lesson">💡 <span><b>Zašto ovako:</b> kod sajta sa više nivoa najčešće pucaju putanje. Zato agentu tačno kažeš kako izgledaju putanje i tražiš da na kraju sam proveri svaki link.</span></div>
-        </article>
-        <article class="prompt">
-          <div class="prompt-head">
-            <div>
-              <span class="num">Prompt 05</span>
+    <div class="lesson">💡 <span><b>Zašto ovako:</b> kod sajta sa više nivoa najčešće pucaju putanje. Zato agentu tačno kažeš kako izgledaju putanje i tražiš da na kraju sam proveri svaki link.</span></div>
+  </div>
+</details>
+        <details class="prompt">
+  <summary class="prompt-summary">
+    <div>
+              <span class="num">05</span>
               <h3>Provera i objava na GitHub</h3>
               <p>Poslednji korak: agent pregleda tvoj rad, proveri da nisi dirao tuđe fajlove, napravi commit i pushuje tvoju granu.</p>
             </div>
-            <button class="copy" data-target="p5">Kopiraj prompt</button>
-          </div>
-<pre id="p5"><span class="ph"># ULOGA</span>
+    <span class="prompt-toggle" aria-hidden="true">+</span>
+  </summary>
+  <div class="prompt-content">
+    <div class="prompt-actions"><button class="copy" data-target="p5">Kopiraj prompt</button></div>
+    <pre id="p5"><span class="ph"># ULOGA</span>
 Ti si pažljiv code reviewer i pomažeš mi da bezbedno objavim svoje promene.
 
 <span class="ph"># KONTEKST</span>
@@ -289,27 +397,11 @@ Radim na grani ljubomir/moja-stranica (ako ne postoji, napravi je od main).
 
 <span class="ph"># CILJ</span>
 Da moja promena stigne na GitHub čista, proverena i spremna da je svi vide.</pre>
-          <div class="lesson">💡 <span><b>Zašto ovako:</b> agent sme da menja stvari, ali ti odobravaš. Tražiš spisak problema pre popravke i zaustavljanje ako nešto nije u redu.</span></div>
-        </article>
+    <div class="lesson">💡 <span><b>Zašto ovako:</b> agent sme da menja stvari, ali ti odobravaš. Tražiš spisak problema pre popravke i zaustavljanje ako nešto nije u redu.</span></div>
+  </div>
+</details>
       </div>
 
-      <div class="tips">
-        <div class="card">
-          <div class="icon">🎯</div>
-          <h3>Rezultat ne valja?</h3>
-          <p>Ne kreći ispočetka. Reci tačno šta ne valja: <em>„Naslov je prevelik na telefonu. Smanji ga, a sve ostalo ostavi isto."</em></p>
-        </div>
-        <div class="card">
-          <div class="icon">🧩</div>
-          <h3>Jedan korak odjednom</h3>
-          <p>Mali, jasni promptovi rade bolje od jednog ogromnog. Proveri rezultat posle svakog koraka.</p>
-        </div>
-        <div class="card">
-          <div class="icon">✍️</div>
-          <h3>Napravi svoj prompt</h3>
-          <p>Kad savladaš ovih pet, napiši svoj po istoj šemi: uloga, kontekst, zadatak, zahtevi, ograničenja, cilj.</p>
-        </div>
-      </div>
     </div>
   </section>
 
