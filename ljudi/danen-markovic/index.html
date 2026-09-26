@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Danen Marković — AI Radionica Beograd</title>
+  <title>Nenad Marković — AI Radionica Beograd</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="./stil.css" />
 
   <!-- =====================================================================
        👋 ZDRAVO! Ovo je TVOJA stranica. Ovaj fajl slobodno menjaj kako želiš.
@@ -16,27 +17,96 @@
        slike stavi u ljudi/danen-markovic/slike/ i nikad ne upisuj lozinke ni API ključeve.
        ===================================================================== -->
   <style>
-    :root { --c: #57e0ef; }
+    :root { --c: #57e0ef; --lab-cyan: var(--c); --lab-purple: #a78bfa; }
 
-    .me-hero { padding: 5rem 0 3rem; }
-    .me-hero .avatar {
-      width: 120px; height: 120px; border-radius: 32px;
-      font-size: 2.4rem; margin-bottom: 1.8rem;
+    .lab-hero {
+      position: relative; overflow: hidden;
+      padding: 5.5rem 0 4.5rem;
+      background: radial-gradient(ellipse at 78% 40%, rgba(87,224,239,.12), transparent 38%);
     }
-    .me-hero h1 { margin-bottom: .6rem; }
-    .me-hero .role { color: var(--muted); font-size: 1.1rem; }
-
-    .todo-banner {
-      display: inline-flex; align-items: center; gap: .6rem;
-      margin-top: 1.6rem; padding: .6rem 1.1rem;
-      border-radius: 10px; border: 1px dashed var(--warn);
-      color: var(--warn); font-size: .9rem; font-weight: 600;
-      background: rgba(255, 211, 61, .06);
+    .lab-hero::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(87,224,239,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(87,224,239,.035) 1px, transparent 1px);
+      background-size: 42px 42px; mask-image: linear-gradient(90deg, transparent, #000 70%);
     }
+    .lab-hero-grid { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 4rem; align-items: center; }
+    .lab-kicker, .lab-index, .lab-console-label, .lab-data-label, .lab-card-index {
+      font-family: var(--mono); font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    }
+    .lab-kicker { display: inline-flex; align-items: center; gap: .65rem; color: var(--lab-cyan); margin-bottom: 2.2rem; }
+    .lab-pulse, .lab-live i { width: 8px; height: 8px; border-radius: 50%; background: var(--lab-cyan); box-shadow: 0 0 14px var(--lab-cyan); }
+    .lab-identity { display: flex; align-items: center; gap: .85rem; margin-bottom: .8rem; }
+    .lab-avatar { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(87,224,239,.5); border-radius: 13px; color: var(--lab-cyan); background: rgba(87,224,239,.08); font-family: var(--mono); font-size: .9rem; font-weight: 700; letter-spacing: .04em; box-shadow: inset 0 0 18px rgba(87,224,239,.06); }
+    .lab-index { color: var(--muted); }
+    .lab-copy h1 { font-size: clamp(3.7rem, 7vw, 6.2rem); line-height: .9; margin-bottom: 1.25rem; }
+    .lab-copy h1 span { color: var(--lab-cyan); }
+    .lab-role { color: var(--lab-cyan); font-family: var(--mono); font-size: .95rem; margin-bottom: 1rem; }
+    .lab-summary { max-width: 510px; color: var(--muted); font-size: 1.05rem; }
+    .lab-cta { margin-top: 1.8rem; }
+    .lab-cta .btn-primary { background: var(--lab-cyan); }
 
-    .me-card h2 { font-size: 1.35rem; margin-bottom: .8rem; }
-    .me-card p, .me-card li { color: var(--muted); }
+    .lab-console {
+      position: relative; padding: 1.4rem; border: 1px solid rgba(87,224,239,.3); border-radius: 18px;
+      background: linear-gradient(145deg, rgba(21,24,30,.96), rgba(13,16,20,.94));
+      box-shadow: 0 24px 80px rgba(0,0,0,.38), 0 0 50px rgba(87,224,239,.07);
+    }
+    .lab-console::after { content: ""; position: absolute; width: 150px; height: 150px; right: -35px; top: -35px; border: 1px solid rgba(167,139,250,.2); border-radius: 50%; pointer-events: none; }
+    .lab-console-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+    .lab-console-label { color: var(--muted); }
+    .lab-live { display: inline-flex; align-items: center; gap: .5rem; color: var(--lab-cyan); font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; }
+    .lab-live i { width: 6px; height: 6px; }
+    .lab-console h2 { font-size: 1.5rem; margin: 1.4rem 0 1.2rem; }
+    .lab-readout { display: grid; gap: .65rem; }
+    .lab-readout-row { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem .9rem; border: 1px solid rgba(255,255,255,.07); border-radius: 9px; background: rgba(255,255,255,.025); }
+    .lab-data-label { color: var(--muted); font-size: .66rem; }
+    .lab-data-value { color: var(--text); font-family: var(--mono); font-size: .82rem; text-align: right; }
+    .lab-console-foot { margin-top: 1rem; color: var(--muted); font-size: .78rem; }
+
+    .lab-overview { padding: 1rem 0 4rem; }
+    .lab-section-head { margin-bottom: 1.4rem; }
+    .lab-section-head .label { color: var(--lab-cyan); }
+    .lab-section-head h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+    .lab-cards { grid-template-columns: repeat(3, 1fr); }
+    .lab-card { min-height: 190px; border-color: rgba(87,224,239,.16); background: linear-gradient(145deg, var(--card), rgba(18,22,27,.96)); }
+    .lab-card:hover { border-color: rgba(87,224,239,.55); }
+    .lab-card-index { color: var(--lab-cyan); margin-bottom: 1.2rem; }
+    .lab-card h3 { margin-bottom: .55rem; }
+    .lab-card p { color: var(--muted); }
+    .lab-prompts-head .label { color: var(--lab-cyan); }
     .placeholder { color: var(--dim) !important; font-style: italic; }
+
+    .consult-section { padding: 4rem 0 5rem; }
+    .consult-head { margin-bottom: 1.5rem; }
+    .consult-head .label { color: var(--lab-cyan); }
+    .consult-head p { max-width: 680px; color: var(--muted); margin-top: .8rem; }
+    .consult-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+    .consult-panel { padding: 1.4rem; border: 1px solid rgba(87,224,239,.2); border-radius: 16px; background: linear-gradient(145deg, rgba(21,24,30,.96), rgba(13,16,20,.94)); }
+    .consult-panel h3 { margin-bottom: 1.1rem; }
+    .consult-field { display: grid; gap: .45rem; margin-bottom: 1rem; }
+    .consult-field label { color: var(--text); font-size: .88rem; font-weight: 700; }
+    .consult-field small { color: var(--muted); font-size: .78rem; }
+    .consult-field input, .consult-field select, .consult-field textarea, .consult-result {
+      width: 100%; padding: .8rem .9rem; border: 1px solid var(--border-2); border-radius: 9px;
+      background: #0d1014; color: var(--text); font: inherit;
+    }
+    .consult-field textarea { min-height: 96px; resize: vertical; }
+    .consult-field input:focus, .consult-field select:focus, .consult-field textarea:focus, .consult-result:focus { outline: 2px solid var(--lab-cyan); outline-offset: 2px; }
+    .consult-note { padding: .8rem .9rem; border-left: 2px solid var(--lab-purple); color: var(--muted); font-size: .82rem; }
+    .consult-actions { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1rem; }
+    .consult-action { padding: .7rem 1rem; border: 1px solid var(--border-2); border-radius: 9px; background: transparent; color: var(--text); font: inherit; font-size: .88rem; font-weight: 700; cursor: pointer; }
+    .consult-action.primary { border-color: var(--lab-cyan); background: var(--lab-cyan); color: #071014; }
+    .consult-action:hover { border-color: var(--lab-cyan); }
+    .consult-result { min-height: 290px; resize: vertical; white-space: pre-wrap; font-family: var(--mono); font-size: .85rem; line-height: 1.65; }
+    .consult-result[hidden] { display: none; }
+    .consult-status { min-height: 1.4em; margin-top: .7rem; color: var(--lab-cyan); font-size: .85rem; }
+    @media (max-width: 760px) { .consult-layout { grid-template-columns: 1fr; } }
+
+    @media (max-width: 760px) {
+      .lab-hero { padding: 4rem 0 3rem; }
+      .lab-hero-grid { grid-template-columns: 1fr; gap: 2.4rem; }
+      .lab-copy h1 { font-size: clamp(3.4rem, 16vw, 5.5rem); }
+      .lab-cards { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -49,52 +119,133 @@
     </div>
   </div>
 
-  <nav class="nav">
+  <nav class="nav mini-nav">
     <div class="container">
       <a href="../../index.html" class="brand"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span><span class="brand-sub">AI Radionica Beograd</span></a>
       <div class="nav-links">
-        <a href="../../index.html">Početna</a>
-        <a href="../../zadatak.html">Zadatak</a>
-        <a href="../index.html" class="active">Ljudi</a>
+        <a href="./index.html" class="active">Moja stranica</a>
+        <a href="./usluge.html">Usluge</a>
+        <a href="./projekti/index.html">Projekti</a>
+        <a href="./projekti/animacija-i-automatizacija.html">Studije slučaja</a>
+        <a href="../index.html">← Svi polaznici</a>
       </div>
     </div>
   </nav>
 
-  <header class="me-hero">
-    <div class="container">
-      <div class="avatar">DM</div>
-      <h1>Danen Marković</h1>
-      <p class="role">Polaznik radionice</p>
-      <a href="#promptovi" class="todo-banner">✏️ Ova stranica čeka tvoju prvu promenu — kreni od promptova ispod ↓</a>
+  <header class="lab-hero">
+    <div class="container lab-hero-grid">
+      <div class="lab-copy">
+        <p class="lab-kicker"><span class="lab-pulse"></span>AI RADIONICA / BEOGRAD</p>
+        <div class="lab-identity"><span class="lab-avatar" aria-hidden="true">NM</span><p class="lab-index">LIČNI EKSPERIMENT 001</p></div>
+        <h1>Nenad<br><span>Marković</span></h1>
+        <p class="lab-role">Preduzetnik · konsultant u zdravstvenoj industriji</p>
+        <p class="lab-summary">Uporan sam, brz i radoznao. Na AI radionici pravim svoju web stranicu uz pomoć AI agenta i učim kako da je pripremim za GitHub.</p>
+        <div class="cta-row lab-cta">
+          <a href="#konsultacije" class="btn btn-primary">Pripremi konsultaciju <span aria-hidden="true">↓</span></a>
+          <a href="./usluge.html" class="btn btn-ghost">Usluge</a>
+          <a href="./projekti/index.html" class="btn btn-ghost">Projekti</a>
+        </div>
+      </div>
+
+      <aside class="lab-console" aria-label="Pregled trenutnog eksperimenta">
+        <div class="lab-console-top">
+          <span class="lab-console-label">EKSPERIMENT / 001</span>
+          <span class="lab-live"><i></i> U TOKU</span>
+        </div>
+        <h2>Lična web stranica</h2>
+        <div class="lab-readout">
+          <div class="lab-readout-row"><span class="lab-data-label">CILJ</span><span class="lab-data-value">Sopstvena stranica</span></div>
+          <div class="lab-readout-row"><span class="lab-data-label">ALAT</span><span class="lab-data-value">AI agent</span></div>
+          <div class="lab-readout-row"><span class="lab-data-label">TEHNOLOGIJA</span><span class="lab-data-value">HTML + CSS</span></div>
+          <div class="lab-readout-row"><span class="lab-data-label">OBJAVA</span><span class="lab-data-value">GitHub Pages</span></div>
+        </div>
+        <p class="lab-console-foot">Korak po korak. Prompt po prompt.</p>
+      </aside>
     </div>
   </header>
 
-  <section style="padding-top:1rem">
+  <section class="lab-overview">
     <div class="container">
-      <div class="grid grid-2">
-        <article class="card me-card">
-          <div class="icon">🙋</div>
-          <h2>O meni</h2>
-          <p class="placeholder">Ovde napiši 2–3 rečenice o sebi: čime se baviš, gde radiš i zašto si došao/la na radionicu.</p>
+      <div class="section-head lab-section-head">
+        <span class="label">DNEVNIK LABORATORIJE</span>
+        <h2>Prvi eksperiment. <span class="hl">Moja stranica.</span></h2>
+      </div>
+      <div class="grid lab-cards">
+        <article class="card lab-card">
+          <p class="lab-card-index">01 / CILJ</p>
+          <h3>Napraviti ličnu stranicu</h3>
+          <p>Koristim AI agenta da svoju ideju pretvorim u web stranicu.</p>
         </article>
-
-        <article class="card me-card">
-          <div class="icon">⚙️</div>
-          <h2>Šta želim da automatizujem</h2>
-          <ul>
-            <li class="placeholder">Ideja 1 — proces koji ti oduzima najviše vremena</li>
-            <li class="placeholder">Ideja 2 — nešto što stalno ručno kopiraš</li>
-            <li class="placeholder">Ideja 3 — nešto što bi agent mogao da radi dok spavaš</li>
-          </ul>
+        <article class="card lab-card">
+          <p class="lab-card-index">02 / ALAT</p>
+          <h3>Rad sa AI agentom</h3>
+          <p>Učim kroz konkretan zadatak i promptove sa radionice.</p>
+        </article>
+        <article class="card lab-card">
+          <p class="lab-card-index">03 / SLEDEĆI KORAK</p>
+          <h3>Priprema za GitHub</h3>
+          <p>Kada završim izmene, moja stranica može da bude objavljena uz ostatak sajta.</p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section class="consult-section" id="konsultacije">
+    <div class="container">
+      <div class="section-head consult-head">
+        <span class="label">ALAT / 001</span>
+        <h2>Priprema za <span class="hl">konsultacije.</span></h2>
+        <p>Od nekoliko kratkih odgovora napravi jasan brief i predlog tema za razgovor.</p>
+      </div>
+
+      <div class="consult-layout">
+        <form class="consult-panel" id="consultation-form">
+          <h3>Opiši poslovni izazov</h3>
+          <div class="consult-field">
+            <label for="consult-focus">Oblast razgovora</label>
+            <select id="consult-focus" name="focus" required>
+              <option value="">Izaberi oblast</option>
+              <option>Strategija i razvoj</option>
+              <option>Poslovni procesi</option>
+              <option>Digitalizacija i AI</option>
+              <option>Organizacija i tim</option>
+              <option>Drugo</option>
+            </select>
+          </div>
+          <div class="consult-field">
+            <label for="consult-challenge">Šta želiš da unaprediš?</label>
+            <textarea id="consult-challenge" name="challenge" minlength="8" maxlength="700" required placeholder="Opiši izazov u nekoliko rečenica."></textarea>
+          </div>
+          <div class="consult-field">
+            <label for="consult-outcome">Kakav bi rezultat bio koristan?</label>
+            <textarea id="consult-outcome" name="outcome" minlength="4" maxlength="500" required placeholder="Na primer: jasniji sledeći koraci ili plan za pilot projekat."></textarea>
+          </div>
+          <div class="consult-field">
+            <label for="consult-constraint">Rok ili važno ograničenje <small>(opciono)</small></label>
+            <input id="consult-constraint" name="constraint" maxlength="240" placeholder="Na primer: odluka do kraja kvartala">
+          </div>
+          <p class="consult-note">Unosi se ne šalju niti čuvaju. Nemoj unositi imena, kontakte ni podatke o pacijentima.</p>
+          <div class="consult-actions">
+            <button class="consult-action primary" type="submit">Napravi brief</button>
+            <button class="consult-action" type="reset">Obriši odgovore</button>
+          </div>
+        </form>
+
+        <div class="consult-panel" id="consult-output-panel" hidden>
+          <h3>Predlog briefa</h3>
+          <label class="consult-field" for="consult-result">Možeš ga kopirati i doraditi pre sastanka.</label>
+          <textarea class="consult-result" id="consult-result" readonly></textarea>
+          <div class="consult-actions"><button class="consult-action primary" id="copy-consult-result" type="button">Kopiraj brief</button></div>
+        </div>
+      </div>
+      <p class="consult-status" id="consult-status" role="status" aria-live="polite"></p>
     </div>
   </section>
 
   <!-- ================= STARTNI PROMPTOVI ================= -->
   <section id="promptovi" style="padding-top:2rem">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head lab-prompts-head">
         <span class="label">Moji startni promptovi</span>
         <h2>Pet promptova. <span class="hl">Jedna stranica koja je samo tvoja.</span></h2>
         <p>
@@ -280,7 +431,7 @@ Radim na grani danen-markovic/moja-stranica (ako ne postoji, napravi je od main)
 1. Pregledaj sve fajlove u ljudi/danen-markovic/: pokvareni linkovi, nezatvoreni tagovi, slike koje ne postoje, izgled na telefonu.
 2. Pokreni `git status`. Ako je izmenjen bilo koji fajl VAN mog foldera, zaustavi se i pitaj me šta da radimo.
 3. Pokaži mi spisak pronađenih problema i popravi ih tek kad potvrdim.
-4. Napravi commit sa jasnom porukom na srpskom, npr. "Danen Marković: nova stranica + mini alat".
+4. Napravi commit sa jasnom porukom na srpskom, npr. "Nenad Marković: nova stranica + mini alat".
 5. Pushuj granu danen-markovic/moja-stranica i daj mi link za otvaranje Pull Request-a.
 
 <span class="ph"># OGRANIČENJA</span>
@@ -320,6 +471,61 @@ Da moja promena stigne na GitHub čista, proverena i spremna da je svi vide.</pr
     </div>
   </footer>
 
+  <script>
+    const consultForm = document.getElementById('consultation-form');
+    const consultOutputPanel = document.getElementById('consult-output-panel');
+    const consultResult = document.getElementById('consult-result');
+    const consultStatus = document.getElementById('consult-status');
+    const copyConsultButton = document.getElementById('copy-consult-result');
+
+    consultForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!consultForm.reportValidity()) return;
+
+      const answers = new FormData(consultForm);
+      const focus = String(answers.get('focus') || '').trim();
+      const challenge = String(answers.get('challenge') || '').trim();
+      const outcome = String(answers.get('outcome') || '').trim();
+      const constraint = String(answers.get('constraint') || '').trim();
+
+      consultResult.value = [
+        'PRIPREMA ZA KONSULTACIJE',
+        '',
+        `Oblast: ${focus}`,
+        `Izazov: ${challenge}`,
+        `Željeni rezultat: ${outcome}`,
+        `Rok ili ograničenje: ${constraint || 'Nije navedeno'}`,
+        '',
+        'PREDLOG TEMA ZA RAZGOVOR',
+        '1. Šta je glavni uzrok izazova?',
+        '2. Koje opcije i ograničenja treba razmotriti?',
+        '3. Koji je najmanji koristan sledeći korak?'
+      ].join('\n');
+      consultOutputPanel.hidden = false;
+      consultStatus.textContent = 'Brief je spreman. Možeš ga kopirati ili doraditi.';
+    });
+
+    consultForm.addEventListener('reset', () => {
+      consultOutputPanel.hidden = true;
+      consultResult.value = '';
+      consultStatus.textContent = 'Odgovori su obrisani.';
+    });
+
+    copyConsultButton.addEventListener('click', async () => {
+      try {
+        if (!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard API nije dostupna.');
+        await navigator.clipboard.writeText(consultResult.value);
+        consultStatus.textContent = 'Brief je kopiran.';
+      } catch {
+        consultResult.focus();
+        consultResult.select();
+        const copied = document.execCommand('copy');
+        consultStatus.textContent = copied
+          ? 'Brief je kopiran.'
+          : 'Brief je označen. Kopiraj ga pomoću Ctrl+C ili Cmd+C.';
+      }
+    });
+  </script>
   <script src="../../assets/main.js"></script>
 </body>
 </html>
