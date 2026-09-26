@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nemanja Pantović — AI Radionica Beograd</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
+  <meta name="description" content="Nemanja Pantović — freelancer u prodaji. Precizan, sistematičan, fleksibilan." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23111'/><text x='50' y='64' font-family='Georgia,serif' font-size='44' fill='%23f7f6f3' text-anchor='middle'>NP</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@500;700&family=Instrument+Serif&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../assets/style.css" />
 
   <!-- =====================================================================
@@ -16,49 +17,139 @@
        slike stavi u ljudi/n-pantovic/slike/ i nikad ne upisuj lozinke ni API ključeve.
        ===================================================================== -->
   <style>
-    /* Minimalistički stil: jedna mirna boja, puno prostora, tanke linije */
+    /* ==========================================================
+       Minimalistički, "editorial" stil (po taste-skill: minimalist + redesign)
+       Topla svetla pozadina, crni tekst, jedna prigušena plava boja.
+       Sve važi samo za ovu stranicu.
+       ========================================================== */
     :root {
-      --c: #9ec5ff;
-      --accent: var(--c);   /* moja boja umesto limete, samo na ovoj stranici */
+      --c: #1f6c9f;                 /* moja boja naglaska */
+      --c-pale: #e1f3fe;
+      --bg: #f7f6f3;
+      --bg-2: #fbfbfa;
+      --card: #ffffff;
+      --card-hover: #f9f9f8;
+      --border: #eaeaea;
+      --border-2: #dad8d2;
+      --text: #111111;
+      --muted: #787774;
+      --dim: #a5a29b;
+      --accent: var(--c);
+      --accent-ink: #ffffff;
+      --serif: "Instrument Serif", "Newsreader", Georgia, serif;
+      --ease: cubic-bezier(.16, 1, .3, 1);
     }
-    body::after { display: none; } /* bez mreže u pozadini */
 
-    .me-hero { padding: 7rem 0 5rem; border-bottom: 1px solid var(--border); }
+    ::selection { background: var(--c-pale); color: var(--c); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--c); outline-offset: 3px; border-radius: 6px; }
+
+    /* Umesto mreže: jedva vidljiva topla svetlost u uglu */
+    body::after {
+      background-image: radial-gradient(640px 420px at 88% 6%, rgba(31, 108, 159, .07), transparent 70%);
+      background-size: auto;
+    }
+
+    /* Zajednički delovi, prilagođeni svetloj temi */
+    .topbar { background: var(--text); color: var(--bg); }
+    .topbar .dot { background: var(--bg); }
+    .nav { background: rgba(247, 246, 243, .85); }
+    .brandmark { background: var(--text); }
+    .brandmark i { background: var(--bg); }
+
+    /* ---------- Hero ---------- */
+    .me-hero { padding: 7.5rem 0 5.5rem; }
+    .me-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.75rem; }
     .me-hero .avatar {
-      width: 72px; height: 72px; border-radius: 50%;
-      font-size: 1.4rem; font-weight: 800; margin-bottom: 2.5rem;
+      width: 52px; height: 52px; border-radius: 12px;
+      background: var(--text); color: var(--bg);
+      font-size: 1.05rem; font-weight: 600; letter-spacing: 0;
     }
-    .me-hero .kicker {
-      font-family: var(--mono); font-size: .8rem; letter-spacing: .14em;
-      text-transform: uppercase; color: var(--c); margin-bottom: 1.2rem;
+    .kicker {
+      font-family: var(--mono); font-size: .78rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
     }
-    .me-hero h1 { font-weight: 700; letter-spacing: -.04em; margin-bottom: 2.5rem; }
-    .traits { list-style: none; display: flex; flex-wrap: wrap; }
+    .me-hero h1 {
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(3.6rem, 10vw, 8rem);
+      letter-spacing: -.03em; line-height: 1;
+      margin-bottom: 2.5rem;
+    }
+    .traits { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; }
     .traits li {
-      font-size: 1.1rem; color: var(--muted);
-      padding: 0 1.4rem; border-left: 1px solid var(--border-2);
+      padding: .35rem .8rem; border-radius: 999px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
     }
-    .traits li:first-child { padding-left: 0; border-left: 0; }
+    .traits li:nth-child(1) { background: #e1f3fe; color: #1f6c9f; }
+    .traits li:nth-child(2) { background: #edf3ec; color: #346538; }
+    .traits li:nth-child(3) { background: #fbf3db; color: #956400; }
 
-    .me-row {
-      display: grid; grid-template-columns: 220px 1fr; gap: 2rem;
-      padding: 4rem 0; border-bottom: 1px solid var(--border);
+    /* ---------- Bento ---------- */
+    .bento {
+      display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem;
+      padding-bottom: 2rem;
     }
-    .me-row h2 {
-      font-family: var(--mono); font-size: .8rem; font-weight: 700;
-      letter-spacing: .14em; text-transform: uppercase; color: var(--dim);
-      line-height: 1.8;
+    .tile {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 2.25rem 2.25rem 2.5rem;
+      transition: box-shadow .2s ease;
     }
-    .me-row p { font-size: 1.2rem; line-height: 1.7; max-width: 640px; }
-    .me-row ul { list-style: none; max-width: 640px; }
-    .me-row li { padding: .8rem 0; border-top: 1px solid var(--border); color: var(--muted); }
-    .me-row li:first-child { border-top: 0; padding-top: 0; }
+    .tile:hover { box-shadow: 0 2px 8px rgba(0, 0, 0, .04); }
+    .tile-about { grid-column: span 8; }
+    .tile-now { grid-column: span 4; background: var(--bg-2); }
+    .tile-auto { grid-column: span 12; }
+    .tile h2 {
+      font-family: var(--mono); font-size: .75rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .tile-about p {
+      font-family: var(--serif); font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+      line-height: 1.3; letter-spacing: -.01em; max-width: 30ch; text-wrap: pretty;
+    }
+    .tile-now p { color: var(--muted); line-height: 1.6; text-wrap: pretty; }
+    .tile-now .status {
+      display: inline-flex; align-items: center; gap: .5rem; margin-bottom: 1rem;
+      font-size: .9rem; font-weight: 600; color: var(--text);
+    }
+    .tile-now .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #346538; }
 
+    .auto-list { list-style: none; counter-reset: auto; }
+    .auto-list li {
+      counter-increment: auto;
+      display: grid; grid-template-columns: 4rem 1fr; align-items: baseline;
+      padding: 1.1rem 0; border-top: 1px solid var(--border);
+      font-size: 1.15rem; font-weight: 500;
+    }
+    .auto-list li:first-child { border-top: 0; padding-top: 0; }
+    .auto-list li::before {
+      content: counter(auto, decimal-leading-zero);
+      font-family: var(--mono); font-size: .8rem; color: var(--c);
+    }
+
+    /* Nežno pojavljivanje, jedno za drugim */
+    .reveal { transform: translateY(12px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+    .bento .reveal:nth-child(2) { transition-delay: 80ms; }
+    .bento .reveal:nth-child(3) { transition-delay: 160ms; }
+
+    /* ---------- Sekcija sa promptovima u istom stilu ---------- */
+    .section-head h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -.02em; line-height: 1.05; }
+    .card:hover { transform: none; }
+    .tips .icon { display: none; }
+    .copy { background: var(--text); color: var(--bg); border-radius: 6px; }
+    .copy:hover { background: #333333; transform: none; }
+    .copy:active { transform: scale(.98); }
+    .copy.done { background: #346538; color: #ffffff; }
+    .prompt pre .fill { background: #fbf3db; color: #956400; }
+    :not(pre) > code { background: var(--c-pale); color: var(--c); }
+
+    @media (max-width: 860px) {
+      .tile-about, .tile-now, .tile-auto { grid-column: span 12; }
+    }
     @media (max-width: 760px) {
-      .me-hero { padding: 4rem 0 3rem; }
-      .me-row { grid-template-columns: 1fr; gap: 1rem; padding: 3rem 0; }
-      .me-row p { font-size: 1.08rem; }
-      .traits li { font-size: 1rem; padding: 0 .9rem; }
+      .me-hero { padding: 4.5rem 0 3.5rem; }
+      .me-meta { margin-bottom: 2rem; }
+      .tile { padding: 1.6rem 1.5rem 1.8rem; }
+      .auto-list li { grid-template-columns: 2.6rem 1fr; font-size: 1.02rem; }
     }
   </style>
 </head>
@@ -85,10 +176,12 @@
 
   <header class="me-hero">
     <div class="container">
-      <div class="avatar">NP</div>
-      <p class="kicker">Freelancer · Prodaja</p>
+      <div class="me-meta">
+        <div class="avatar">NP</div>
+        <p class="kicker">Freelancer · Prodaja</p>
+      </div>
       <h1>Nemanja Pantović</h1>
-      <ul class="traits">
+      <ul class="traits" aria-label="Tri reči koje me opisuju">
         <li>Precizan</li>
         <li>Sistematičan</li>
         <li>Fleksibilan</li>
@@ -98,22 +191,29 @@
 
   <section style="padding:0">
     <div class="container">
-      <div class="me-row">
-        <h2>O meni</h2>
-        <p>Ja sam Nemanja Pantović i radim kao freelancer u prodaji. U svaki posao unosim preciznost i sistem, a ostajem fleksibilan kad se okolnosti promene. Na AI radionici učim kako da deo svog posla prepustim AI agentima.</p>
-      </div>
+      <div class="bento">
+        <article class="tile tile-about reveal">
+          <h2>O meni</h2>
+          <p>Radim kao freelancer u prodaji. U svaki posao unosim preciznost i sistem, a ostajem fleksibilan kad se okolnosti promene.</p>
+        </article>
 
-      <div class="me-row">
-        <h2>Šta želim da automatizujem</h2>
-        <ul>
-          <li>Obrada prijava na edukaciju</li>
-          <li>Slanje instrukcija za plaćanje</li>
-          <li>Slanje uplatnica sa QR kodom kao podsetnik za plaćanje</li>
-        </ul>
+        <article class="tile tile-now reveal">
+          <h2>Trenutno</h2>
+          <span class="status">Na AI radionici u Beogradu</span>
+          <p>Učim kako da deo svog posla prepustim AI agentima.</p>
+        </article>
+
+        <article class="tile tile-auto reveal">
+          <h2>Šta želim da automatizujem</h2>
+          <ol class="auto-list">
+            <li>Obrada prijava na edukaciju</li>
+            <li>Slanje instrukcija za plaćanje</li>
+            <li>Slanje uplatnica sa QR kodom kao podsetnik za plaćanje</li>
+          </ol>
+        </article>
       </div>
     </div>
   </section>
-
   <!-- ================= STARTNI PROMPTOVI ================= -->
   <section id="promptovi" style="padding-top:2rem">
     <div class="container">
