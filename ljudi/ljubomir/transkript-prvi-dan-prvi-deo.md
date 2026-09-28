@@ -1,0 +1,523 @@
+# AI Automatizacije \[prvi dan / prvi deo\] - September 26
+[**VIEW RECORDING - 175 mins (No highlights)**](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs)
+[@23:47](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1427.55) - **Jovan Miljevic**
+Razumiješ mi, znači ti možeš da unutar projekta imaš chatove, znači možeš on zoveš projekat je AI-radionica, ko mi još treba?
+[@24:02](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1442.73) - **Ivan Bildi**
+Da, vidiš sad on tebi radi lokalno, vidiš, ok, trust holder, e-radionica, lokalno, master, ti si već nagačan na GitHub, znači već činuš pristup master branch-u, šta to znači?
+[@24:21](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1461.39) - **Jovan Miljevic**
+On radi da nanašnije master branch-u, tu mu je sve online, što ti radiš iz mene, on će tebi storovati lokalno na toj lokalni.
+Tako je, tako je. Znači sad ti imaš programera u svom računaru koji može da ti...
+[@24:39](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1479.89) - **Ivan Bildi**
+običak plod, vidiš ovdje, ti ga ovdje sliču svašti. A, dači on niste dalje da mu sad zajem.
+[@24:45](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1485.37) - **Jovan Miljevic**
+Može da mu kažeš idemo dalje, da. Tako, samo da imam, znači lokal, na oporučno...
+[@24:51](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1491.25) - **Ivan Bildi**
+Ovaj prompt, možeš da ga pročitaš. Da, da, pročitaćeš ga i vidjet ćeš kako su njemu dati instrukcije. Tako je, i check point, znači neće on sad uzeti da drlja sam, nego između svakog koraka, on te je pitao da trenujemo sljedeći korak ili ne.
+Znači, ono... Neko još zvao. Zoran je zvao, ne mogu zapamtiti imenu.
+[@25:18](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1518.23) - **Jovan Miljevic**
+Ti si na... Ne, ne, ne, ne, ne. Na klodu. Dobro. Še si ti radio od projekata nešto? Pa su zašto...
+... ... ... ... ... Jena i ten, nisi uopšte radija. Jel si probao u GPT-u ili nekom da napraviš automatizaciju, pa samo da je import testa.
+Da, mi nju ne čujemo, zašto je mutirano. To je ono prvi korak, tako da pravim sve automatizacije. Ej, Ira, sad ti čujemo.
+Dobro dan, dobri jutro, dobrodošli na radionicu.
+[@25:57](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1557.57) - **Piercings Works Ai**
+Mi smo otprveni mali intro, i po ovaj... Dobro jutro, ustelo, evo ste ok. Ira, samo, ajde tebe da pitamo, kod chat GPT imaš pri sebi otvorene...
+[@26:13](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1573.95) - **Jovan Miljevic**
+Bilo malo, treba i dediti, ti samo treba aksesa da stediš. Znači API key, ovo ono, ali doći ćemo to.
+Ira, pitanje je samo, da li imaš otvoreno do sebe, da... kod chat gbt, znači kao u aplikaciju, ne u browseru.
+Imam se otvorim, imam se otvorim, dobro.
+[@26:50](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1610.53) - **Piercings Works Ai**
+E, dobar dan.
+[@26:55](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1615.14) - **Jovan Miljevic**
+Dobar dan.
+[@26:57](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1617.06) - **Piercings Works Ai**
+I ovo ćete se stavljati kada ti nešto radiš, vam ću da u vas, tu si mu sve dao, i ređiš mu dao sam ti akciju i instaliraj WinGet, bukvalno mu tako reći.
+[@27:09](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1629.34) - **Jovan Miljevic**
+Dobro, mi sad, pošto ste vi online i malo, kako se zove, ovo će vam biti malo teže da vas, što se kaže, upojemo, da li ste primili u ovaj Slack channel, da li vidite ovaj Slack channel, da li vidite?
+[@27:25](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1645.16) - **Piercings Works Ai**
+Podobili se koze mi je.
+[@27:28](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1648.72) - **Jovan Miljevic**
+Pa reći će je mi je dobro. No, što je, neki nevi spriči dosti.
+[@27:34](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1654.37) - **Piercings Works Ai**
+Та, че поможем? Ти? Ти?
+[@27:39](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1659.23) - **Jovan Miljevic**
+Ти? Ти?
+[@27:40](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1660.71) - **Piercings Works Ai**
+Ухе, трик?
+[@27:43](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1663.21) - **Jovan Miljevic**
+Ага. Ти?
+[@27:47](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1667.77) - **Piercings Works Ai**
+Ти? Ти?
+[@27:53](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1673.83) - **Jovan Miljevic**
+Той, привы, кронти.
+[@27:55](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1675.69) - **Piercings Works Ai**
+Того уже водя да не се заболювали суши.
+[@27:57](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1677.85) - **Jovan Miljevic**
+А може не уж? А, може и не.
+[@28:04](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1684.37) - **Piercings Works Ai**
+Vesno ješno ješno. O ja, se nešno ješno. O se nešno ješno ješno. ja, nešno ješno ješno. Kujemars. Vigbara ješno.
+[@28:36](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1716.33) - **Jovan Miljevic**
+Ira, pitanje, da li ste ušli u ovaj Slack kanal, znači vi kod vas na vašem YouTube-u?
+[@28:42](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1722.85) - **Piercings Works Ai**
+Ulav si, ulav si, Nisam ti ja pozvao na staji, nisam ti, nema vezu. Po šaljenu na Slack, ja ću ti poslati...
+[@29:01](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1741.25) - **Jovan Miljevic**
+Znači, jes se ulogovao u GitHub? Ja sam sretav uz...
+[@29:17](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1757.06) - **Piercings Works Ai**
+Ti nisi još...
+[@29:18](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1758.64) - **Jovan Miljevic**
+Nisi ime li te pitao on? Pa tu bih posao da... ... ...
+[@29:31](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1771.35) - **Piercings Works Ai**
+... ... ...
+[@29:41](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1781.99) - **Jovan Miljevic**
+Da, da, kako ti idem mail, reći ti ovo.
+[@29:46](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1786.33) - **Piercings Works Ai**
+Evo, je to, to je to. Evo, dobro, ušao si. Okej, ušao sam.
+[@30:02](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1802.87) - **Jovan Miljevic**
+Odlično. Što mu Ivane, ja da znam, znači, ja se, da li se ja mutiraš u Google mitu ili ne?
+[@30:11](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1811.33) - **Piercings Works Ai**
+Pa tvoje ime. Znači, ne mutiram se, okej.
+[@30:16](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1816.89) - **Jovan Miljevic**
+A kako ovde, ovde hoće samo da mutiram, neće da... Tu nema nigde svoje ime, ja.
+[@30:26](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1826.89) - **Piercings Works Ai**
+Znači, jašak priča, otvoreni Google mitu, nisam mutirani na Google mitu, a nisam na Google mitu. Znači. Znači. Vi se da pristupate za zajedničkom projektu na GitHubu.
+[@30:41](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1841.08) - **Jovan Miljevic**
+Ovo što ste sad sve radili, da pristupate za zajedničkom projektu na GitHubu, gde će svak od vas imati stranicu, ako odete na onaj website, ajde li na prvi website?
+[@31:03](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1863.76) - **Piercings Works Ai**
+Ima tu zadatak, sekcija, gore ti je bukvalno.
+[@31:15](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=1875.68) - **Jovan Miljevic**
+Pa ćete tu pročitati, u suštini radiš s agentom, to ste već počeli. Učiš git stok rada, znači naučit ćete kako da povučete sa GitHub-a kod, kod vas lokalno na kompjuteru, da vaš agent može raditi na tom kod.
+Kada vi i agent završite posao, vi to gurate nazad na github i to će biti live. Moći ćemo da vidimo svaču stranu ko je šta izmenio od vas na vašoj ličnoj strani na ovom projektu.
+Tako da, ne znam do koliko ste koraka svi stigli, ali ja mislim da je dobro idemo. Kako? Gdje si poslao za Access, izvini.
+Aha, on je, da. Možeš ovdje, samo ti pokaži, možeš ovako komand ovo, može terminal ovdje, se otvori direkt i kontrol i ova je mislim.
+Dobro gdje je komand i ovo. Hvala. Hvala. Hvala. Da, znači sve se spremni. I onda pročitajte prompt da vidite šta je on zapravo uradio, jer možete njemu baciti bilo koji zadatak on će izvršiti, ali ovako ćete znati šta je on radio sve za vas.
+Ovo je poslednji, prvi. Prvi, prvi, da, da. I tamo vidite strukturu prompta, kako je to napisano, da budući, znate, da lepo opišete agentu da on je napravljen jednu grešku.
+Samo koji hvala je da izgledajem za. Koji je tvoj mail bio? Ovo je Ljubomir, svoj. A, da, da. Ne, prosim, sad ću ja...
+A, šta, sad? Invite, pošaljina... Sad ću ja to. Pa tek imam ja tvoj email, samo ne... Uđi na git na mom laptopu i pozove.
+Da, sam itvo želi folder i... Da, tvoje ime, mail. Ne znam koji mi je e-mail. Pa, Marija, ali vidiš šta ti ponudio?
+Marija Babić. Dobra. To je tvoj folder, znači ti treba sebe pronadniš tu. Zakopiram ovo? Da, samo kažeš to. Ma da već si mu napisala, tako čim ne znam.
+E-mail, ne znam na kom sam. Da da proverem? Dobar je, dobar ti je taj e-mail. Čećem si ja.
+[@34:01](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=2041.4) - **Piercings Works Ai**
+Ti, Đorđe, koristiš drugi neki e-mail, ili?
+[@34:04](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=2044.36) - **Jovan Miljevic**
+Ovaj e-mail da koristimo za sve. Ne znam ovom. Na to nešto posto, svećam si ja. Samo za GitHub. E, sad vam podešava, znači...
+Github za tebe. Jesi poslavi imajci? Kome? Đorđu za Github? Da. Evo sad, ovdje ću. Sad upravo to želim da radi.
+E, ali... Đorđe, samo mi je reći... Posle je tebi privatno, pošalju imenije, imenije je na DM posle. Idem sad?
+Da. Idem pravo da nešto završim? Izaberi github. Izabrši prijevu prvi daču. Kaži mu pokreni ti za mene, jer on sad tebe tera ti da ukućaš komandu, a ti neće da ukućaš komandu, hoćeš onda ti ukuća komandu.
+Bez srti se ti ime. Kudi što može, ima pristup. Da, da, ima pristup, evo on će sad uradi i neku komandu ovde koju je on tebe terao da ti ručno umeš.
+Tako da, ne znam ko voli gleda streamove, ovo ono, ovi agenti su odlični da nađu stream i da ti puste ako neki sportak.
+VLT ti otvori učita stream, bukvalno imate hakera na kompjuteru. Može te malim te pustiti na slag, evo ja sam tu Dao mi je gore, ja sam te podruh ucao i onda me vodio na lobinu stranicu da autorizujem Ja sam kliknuo traz i onda me tražem Ajde, ajde saži, ajde ponovo Poslimajte Ja čekam još posled da me pustite Aha, ja nisam ih gleda, ja samo kopiram Ja samo kopiram Gmail.com, el tako?
+Da, še ja to durim Znači njega samo za GitHub, ovaj ostali ti, ovaj drugi, sve, ok Sad ćemo da imam
+Kome? Vama. Dobro, ovo smo već prošli. Ajde samo da dam vama isto jedan guide što se tiče šta je ciljeve, to sam vam dobro rekao.
+Kako da dobijete maksimum iz svega ovoga, zato kao što vidite, 15 minuta se setapujem što je normalno. Uvijek postavite pitanja kada god nešto nije jasno, ali da to pitanje ne bude ovo pitanje.
+Gdje je generalno AI ostao, znači postavite pitanje vezano, jer nas mi odemo na meetup i onda se piti ljudi pitaju da li je AI štetan za planetu, znači samo da budemo fokusirani na radionicu.
+Znači kad god nešto nije jasno, postavite pitanje i ovo treći, znači Slack je aktivan sve vreme. Ukoliko misli da je nešto opširno, ćemo malo ući u Radio Build, vi to...
+Pa istujete u kanal, imam pitanje za ovo, ovo i ovo, znači zbog toga služi kanal, jako je bitno da rad posle radionice, znači korišćenje suporta i Slack između dve radionice, znači zašto imamo sledeći termin 10.
+oktobra, to je jako važno, znači vi ćete u suštini veći outcome, svega, mislim, outcome će biti mnogo veći tako što ćete kada dođete kući sutra, preko sutra u poneljak, nastaviti ovde, radite da implementirate i u Slacku da, kako se zove, pitate za suport i ostale stvari.
+I ono što je jako važno, zato ste svi ovde, vas je ovde osmaro devetoro, znači rad sa ostalim učesnicima, zato ste ovde, znači zajedno imate, ajde da kažem, možda nemate iste projekte ili ambicije, ali, kako se zove, možete radite zajedno, ajde da upoznamo sve vas, znači dolazite iz različitih sfera, Nemanja pokreće svoj biznis, Ljubomir želi...
+I da pivotira u karijeri, znači da nere i trenutni posao nego da, kako se zove, nauči je ja i da može da radi nešto drugo.
+Đorđe je vlasnik agencije, Pavle je isto vlasnik agencije, Bojan je zaposle sam u firmi, to jest ima svoj proizvod, Marija je vlasnik agencije, Nenad je vlasnik agencije i Zoran je preduzetnik ili nešto drugo je napisao.
+Tako da čisto da znate šta je u slušini stvar, postoje nekih šest nivoa korišćenja AI tehnologije, sada vas, kako se zove, ne da vam previše, to je ono zašto ste ovde, znači ne želite da pišete prompt ručno i da nastavljate, ali tako i da popirate, pastujte, jer to je već ono kao podrazumevano korišćenje AI tehnologije.
+Drugi nivo jeste da vi imate isto taj neki za vaš čet, ali da imate nabildanu, nabiflanu gomilu tih skilova, da vaš AI agencije ili AI chat radi po tim skiloima, što je opet negde, aj da kažem,
+neki bazični nivo. Treća stvar to je ono sad što radimo, jeste da mi želimo da vas puštamo, se AI konektuje sa vašim alatima i onda da imate AI agente koji mogu da radite više taskova paralelno i da gradite sopstvenu infrastrukturu.
+I kao što vidite, 10% ljudi bukvalno danas radi ovo što mi radimo ovde. Znači 90% ljudi je dalje zakucano u ovom segmentu, ajde kažemo u ova prva tri, kako se zove segmenta.
+E sad to sam teo da pitam, čak možda negdje između prvog i drugog, jer evo mi sad konektujemo praktično AI sa vašim toolom, tako da to je isto neko, može neko da mi kaže ovako kako sebe ocenjuju u kom je segmentu pojedinačno 3 i 4, ok, pojedin između 2 i 3, dobro, trojka između 3 i 4, jel' tako?
+2 i 3, dobro, ja. Dvojka, dobro, 3, ok, između 3 i 4, ok, Đorđe, 3 i 4, 3 i 4, Dušane, isto između 3 i 4, dobro, to je super, kako se zove, svi su tu negde na jakoj trojici, pa kažem.
+će raditi, to jeste, to u suštini jeste cela logika, ajde imate neko fundamentalno razumevanje, Ovo sad što mi radimo sve opet setup, ali mi ćemo sada doći moment da gradimo automatizacije i agente, ok?
+Znači, postoji neka mala razlika među automatizacije i agenta, mada manje više, to je sve isto. Što se tiče automatizacija, znači, prvo da onako vi razumete kad strukturirate u vašoj glavi, znači imate neku workflow automatizaciju, to je nešto što se dešava u workflow, tipa workflow automatizacije, proces je definišao od početka do kraja.
+Ja uvek svaki dan otvaram e-mailove. Znači kao ne, to radiš uvek svaki dan. E-automatizacija znači da se u tom workflowu u stvari mogu da se menjaju.
+Znači ja otvaram e-mailove, ali ne odgovoram na sve i neko mora da odluči na koji ću e-mail ja da odgovorim, a na koji neću da odgovorim.
+I onda vi izvolite, Stefane, ti dok ja prečam. I imate naravno i agentic system, a to je u fazonu Stefanje na tom nekom nivou, ja nisam.
+To je da, ono kao u fazonu. Niti gledam određene mailove, niti to nešto radim, to se izvršava, kako se zove, izvršava samo to.
+To opet kažem, imamo nešto što je e-automatizacija, nešto što je e-ai agent i to ćete da malo bolje razumete.
+Ajde, da ga kažem, imamo građenje e-automatizacije, mi uglavnom koristimo za e-automatizaciju NA10. Znači da, kako se zove NA10, izvršava te automatizacije.
+E-automatizacije je ono što je... ... Bitno je, razumete, fundamentalno da je to su trigger logika, akcije i memorija, to je ono razum zašto mi sada stavljamo sve na vaš lokal kompjuter i ja sad krećem od nazad od memorija.
+Zašto se nešto radi na lokalu, zašto se nešto radi na git branču i zašto postoji onaj notion knowledge base, zato što je to zakucana memorija toga svega.
+I onda vi uvek kad se vratite posle godinu dana, vaša automatizacija ili agent će znati, znači nećete imati onaj moment kao on je zaboravio halucinacija i ostalo, zato što i kada često je šta je AIM, on praktično, da bi taj LLM software te kompanije redusovali token spend, oni moraju da krešu memoriju jer ono podaci se gomilaju, zakteva i što je.
+Ali imate trigger, znači trigger je kako se zove kako automatizacija počinja, to je to. Moraš da verifikuješ kako mail, da ćeš ti mail i to je to.
+Sada, kada to verifikuješ, tvoj kodeks ima istup na githubu, što znači da šta god radi što Ja ću vam dati ovaj malo teorijski deo da vi u vašoj glavi možete da upoznate terminologiju, upravo ovo što pita Pavle, ja se izvinjavam, zapamtit ću svače imene, nego i mi puno pričamo, postojemo onda puno različitih ljudi.
+To je to razlog, ja se malo uvedem da vi u glavi, iako Menad ima dobro razumevanje, Bojan također, ali moramo zbog ostalih učesnika.
+Ok, imamo trigger kada se ono dešava, neka automatizacija ili ajga, znači kada on počinje nešto da radi, mora nešto ili da se dogodi u sistemu, ili mi moramo da mu kažemo, ili on radi to svakog jutra u devet uju.
+Logiko je li tako, to je sve ono unutra, to je jako važno kada pravite nešto da dobro napravite tu logiku, napisamo kako on to radi, upravo zbog toga da nešto ne napravite, pa on ne radi po logici po kojoj treba da radi.
+kako nešto izvršaju, i memorija kako nešto pamet. Ovde je sad malo to detaljnije, znači trigger, ok, mora da se pokrene, node, to je sad stvar, šta je node?
+Stefane, objasni ljudima šta je node. Node je korak u cijeloj automatizaciji, tako ga zovemo. Sad taj node može da bude ili neki kod snippet, webhook, može da bude AI agent, znači node je bukvalno onaj, jedna ta node, ne znam drugu reč, node koji prevučeš u automatizaciju, ili imaš neku sliku?
+Evo, čak te da vas. E, node je svaka od ovih ikonice što vidite, znači sad jedan node može da bude integracija sa Google Sheetom, i taj node povlači sve...
+Podatke iz tog Google Sheeta. Sledeći node može da bude AI agent koji čita taj sheet i izvršava nešto dalje.
+Pa onda četvrti node može da bude Edit node u kome držite variable tipa podatke koje vam trebaju da izvršite tu automatizaciju kao što su pošalji mail u pet sati.
+Tih pet sati će biti variabla koju možete da menjate, da ne morate celu automatizaciju nego samo taj Edit node.
+Uglavnom sve su to node-ovi što vidite i to je node u suštini. Da, sad imamo dobro. Znači MCP, to je Model Context Protocol, to predpostavljam da znate.
+Kroz to ćemo prolaziti. U suštini najbaziče neki MCP je da vi vaš clod, chatGBT u konektor sekciji i konektujete sa što više toolova.
+Malo neka naprednija varijanta zašto što se tiče MCP-a ili cross-konektovanja vaših e-automatizacije agenta sa vašim tool stackom jeste kompozio, jer preko kompozija vi možete praktično da autorizujete akses na vaše ostale toolove sa kojima radite sa vašom e-automatizacijom ili agentom, tako da ne morate da odete, kopirate taj MCP pa pastujete u...
+Da, evo samo ja se ubacim, sada ste svi autorizovali github ručno, znači sa agentom to je malo bilo poteškoća kod svih, zato koristite ovako tool kao kompozio gde vi dođete ovde i ručno, evo Jovane, ide google sheet connectui ispod githuba.
+google sheet, ja ću bukvalno sad samo da... On će tebe samo da pita neke osnovne podatke i ti će Mas ti možemo daš daš mo ti permisiar.
+... ... i autorizuješ samo, a pošto vaš agent već ima autorizaciju sa ovim kompozijom, kompozij je u suštini hub za sve vaše konekcije i vi sad tu možete konektujete u par klikova Google Sheet i sada će Jovanov agent već ima akses Google Sheetu.
+Znači ne gubite vreme kao ovdje što smo radili u GitHubu da morate... Sada će joj pitan je li imaš...
+Tako je. A kompozija može samo tu ovi koji su tu već ili nešto može da se poveže... Možeš, znači, šta je stvar imaš custom MCP, ovo što vidiš ovde.
+Znači ti možeš praktično da napraviš custom taj tool, ne znam, ovo je se para ili šta god, napraviš ga preko kompozija, jel tako Stefane, i onda...
+Moje cijeli danački dat se vrti oko ERPA i oko povezivanja nekog ERPA i zlačenje nekih podataka i kroz AI Mozart...
+Tako da mene tu interesuje, a ja se upravozem, da smo kroz to napravili integraciju. Tako je, tako je. Može, kroz to ili kroz DNA10 ili direktno kroz agenta.
+Pojenta je, agenti su dovoljno pametni sada, vi njima samo treba kažete šta je vaš cilj i odakle da izvlači datu i na koji način.
+Sad ćete se upoznati sa načinima auktorizacija. Da, kad smo još malo kod MCP, a evo da samo malo približim ljudima, znači vi u vašem clodu, chatGBT-u imate, uđete u settings, imate connectors, evo ga, uvek menjaju ove, gdje šta.
+Imate connectors i kao što vidite ovde, znači vi možete, vi imate, kako da kažem, library ili datoteku clodovih i chatGBT-evih konektora, ali stvar je što clod ne razvija iste integracije native.
+jedan integracije kao chat GBT. To je razlog zašto vi onda, ja sad izvinijem što svičamo, uliko koristite kompoziju, da jednostavno možete to sve da centralizujete.
+Sad zamislite, koristite, na primjer, ja ovde koristim chat GBT, ja koristim CLOD, ja koristim Ion Svog, ovo što vidite ovde je moj Hermes agent.
+Ja sve to treba da konektujem na iste toolove. Znate koliko bi meni vremena trebao da ja sad donem Hermes, i ja sve to praktično radim kroz kompoziju, razumete me.
+Znači vi sad ako nekod vas će vremena koristiti chat GBT, CLOD, i kao ja, i Hermes, i ne znam, i šta god oćeš.
+I sad ja umjesto da idem, da klikćem, da svaki put odem ovako, klikni ovde, settings, connectors, jesu i ovde connectors ili plugins, kako se zove?
+jesu plugins, ili tako je? Da, se dobro zove tu. Da, kako se zove. Eto, u suštini kompozio vam služi tome, znači vi samo centralizujete, kao da centralizujete cijel taj, kako se zove, connection stvar preko kompozija na sve tulove koje vi koristite.
+Šta je isto jako bitna stvar, ajde sad, zbog ljudi koji su tu na nekom osnovnom nivou, jeste da kako vi, a ja kažem, ako ne koristite kompoziju, ako iz nekog razloga nećete da koriste kompoziju, ali bilo bi dobro da ga koristite, jeste da vi možete da pretražujete datoteku postojećih jedan na jedan integracija u SoundCloud-u.
+Ali može da se desiti da, na primjer, neki software, na primjer, ja za email outreach koristim, za email outreach koristim, znam, Go High Level, na primjer, ili koristim neki tool koji nema u njihovoj datoteci.
+Ako vidim da on nema šta ja radim, ja gledam da li taj tool ima svoj MCP. Naprimjer, odem i kucam ime Toola, Snow, IO, MCP.
+I vidim kako se zove, da oni imaju njihov MCP, znači da imaju njihov MCP konekciju I to znači da oni negde verovatno imaju URL sa MCP konekcijom.
+Uglavnom, taj URL se zastoji iz njihovog MCP po domena, uglavnom je ovako, pa ime Toola, znači da li on ime Toola Paira, slash MCP.
+I jednostavno, ja odem ovde i kažem add MCP, tj. MCP server, nego... A ovo je plugin, ajde na clock code mi je lakše.
+Eda Custom Connector, da mu ime, kažemo MCP se zove, ne znam, taj Tool, ne znam, Tool koji nema u Marketplace.
+Koji što ti je, da. I kako se zove... Autorizujem ga, odem continue, on će pronaći, dobro ovde već postoji, on će pronaći da to postoji negde ta MCP konekcija i dalje će vas vezati.
+Znači to je ono, ajde da kažem, imate tri načina kako možete da konektujete način. Znači u vašem klod kodu, u vašem change gbq, ta neitim integracija sa toolima koje koriste već postoji.
+I to će uvijek biti za Google Docs, Sheets, blablabla, ali bit će tool koji ne postoji. Ako taj tool ne postoji, onda vi, kako se zove, pretražite da li taj tool ima svoju otvorenu MCP konekciju, i idete custom da ga uvacujete, ili ono što smo rekli, najbolja solucija za centralizaciju jeste, sad se ja opet svičujem, jeste da vi samo otvorite vaš kompozio nalog i da sve praktično radite preko kompozije, jer i kompozio ima end custom MCP kao...
+Tako da eto to je neki bazični setup, kao što vidite ovde na primer moj github, nisam radio ovako kao što je Stefan vama pokazao, nego sam ga ja preko kompozija i onda ja samo uđem u moj chat I chat i kako se zove i on meni je ovite, ovo su sve preko kompozija mi je povukao sve repozitorije bremčeve gde ja kako se zove imam access Tako da eto to je jedna stvar, kasnije, idemo malo nazad, MCP je najmoderniji model ili cross-connectovanja tool-a, pre toga je bio API pa onda webhook-ovi, ali su i API-evi webhook-ovi dalje bitni pa ćemo da pričamo dalje i o kako da...
+Siguran kanal nekog sajta, bilo čega, da komunicira s druh stvarima, a da niste... Da, API protokol, kako kažem, nije napravljen za AI modele i ostalo, znači MCP je kao API na steroidima za AI modele.
+Eto, to je. Dobro. Dobro. Ono što se nalazi u tiketu kao običan tekst i medical ništa ne znači, jer dizajneri...
+Svi živi, treba im mock-up, treba im ovo, treba im ovo, te slike ne dolaze do AI. Znači, onda šta sam ja radio, koristio sam to od Plotin Chrome, ona esenzija.
+Da se on uloguje... U diru, da... dodaju do tog piketa... Znači, dosta je spor proces da bih pročitu i tek onda sva...
+ali šta posledi i što je ekonomi te koje odpozdu i onda da ne napozi. Ne znam da li postoje ocena, nešto da se dobiđe u poru ili poru...
+Ali to je vrlo ta limitacija njihovog API-a. To je... Da, to ti, ako imaš najspecifičan problem, odlično je pitanje, to je da ga ubaciš u backflow ili u Slack group, ali i to ću raspravati.
+Sada sprovodimo, ako ti isto kroz neku, kroz terminologiju. E, sad opet se vraćamo, aj da kažem, konekcija, aj da kažemo, pričamo, pošto ste svi, jel tako, ovdje negdje, tj.
+kako se konektuje sa alatima i ostalo. Jako bitna stvar jeste, aj da kažem, taj knowledge base, knowledge database. To je razlog zašto vi storujete stvari sad na vašem laptopu, zašto postoji GitHub i zašto postoji ovaj notion...
+Izvinjujem se... Ovaj notion dokument... To će biti, ajde da kažem, neki naš, kako da kažem, ovo što vidite ovde je rag.
+Samo trenutak, ja više ne znam, da. To će biti taj naš, ovo me nervira, samo trenutak. To će biti neki naš, ajde da kažem, rag.
+Šta to znači? To znači da je sve bitno od podaktaka centralizovanu u jednom mestu. To je značajna razlika između, naprimjer, sada nas desetoro radimo.
+Vi imate neki svoj kontekst ubačen u vaš čet. Evo vidite, ja ovde četujem sa, kako se zove, neksja radionicom.
+Šta da radim dalje i ostalo. Onda Stefan ima nešto drugo, ovo ima nešto treće. Sve se to nalazi, je li tako, ban komunikacije između nas.
+Razlog zašto smo mi napravili ovaj notion database, zašto postoje... to i kako se zove GitHub, jeste da mi jednostavno dobijemo našu bazu znanja za radionicu, da bi smo mogli lakše da radimo i sarađujemo zajedno, a i opet naši e-agenti imaće sličan kontekst šta je rađeno na radionici i čemu je radionica.
+Naprimjer, kada Dušan pita šta se je radio na radionici i tako dalje, znaće njegov agent slično ili isto kao i moj, what is all about, o čemu je radionica i tako dalje.
+I ono što je jako bitno, ovo što vidite ovde, ovaj sastanak se sada snima, ovo je moj note taker koji snima sve o što mi pričamo, tako da će i on sve o što budemo prešli, znači prolazi ili će biti ubačeno u wiki database i nekako struktuirano da može da se pristupi na GitHubu i onda ćemo znati šta smo radili.
+To znači da vi nećete morati da pišete svom četu jedna radionica, Radionici smo radili ovo i ovo, samo reći, e daj mi, bukvalo mu kažeš, e daj mi, ne znam, šta da pitam Jovana za moj problem koji imam oko toga, to je to, nema kako se zove, jer će on vama sada pristupiti svim mojim podacima koje smo radili.
+Tako da, čisto kada je retrieval argument regeneration, to znači da će AI, zašto je AI koristi generalno znanje, kad kažu je AI glup, nije AI glup, nego ga ti koristiš tako da on koristi generalno znanje, pa on vidi 30 primera i dati neki blend toga, ali on neće biti glup zato što će on sada pristupiti na štem unique znanju koje je zatvoreno u okruženju i on će upariti sa generalnim znanjem, jer neko je možda okračio online 50 ovakvih radionica gdje šeruo neke brutalne insajte i onda će on nam reći, e, vaša radionica je išla ovako, ali video sam preko deep researcha.
+da su ovi radili to tako i tako i onda će nama dati insavite kako da mi bolje menadžujemo ili da bolje, kako se zove, strukturiramo našu radionicu.
+Sada oko ovoga neću da vas, kako se zove, previše, to ćemo na drugom danu. Ono što treba da razumete jeste da nije svaka automatizacija ili svaki agent iste kompleksnosti.
+To je jako važno. Znači imaju, mislimo to naravno zbog našeg olakšanja rada sa klijentima, podelili neka tri nivoa, tijeri 1, 2, 3, kako funkcioniše.
+Znači da znamo da li agent želi, da li klijent želi nešto simple kao što je workflow automatizacija, da li želi nešto što je onako kompleksno koje je automatizacija ili da li dolazi kod nas pravi AI agentic system.
+I otprilike po kompleksnosti ovoga možete vidjeti kako su automatizacije kompleksne. Ono što je jako važno i što će biti naš core focus jeste, uvijek idem na ovaj preview, jeste građenje samog AI agenta.
+Znači tohono infrastrukture. ko rade agent živi, ko LLM modele koristi, koji softver i tool stack ima akses i u kom softver i tool stacku radi i koji je agent framework koristimo, plot, kod, kodex, hermes i tako dalje.
+Zašto većina ljudi, to je upravo ono stvar, oni gledaju oko koje je agent frameworka, a ne gledaju kako ima akses na toolove, kaka je infrastruktura i ostalo i onda ti praktično, ok, cepaš plot koda, ali kao šta on radi, mislim kao šta on zapravo radi i onda upravo kao i vi udarite u neku, on vam napravi na primjer frontend design ili nešto, ali sad treba da dođe do neke ozbiljne funkcionalnosti i onda tu udarite u zid.
+Tako da nije samo stvar ko ko je koristite dobar LLM model i koji je agent framework koristite, nego kako ste vi to povezali sa ostalim toolovima i kaka je cijela ta infrastruktura gdje živi.
+Tako da mi ćemo se, kao što vidite već odakle smo počeli, bavimo se ovim kvadrantom, tj. sa ova dva kvadranta sa leve strane.
+Čisto, ovo ćemo baš da protrčimo, run time, to je motor agenta, znači praktično to je ono, znači kako ste vi set upovi namistili vašeg agenta, znači dali ste mu github repozitor i on je na vašem kompjuteru, tako ranuje, znači on je onda imao mogućnost da planira, poziva alate, pamti itd.
+Šta to znači? To znači ovaj moj Hermes agent, kog ne mogu vam nađen jer su tu float codec i svi ostali, on je praktično na mom kompjuteru, on je preko kompozija povezan sa svima alatima, sa databazama itd.
+Ja njega mogu praktično da ga, aj ja kažem, upregnem da radi šta želi, ali ne moram da ga upređem, on takođe ima neke stvari ovdje što vidjeti koje je samostalno izvršao, tako da to je ona neka osnova.
+Druga stvar ovo što ste vidjeli, Stefan vam je, kopirali ste sistem prompt sada, znači on će prema tom sistem promptu koji ste mu vi inicijalno dali na infrastrukturi koju smo ga namestili.
+Praktično da radi, ok? Treća stvar jeste model i to je ona stvar, oni su zamenili. Stefan je danas rekao, opust je sada super, posle tri meseca četiri biti će izbaciti, ne znam, Astra...
+sad je opust, znači uopće nije model... Model je ono, kao i svakom biznisu, njima je važno da uvijek reklamiraju svoj model, Koji je jako on u stvari nije krucijalan uopšte oko izvršavanja nekog zadataka, zato što možete da ga menjete.
+Ono što je jako važno jeste da vi kada napravite nekog svog agenta, ovde kao što vidite ja na mojom Hermes agentu, Mogu da koristim Deep Seek, mogu da koristim CHGBT, mogu da koristim Atropikov model, imam još neke free modele i tako dalje, Znači, hoću da kažem da sam model nezavistan, znači da ne znam, pukne mi limit na klodu, kao ovde, Pukne mi limit na entropiku, izvinite, ja se prebacim na moj usage, kako se zove, jel tako?
+i vidim, ok, i sad samo kažem agentu, ok, puku ti je limit na chat GBT-u, prebacujem te ovdje, nastavim da radim, ne moram da odem da kuvam ručak ili da spavam, onda mi se resetujem odem.
+Memorija, već smo pričali, jako bitna stvar, znači tu je četvrta neka gradivna jedinica, znači on tu čuva sve, preferencije, pamti, znači bukvalno u memoriji radi se ovdje kao što vidite, memorija može da bude lokalni store, github, neki strukturirana baza podataka, također imate sad i toolove posebne ljudi koji razvijaju za memoriju, kao što su na primjer Cogni, Redis i tako dalje, to su vektorske data baze gde vi ne praktično outsourcujete, kao Dropbox, da ubacete PDF-ovi, tako i skills, to je opet jako važno, ali to nije više sad krucijalo, kao ne znam, do pre šest meseci, skills su bili ekstra, sad je to sastavna komponenta, u suštini, Stefan će sad da vam kaže kako skills su.
+Pa ne, skill vam je u sučtini ovaj prvi prompt sada što ste ubacili u vašeg agenta, znači skill je niz nekih zadataka koji agent treba da izvrši i tačno je opisano kojim tokom.
+Prvi je bio da proveri na kome ratunaru, drugi je bio da proveri šta vam instaliramo, treći je bio da krene s instalacijom, četvrti bio.
+E, to je skill, kad je lepo definisan ceo workflow, to se sada zove skill. I postoje mnogo dobri skill-ovi koji mogu da vam urade, na primer, teo projekat odjednom, na primer, hoćete neki sjajan website, mi imamo skill koji ima predefinisane sjajne ove dizajnerske paterne, teme, boje.
+Vi samo ubacite taj skill i kažete kakav website želite, on izbacuje website u udjelu. Ako je prompt bez veze, sajt će biti bez veze.
+Vidjeli ste ovde, ovaj prompt je radio za sve vam. i svi smo došli do cilja. Znači, jasno i lepo definisan skill.
+Znači, ako dobro razumem, ovo što su sad bilo u skilovima, to su praktično nodori. Da, da, tako je. suštini, NA10 se malo sada phase-outuje, na primer, u mom korišćenju.
+Ja sada kažem agentu šta želim i kada želim i on to sam radi. Znači, kažemo, danas u 8.00 u jutru, 12.00, 2.00, 5.00 i 10.00 želim da mi izlučeš najnovije AI vesti, da prepišeš to i da objaviš na mom sajtu.
+I on će to da radi. Pre si za to morao da praviš NIT na automatizaciju, sada bukvalno možeš svom agentu da kažeš.
+Da bih to radilo, vi svi imate sada lokalno instalirane klodove i Hermes. Mora da bude online 24.7, vi kad zaklopite kompjuter, on ne radi.
+Znači šta treba da uradite? Da nekog ili kloada, ili kodeksa, ili hermesa instalirate na nekom VPS-u, virtual private server, na klaudu, košta od prilike 10 dolara mesečno, ima raznih planova.
+I vi imate svog agenta koji je na klaudu i kom naravno morate dati model, subskripciju, koju imate već ili kodeks ili kload.
+i on može sada izvršavati za vas stvari dok vi spavate. U suprotno, vi ste morali držiti laptop na stop otvoren, ali to je to.
+I taj agent koji je na klaudu, on će vremenom da pravi skillove kako vi njega promptujete. Znači vi mu kažete ovo, hoću pet vesti svaki dan da mi izvučeš, najbitnije, on će napraviti five news skill.
+I imat će taj skill. I sljedeći put ako on najde neku grešku, on će da prepravi. Taj. E, ovaj sajt više ne valja, neću odavde vučem vesti, menjam ga s ovim i update-o je skill i sledeći put će biti kao na primjer ovaj skill sada što ste prvi prompt pastovali, tu može se izmeniti neki korak ukoliko smo bagovali negdje, a bagovali smo, video sam na githubu se bunio, znači to možete improvuje i tako dalje.
+Sada ja pokušavam da vide u real time-u kako sam agent bez mogu da mu kaže, evo radi to, on bukavu kroz čet istoriju, tako što vidiš, kaže, memory updated ili skills, što je s teba?
+Teba se neki skill da pokažeš, imaš tu skillove, ali u Hermesu, čemu si tu? Da, ja imam u Hermesu, baš imam, znači ovde sad, ajde da kažem, kako ja kažem, kao što vidite ovde, run Hermes NCP list, znači on je sam ranuo tu listu, isto kad ja idem kroz čet, znači on bukvalno...
+Skontak kroz sesije, da li da updateuje memoriju ili da improveuje skill, ne treba ja da mu kažem je sad to ubacio skill, napravi skill, znači on bukvalno logički sam povezuje šta da radi.
+Ako misliš ovo, ne ovoj ekip, ovo su skills ili tako? Ovo su default skillovi. Nisam povao naoče. Jeste, sad klikne na bilo koji skill i ideš edit i vidjet ćeš, na primer, o čemu je skill.
+Evo kako izgleda skill, slično nešto u onom prvom promptu što ste vi ukucali i to je sada md file.
+LLM-ovi obožavaju md, kao što imate pdf, docs i ostale, md, markdown, najprostiji mogući file. A ti brže... kada mu date md file nego kada mu date pdf, google doc, plain text i ostalo Gubi se u formatingu, trošite tokene, njemu treba više vremena, znači što prostije i što direktnije sa agentom Kao što vidite ovde kod mene, ja koliko imam skilova, vi bolje vidite 120 skilova ja imam, ja nijedan od ovih 120 skilova nisam ja napravio Nego je on sam praktično i iz nekog razloga zadovoljan sam Naprimjer ja sam u klod kodu sam pravio skilovi, onda sam u mom klodu bukvalno imam 5-6 skilova Koje sam kako se zove radio, ovde praktično, ovo su, mislim ja ne znam da li moguće, a sad ja prvi put je vidim ovo pred vama Ima, on ima out of the box, ima već skilova Ima puno, da, dobro, to je što se tiče skilova, idemo dalje da vas kako se zove Ima ponovjate
+da vas provedemo dalje, znači ovo su, aj da kažem, deset nekih gradivnih jedinica, ok, agenta, to smo sad prošli, tools, znači imate native integraciju, malo pre što sam rekao, bukvalno jedan na jedan, Klaud je napravio native integraciju sa project management nekim alatom, Girovom, kliknete, čao, ali možete raditi i kroz MCP, API i...
+Samo bi se dovezu tu na tools, znači agent je taj LLM model, ne znam sa kojim četujete, nisam gledao koje modele trošite, ali oni imaju tool calling sposobnost, šta je to?
+Da ne vraća samo tekstalni odgovor, nego može da iz lista koje tool ove ima, e aha, ja imam tool da brauzujem web, mogu da otvorim browser, Ja imam tool za terminal, mogu da kucam u terminalu, ja imam tool da pričam sa drugim agentom i to je jako bitna stvar kod tih toolova da...
+Da razumete šta je tool. Znači agent bez toolova ne može ništa, on vam je običan GPT koji će samo tekst da vam vraća.
+Znači tool je ovaj GitHub, da može se konektuje na GitHub i sve ove ostale autorizacije o čemu smo pričali, ali bez toga vi imate običan chatbot.
+Znači jednako je bitno da skapirate šta su tool-ovi i da namestite agenta da koristite tool-ovi. I stvari isto kod agenta jeste što on tool može da čita, povlači podatke koje imate u tool-u, ali može da radi i u samom tool-u.
+Šta to znači? To znači da mi, na primjer, sad nismo našeg agenta za CRM, naš menadžment alat, povezali smo ga na naš go high level, kako se zove, povezali smo ga na naš go high level i on praktično, kada želimo da uredimo neki CRM ili zvučemo podatak, znači on može da radi u go high levelu, a može i da čita podatak.
+i da nam daje nazad. Znači nije samo ono kao da čita podatke, kao i da nam daje report nazad.
+Tako da, to je što se tiče toolova. Imamo dalje kanali, to je sad opet stvar. Stvar je što kad imate opet tog vašeg agenta, vi možete da ga koristite na kanalu na kojem vi želite.
+Znači ne morate sad da downloadujete RGBT aplikaciju da imate na telefonu, vi možete, na primer, da ga uterate u Telegram ili u Slack kao mi što smo radili u Slacku.
+I kao što vidite, evo tuko taj agent, isti agent, sa istim kontekstom, isto memorijom, istim skillovima, mi ga koristimo u Telegramu, ali isto toga agenta, evo tako, sa isto memorijom, istim skillovima, mi ga koristimo i na Slacku.
+Tako da, ovdje ću vam kažem, kada ste na putu, ili šta gotovo je ceo, ili niste pri kompjuteru, vi možete da ga pokrenete i on može da izvrši zadatak izvrši zadatak.
+sad morate da otvorate laptop ili tako nešto. Tako da, opet kažem, možete da decentralizujete kanal kojim upravljate agentom. A dok se vam bih rekao da agent je dobra stvar ako radite s nekim timskem.
+Naprimjer, nas u timu ima deset i mi sad imamo jednog agenta koji ima akses za sve i svi mogu da ga pinguju.
+Znači sad ne moram ja da pravim deset aksesa kao za ovde vas, nego oni samo pinguju mog agenta koji završava sve to za njih.
+Znači, ali ako radite sami ovo što ste zamislili da radite ili na projektu na kom ste, onda su ovom Klod i GPT su sasvim dovoljni, ne morate ići u agentske priče.
+Kako sad ti kažeš svojom agentu šta drugi smeju da ti dire i šta ne? Dobro, pitanje. Odma postoji... Na tom agentu postoje boundaries ili kako god da se zove sad, uglavnom ti moraš da odobriš, niko ne može da pinguje tvog agenta ako ga ti nisi odobrio.
+I sve bukvalno kroz chat kažeš, neću te tuko da daš access peri na ovaj github, ali možeš na onaj.
+Tako funkcionišu sada stvari. Da, mislim opet to su stvari koje opet zahtevaju taj ljudski managment, naprimjer desa zove si u kompaniji, ne znam, ja sam sada zadužen za sve project manager ispod njena, da kažem project manager imaju access na ovo, ali designer ima access samo na figmu.
+Nema na klijentski ugovor i na klijentske, dok project management ima i na klijentski ugovor i na ovo, ali nema na ne znam ni ja šta.
+Tako da, to je opet stvar koju i dalje čovek mora da radi, tj. da definiše. Sad da to prišam u onom scenariju kada je više ljudi.
+ali opet kažem, vi radite individualno, što je Stefan rekao, vama je dovoljno CRGBT ili nešto, tj. CRGBT ili vaša aplikacija, ali opet i o ovome treba da razmišljate jer vam je cilj da se decentralizujete od sebe.
+I tako da, opet je to dobra stvar jer, dušan, 11 uveče, za 11 uveče treba mi jedan glupi google blog u kojem je nešto bitno, samo ću pitati agenta i on će to dati u sekundi.
+I imamo neke multi-agent stvari, daćem vam realan primjer iz realne prakse, znači mi na primjer imamo tog naša Tuko koji je master agent, ok?
+Ali taj Tuko može da kreira agenta koji je, kako se zove, koji je za klijenta. I ovde kao što možete vidjeti Natuko, mi imamo klijenta koga smo nazvali Natuko.
+Imamo agenta koji radi na klijentom websiteu, koga smo nazvali Natko, evo ga, kako se zove, evo. I mi smo napravili, šta smo radili klijentu, smo izbildali website, ok, dali smo website i sad klijent kao svaki klijent želi održavanje, želi da promeni headliner, želi da promeni broj telefona i ostalo.
+I kako je to izgledalo ranije, vi kako se zove, project manager u pošalji, napravi sada tas za svog website developera i onda project manager pravi sajt za website developer, onda website developer to uradi i onda mi jednostavno napravimo agenta koji ima akses, opet, website koji ima ograničeni akses i klijent samo uzme sam i kaže, e ti Natko, promeni mi broj telefona i ne samo to, napravim mi novi URL, napravim mi novi...
+Ali šli ste, ali smo li god posao klijenici u njima? Da, pa, da, da... Može, da, da, radi skriptu...
+U suštini Natko ima sve te skillove predestinisane, znači ti radiš na klijentovom websiteu, ovo je github na kome radiš, smeš što to i to, ne smeš što to i to.
+Odgovaraš samo DJ Duletu, on je tvoj gazda. Zbukavno tako, diplojujete agenta sa tim znanjem, on ga kasnije kroz konverzaciju builda, relationship i skillove.
+Ali opet ću se vratiti, to je nemoguće ako, opet da kažem, to je nemoguće raditi samo ovde, znači morate da imate infrastrukturu i dobro definisan tustek.
+I onda ćete doći praktično do nekog ovakvog outcome-a, znači i to je upravo ono što sad radimo na ovoj radionici, ja sad opet vraćam kontekst, ali čisto nije, ono, kao što, jer puno ljudi danas, ono, cloud kod, ja sam s cloud kodom, kao, znači kao, možeš dođeš samo sa cloud kodom do tog nivoa.
+Schedulim da neću... Zamaramo ljude ovde kad radi, ali i muštija koji imaju sefajne što... To može, dobra stvar je.
+Ja mislim da već imate u klodu i u kodeksu, imate da skedželujete task neki koji će kada raditi. Znači, to je opet isto samo predefinisan prompt, skill u napred, koji se pokreće tada kada ste mu zadali.
+U 9. uveče proveri moje mailove, napremi brief, za 9. ujutru mi odgovori, spremi mi agendu šta danas imam da radim.
+I na tome funkcioniš svi agenti i ti cronjabali, znači samo nešto zakazano u budućnosti. Ništa i na kraju imamo verifikaciju, mislim verifikujete agenta i ništa ljudi krećemo, idemo check up, znači dovoljan user na chat, cloud i tako dalje za današnju sesiju, svi imate jutro i niste ništa radili jutras.
+NITN, VPS, Git, Access, je li tako? Dobri smo vam, je li tako? Dobri smo. VPS imamo kroz automanski kroz ovaj To Stefano bolje zna Nismo još podijelili VPS Access, ali nešto ćemo izvajbovati pa ćete videti kako to u praksi izgleda da završite neke poslema brzimno kroz agent Pa ćete onda VPS, i to je to, ništa krećemo Stefane, your turn Pa sad bi bilo dobro da uradimo taj zadatak prvi Znači svi imate Hoćeš ti, Stefane, da ga preuzmiš Ti da preuzmiš ekran Sve ćete dobiti Sve dobiti Da, da, sve ćete dobiti Sve ćete dobiti se snima Od koji šakak snima da se dobitimo ili od sanog za budovnicu Da, snima se sasnak Hvala Hvala Hvala Hvala
+Da, da dobit ćete. Jedna jako bitna stvar, ljudi, pre nego što Stef Krenet i Stef, ja samo ljude još malo, kako se zove, prebacim, znači...
+Ne, ja ću da... Ovo je wiki databaza, ok? Vi ćete u Slacku dobiti guidance, znači ovo je... Ne znam da li ste vi pročitali ovo, bilo bi dobro da jeste, ali ne, ne znači...
+Znači, imat će vam prvi dan, ovo su agenda, ovde su pristupi, znači ovde će vam biti storovani svi bukvalno pristupi koji su vam potrebni.
+Znači, sve ako kažete pristupi, bukvalno i naš, nebitno, ubacit ćemo možda i našeg agenta, pa ćete i on moći da, on će aksesovati ovaj notion i obmoći ćete vidi da ga.
+Ne morate, početko kažem da klikćete, ako ga pitate, e, jel imam pristup ili jel ima login za ovo. To se nalazi tu.
+Ovde ćete imati baze podataka, znači ovde ćete imati taj prompt, prompt library, skillove, znači neće biti samo prompt, znači bit će skillovi i ostale stvari.
+Ovde će biti linkovi, avlati i tako dalje, video članci, materijali i templiti, Q&A log. Ovde ćete vi u Q&A log.
+Da, postavljate vaše pitanje. Znači ja sam rekao Slack, neka oni budu u Slacku, ali neka budu u Q&A logo, imat ćete showcase, znači tu će biti ono šta smo izgradili i ovde dobro, ajde, neki debug i tako dalje.
+Jes, svi ste dobili invitation, to je sad stvar, ja ne znam, ja nekako podrazumevam kada, jer, evo, svi ste, mislim možda svi, ali, svi sada imate praktično access da buvujete, tj.
+da možete da vidite, ja ću vam svima podeliti access da imate bukvalno full access, da možete da menjate i da postavljate pitanje.
+Tako da ja ću samo još jednom da čekiram što se tiče, Đorđe je tu, ja sam koristio e-mailove koje ste vi koristili za prijavu na radionicu.
+Nemo mi ja. Marija Babić je tijaku.com. Dobro, okej. Znamo, lako ćemo to, ja ću sada bukvalno svima vama da, kako se zove, stanim sada jedan full access i daću vam, kako se zove, link URL u Slacku i vi kada kliknete vi biste trebali da...
+Pavle Varašković, je li tako? Varsaković, izvini molim te, znači... Pa ja, ja i on Miljević, a mene Miljevic svuda, Miljevic, Miljevic.
+Nema, okej, sad ću. Ajde ovako, evo za početak, znači link je unique i sada kada se ubacim sa... Poludiću, brate, od Slack kanala, doslovno, dobro.
+Super da, to je najbolje, uđete u link i pisat će send request, druid je li tako to si ti, zoran je full access E sad zamislite da mi imamo ovakve radiojudice, da imamo i scale, da imamo i svake nedelje I ostavno, ovo se sada snima, sve što ja radim postoji transkript, ja praktično kažem agentu koji već ima access na Notion Sve da on praktično uđe ovde u vaš upitnik, pogleda vaš upitnik email adresu da vas invajtuje
+Baj to je na Slack, ne moram praktično Ali mi ne radimo ovo Svaki dan, svake medelje Tako da nema potrebe da gradim Možete učiniti Za ostale alate Uvješnjavali, kako recimo Zašto je Delbar Notion Da, Notion ti je odlična stvar Na primjer Šta je stvar?
+Postoji Google Sheets Postoji Google Doc Ako uzemo Google Suite Postoji Google Sheets, Google Doc Google prezentacija I vi u vaš drive Storujete slike Znači imate različite formate Google Sheets koristite za tabele Za ostale stvari Google Doc koristite da nešto Se opiše, da pišete, ima pisani tekst Prezentacija koristite da nešto prezentujete I slike koristite da imate slike Šta je stvar kod Notion?
+Notion je stvar Što je to jedan centralni suj Svega toga, samo drugačije strukturiran. to znači da ja umesto, da kako se zove ovde kao što vidite ovde, mi dižemo naš wipe code academy, dižemo našu akademiju.
+I to je folder koji izgleda ovako, razumete me. I vi sad treba da kliknete ovde pa da nađete ovo itd.
+Notion je u suštini jako dobra data baza da vi sve što biste radili, kako da kažem, na Google Drive stavljate u Notion.
+Zašto? Zato što Notion možete da pretražujete. Imate, kako se zove, imate role ili bilo šta. Ovde sad možete vidjeti ovaj naš vikiza, možete da ga stavite da bude kao project management alat, kao neki taskovi, ali tu nisu samo, kako da kažem, nisam taskovi, nego je tu neki i, kako se zove, opisan...
+da kažem, opisan je proces, tako da kažem, i stvar je što je Notion jako dobar upravo za ove stvari.
+Kao što vidite ovde, sad ga ja vraćam na e-radionicu, ja mogu da centralizujem sve vas u jedan, zamislite da sam ja sad za sve ovo otvorio u Google Docu, ili da sam otvorio jedan Google Master Doc, pa onda u Google Master Docu u ome tabove i tako neke stvari.
+Znači bilo bi jako nestrukturirano, jako klankio, onako što se kaže, i dobra stvar je što Notion opet možete jako dobro da povežete sa svojim agentima i mnogo je bolje strukturiran da agenti mogu mnogo brže da čitaju podatke, nego da skoči sa Sheet-a pa sa Google Doc, i tako da je najse da sam prenao.
+A mnogo je centralizovaniji i bolji za organizaciju. Dobro, znači to smo objasnili, taj Viki što... Znači tu ćete imati sve stvari, imate akses na git, i kako se zove, ide Stefan Ti, imaš Airplay, imaš?
+Pošerujem Google Meet, samo to dovoljno Sada ćemo baći sada za koje Sada ćemo baći za koje 7 milijara četiri, evo ka, tu si Stefane samo, znači, usitnija ti je i, to je to, mirorovan ti je, da Isto je i na laptopu i na...
+Kako se vidi tu? Njima se vidi dobře Treba zvomira nešto, ne? Ne sad ću im, mislim da ste, trebao bi ja zoomiraš, da, zoomira još da, ne znam šta mu je, gde se to namestale, gde na city kako Ivane, ti si ekspert za Mac, da li može da ga još, da mu sve ukupno obude uopciju TV, uopciju display se, i da je te kola da vam namestu u učitini mogli smo samo klikni, nemaš na ušenu kaunt dobro, ma to ti čisti on bolje, da li može da ga skipuješ za personalni život mi treba, ne moraš da ga skipuješ
+To mi treba bi ovde moj workspace, ništa samo uđe u Slack i opet klikni. Ljudi, preo što krenemo bilo šta, samo malo o ovim modelima koje je sada na GPT-u, da ne koristite Astru, znači nemojte Astru koristiti, imat ćete jedan-dva prompta i potrošit ćete user na kodeksu, znači mi ćemo raditi neke light stvari, tako da može slobodno ovaj 5-6 Luna model, kao što vidite potrošnja je ekstremno mala, možemo do besvesti da četujemo s tim modelom, a opet je pametan.
+Astra je već za developere koji baš bildaju nešto ogbiljno, mi ćemo sada raditi neke prostije stvari. nemojte da palite najveći model na kodeksu.
+Ovdje Astra, 5-6 Luna, tako je. 6 luna je najbolje za sada, ima 6 luna, da, ali kažem nećemo, 5-6 sol, 5-6 sol, da, da, evo vidiš ovdje mi ga nije izbacio, a znam da ima.
+E Stefano, moraš ti da shareš ekran na Google Meet u isti? Morate da update-ujete ako nemate. Evo ga, GPT-6 sol, da, on je, odličan.
+Opus 5.5, da, kakav se se usager, odličan, 5.5 je u bitu stvarno. Ok, onda šta da im kažemo, 5.5 ko je na klodu?
+Na klodu 5.5, na kodeksu ovaj, ali to je suština da znate razlikove te modele, da ne koristite najpametniji model za, da mu kažete jednu...
+Komando je, uradi mi git pull, povuci mi git, on će da sprži 10% tvog usage-a za jednu komandu koju ste i mogli da ukociš.
+E sad, ja ovde kasnim za vama. Možete vidite kako sam ja započeo ovaj isti task što ste vi sada uradili.
+Ja sam mu rekao povuci sa GitHub i dao sam mu pogrešano. I on je skapirao i onda sam mu samo dao pravi link i on je skinuo to lokalno, pošto ja sam već imao sve setupovano, imao sam i node i github i ovo i ono, nisam ovo što je morao setupovati.
+Tako da u buduće vi imate spreman setup da povučete nečiji tuđ kod ili da napravite novi git na koji ćete pušujete svoj kod.
+Tako kada funkcije. Tako Evo, ja sam sad skinuo lokalno ovo, ja njemu sad mogu kažem bukvalno, promptujte na srpskom, znači bolje će se izraziti, on razume i engleski i srpski savršeno, ali ne znam, ja menjam čas engleski, čas srpski, ali sasvim je okej da na srpskom promptujete.
+Evo, sad ću ja njemu, kažem, podigni mi lokalno ovaj website. Sad sam promenio modela, zato radi ovo compacting context.
+Svaki model ima neki context window od prozora, ja volim da kažem da je to kao flaša, znači context window nekog modela je prazna flaša i sad ta flaša može biti od 0,33 ml, od pola litra ili od litre.
+Čili 3 mln, toki 1,5 mln, toki 1,256 mln. Ta flaša kako vi punite, kako kucate sa AI-om, ona se puni.
+Znači puni se kako on generiše karaktere, ona se puni i kako mu sve manje mesta ostaje u kontekstu, on više nema mesta da razmišlja.
+I onda krene da brlja, da pravi greške, tako da uvek je bolje da ne držite jedan thread skroz dugo, znači da ga napunite do kraja, nego da startujete novi čet, ako je pitanje neko novo.
+Možete da držite jedan thread dugo za neko vreme, ali će onda vam se desi ovaj compacting issue, gde će tu flaš od jednog litra da uzme i da prospe i da vidi samo šta je korisno bilo iz te sesije.
+I možda će izvući od toga 100-200 mililitara i da prenese u drugu sesiju. I vi opet drugu sesiju sad krećete sa 200 mililitara nekog nebitnog znanja.
+Tako da je uglavnom bolje da... startujete uvek novu sesiju. Dobro. Sad možete nastaviti u ovoj, jer bit će bolje da sve imate u jednoj, jer je ovo sad sve isto što radimo, znači nije neki drugi task, da je drugi task možemo da uredimo.
+Evo, on je meni ovo podigao lokalno, znači sad vi šta ste trebali da uredite, da pronađete svoju stranicu, znači isli ste ovdje za datak, vi ovo što vam je podigao lokalno možete da kopirati i da otvorite u svom brauzeru, ako vam je ovaj previše komplikovan u GPT-u ili ako mali, znači možete u svom brauzeru da ga otvorite.
+Ovo lokal host govori vam da je to vaša lokalna mašina. i da ovaj website sada radi na vašoj lokalnoj mašini.
+Da je negde na serveru, tu bi bila IP adresa tog servera, ili domen, znači domen samo maskira nečiju IP adresu, znači ovde sada može da bude itakademija, eiajakademija.com umesto ove IP adrese.
+To ću vam kažem da je lokal host uvek na vašoj lokalnoj mašini vaša lokalna adresa, tako ćete znati da je ovo na lokalu.
+I sad vi ovo ne možete da share-ujete ni s kim. Jer nemo da to da povuče. Tako je, niste publish-ovali, ovo živi samo na vašem kompjuteru.
+Možda biste mogli da share-ujete s nekim, tako što ćete podeliti svoju IP adresu, ali morate da znate svoju IP adresu.
+Morate da otvorite tunel, firewall, znači tu ima gomila komplikacija. Lokal je samo za... Dok trenutno radite, dok developujete, pravite nešto, kada hoćete da pušujete, tad se pušuje na javne adrese da drugi ljudi mogu da pristupi u ovom, u vašem lokalu niko ne može pristupiti.
+Vercel, pa da, je, tako je, da njega diplojuješ kod, ti pošalješ kod, on će da ti da tu neku public adresu na koju može neko da pristupi tvojom projektu.
+Kao što je ova git strana, na primjer, ovo što, kako se zove, moram nađi... Jedno pitanje, umeđu vremenu, da li želite još malo da prođemo kroz to konekcije i da malo bolje razumete kako je sve ovo konektovano jedno sa drugim, da vam Stefan sad malo vizualize, da vas provede kroz proces?
+Ok, da razumete čega, Githuba ili? Pa, da, znači da i sad malo možda da isprovedeš isto i kroz API i taj webhook i te stvari, kako se, zašto koristi i to da može?
+Može, može. Ali, samo da prođemo ovo pa ćemo se vratiti, znači koji ima neko pitanje, možemo da prođemo kroz pitanje.
+Evo, ovde kao što vidite, ovo je na mom lokalu, a ovo je na internetu, samo nisam otvorio istu stranu, evo, sad je sve to isto, znači ja sad imam lokalnu kopiju, svi vi imate lokalnu kopiju ovoga što je trenutno na internetu u ovog web sajta i svi ćemo da radimo na jednom istom projektu.
+Sada će, izvinjam se, imena nisam popamtio, najviše u tebi, gledam kakve ime, izvini. Nenad. Nenad, najviše, Nenad. Primer, sada će da promeni nešto na svom lokalu, on će ući ovde zadatak, pronađi svoju stranicu, naći će sebe, Pantović, je li tako?
+Nijemo Nenad Marković i Nenad Pantović, je tako? A, Danem, da, evo ga. Znači ti ćeš otvoriti svoju stranicu i ovde lepo pišu zadatku, ako ti ime nije dobro napisano, znači ti ćeš reći svom agentu po prejme ime.
+Na ovoj stranici, može da mu kaže dodaj mi ovu sekciju, kloni ove promptove, napiši odakle sam, bukvalno će reći svom agentu šta da izmeni na ovoj stranici i ti to kada završiš, kada ti agent to završi lokalno, ti ćeš to vidjeti samo kod sebe, mi to nećemo vidjeti, tako je lokalno, svaki ima drugačiji lokal.
+Primer, sada će da promeni nešto na svom lokalu, on će ući ovde zadatak, pronađi svoju stranicu, naći će sebe, Pantović, je li tako?
+Nijemo Nenad Marković i Nenad Pantović, je tako? A, Danem, da, evo ga. Znači ti ćeš otvoriti svoju stranicu i ovde lepo pišu zadatku, ako ti ime nije dobro napisano, znači ti ćeš reći svom agentu po prejme ime.
+Na ovoj stranici, može da mu kaže dodaj mi ovu sekciju, kloni ove promptove, napiši odakle sam, bukvalno će reći svom agentu šta da izmeni na ovoj stranici i ti to kada završiš, kada ti agent to završi lokalno, ti ćeš to vidjeti samo kod sebe, mi to nećemo vidjeti, tako je lokalno, svaki ima drugačiji lokal.
+Kada pušuješ, znači kada gurneš na cloud, na github, onda mi imamo mogućnost da povučemo najnoviju verziju sebi na lokal, i onda ćemo mi videti nenadogu najnoviju stranicu.
+A jo, ja mislim da je. Ne. n10lab.github.io, evo ovdje, vidiš. Znači, da. Ili hoćeš urlo da ti bacim u...
+Aj, bacim u urlo. E sad, za početak, vi kad uđete na svoju stranicu, ja sam ovdje stavio nekog pet promtova.
+Čekamo, nešto izmije. Ne, samo... Dobro, znači svi smo ono kao usinkovani sada, možemo prvu kao neku pokaznu vežbu da ureimo.
+Znači sad svi ste u ovom istom stanju kao i ja, imate kodeksa ili kloda i imate svoju neku stranu.
+Ja pošto ne imam stranu, ja ću mu reći napravi moju stranu na ljudi ili gde sad ćemo da vidimo tačan pet.
+Znači vi ovde gledate ljudi, ovo lokal host, Bojan Pavlović, znači pet je putanja do neke stranice. Znači imate lupam blic.rs, kosa crta, sport, kosa crta, politika, kosa crta šta god.
+E, to je putanja. Putanja do vaše stranice se nalazi na putanji ljudi. Znači ja ću sad reci, napravim moju stranu na...
+Znači ja ću. ... ... pet, znači pet ili putanja, neka se zove Stefan i sad će on lokalno to da uradi i verovatno će, a pre si morao ti agentu da kažeš, sada su mnogo pametniji, ja sam morao pre da kažem da nađe Bojan Pavlović i da naprvi kopiju te stranice, da zameni ime, da ostavi isti dizajn, sada mu ništa nisam rekao, samo sam rekao na prvi stranicu, vidjet ćemo da li je dovoljno inteligentan, da on to uradi bez da sam mu ja dao im pute, vi ste bukvalno ljudi došli u najbolje vreme, ja već tri godine promptujem ove agente kao lud, u početku vi ste morali da im crtate, bukvalno im crtate, oni greše non stop, mu kažeš uradi ovo, on uradi nešto treće, znači to je bio pa kao, ali sada ovi modeli ovo nevrobatno.
+što se događa. Tako da na vreme ste se uključili u celu AI priču. Na vreme ste odlučili kad želite da automatizujete jer je...
+Evo, napravio. Evo sad ćemo li otvorimo. Evo je, napravio. Ok, ostaje isti dizajn, nije mi zadržao sve one promptove, ali to je sasvim ok.
+Znači sad ja imam svoju stranicu na kojoj hoću radim, i vi imate svoju. Znači poenta je da vi nađete svoju stranicu i da mu kažete, e, ovo je moja stranica, isključivo moja, radi na moje stranici, da mi diraš tuđe, hoću to, to i to.
+Ja sam zadao neke ovde primere. Imate primer promptova. Aha, ti si Bojan Pavlović je već update-ovao. Evo, ovde imaš, znači upoznaj teren.
+Ovo je u suštini, evo se vratim na full screen, ja sam ovde dao nekih 5-6 promptova, ne znam ja, koje možete da kopirate, da započnete ovu izmenu.
+Samo pitanje, svako našo svoju stranicu i prompt na njoj. E ja je trebao da im nađe, mislim svi imaju svoju stranu.
+Da, u sluštini moraju da traži, samo možete da pitate, je li tako? Da, evo moj mail, evo moja stranica.
+Da, u sve isti sesiji koju smo inicijalno započeli. Znači sad, što je dobro definisan prompt? Evo, ovde imate primjer nekog prompta.
+Ovo u suštini više ne treba, da vi njemu dajete ulogu, da je on... iskusan web developer, on zna da je iskusan web developer, ali tako se nekad radilo, pa čisto da ne preskočite taj deo gde vi morate da napravite personu nekog e-agenta, dolaze svi isti iz kutije, bez ikakvog karaktera, nikaki su, i vi ih onda modelujete, vi od njih pravite personalizaciju, ako vi psujete njemu, on može psuje vama nazad, znači, ako pričate s njim kao ortak, on će vama pričat kao ortak, znači, ja mislim da je najlekša ta direktna komunikacija da ostvarite s agentom i nemojte sad da vam ono glupo da, ne znam, ali ja u mom agentu ono svašta pričam, kažem, zatke, nemoj mi za jebao š, uradi to, jer sam ti rekao, vrati, da imaš aks, a da, upravo usijem aks.
+Znači, nekad čak morate i da malo budete zli prema njima, oči, oči da budu lenji, tako je, tako je, i to će vremenom
+Naočit ćete, znači svaka komanda koju zadajete mora da bude ono izričita, tačna, znači uradi, to je to, i još jedna jako dobra stvar koju ne znam da li znate, postoji ovo gol, kada uključite gol i zadate mu finalni gol, napravim i kopiju Windowsa, Windows 11, napravim i iOS, on će to da radi dok ne završi taj gol.
+Znači, istrošit će vam tokena, doći će do limita, vi morate sačekati da vam se osveži limit i da nastavite gol i on će ovo radi bukvalno u nedogled ako je to mnogo zahtevan projekat, ako je neki projekat tipa prevedi mi ceo website, imam hiljadu strana website, prevedi mi website, vi uključite gol, on će prevoditi dok ne završi svi hiljadu strana.
+Znači, to je neki od primera zašta da koristite gol. Ako imate neki tedious posao ovo, ono, jer on inače bi imao neke check pointe gde će da stanje da traži vaš input.
+Kad uključite goal, ne pite za input, samo SHIBA da završi cilj. To je jako dobro. Takođe, ako nešto krećete od nule i niste sigurni šta pravite, kako pravite, treba da uključite plan.
+Znači, s njim ćete da iščatujete, imam novi projekat, hoću da napravim website za frizerski salon, da ima zakazivanje, da ima kalendar, hoću sve te funkcije.
+I onda će on tebe da pita, evo ćeš koliko strana, koji je dizajn, evo ćeš ovo, bukvalno planirate zajedno i onda ćete dobiti jedan build plan, koji posle uključiš goal, da prati taj plan, to je neki, to možete...
+probati za neki domaći u budući, ali jako dobre stvari, goal i plan za početak da koristite. Ok, sada ja sam rekao ovaj prompt je napisan u MD failu, ja mislim da za prvi zadatak mi je bilo loše da kažete svom agentu E na strani i sad stavite svoju stranu, ja ću uzeti Nenada kao primjer, E na strani imaš pet nekih promptova, molim te sačuvaj ih na moj desktop kao MD failove.
+Zato što će on meni sada da izeditoju ovu stranicu, Nenad ovu na primjer, i ja kad je on izeditoju, ću...
+izgubiti sve ove promptove ovde, što se vide. I sad, pre nego što ja krenem da menjam ovo, ja sam njemu rekao, ja sačuvam i ove promptove na moj kompjuter, čisto da ih imam.
+Tako da možete vi, ako ste već izredite ali svoju stranicu, upotrebite nenadovu i skinite sebi ove promptove, čisto da imate na svom kompjuteru.
+Da vidite kako se pišu i da imate neki primer posle, da startujete neki projekt. Paju, radite to, ja se vraćam za minus.
+Tako je, znači sada kopirate, nađite stranu bilo čiju na vašem lokalnom projektu i da sačuvan MD kao MD file na vašem desktopu i vidjet ćete ili novi folder ili će svih pet da zvijete.
+zvizde na desktop i imat ćete te pomoće. Da, treba neka pomoć. Dobar, ti si već uradio, je tako? Da.
+I to je sad na tvom lokalu. to. To je to. Sada ćemo svi zajedno da... Marija, tebi neka pomoć, znači vi sad...
+Ja se ja provučem ovde. E da provamo više jednom. Dobro, jel ti ajde uđi svoj, kako se zove... Provam, šta koristiš vam, ili tako?
+Da. Ne mogu da otvorim. tu prijemo. A, evo ti ga. Lokal ti je, to je to. Dobro, ali sam mu zadala instrukciju, kaže, ne mogu da otvorimo u stanicu.
+I onda će nam tebi reći pušovo je Zoran, Dušan su pušovali svoje izmjene, tvoje su još uvijek na lokalu.
+Mene kaže da moram u settings u kodeksa da otvori tu lokatu da da mi to uprstaš. Ete da se možeš u settings, ali...
+Isti, kao prviš put samo manje mleka. Razumije da je izdemo stoji taj lokadačan. Tako da, se bacine na prvi zadatak, jeste?
+Da, da, na kraju pušuješ nagitko taj. To je zapošel na kraju. Moje na kažu za nisijem nisijem za za nisijem nisijem nisijem Tako Wessu martin.
+Hvala Okej, gde se nalazi u podešavanju? A to da da to. Juri, samo reći šta da ulazimo u problem, to je to.
+Znači, što više toolova date vašim e-jajevima, to će biti moćniji. Znači, neće vas... Mi sada kad setupujemo, oni vas više neće pitati mi za jednu permisiju.
+Evo, ovo je... Setup je najteži najteži deo. Da, u suštini ova mi je naj... Znači, tako je, tako je.
+I samo da ukapiravate te git osnove, jer sljedeći projekat ćemo bukvalno ono šta god vi želite da buildate, da krenemo da buildamo, napravit ćete novi git repo koji će biti samo vaš preko vašeg github naloga i onda ćete naučite kako da šaljete pod online i tako već.
+E sad, koga ovo zanima može da pogleda, ali šta se dešava, ovo bi preskočio, ne moram, bukvalno, samo zapamtite dve komande za sada, znači git pull i git push.
+I sad ovo origin, poreklo, koda, znači to su sad grane, možete da imate više grana, svako od nas može da otvori svoju granu i da radi na njoj, pa da se onda mrđuje u glavnu granu, da se spoji gdje smo svi, ali uopšte za sada to ne treba.
+U jednom momentu sednite pa pitajte jaja da vam vizualizuje, da vam objasni, znači svi ovi modeli sada imaju odličan neki mod.
+Ja mislim Zove Learning ili tako nešto, vidim kako se ovde Zove, Guided Learning, imate u Džemini, on je besplatan u suštini, Guided Learning i pitate ga, znači koja god tema vas zanima, mogo je moćna stvar jer vi za 10 minuta naučite nešto bi vam nekako vjašnjavao 3 sata.
+Kada sam onaj materijal primio, ja sam hvala ono što je bilo napisano, je, ovo treba da dodatite pre, ja sam hvala dao čititivu i reklam napravim interaktivni.
+E, e. Gdje je nevalo da ime bukvalno ovu formu bacio, pa naj... Tako je, tako je. Znači za to ćete koristiti sad agente lokalno, znači ako imaš neki problem, nešto što te zanima ili neku na poslu, trebaš neku datu da krančuješ, imate gomilu nekih...
+Znači sve ubacite na njega, kažete mu cilj i kao smisli mi neki tool, smisli mi dashboard, pročitaj mi ovo i tako dalje.
+E sad, ovo ste... Jocu, kako ide tu? Ne znam, brate, Windows, ono... Ja sam na ežen, kad vidim u stavku, ne snalazim svoj Windows.
+Znači ćete vidjeti jednu razliku, ne znam, više nijedan da klikćem. A kde je spisak da ozledi? Pisaću u velikim slojima da vidite, ali vidite?
+Ja ne znam, koristim Windows. Sada ćete vidjeti kako neki glup prompt i tako dalje. Sada će vratno nekog drugog Stefana Trbovića da nađe, u stvari to je to, našo me.
+I sada će ovo biti stranica, on će verovatno da preuzme stil svih ovih stranica do sad što imamo, jer šta on radi, on nesvesno povlači u svoj kontekst ceo ovaj projekat koji mi imamo, website, i sad će otprilike svačija stranica izgledati isto, ako mu vi niste rekli, e, nemoj da pratiš stil.
+Website, pravi ga na moj način, ja sam drugačiji i tako dalje. Ovo sam ga opteretio. Ok, ko je? Pavle.
+A moja je da li je? A si pušovao? Ja. Na main. Kaži pušuj na main. Da, grana Pavle, znači niko ne vidi tu granu, sad si ti razgranao dalje, otišao si od stavla, imaš svoju granu.
+Znači, main je, glavno... na kome svi radimo, a čim se ti razgranaš, mi ne vidimo te grane. Da, pool request je sada gde vi šaljete administratoru request da povuče vaš kod na glavnu granu.
+Tako je na mail. Jel si ti poslao pool request ili si direktno pušovao? Možeš direktno pušuješ bez pool requesta.
+Evo sad ću ja ovim vaše pool requestove, tamo ćete vidjeti kako to radi. Pool requests, evo imam tri komada.
+Znači Zoran, Nemanja i Pavel. I sad šta se događa? Vi ste izmenili kod i pušujete na main, ali tako smo napravili da...
+Ja moram da odobrim to, znači ovde bi mi sad trebali, da sam već kliklo, da ćemo imati, da se vrati, što failo, evo Pavle, merge, confirm, ovde možete vidjeti, znači sad tu razliku u kodu, ko je file ove Pavle zamenio, evo on je dodao sliku, izmenio je, ovo je crvene linije, znači da je sklonio, umesto Pavle, ja je radionica, on je napisao Pavle Varsaković.
+Tačno ovdje možete vidjeti sve izmene u kodu, to stvarno ne treba, sotrećujete tim, ali tako funkcioniše GitHub. Ako više ljudi radi na jednom projektu, uglavnom se ovako radi da kada vi napravite izmenu, admin ili glavni developer prihvati vašu izmenu, ali pre toga je proveri da ne bi sad nešto eksplodiralo da je pokvario kod.
+To je to, znači sada kad bi otišli, samo da li jedan nije uspeo, mi se čini, ne znači. Sad sam na lokalu i sad neću vidjeti izmenu, moram da idem na sajt, a sajt je, sad ću ga nađen.
+Ok, ljudi, idemo, Pavel je napravio svoju stranu, evo možete vidjeti, on je zamenio boju, dodo je tu nešto teksta, ostavio je promptove, zamenio je stil, ali to je to.
+Pavel je prošao se, koji je sada? Led svjetla. Led svjetla, zoran. Samo se tekst promenio, nije ništa druga. Aha, samo se tekst promenio, niste ništa.
+se promenio, promenio ime, pusti promenio ime tamo. Aha, popravio se ime, da, ako želiš još nešto, igraj se malo, ispromptuj ga, ako ti je zanimljivo, ako ne, znači vidiš, možeš i da uploaduješ sliku, možeš da...
+Da, ovakvom tu i klo postavlja šta ti će vam menjao, pa je on da im sam dal... Da, pa zavise ako ste mu dali onaj prompt, a ako niste ovako kućeli kao ja, evo, s čim vidimo šta je moj radio, evo, da vidimo moju stranu...
+Pa, ono, malo je promenio ništa. A sad ćete vidite, na primer, kada mu date neki skill, koliko se imenije stvari, postoji jedan taste skill, skill je, kao što sam rekao, prompt, dobro defini...
+za jednu određenu stvar. Ovaj taste skill pravi prelepe website. Ima predefinisane sve one margine, piksele, bordere, tuda, boje. Uopšte ne morate razmišljati.
+Evo sad ja uzem ovaj skill. Imaćete sve u vikiu da znate. I sada šta ja mogu kažem ovom agentu?
+Koristeći ovaj skill. Mislim ti u suštini treba da instaliiraš skill. Redizajniraj moju stranu, Stefan. Stefano, može Marija da nastavi bez ovih MD
+Može, može, ali neće na desktop da se uve. Upucu bi pištoljem u ovoj kompjuter sada, majke. Neće da, a šta onda treba da radi, da kopira promptovlja?
+A šta kaže, kodite, čekaj. Da, da, prosledit ćemo mi MDV, nego mi je baš čudno da je nešto da izvršim.
+Neće, brate, brate. A sve, šta ne? Maš koja je lenština? Pa, promptovi se nalaze na stranici lokalnom HTML-failu, njemu imaš pristup.
+Mislim da on samo ne razume, on je nešto drugo pokušao da uradi, mora uvek više pristupa, prije je bio problem sa AIM, kad neće nešto da uradi, on samo stane i kao ne mogu ovo da uradi, i ti mu samo kaže continue i on ga uradi, jer su imali loše te sigurnostne one zakrpe ili šta god, mislim da će on to sad uradi.
+Mislim da oni vodu pijemo. Više vole vodu, a? Sad dok smo napravili ovu venbu i sušili smo jezero Mičigen.
+Malo je sporno, limit, dobro je, 91, znači ti sad imaš još ti ostalo da svoju stranicu update-uješ, pušuješ, to si ukapirala?
+Nisam ispratila, izmenili smo se ovde. Dobro, nije, to je sporno nešto. Kad vam može da mu dignemo ovde nešto?
+Pa nije, to je sproz ok, medijum je, nego ga nešto ga u oči, to je boljka sa Windowsom, znaš, mnogo bolje rade na nekovima, ali evo sad ću, evo ga.
+Znači samo moraš da budeš preciznija, čim on kaže, ne mogu, nisi mu dovoljno precizirala, znači on je pokušavao, ja sam mu samo rekao da se nalazi na...
+na stranici lokalnom html fajlu, bukvalno sam mu iscrto gde se nalazi, jeste mu uvi bili dalje agresu, da, bukvalno samo nisi mu upasteovala onu lokalnu vešku.
+Samo započetku rekuta. Bože, lud. Ali eto, dešava se to, od svakog je različito. Ja mislim da je to do Windowsa, brate.
+O, vidiš, lokalno. Da, da, nema veze, pobrljave. Znači on je sada izvršio to? Da. Okej, te čuvaju. I sad ti opet, da, ti imaš to sad na desktopu, te promptove.
+Okej, kako se vratim sad nazad, gde ste visti ni... Ništa, ti sad u suštini... na klupu svakog naročuvaju. Evo promptovi, ovde ti je sve u znaciji.
+Evo možeš ovo moj identitet, tis web designer, blablabla. Bukvalno ovde imaš spreman prompt, samo treba da uredi. Kopiraš ga, daš mu, tako je.
+I tu u chatu mu kažiš, jer on već je podigao lokalno projekat. Pastuj taj prompt i možeš da ga izedituješ.
+Počitaj ga, vidi šta ti njemu zadaješ, izmeni šta ti se ne sviđa, dodaj, razumeš? Da, ne želim na mojoj strani, ne želim ima i prezimljati, već kao da bude naziv firme.
+Da, da, da, može, može. Izedi tu i sve. Možeš, možeš i skroz, samo ti počitaj prompt da vidiš od prilike kako mu zadaješ zadatak, a onda možeš celog sama da ga iskućiš.
+Nemo raš upštijemo i taj prompt da koristeš. Hvala. Da, mislim da sam izmenio sve učekati... Recimo, znači na main, na glavnu granu, na main.
+Ovaj je završio moju spranicu, ajde vidimo šta je naprijed. To je odlično kod je jaja, daš mu zadatak, ustaneš, odeš, popušš sigaru, ručeš...
+A on sve je grešio. Kako? A on sve je grešio. Pa, slaba. U stvari, dode on više... Bilo je mnogo bolje da je imao nekog kontenta on...
+isto je. Da, uglavnom ništa, eto, zamenio je ponome, ali kada imaš više kontenta i ako još imaš nekih slika, to će mnogo bolje da izgleda.
+Možete samo da vidim, možete vidi oko koje je cvetlo pustoslija, isto ovo je taste. A, izvini, ovo je na lokalu.
+Dači, pong. Odlično. Da, ove, dobre, ove, ikonjice, posti, mail. Evo, Marija, možeš da vidiš, na primer, kako je Zoran izmenio stranicu, možeš mu kažeš pomeri mi ovo levo, ovo desno.
+Bukvalno si igraš kao da si dizajner, on će sve da te ispratiš. Da, i ne kažeš mu, isto je jako važno, ne govoriš mu pomeri mi ovo levo, tako da mu kažeš, bukvalno pomeri mi ovo levo ispod ovo.
+Nema previše objašnjavanja. Nemanja Pantović. A kako idemo online? Dobri, odlični. Nemanja Pantović. A mene nema na vežbi, Stefane, nema.
+Dodaj se. Sad se dodam, da. Kako je Nemanja na stranici? Jel oni? Vrlovatno još nije mrđavano. Jeste, mrđovan Drugačiji je ti lokalno?
+Aha, aha, kaži mu da ti pušuje na main, znači da ne pravi pull request, kaži pušuj direktno na main Ne, sad, pošto se vas dvojica završili, jel tako, odavno, možete napraviti novi GitHub repo i povežite ga sa clodom da pušuje tamo taj projekat što hoćete da pravite Znači, bukvalno ono što si mi rekao, automatizaciju za posao, jel tako?
+Onako kako sam ti rekao, ideš plan, detaljno mu objasniš sve, možeš i kroz običan GPT, to je odlično Jedna fora koju ja koristim dosta mnogo, dosta mnogo, baš dosta koristim foru, ovde idemo u običan GPT, znači ne kodeks, upalite Deep Research, stavite model Extra High, znači ovo je neki 5-6 colje od prilike ovaj model, što je sjajan, ali kad treba neku ideju da razmislite, znači Deep Research obavezno kaži, želim da naprejem, evo će da mi ispričaš šta želiš, da ispucamo zajedno.
+Hvala. Agata, firmi za ono, druga nas od 8 sata i Agata znači možete raditi. QA, šta koristu Jira, ali tako?
+Još nešto? i koristujem Playwright na PCP-tu za kriče pao malo te nešto. Da, da, da. A koji softver testerate?
+Zašto je? Imaš ime, kompanije ili nešto? Pa imaš ime, ali ne bih. Ne bih. Dobro. Softver Spook, NDA. A softver, koji je tip softvera?
+Nešto namenjeni muži u respektima. Aha. Znači ovo je užasan prompt. Hvala. Hvala. Hvala. I sad ćete vi njega pustiti, on će, naravno, mnogo bolji prompt će da bude od ovoga, on će razmišljati jedno pola sata, znači koji god problem imate ideju, ako nešto stavite deep research i on će da, ali ovde je baš čudno, ne vidim ga kako razmišlja, Uglavnom, on će pola sata da istražuje online, vamo, tamo, sve moguće source-ove da pogleda, znači ako je dobar prompt, stvarno će ti izbaci neki ozbiljan research sa kojim ti kasnije možda napraviš build plan za tu automatizaciju, znači on će ti istražiti
+Možete ti sve te tehnologije, ok, Jira, Confluence ima taj API Access, ima ovaj... Ovo je prvi korak s kojim bi krenuo i onda s tim deep researchom odeš u kodeks, uključiš onaj plan što sam ti reklo, daš mu ceo taj deep research i onda napravite plan, od plana napravite goal i to je ono neki najbolji workflow da urajiš nešto mnogo komplikovan.
+Može, može, da, ali bogostatke grupe ne bi išao tamo, to možemo privatno, da. Dobro ljudi, kaki smo? 12.20 je, pauza nam je u jedan zaručak.
+Za kafu i ostalo Trebaju sve da završimo ovu sesiju Da ručamo i ovda posle toga Da nastavimo automatizacije Koje se nastavljuju na ovaj sajt Znači biće građanje Kroz NITN za blog Automatizaciju i povezivanje Sa email toolom Tako da napravimo cel ciklus automatizacije Da se piše sadržaj I da šaljete mailove Može Ali ja bi to uradio Znači novi github Repo da napravite Da imate svoj Da ne radite na ovom jednom Znači napravit ćete To ćemo u drugom delu sve da spremimo Može Može Možeš to je i cilj Mislim To je cilj da izađeš i da ovo sad radiš Tu ćemo mi Biti za vas U narednim nedeljama Dos
+stupnji za sve. Ovo je samo početak, ljudi. Kad se vidimo sledeći put, mislim da ćete imati mnogo, mnogo više znanja nego što sad imate i da ćemo moći da gradimo, radimo te stvari o kojima sad pričamo.
+Još neko sa mitovom? Da, puš. Znači gura ga u cloud. Znači gurno si. On će biti prazan. Tako je, znači prazan je i vi ćete onda, to je jako dobra praksa da odmah u početku krenete radite stvari kako valja.
+Na svom računaru napravite folder Projects i tu će vam biti svi projekte, imam projekat svoj privatni website, imam projekat za jednog klijenta, za drugog klijenta i uglavnom ako ćete raditi na svom računaru, treba će vam lokalno da imate te projekte i onda je ta higijena jako bitna.
+Evo ja ovdje imam neki project folder, mada ja ne koristim moji računari često, ali evo mi ga ovdje. I ovdje su i moji projekte, evo i ti kuk ja imam komilu nekih, ali ovo i ja sad...
+da šta mogu, mogu da uđem ovde, ovaj agent Agora, a na primjer neki projekat koji sam radio, kako se kopira putanja nam, neću li nešto?
+Marija, tebi? Sad radi, ok. Kopi, evo ga, kopirao sam ga. Da, ovde mi se nalazi. I ti sad u klodu možeš da mu kažeš, e, u ovom folderu imamo ovaj projekat, ajde radimo na ovom projektu.
+To se u suštini radi ovako novi čet, i ovde gde kažem no folder, izaberete folder taj. Ali hoću da kažem da je bitno da držite sve te projekte negdje gde ćete znati gde je, da vam sad ne ode, ne zaluta negdje.
+Jesi bi, da ovako, ja mislim da bih bio problem da, ako imamo ovo, gledraju na tebe, gleda gledraju taj folder da je da odavstvo sem lukše odavstvo.
+Zato ti github postoji. Znači imaćeš ga na gitu i... Ne, ali ok to, ali da se gdrive-o ide na github, da budu u lokalnom računaru nego da gdrive.
+Ne treba ti, gdrive ti nepotreba, github gdrive, bukvalno. Sad će ti moći ovde umesto lokal, vidiš, zameniš ovde cloud.
+Ne, ona će kažem da ne oterećuje memoriju svog računara ili nešto. Da, to visi gdje drage. Ja li to recimo održivim, meni je skoro sve, pošto ja ovaj projekti ne račun, to je sada bi uvek sve bilo dokupno.
+Meni je on instalirano github, hvala podanica i solitarno. Kapiram? Da, da, da, da, da. To je vam ali on kupio dva terapete i ono.
+Jeste. Pa da, jeste. Vi možete da agentu date akses, evo, konektor ovaj što je pokazilo Jovan. da je na gmail.
+za Gcloud i kaže, tu i tu je projekat, povuci, cepa i radi. Znači, reba i ta odmah kvala. Da, ali...
+Ja sam započinjao projekte iz kvoda, tako tu odaberem, odem na Hradu, prepo, onda ga izaberem, ono čim krećem projekat izabene tu, i sad, recimo, kad trebam da bacim fotografije na sajte, te fotografije sam ja sad ručno, bukualno njemu uvacujem i on prebaci, to je stokje.
+A, recimo, ako bi bio lokalno, ja bukualno bih sam da prelučem u folder u tom projektu sliki, ali on imao dostup, bristup do me ne.
+Zvini, početak pitanja sam ti samo... nisam razumeo. Zvini, početak pitanja. sada imam neki prostor, imam deset fotografija, dobri i smetjeni.
+Ja trenujem po funkcioničnom tako što komoručno ubacujem te fotografije u pripokloda, što predpostavljam da je idioski postojenik u područini.
+E sad, moje pitanje, kad ja sam budem stavio novi projekat, koji sad stavim u lokalni folder na računaru, imam folder u koji bukalno bude prevučen slike i da vam to vuče na sajt ili ne?
+Da, imaš, pa u suštini postoji ono pravilo deset... Ja samo imaš šta je tako. Pa ili source ili images, znači je pitanja, ono što smo pričali pet, znači...
+Najbolje u suštini za sve što imaš da imaš assets, je li tako? Znači da ti to budu assets i onda imaš images, pdf, razumeš me?
+Sad je ovdje fora što vi preskačete dosta ti... nekih osnova, što je super, ali nekad nije loše da to vidite, znači sad on je meni digao ovaj negde lokalno, više ne znam koji, sad ću ga pitan gde mi je podigao i ti će vidjeti strukturu, stvari, ajde na gitu ćemo ga vam pokažem, evo ga, uđemo u kod i ti ovde imaš assets, tako je assets, nije ovde, ljudi...
+Bojan, tako je, imaš folder slike, znači kakvo ime, izvini, nije... Evo ga je došlo, što je što dva ima.
+A da li se recimo da je digitalni postoji nekog odličenja za moje polo postoji? Da. Postoji, da. Da. Da, da, jedan file, ne commit, jedan file, ono, vidjet će kad krenate pravite appove, postoji taj ovaj gitignore, ovde ga nemamo, ali gitignore ti bukvalno kaže koje fileove da ignoriše da ne šalje na githubu, znači to su neki preveliki fileovi koji imate lokalno ili ako buildate Node.js, u nodu, on sa sobom povlači jedan ogroman folder od 700 megabajta koji ima zilion fileova, taj ceo folder ide u ignore jer on ne treba githubu, github ima već instaliranu verziju toga, vama on treba lokalno i on mora da bude u tom projektu, tako da kad vidite Node.modules folder, da budete rajli, to nikako ne me te pušujete jer će da vam traje puš.
+100 godina githubu to ne treba i samo gubite vreme, usporavate sve, znači sad ste vidjeli ovaj, kad ste uradili push, on ga je uradio u sekundi, jeste vi pušovali jednu liniju koda, zamislite ti pušuješ i taj node modules, a sa tim to je bilo ludilo, tako da to je ok.
+Pre pauzu ja bih voleo da znači napravite svi novi github, vratit ćemo se koji još nije završio, vratit ćemo se unazad, znači treba pomoć Marija, izvim.
+Šta radi? Stranicu? Možeš onda ti da napraviš ovde novi projekat dok on radi, znači ti ne moraš čekaš njega, ti su mu zadala zadatak, on radi i možeš...
+Da, da, na na svom github. Znači idete samo ovde na početnu stranicu, ne, idete Repositories, New i smislite, znači bukvalno evo idete GitHub kosa crta New ili kako god i dajte ime repozitorija svom novom za ovaj drugi projekat sada što ćete raditi.
+Dosta vas je popunilo, onaj neki upitnik Jovane, ajde vidi šta su ljudi želili da bildaju. Ok, idemo ovako, krećemo od početka.
+Nemanja Pantović, cilj je napraviti prvi mali proizvod i izabrati jasno nišu rešiti jedan problem. Da, Jeli imaš nešto na ovomu konkretno ili...
+Pazi ti ćeš, izvini sad, izvini sad što te prekidam, šta je nama cilj? Nama je sad cilj da zaokružimo proces.
+Vi ste sad napravili neku infrastrukturu, tako da kažem, nešto stavili negdje. Onda to je negdje vidljivo, a to je website.
+Onda ćemo iz tog websitea napravimo da se taj website razvija, a to će biti blog kontent koji se piše za website.
+Onda ćemo uvezati ljude koji dolaze na website, koji popunjavaju te forme i onda ćemo konektovati to sa e-mail automatizacijem i ostalo.
+A, izvini, počistiš. Ovo sam ovaj alat koji prijene je bilo tako da napravim pro alat koji generiše uplatnice i u sebi posljedno na broji ima ID volatnika i ima polat arat koji uplači.
+Hvala. Hvala. Hvala. za neku edukaciju i da taj unika i koristnika budu pozivljena broj u kombinaciju sa brojevara i da to bude automatski poslata uplatnica na početku meseca Jedna rata je plaćena, ide druga rata Samo meseca mu stiže na početku meseca na meseca i ovo je samo zadatak, 30 rada rata Znači napravi novi repozitorijum i daj mu ime ako već nisi i onda ćemo u drugom delu krenuti to da bildamo Ljubomir, on želi da napravi prvo praktično e-automation rješenje koje može da pokaže u realnom okruženju Znači hoće da izađe odavde sad nečem da može da to pokaže Tako da to može da bude praktično i ovo što sad radimo Da, može, radnosti ćemo na temu Da, ovaj
+Doređe, želi nekoliko ponuda i sistema koje može više puta da prodaje bez samostalnog opravljena kompletno da deliverio, jer sam u pravu?
+Hvala se pođešati o organizaciju, ipak kola koja može zavljena izdese i da dodamo su na... E, agenta, voice, odlično, super, to možemo da radimo.
+Pavle Varsaković, samostalno gradi jednostavne automatizacije, razume kako se prave pouzni i bezbedni sistemi za klijente. Tako je to ok ili...?
+Pa dobro, da, znači... Ti razumeš poslovne probleme, već si pravio sajtovi, interne aplikacije... Tako, i neki manji tool-ovi koji mogu da rješavaju neki rtetekine poslove.
+Moja glavna ideja, znači što sam danas ovde došao, ali to je malo kompleksno za ovo sada, je to povlačenje iz ERP-a nekih dnevnih izveštaja.
+Dobro. Znači, idealno bi bilo da, ali koliko nema taj ERP, to je... misog ERP iz znao sada. Dobro, to su, to je uvek problem sa ERP-ima, to su neke custom solucije.
+custom konektor, to će biti malo kompleksnije. Ja se za danas izmenim i delimim, to sam premao sad uključio sa ovo istraživanje, da potrašujem sve za projeklom ERP-a.
+Da, da, da. Ima mi ja. Da, da, da odabere, recimo, deset u koji se moju klapaju, i da napiše kratki one-pager za neki projekti koji može da se aplicira tu, a da mi je on da nas trebu minuručno odobrimo da razvije i ovaj i ovaj projekat i on poskida dokumentaciju, sad i to malo kompleksno možemo da smanjimo, poskida projektenu dokumentaciju i krene da piše na osnovu ubraničku smo umjeli ovdje.
+I da mi legnemo, a za dva dana ustanemo i on je napisao čak se sada. Stana projekta na osnovu knowledge-a koju smo u mi dali, šta je ta institucija za koju pišemo projekta, šta je radila, šta je imao od asfeta, šta je imao od risosova i kako.
+Ok, super, vidim da ti je ono NITN, da ti tu malo zapinješ autentifikacije API povezivanja i to, to ćemo isto ljudi sad sve proći, znači vi ćete sad kad budemo uleteli u NITN malo više dobiti oko tih povezivanja ove stvari.
+Bojan Pavlović, je li tako? Dobro, da, Parkin RS, je li tako? Da, znači viđenja, probat ću da nam stajem u polovom, od asfizaciju i odnosi potrebno da riječi.
+Možeš samo Marija da nam kažem za tvoj relikvija, je to? Relikat, izvim. Nisam stigut da istražim, a to već postoji?
+Ja, trano, na ko knji spod. To je firma koja će pomagati realisteta agencija. Mi želimo napravljeno tu koji će da uradi nekako su dijagnostike u kom stanju, koliko evolične, koliko ljudi, kakve su procesi u todu krajepremu firmi, recimo, agencija i znane kredične.
+I ta dijagnostika treba da to utvrdi šta je to u njihovom slanju, šta treba da se i reautomatizuje, da se pomože, da se smanju za i ostala.
+Isto će biti nekog vrsta šta bih poreta, da da bi znali sprem da se uz e-aviralom usproveni. Ja mogu odmati kaž za početak, izabrala si jako dobru biznis, nije niša, nego vertikalu, type-of biznis za e-automatizacije.
+mislim niša, mislim mnogo širiji, mislim za built environment, mislim za construction, razumem. Da. ... ... ... ... ... ...
+... Da, ok. Ok. Nenad Marković, on želi te Lormade AI rješenja koje može da prodaje postojećim međunarodnim klijentima. Znači imaš već, Nenade, klijente postojeće, koje želiš da...
+Trenutno im ne radite nikakve automatizacije, je li tako? Znači ti želiš njihov SOP koji je dokumentovan i napisan? To je odlična stvar.
+Znači imaš nekoliko projekte koje razrađujem i da su tu vidim moguće da je dosta automatizacije, moramo biti njihov. Još.
+Vizualno... Svara nekoliko vidim imate već postojeće klijente i želite sistem za prijem kvarova. Da, ja želim da se svoje postovanje lače sebi.
+[@2:45:45](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=9945.65) - **Piercings Works Ai**
+Sebi, dobro. I onda želim uskoristiti AI automatizacije i da svoje procese u kojoj firmi automatižujem. Dobro, jako je bitno da identifikujete te šta je to ono što vam se dešava repetativno, svaki dan, po manje i više isto sa šablonu i što vi morate da...
+To i da što vi promenimo, sad menjeljimo neke prozlosti sa automatskim prozlostima. Mislim da budemo volim u našem polenicu.
+Da, dobro. Jasno, Ira tu ste, ako možete vi da, pošto niste popunili ovaj, samo da se amjutujete i da kažete...
+Ivane, možete samo pomera prema mene, pošto je bilo prema vam. Ira, ako možete vi samo se amjutujete... da vi da nam kažete šta je, kako se zove, vama.
+Šta je meni cilj? Meni je cilj da mogu u što kraće vremenu što više stvari da uradim. Tako da je to moj cilj.
+Ja sam jako uključena u sve te moguće stvari koje mogu da se nauče. Jako puno radim s tim, ali osnovni mi je cilj da mogu svoje čerke da pomognem u što kraće vremenu da njena firma što brže i što lakše dođe do boljih rezultata.
+Tako da, šta da vam kažem, šta mi je cilj? Cilj mi je da sam u toku, da naučim. Če se bave firma, izgledite?
+Moja firma je, mi imamo piercing i tattoo shop u centru Amstradama. Dosta kompikovano sa web stranicom i sa školom za učenje ljudi kako to da rade.
+[@2:47:33](https://fathom.video/share/eygP-oZ18Qt5M2YdA1dXG1u5vF5jjDRs?timestamp=10053.4) - **Jovan Miljevic**
+Imam tim... 22 čovjeka, uključena sam u AI dosta dugo, odnosno se od samog početka, jednostavno sam impresionirana što se može da se uradi i onda sad u jednom momentu, prije dva mjeseca sam uključila cloud da mogu da komuniciram sa timom, nisam, uključila sam da mi može te web strance očistit, pogledat, pomoć, sva šta sam uradila, ali moj osnovni cilj je da sam u toku, da mi jednostavno ne promakne nešto što mogu u puno kraćne vremena da uradim, a da ne znam za to.
+Tako da neki određen cilj, ove ne imam, ali imam globalnu cilj da mogu da znam šta se mogu. Eto, to bi bilo neki odgovor.
+Hvala Ira, hvala vam na informacijama. Mi ćemo sada idemo na pa... i ona će, za nekih 10 minuta, i ona će trajati do nekih 2 sata, tj.
+do 2 sata Ovdje u Amsterdamu isto vreme, jel tako, smo isto vremenski, jel ste vi 1 sato nazad? Isto vremenski.
+E, ok, tako da je tu isto. Pausiramo se do 2. Dobro, ok, vidimo se. Dobro, ništa, hoćemo sada da spremimo agendu, pošto smo sad čuli da spremimo agendu za sledeći panel, tj.
+drugu polovinu? Pa, mislim da imamo sada uvod, jel tako? Da li želite odvo da radite na ovim stvarima što ste rekli sada, pa da idemo idejno da vidimo šta je od toga izvodljivo, ali tu zahteva sada jedan na jedan izveđu nas.
+Mislim da je najbolje da to... ostavimo za posle danas, da danas što više vrednosti vama donesemo u smislu, evo, sada ste na učili šta je git, kako se pušuje, komituje, pa da idemo na sledeći tool i na neku sledeću permisiju koja će mnogo da vam pomogne.
+Evo, ja ću da podelim ekran pa čisto da vam dam intro za to šta u suštini... Znači, ja mislim da, najbitnije je da setupujete svoj environment, znači ti niste na svom kompjuteru, ali znači da repliciraš sve isto, znači najbitnije je da, ako što već radite na lokalnom agentu, ne na nekom na serveru, da instalirate sve, da on ima alate, znači on je kao mozak sjajan, ali dok nema alat, da on pokrene Python skriptu, napiše, znači sad oni sve rade u Pythonu, vi morate imati Python instaliran, ne morate znati Pythonu, ne morate znati JavaScriptu, ne morate znati ništa od programiranja, bitno je samo znati...
+stvari koje želete da vam on izvrši i na koji način može. Jedino što ćete morati da naučite su te autorizacije, znači API-a, kijevi, tokeni, moraš da se uloguješ negde, moraš da napraviš app da bi mogao da priča tvoj agent sa tim appom, pa dobiješ neki client secret, pa secret key, pa API key.
+I na nekim slučaju mora 4-5 nekih tajni da unesete da bi agent mogao komunicira s tim. Jedino da je to najveća vrednost.
+Sad, ako imate neke softvere, zapišite negde pa da konectujemo taj softver na vašeg agenta, znači koji je to bio, može bude CRM, Google Sheet, i tu je ovaj kompozij odličan jer on je za vas uradio te neke stvari.
+Ako tamo ne postoji, morat ćete sami da pravite taj konektor između vašeg. agenta i tog softvera. Mišli da je to najveća vrednost koju možete ponesiti je da sa sobom imate tog agenta koji ima pristup svim alatima i kad god mu baciš na neki zadatak neće moći kaže nemam, ne mogu, ne znam.
+Znači imaće, znaće i moraće da uradi to za vas. Evo samo ja ako mogu da uznam Stefan Ekran da isto podelim.
+U suštini šta ćemo mi prolaziti u drugom delu. Znači šta je sad stvar, vi ste... Evo Šeroj. Šeroj. Al što se ne vidim...
+Aha, moram da se... ... Čisto da sumiramo, znači, vi ste sada, ajde da kažem, napravili neku infrastrukturu, šta to znači, konektovali ste alate, ok, napravili smo neku memoriju, tipa, to je sve sada na githubu i ostalo, vaš, ajde da kažem, neki aset, da li je to aplikacija, mi smo sad uradili kroz website, mi smo, vaš nekada, ta aplikacija ili nešto, website, ok, postoji, to je live, tu možete da radite izmen, jer tako većina biznisa je online.
+Šta je sledeće? Mi ćemo sledeće raditi NIT na automatizaciju i tu ćete malo više ući oko same autorizacije, znači, morat ćete, da, napravite, napravite nalog, da li u klod konzoli, to je Stantropiku ili chat GBT-u,
+da koristite njihove tokene, znači ne sada ne koristite vašu subskripciju, nego koristite njihove tokene preko API poziva, onda ćete morati da preko toga u vaš workflow ubacite agenta, trebate da autorizujete neki alat, konkretno koristit ćemo alat koji je Customer.io i onda će vaša automatizacija imati i data bazu koja će biti simple, neki sprečito, dakle će vući informacije, imaće agenta koji će biti konektovani sa vašim API tokenima, imaće akses na neki tool koji će biti Customer.io i na kraju vi ćete dobiti ispisani blog artikel koji je za vaš website, ali ćete također posle toga imati formu na websiteu gdje će ljudi dolaziti i ulazit će u određene email automation sekvence.
+To zvuči ok? Da, ali stvari prethodno vas, kako da kažem, enabluje da vi, kako se zove, to radite I onda šta to znači?

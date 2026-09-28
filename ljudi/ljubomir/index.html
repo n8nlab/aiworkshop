@@ -324,6 +324,24 @@
       .hero-image { width: min(86%, 280px); }
       .me-hero h1 { font-size: clamp(3.8rem, 17vw, 5.7rem); }
     }
+    .workshop-summary { padding: 0 0 2rem; }
+    .workshop-card {
+      display: grid;
+      grid-template-columns: minmax(180px, .8fr) minmax(0, 1.2fr);
+      gap: 1.5rem 2.5rem;
+      padding: clamp(1.25rem, 4vw, 2.5rem);
+      border: 1px solid var(--text);
+      border-radius: 6px 36px 6px 6px;
+      background: linear-gradient(135deg, var(--bg-2), #f8d977);
+      box-shadow: 7px 7px 0 var(--text);
+    }
+    .workshop-card .label { color: var(--muted); font-family: var(--mono); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; }
+    .workshop-card h2 { margin-top: .6rem; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.8rem, 3.4vw, 3rem); font-weight: 500; letter-spacing: -.06em; line-height: 1; }
+    .workshop-card ul { display: grid; align-content: center; gap: .65rem; margin: 0; padding-left: 1.2rem; }
+    .workshop-card li::marker { color: #c65036; }
+    @media (max-width: 620px) {
+      .workshop-card { grid-template-columns: 1fr; gap: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -344,7 +362,7 @@
       <div class="hero-copy">
         <span class="eyebrow">Kreativan freelancer</span>
         <h1>Ljubomir Ruskaji</h1>
-        <p class="lead">Freelance način rada, kreativne ideje i pet promptova za sledeći korak.</p>
+        <p class="lead">Freelance način rada, kreativne ideje i šest promptova za sledeći korak.</p>
         <a href="#promptovi" class="btn btn-primary">Pogledaj promptove</a>
       </div>
       <div class="hero-mark">
@@ -358,6 +376,28 @@
       <div class="about-line">
         <h2>O meni</h2>
         <p>Kreativan freelancer. Ovo je moj kutak za ideje, AI alate i nove projekte.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="workshop-summary" aria-labelledby="workshop-title">
+    <div class="container">
+      <div class="workshop-card">
+        <div>
+          <span class="label">Današnja radionica</span>
+          <h2 id="workshop-title">Slack + n8n + AI agent</h2>
+        </div>
+        <div>
+          <ul>
+            <li>Slack bot token i API ključ AI modela su odvojeni podaci za prijavu.</li>
+            <li>n8n ih čuva u Credentials, a ne u kodu, promptu ili GitHub-u.</li>
+            <li>Workflow povezuje Slack Trigger, AI model i Slack odgovor.</li>
+            <li>Kada bot ćuti, proveravaju se Events, webhook URL, kanal i n8n Executions.</li>
+            <li>Composio je zasebna opcija i nije potreban za ovu n8n vezu.</li>
+          </ul>
+          <p><a class="btn btn-primary" href="transkript-prvi-dan-prvi-deo.html">Otvori transcript radionice →</a></p>
+
+        </div>
       </div>
     </div>
   </section>
@@ -563,6 +603,49 @@ Radim na grani ljubomir/moja-stranica (ako ne postoji, napravi je od main).
 <span class="ph"># CILJ</span>
 Da moja promena stigne na GitHub čista, proverena i spremna da je svi vide.</pre>
     <div class="lesson">💡 <span><b>Zašto ovako:</b> agent sme da menja stvari, ali ti odobravaš. Tražiš spisak problema pre popravke i zaustavljanje ako nešto nije u redu.</span></div>
+  </div>
+</details>
+        <details class="prompt">
+  <summary class="prompt-summary">
+    <div>
+      <span class="num">06</span>
+      <h3>Poveži Slack i AI agenta u n8n</h3>
+      <p>Napravi pomoćnika koji odgovara u Slack-u kada ga neko pomene. Tajne unosi samo u n8n Credentials.</p>
+    </div>
+    <span class="prompt-toggle" aria-hidden="true">+</span>
+  </summary>
+  <div class="prompt-content">
+    <div class="prompt-actions"><button class="copy" data-target="p6">Kopiraj prompt</button></div>
+    <pre id="p6"><span class="ph"># ULOGA</span>
+Ti si n8n mentor koji objašnjava kratko, jednostavno i na srpskom. Vodi me korak po korak i proveri rezultat svakog koraka.
+
+<span class="ph"># CILJ</span>
+Pomozi mi da napravim Slack pomoćnika u n8n-u. Kada neko pomene bota u jednom izabranom kanalu, agent treba da odgovori u istom razgovoru.
+
+<span class="ph"># TOK RADA</span>
+Slack Trigger (Bot/App Mention) → AI model / AI Agent → Slack Send Message.
+
+<span class="ph"># ZADATAK</span>
+1. Najpre proveri da li koristim n8n Cloud ili sopstvenu n8n instalaciju. Ne traži od mene lozinke ni ključeve.
+2. Pomozi mi da napravim Slack aplikaciju sa najmanjim potrebnim dozvolama za pominjanje bota i slanje odgovora.
+3. Podesi Slack Event Subscriptions i poveži ispravan n8n webhook URL. Objasni razliku između test i produkcionog URL-a.
+4. Poveži Slack Trigger sa AI modelom i poruku pošalji u isti kanal ili nit. Pregledaj izlaz Trigger-a pre nego što predložiš mapiranje polja.
+5. Ako koristimo n8n AI Agent, poveži Chat Model i potreban Tool čvor. Ako za običan tekstualni odgovor alat nije potreban, predloži jednostavniji LLM čvor.
+6. Testiraj tako što ću ja pomenuti bota u test kanalu. Zatim zajedno proveri n8n Executions i ispravi grešku ako postoji.
+
+<span class="ph"># BEZBEDNOST</span>
+- Slack bot token i API ključ AI modela su različiti. Unesi ih samo u odgovarajuće n8n Credentials.
+- Nikada ne traži da ih zalepim u chat, prompt, workflow kod ili GitHub.
+- Ne uključuj praćenje celog workspace-a ako je dovoljan jedan kanal.
+- Ne aktiviraj produkcioni workflow dok ne proverim test odgovor.
+
+<span class="ph"># OGRANIČENJA</span>
+- Ne menjaj niti briši postojeće workflow-e bez mog odobrenja.
+- Ne izmišljaj nazive dugmadi ili polja; traži screenshot ako se moj ekran razlikuje.
+
+<span class="ph"># NA KRAJU</span>
+U 3 kratke rečenice objasni kako poruka stiže do agenta i kako se odgovor vraća u Slack.</pre>
+    <div class="lesson">💡 <span><b>Zašto ovako:</b> odvojeni kredencijali štite pristup, a test u jednom kanalu olakšava pronalaženje greške.</span></div>
   </div>
 </details>
       </div>
