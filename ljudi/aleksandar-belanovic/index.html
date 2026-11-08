@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aleksandar Belanović — Direktor operacija</title>
+  <meta name="description" content="Aleksandar Belanović, direktor operacija i AI početnik. Lična stranica za AI Radionicu Beograd." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/style.css" />
+
+  <!-- =====================================================================
+       👋 ZDRAVO! Ovo je TVOJA stranica. Ovaj fajl slobodno menjaj kako želiš.
+       Pravila: menjaj samo fajlove u folderu ljudi/aleksandar-belanovic/,
+       slike stavi u ljudi/aleksandar-belanovic/slike/ i nikad ne upisuj lozinke ni API ključeve.
+       ===================================================================== -->
+  <style>
+    :root {
+      --c: #ffe16d;
+      --accent: var(--c);
+      --accent-ink: #17162b;
+      --bg: #172044;
+      --bg-2: #202b50;
+      --card: #29355a;
+      --border: #63719b;
+      --border-2: #8693b9;
+      --text: #f9f5eb;
+      --muted: #d5def4;
+      --dim: #b9c5df;
+      --radius: 4px;
+      --max: 1056px;
+      --paper: #f0edf9;
+      --ink: #181b3b;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: radial-gradient(#52618e 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .nav { background: #1c244b; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid #8ab9ff;
+      outline-offset: 4px;
+    }
+
+    .me-hero { padding: clamp(2rem, 6vw, 5rem) 0 1.75rem; }
+    .retro-window {
+      background: var(--paper);
+      color: var(--ink);
+      border: 3px solid;
+      border-color: #fff #a1a3bd #a1a3bd #fff;
+      padding: 3px;
+      box-shadow: 7px 7px 0 #0b1230;
+    }
+
+    .window-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: .75rem;
+      padding: .55rem .75rem;
+      background: linear-gradient(100deg, #272665, #4648a0);
+      color: #fff;
+      font: 700 .8rem/1.4 var(--mono);
+    }
+
+    .window-controls { display: flex; gap: 4px; flex-shrink: 0; }
+    .window-controls span {
+      display: grid;
+      place-items: center;
+      width: 1.15rem;
+      height: 1.15rem;
+      background: #e5e2f0;
+      color: var(--ink);
+      border: 1px solid;
+      border-color: #fff #81839e #81839e #fff;
+    }
+
+    .profile-layout {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: start;
+      gap: clamp(1.15rem, 4vw, 3rem);
+      padding: clamp(1.25rem, 5vw, 3.75rem);
+    }
+
+    .me-hero .avatar {
+      width: clamp(4rem, 13vw, 8rem);
+      height: auto;
+      aspect-ratio: 1;
+      border-radius: 0;
+      border: 2px solid var(--ink);
+      box-shadow: 5px 5px 0 #b2a9cf;
+      font: 700 clamp(1.5rem, 4vw, 3.25rem)/1 var(--mono);
+    }
+
+    .me-hero h1 {
+      margin-bottom: .65rem;
+      font-size: clamp(2rem, 5.3vw, 4.5rem);
+      line-height: 1.03;
+      overflow-wrap: anywhere;
+    }
+
+    .me-hero .role { color: #333789; font-size: clamp(1.05rem, 3vw, 1.4rem); font-weight: 800; }
+    .bio { max-width: 36rem; margin-top: 1rem; }
+    .traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin: 1rem 0 1.35rem;
+      list-style: none;
+    }
+
+    .traits li {
+      padding: .25rem .5rem;
+      border: 1px solid #827ba3;
+      background: #e3dff5;
+      font: 700 .75rem/1.35 var(--mono);
+    }
+
+    .prompt-shortcut {
+      min-height: 44px;
+      padding: .55rem .8rem;
+      border: 2px solid var(--ink);
+      border-radius: 0;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .operations { padding: 0 0 1.75rem; }
+    .operations-content { padding: clamp(1rem, 4vw, 2rem); }
+    .operations h2 { margin-bottom: .9rem; font-size: clamp(1.35rem, 4vw, 2rem); }
+    .operations-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .7rem;
+      list-style: none;
+    }
+
+    .operations-list li {
+      padding: .75rem;
+      border: 1px solid #827ba3;
+      background: #fff;
+    }
+
+    .operations-list span {
+      display: block;
+      margin-bottom: .2rem;
+      color: #393984;
+      font: 700 .75rem/1.4 var(--mono);
+    }
+
+    .incident-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+    .incident-panel {
+      display: grid;
+      align-content: start;
+      gap: .85rem;
+      padding: clamp(.85rem, 2.5vw, 1.25rem);
+      border: 1px solid #827ba3;
+      background: #fff;
+    }
+    .incident-panel label { display: block; margin-bottom: .25rem; font-weight: 700; }
+    .incident-panel input, .incident-panel textarea, .incident-panel select {
+      width: 100%;
+      min-height: 44px;
+      padding: .55rem .65rem;
+      border: 1px solid #827ba3;
+      border-radius: 0;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+    .incident-panel textarea { display: block; resize: vertical; }
+    .incident-panel textarea[readonly], .incident-panel input[readonly] { background: var(--paper); }
+    .incident-panel .btn {
+      justify-self: start;
+      min-height: 44px;
+      padding: .55rem .8rem;
+      border: 2px solid var(--ink);
+      border-radius: 0;
+    }
+    .incident-panel .btn:disabled { opacity: .6; cursor: default; transform: none; }
+    .incident-status { font-size: .9rem; }
+
+    #promptovi { padding-top: clamp(2rem, 5vw, 3.75rem); }
+    #promptovi .section-head strong { color: var(--text); }
+    .prompt, .copy, .tips .card { border-radius: 0; }
+    .copy { min-height: 44px; }
+    footer { background: var(--bg); }
+
+    @media (max-width: 620px) {
+      .topbar .container { gap: .2rem .85rem; padding-block: .4rem; }
+      .nav .container { height: auto; min-height: 68px; flex-wrap: wrap; gap: .35rem; padding-block: .5rem; }
+      .profile-layout, .operations-list, .incident-layout { grid-template-columns: 1fr; }
+      .retro-window { box-shadow: 4px 4px 0 #0b1230; }
+      .prompt-head, .prompt pre, .prompt .lesson { padding-inline: 1rem; }
+      #incident, #promptovi { scroll-margin-top: 115px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span><span class="dot"></span>AI radionica · Beograd</span>
+      <span>2 dana · Build + Business</span>
+      <a href="../../zadatak.html">Tvoj zadatak →</a>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../../index.html" class="brand"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span><span class="brand-sub">AI Radionica Beograd</span></a>
+      <div class="nav-links">
+        <a href="../../index.html">Početna</a>
+        <a href="../../zadatak.html">Zadatak</a>
+        <a href="../index.html" class="active">Ljudi</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+  <header class="me-hero">
+    <div class="container retro-window">
+      <div class="window-bar">
+        <span>PROFIL.TXT · AI radionica</span>
+        <span class="window-controls" aria-hidden="true"><span>−</span><span>□</span><span>×</span></span>
+      </div>
+      <div class="profile-layout">
+        <div class="avatar" aria-hidden="true">AB</div>
+        <div>
+          <h1>Aleksandar Belanović</h1>
+          <p class="role">Direktor operacija · AI početnik</p>
+          <p class="bio">Vodim operacije i odgovorno pristupam poslu. U svetu veštačke inteligencije sam na početku i radoznalo istražujem kako AI može da pomogne u svakodnevnim procesima.</p>
+          <ul class="traits" aria-label="Tri reči koje me opisuju">
+            <li>Odgovoran</li>
+            <li>Radoznao</li>
+            <li>Lider</li>
+          </ul>
+          <a href="#promptovi" class="btn btn-primary prompt-shortcut">Otvori startne promptove ↓</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="operations" aria-labelledby="operations-title">
+    <div class="container retro-window">
+      <div class="window-bar">OPERACIJE.LOG · Beleške za radionicu</div>
+      <div class="operations-content">
+        <h2 id="operations-title">Ideje za automatizaciju</h2>
+        <ul class="operations-list">
+          <li><span aria-hidden="true">01</span>Rutinski zadaci</li>
+          <li><span aria-hidden="true">02</span>Prenos podataka između alata</li>
+          <li><span aria-hidden="true">03</span>Priprema sažetaka i izveštaja</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="incident" class="operations" aria-labelledby="incident-title">
+    <div class="container retro-window">
+      <div class="window-bar">INCIDENT.MAIL · ICT operacije</div>
+      <div class="operations-content">
+        <h2 id="incident-title">Generator obaveštenja o incidentu</h2>
+        <p>Unesi podatke o incidentu i pripremi nacrt mejla za kolege ili korisnike.</p>
+        <noscript><p>Za pripremu nacrta uključi JavaScript u pregledaču.</p></noscript>
+        <div class="incident-layout">
+          <form class="incident-panel" id="incident-form" autocomplete="off">
+            <div>
+              <label for="incident-service">Pogođeni servis</label>
+              <input id="incident-service" name="service" required maxlength="120" placeholder="Npr. korisnički portal" />
+            </div>
+            <div>
+              <label for="incident-impact">Uticaj na korisnike</label>
+              <textarea id="incident-impact" name="impact" required rows="3" placeholder="Npr. prijava na portal povremeno ne uspeva"></textarea>
+            </div>
+            <div>
+              <label for="incident-state">Trenutni status</label>
+              <select id="incident-state" name="state" required>
+                <option value="">Izaberi status</option>
+                <option>Istraga je u toku</option>
+                <option>Otklanjanje problema je u toku</option>
+                <option>Servis je oporavljen, praćenje je u toku</option>
+                <option>Incident je rešen</option>
+              </select>
+            </div>
+            <div>
+              <label for="incident-next">Sledeće ažuriranje (opciono)</label>
+              <input id="incident-next" name="next" maxlength="120" placeholder="Npr. danas do 15:00 (po lokalnom vremenu)" />
+            </div>
+            <button id="incident-generate" type="submit" class="btn btn-primary" disabled>Sastavi obaveštenje</button>
+          </form>
+          <div class="incident-panel" aria-label="Nacrt obaveštenja">
+            <div>
+              <label for="incident-subject">Naslov mejla</label>
+              <input id="incident-subject" readonly />
+            </div>
+            <div>
+              <label for="incident-body">Tekst mejla</label>
+              <textarea id="incident-body" rows="12" readonly></textarea>
+            </div>
+            <button id="incident-copy" type="button" class="btn btn-primary" disabled>Kopiraj naslov i tekst</button>
+            <p id="incident-feedback" class="incident-status" role="status"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STARTNI PROMPTOVI ================= -->
+  <section id="promptovi">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Moji startni promptovi</span>
+        <h2>Pet promptova <span class="hl">za rad na stranici</span></h2>
+        <p>
+          Kopiraj prompt, zalepi ga AI agentu (Codex, Claude Code, Copilot ili Cursor) i gledaj šta radi. Idi redom — svaki korak se nadovezuje na prethodni.
+          <strong>Žuta polja obavezno zameni svojim podacima</strong> — tu nastaje razlika između tvoje i tuđe stranice.
+        </p>
+        <div class="anatomy">
+          <span><b>01</b>Uloga — ko je agent</span>
+          <span><b>02</b>Kontekst — odakle počinjemo</span>
+          <span><b>03</b>Zadatak — šta tražimo</span>
+          <span><b>04</b>Zahtevi — kako to mora da izgleda</span>
+          <span><b>05</b>Ograničenja — šta ne sme</span>
+          <span><b>06</b>Cilj — zašto sve ovo</span>
+        </div>
+      </div>
+
+      <div class="prompts">
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 01</span>
+              <h3>Upoznaj teren</h3>
+              <p>Pre nego što išta menjaš, neka agent pročita projekat i objasni ti ga. Ovaj prompt ne menja nijedan fajl.</p>
+            </div>
+            <button class="copy" data-target="p1">Kopiraj prompt</button>
+          </div>
+<pre id="p1"><span class="ph"># ULOGA</span>
+Ti si iskusan web developer i mentor koji radi sa početnikom. Objašnjavaj jednostavno i na srpskom.
+
+<span class="ph"># KONTEKST — odakle počinjemo</span>
+Nalazimo se u repozitorijumu sajta "AI Radionica Beograd". Sajt je čist HTML + CSS, bez frameworka i bez build koraka. Objavljuje se na GitHub Pages: https://n8nlab.github.io/aiworkshop/
+- Zajednički stilovi: assets/style.css (njih NE menjamo)
+- Moja stranica: ljudi/aleksandar-belanovic/index.html
+- Moj folder: ljudi/aleksandar-belanovic/ — ovde smem da pravim nove stranice i dodajem slike
+
+<span class="ph"># ZADATAK</span>
+1. Pročitaj README.md, assets/style.css i ljudi/aleksandar-belanovic/index.html.
+2. Objasni mi u 5–7 rečenica kako je sajt organizovan.
+3. Nabroj gotove CSS klase (kartice, dugmad, grid…) koje mogu da koristim na svojoj stranici.
+4. Predloži mi 3 potpuno različita pravca kako bi moja stranica mogla da izgleda.
+
+<span class="ph"># OGRANIČENJA</span>
+- U ovom koraku NE menjaj nijedan fajl. Samo čitaj i objasni.
+
+<span class="ph"># CILJ</span>
+Da razumem teren pre nego što počnem da gradim i da izaberem svoj pravac.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> agent koji prvo pročita projekat pravi mnogo manje grešaka. Uvek prvo kontekst, pa tek onda akcija.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 02</span>
+              <h3>Moj identitet</h3>
+              <p>Pretvori generičku stranicu u svoju: ime, priča, boje i stil. Popuni žuta polja pre slanja.</p>
+            </div>
+            <button class="copy" data-target="p2">Kopiraj prompt</button>
+          </div>
+<pre id="p2"><span class="ph"># ULOGA</span>
+Ti si web dizajner koji pravi lične stranice sa jakim, prepoznatljivim stilom.
+
+<span class="ph"># KONTEKST</span>
+Radim na svojoj stranici: ljudi/aleksandar-belanovic/index.html. Stranica već ima moje ime i inicijale. Sada želim da dodam kratku biografiju i izaberem svoj stil.
+O meni:
+- Ime i prezime: <span class="fill">[TVOJE IME I PREZIME]</span>
+- Čime se bavim: <span class="fill">[NPR. radim u marketingu / vodim svoj biznis / freelancer sam]</span>
+- 3 reči koje me opisuju: <span class="fill">[NPR. precizan, kreativan, brz]</span>
+
+<span class="ph"># ZADATAK</span>
+Redizajniraj moju stranicu tako da odražava mene i moj posao.
+
+<span class="ph"># ZAHTEVI</span>
+1. Upiši moje pravo ime, inicijale u avataru i kratku biografiju (2–3 rečenice) na osnovu podataka iznad.
+2. Vizuelni stil: <span class="fill">[IZABERI: minimalistički / retro 80-e / luksuzni crno-zlatni / razigran i šaren / brutalistički / ili opiši svoj]</span>
+3. Promeni boju naglaska (--c) i sve svoje stilove piši u &lt;style&gt; blok na vrhu fajla.
+4. Stranica mora lepo da izgleda i na telefonu.
+5. Zadrži prečicu do startnih promptova pri vrhu stranice.
+6. Sekciju "Moji startni promptovi" ostavi na dnu stranice.
+
+<span class="ph"># OGRANIČENJA</span>
+- Menjaj SAMO fajl ljudi/aleksandar-belanovic/index.html.
+- Ne menjaj assets/style.css niti tuđe stranice.
+- Ne izmišljaj činjenice o meni — ako ti nešto fali, pitaj me.
+
+<span class="ph"># CILJ</span>
+Kad neko otvori moju stranicu, za 5 sekundi treba da zna ko sam i čime se bavim.
+
+<span class="ph"># NA KRAJU</span>
+Napiši mi kratak spisak svega što si promenio.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> što su podaci o tebi konkretniji, rezultat je ličniji. Žuta polja su razlika između tvoje i tuđe stranice.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 03</span>
+              <h3>Mini alat iz mog posla</h3>
+              <p>Dodaj nešto interaktivno što rešava pravi problem iz tvog posla: kalkulator, kviz, generator ponude…</p>
+            </div>
+            <button class="copy" data-target="p3">Kopiraj prompt</button>
+          </div>
+<pre id="p3"><span class="ph"># ULOGA</span>
+Ti si frontend developer koji pravi male, korisne alate u čistom JavaScript-u.
+
+<span class="ph"># KONTEKST</span>
+Moja stranica je ljudi/aleksandar-belanovic/index.html.
+- Čime se bavim: <span class="fill">[NPR. radim u marketingu / vodim svoj biznis / freelancer sam]</span>
+- Problem koji imam u poslu: <span class="fill">[NPR. svaki dan ručno pravim isti izveštaj]</span>
+
+<span class="ph"># ZADATAK</span>
+Dodaj na moju stranicu novu sekciju sa interaktivnim mini alatom koji rešava taj problem.
+Primeri: kalkulator cene, kviz "šta ti odgovara", generator ponude, forma koja sklapa poruku za WhatsApp ili mejl.
+
+<span class="ph"># ZAHTEVI</span>
+1. PRE pisanja koda predloži mi 3 ideje za alat i sačekaj da izaberem jednu.
+2. Sav JavaScript i CSS stavi u isti fajl (&lt;script&gt; i &lt;style&gt;), bez spoljnih biblioteka.
+3. Alat mora da radi bez servera i bez API ključeva.
+4. Dizajn uskladi sa ostatkom moje stranice.
+5. Objasni mi u 3 rečenice kako alat radi, da mogu da ga pokažem drugima.
+
+<span class="ph"># OGRANIČENJA</span>
+- Menjaj SAMO ljudi/aleksandar-belanovic/index.html.
+- Nikakve lozinke, ključevi ni lični podaci u kodu.
+
+<span class="ph"># CILJ</span>
+Da moja stranica ne bude samo vizitkarta, nego nešto što stvarno koristi meni ili mojim klijentima.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> tražiš 3 ideje pre koda. Agent predlaže, ti odlučuješ — tako ostaješ vlasnik rezultata.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 04</span>
+              <h3>Moj mini sajt — više stranica i nivoa</h3>
+              <p>Napravi dodatne stranice u svom folderu, pa i podfoldere (npr. projekti → projekat-1). Ovde se najlakše pokvare linkovi, zato je prompt strožiji.</p>
+            </div>
+            <button class="copy" data-target="p4">Kopiraj prompt</button>
+          </div>
+<pre id="p4"><span class="ph"># ULOGA</span>
+Ti si web developer koji pravi uredne sajtove sa više stranica.
+
+<span class="ph"># KONTEKST</span>
+Moj folder je ljudi/aleksandar-belanovic/, a glavna stranica je ljudi/aleksandar-belanovic/index.html.
+Sajt živi na podadresi https://n8nlab.github.io/aiworkshop/ — zato su putanje bitne:
+- iz ljudi/aleksandar-belanovic/ do zajedničkog CSS-a:        ../../assets/style.css
+- iz ljudi/aleksandar-belanovic/podfolder/ do zajedničkog CSS-a: ../../../assets/style.css
+
+<span class="ph"># ZADATAK</span>
+Napravi mi mini sajt unutar mog foldera sa ovim stranicama:
+- ljudi/aleksandar-belanovic/<span class="fill">[NPR. usluge]</span>.html — <span class="fill">[ŠTA IDE NA TU STRANICU]</span>
+- ljudi/aleksandar-belanovic/<span class="fill">[NPR. projekti]</span>/index.html — <span class="fill">[SPISAK MOJIH PROJEKATA]</span>
+- ljudi/aleksandar-belanovic/<span class="fill">[NPR. projekti]</span>/<span class="fill">[NPR. projekat-1]</span>.html — <span class="fill">[DETALJI JEDNOG PROJEKTA]</span>
+
+<span class="ph"># ZAHTEVI</span>
+1. Svaka stranica ima isti meni sa linkovima ka svim mojim stranicama + link "← Svi polaznici" ka ljudi/index.html.
+2. Koristi SAMO relativne putanje (../ i ../../). Nikad putanje koje počinju sa "/".
+3. Zajedničke stilove mog mini sajta stavi u ljudi/aleksandar-belanovic/stil.css i poveži ih na svim mojim stranicama.
+4. Na glavnoj stranici dodaj vidljive linkove ka novim stranicama.
+5. Na kraju proveri SVAKI link i napravi mi tabelu: stranica → link → gde vodi → radi / ne radi.
+
+<span class="ph"># OGRANIČENJA</span>
+- Pravi i menjaj fajlove SAMO unutar foldera ljudi/aleksandar-belanovic/.
+- Nazivi fajlova i foldera: mala slova, crtice umesto razmaka, bez č/ć/š/ž/đ (npr. moji-projekti.html).
+
+<span class="ph"># CILJ</span>
+Da naučim kako se sajt organizuje u više stranica i nivoa, i da moj deo sajta izgleda kao pravi mali sajt.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> kod sajta sa više nivoa najčešće pucaju putanje. Zato agentu tačno kažeš kako izgledaju putanje i tražiš da na kraju sam proveri svaki link.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 05</span>
+              <h3>Provera i objava na GitHub</h3>
+              <p>Poslednji korak: agent pregleda tvoj rad, proveri da nisi dirao tuđe fajlove, napravi commit i pushuje tvoju granu.</p>
+            </div>
+            <button class="copy" data-target="p5">Kopiraj prompt</button>
+          </div>
+<pre id="p5"><span class="ph"># ULOGA</span>
+Ti si pažljiv code reviewer i pomažeš mi da bezbedno objavim svoje promene.
+
+<span class="ph"># KONTEKST</span>
+Završio sam izmene u folderu ljudi/aleksandar-belanovic/.
+Radim na grani aleksandar-belanovic/moja-stranica (ako ne postoji, napravi je od main).
+
+<span class="ph"># ZADATAK</span>
+1. Pregledaj sve fajlove u ljudi/aleksandar-belanovic/: pokvareni linkovi, nezatvoreni tagovi, slike koje ne postoje, izgled na telefonu.
+2. Pokreni `git status`. Ako je izmenjen bilo koji fajl VAN mog foldera, zaustavi se i pitaj me šta da radimo.
+3. Pokaži mi spisak pronađenih problema i popravi ih tek kad potvrdim.
+4. Napravi commit sa jasnom porukom na srpskom, npr. "Aleksandar Belanović: nova stranica + mini alat".
+5. Pushuj granu aleksandar-belanovic/moja-stranica i daj mi link za otvaranje Pull Request-a.
+
+<span class="ph"># OGRANIČENJA</span>
+- Nikad ne radi push direktno na main.
+- Ne briši i ne menjaj ništa van mog foldera.
+
+<span class="ph"># CILJ</span>
+Da moja promena stigne na GitHub čista, proverena i spremna da je svi vide.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> agent sme da menja stvari, ali ti odobravaš. Tražiš spisak problema pre popravke i zaustavljanje ako nešto nije u redu.</span></div>
+        </article>
+      </div>
+
+      <div class="tips">
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>Rezultat ne valja?</h3>
+          <p>Ne kreći ispočetka. Reci tačno šta ne valja: <em>„Naslov je prevelik na telefonu. Smanji ga, a sve ostalo ostavi isto."</em></p>
+        </div>
+        <div class="card">
+          <div class="icon">🧩</div>
+          <h3>Jedan korak odjednom</h3>
+          <p>Mali, jasni promptovi rade bolje od jednog ogromnog. Proveri rezultat posle svakog koraka.</p>
+        </div>
+        <div class="card">
+          <div class="icon">✍️</div>
+          <h3>Napravi svoj prompt</h3>
+          <p>Kad savladaš ovih pet, napiši svoj po istoj šemi: uloga, kontekst, zadatak, zahtevi, ograničenja, cilj.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <a href="../index.html">← Svi polaznici</a>
+      <a href="https://vibecodeacademy.io/" class="brand" target="_blank" rel="noopener"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span></a>
+    </div>
+  </footer>
+
+  <script src="../../assets/main.js"></script>
+  <script>
+    {
+      const form = document.getElementById('incident-form');
+      const subject = document.getElementById('incident-subject');
+      const body = document.getElementById('incident-body');
+      const copy = document.getElementById('incident-copy');
+      const feedback = document.getElementById('incident-feedback');
+      const requiredTextFields = [form.elements.service, form.elements.impact];
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        for (const field of requiredTextFields) {
+          if (!field.value.trim()) {
+            field.setCustomValidity('Unesi podatak u ovo polje.');
+            field.reportValidity();
+            return;
+          }
+        }
+
+        const service = form.elements.service.value.trim();
+        const impact = form.elements.impact.value.trim();
+        const state = form.elements.state.value;
+        const nextUpdate = form.elements.next.value.trim();
+
+        subject.value = 'ICT incident | ' + service + ' | ' + state;
+        const lines = [
+          'Zdravo,',
+          '',
+          'Šaljem obaveštenje o incidentu.',
+          '',
+          'Pogođeni servis: ' + service,
+          'Uticaj na korisnike: ' + impact,
+          'Trenutni status: ' + state
+        ];
+        if (nextUpdate) lines.push('Sledeće ažuriranje: ' + nextUpdate);
+        lines.push('', 'Pozdrav');
+        body.value = lines.join('\n');
+        copy.disabled = false;
+        feedback.textContent = 'Nacrt je spreman za kopiranje.';
+      });
+
+      form.addEventListener('input', (event) => {
+        event.target.setCustomValidity('');
+        if (!subject.value) return;
+        subject.value = '';
+        body.value = '';
+        copy.disabled = true;
+        feedback.textContent = 'Podaci su izmenjeni. Ponovo sastavi obaveštenje.';
+      });
+
+      copy.addEventListener('click', async () => {
+        const draft = subject.value + '\n\n' + body.value;
+        try {
+          await navigator.clipboard.writeText(draft);
+          feedback.textContent = 'Naslov i tekst su kopirani.';
+        } catch {
+          feedback.textContent = 'Automatsko kopiranje nije dostupno. Označi i kopiraj naslov i tekst iz polja iznad.';
+        }
+      });
+
+      document.getElementById('incident-generate').disabled = false;
+    }
+  </script>
+</body>
+</html>

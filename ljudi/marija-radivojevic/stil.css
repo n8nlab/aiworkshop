@@ -1,0 +1,75 @@
+/* Zajednički stilovi mog mini sajta (ljudi/marija-radivojevic/) */
+:root { --c: #7cc4ff; }
+
+/* Moj meni — isti na svim mojim stranicama */
+.my-nav { border-bottom: 1px solid var(--border); background: var(--bg-2); }
+.my-nav .container { display: flex; align-items: center; gap: 1.2rem; padding-top: .8rem; padding-bottom: .8rem; }
+.my-nav-back { color: var(--muted); font-size: .88rem; font-weight: 600; white-space: nowrap; }
+.my-nav-back:hover { color: var(--text); }
+.my-nav-links { display: flex; flex-wrap: wrap; gap: .4rem; }
+.my-nav-links a {
+  padding: .4rem .8rem; border-radius: 999px; border: 1px solid transparent;
+  color: var(--muted); font-size: .88rem; font-weight: 600;
+}
+.my-nav-links a:hover { color: var(--text); border-color: var(--border); }
+.my-nav-links a.active { color: #0b1620; background: var(--c); }
+
+.eyebrow-c {
+  font-family: var(--mono); font-size: .75rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--c);
+}
+.container.narrow { max-width: 900px; }
+
+/* Podstranice */
+.page-hero { padding: 4.5rem 0 2.5rem; }
+.page-hero h1 { font-size: clamp(2.2rem, 5.5vw, 4rem); margin: .6rem 0 1rem; }
+.page-hero .lead { margin-bottom: 1.6rem; }
+.crumb { font-family: var(--mono); font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--c); }
+.crumb::before { content: "← "; }
+.btn-c { background: var(--c); color: #0b1620; }
+.btn-c:hover { transform: translateY(-2px); }
+.page-body { padding-top: 0; }
+.page-body .card { margin-bottom: 1.2rem; }
+.page-body .card:hover { transform: none; }
+.sub { font-size: 1.35rem; margin-bottom: 1rem; }
+.page-body a:not(.card):not(.btn) { color: var(--c); }
+
+.lib-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-bottom: 1.2rem; }
+.page-body .lib-grid .card, .lib-grid .card { margin-bottom: 0; display: flex; flex-direction: column; gap: .5rem; }
+.lib-card:hover { border-color: var(--c); }
+.lib-emoji { font-size: 1.8rem; line-height: 1; }
+.lib-card p { color: var(--muted); }
+.lib-cols { font-family: var(--mono); font-size: .78rem; color: var(--dim); }
+.lib-go { margin-top: auto; padding-top: .6rem; color: var(--c); font-weight: 700; font-size: .92rem; }
+.pick ul { list-style: none; padding: 0; display: grid; gap: .6rem; color: var(--muted); }
+
+.col-grid { display: grid; gap: 1.2rem; margin-bottom: 1.2rem; }
+.col-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.col-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+.page-body .col-grid .card { margin-bottom: 0; border-top: 3px solid var(--c); }
+.col-card h3 { margin-bottom: .5rem; }
+.col-card .q { color: var(--text); margin-bottom: .8rem; }
+.col-card .ex { color: var(--muted); font-size: .9rem; }
+.col-card .ex span { color: var(--dim); font-family: var(--mono); font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; }
+
+.two { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+.dash { list-style: none; padding: 0; display: grid; gap: .6rem; color: var(--muted); }
+.dash li::before { content: "— "; color: var(--c); }
+.howto-steps { padding-left: 1.3rem; display: grid; gap: .6rem; color: var(--muted); }
+.howto-steps li::marker { color: var(--c); font-weight: 800; }
+
+.pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+.pager a { font-weight: 700; }
+
+/* Linkovi ka biblioteci na glavnoj stranici */
+.lib-teaser .lib-grid { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 900px) {
+  .lib-teaser .lib-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .my-nav .container { flex-direction: column; align-items: flex-start; gap: .5rem; }
+  .page-hero { padding: 3rem 0 2rem; }
+  .lib-grid, .lib-teaser .lib-grid, .col-grid.cols-3, .col-grid.cols-4, .two { grid-template-columns: 1fr; }
+  .btn-c { width: 100%; justify-content: center; }
+}

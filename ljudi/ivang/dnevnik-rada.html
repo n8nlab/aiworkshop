@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dnevnik rada — Ivan Gvozdenović — AI Radionica Beograd</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="stil.css" />
+  <style>
+    .log-hero { padding: 4.5rem 0 2rem; }
+    .log-hero h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); margin: 1.2rem 0 1rem; }
+    .back { color: var(--muted); font-weight: 700; font-size: .95rem; }
+    .back:hover { color: var(--accent); }
+    section { padding: 2.5rem 0; }
+    .step p + pre { margin-top: .7rem; }
+    .step > div { min-width: 0; }
+    .step code { overflow-wrap: anywhere; }
+    .done-tag {
+      display: inline-block; margin-left: .5rem; padding: .1rem .5rem; border-radius: 6px;
+      font-family: var(--mono); font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+      background: rgba(213, 255, 69, .12); color: var(--accent); vertical-align: middle;
+    }
+    .todo-tag { background: rgba(255, 211, 61, .12); color: var(--warn); }
+    table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+    th, td { text-align: left; padding: .7rem .9rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+    td { color: var(--muted); }
+    td:first-child { color: var(--text); font-weight: 700; white-space: nowrap; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); }
+    .card.chosen { border-color: var(--accent); }
+    .card.chosen .tag { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+    .card h3 { padding-right: 5.5rem; }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span><span class="dot"></span>AI radionica · Beograd</span>
+      <span>2 dana · Build + Business</span>
+      <a href="../../zadatak.html">Tvoj zadatak →</a>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../../index.html" class="brand"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span><span class="brand-sub">AI Radionica Beograd</span></a>
+      <div class="nav-links">
+        <a href="../../index.html">Početna</a>
+        <a href="../../zadatak.html">Zadatak</a>
+        <a href="../index.html" class="active">Ljudi</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Meni mog mini sajta — isti na svim mojim stranicama -->
+  <nav class="site-menu" aria-label="Moj mini sajt">
+    <div class="container">
+      <span class="who">Ivan Gvozdenović</span>
+      <a href="index.html">Dashboard</a>
+      <a href="kako-radim.html">Kako radim</a>
+      <a href="projekti/index.html">Projekti</a>
+      <a href="dnevnik-rada.html" aria-current="page">Dnevnik rada</a>
+      <a href="../index.html" class="back">← Svi polaznici</a>
+    </div>
+  </nav>
+
+  <header class="log-hero">
+    <div class="container">
+      <a href="index.html" class="back">← Nazad na moju stranicu</a>
+      <h1>Dnevnik rada <span class="hl">sa AI agentom</span></h1>
+      <p class="lead">Šta smo do sada uradili: od preuzimanja projekta, preko podešavanja Gita, do prvog prompta i izbora pravca za moju stranicu.</p>
+    </div>
+  </header>
+
+  <!-- ================= KORACI ================= -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Korak po korak</span>
+        <h2>Priprema okruženja</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div>
+            <h3>Preuzimanje projekta <span class="done-tag">GOTOVO</span></h3>
+            <p>Git na početku nije bio instaliran, pa je projekat prvo preuzet kao ZIP arhiva sa GitHub-a. Automatska instalacija Gita (winget i direktno preuzimanje) nije uspela jer je mreža vraćala grešku <code>504 Gateway Time-out</code>.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div>
+            <h3>Instalacija Gita <span class="done-tag">GOTOVO</span></h3>
+            <p>Git sam instalirao ručno. Stari terminal ga nije video dok se ne otvori ponovo, jer se <code>PATH</code> učitava samo pri pokretanju terminala.</p>
+<pre>git --version
+git version 2.56.0.windows.4</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div>
+            <h3>Kloniranje i moja grana <span class="done-tag">GOTOVO</span></h3>
+            <p>Projekat je kloniran Gitom i napravljena je moja grana.</p>
+<pre>git clone https://github.com/n8nlab/aiworkshop.git aiworkshop-git
+git checkout -b ivang/moja-stranica</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div>
+            <h3>Moj folder <span class="done-tag">GOTOVO</span></h3>
+            <p>Napravljen je folder <code>ljudi/ivang/</code> sa stranicom <code>index.html</code> i folderom <code>slike/</code>, po uzoru na stranice drugih polaznika. Folder je kasnije preimenovan u kraće ime <code>ivang</code>, a grana na isti način.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div>
+            <h3>Git ime i mejl <span class="done-tag">GOTOVO</span></h3>
+            <p>Podešeni su ime i mejl koji idu uz svaki commit (jednom, za ceo računar).</p>
+<pre>git config --global user.name "ivang"
+git config --global user.email "…"</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div>
+            <h3>Lokalni pregled stranice <span class="done-tag">GOTOVO</span></h3>
+            <p>Za pregled u browser panelu pokrenut je mali lokalni server, jer stranica otvorena direktno iz fajla u panelu nije učitala CSS. Na svom računaru je dovoljno dvaput kliknuti na <code>index.html</code>.</p>
+<pre>python -m http.server 8765
+http://localhost:8765/ljudi/ivang/index.html</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROMPT 01 ================= -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Prompt 01 · Upoznaj teren</span>
+        <h2>Kako je sajt <span class="hl">organizovan</span></h2>
+        <p>Agent je pročitao <code>README.md</code>, <code>assets/style.css</code> i moju stranicu. U ovom koraku nijedan fajl nije menjan.</p>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="icon">🗂️</div>
+          <h3>Struktura</h3>
+          <ul>
+            <li>Čist HTML + CSS, bez frameworka i bez build koraka</li>
+            <li><code>index.html</code>: početna (wiki, pojmovnik)</li>
+            <li><code>zadatak.html</code>: uputstvo za polaznike</li>
+            <li><code>ljudi/index.html</code>: spisak polaznika</li>
+            <li><code>ljudi/ime/</code>: lični folder svakog polaznika</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="icon">🎨</div>
+          <h3>Dizajn i objava</h3>
+          <ul>
+            <li>Zajednički stil: <code>assets/style.css</code> (ne menja se)</li>
+            <li>Tamna pozadina, limeta naglasak, font Geist</li>
+            <li><code>assets/main.js</code>: animacije, pretraga, „Kopiraj prompt”</li>
+            <li>Iz mog foldera do CSS-a: <code>../../assets/style.css</code></li>
+            <li>Merge u <code>main</code> → GitHub Pages objavi sajt</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3 style="margin:2.2rem 0 1rem">Gotove CSS klase koje mogu da koristim</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Namena</th><th>Klase</th></tr></thead>
+          <tbody>
+            <tr><td>Raspored</td><td><code>container</code>, <code>grid</code> + <code>grid-2</code> / <code>grid-3</code> / <code>grid-5</code>, <code>section-head</code></td></tr>
+            <tr><td>Kartice</td><td><code>card</code> (+ <code>.icon</code>, <code>.tag</code>), <code>card featured</code>, <code>principle</code></td></tr>
+            <tr><td>Dugmad</td><td><code>btn btn-primary</code>, <code>btn btn-ghost</code>, <code>cta-row</code></td></tr>
+            <tr><td>Tekst</td><td><code>eyebrow</code>, <code>hl</code>, <code>lead</code>, <code>muted</code></td></tr>
+            <tr><td>Hero i brojke</td><td><code>hero</code>, <code>stats</code> + <code>stat</code></td></tr>
+            <tr><td>Napomene</td><td><code>callout</code> (+ <code>.warn</code>), <code>steps</code> + <code>step</code></td></tr>
+            <tr><td>Ostalo</td><td><code>avatar</code>, <code>term</code>, <code>reveal</code>, <code>code</code> / <code>pre</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRAVCI ================= -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Tri predloga</span>
+        <h2>Izabran pravac: <span class="hl">Kontrolna tabla</span></h2>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card chosen">
+          <span class="tag">Izabrano</span>
+          <div class="icon">📊</div>
+          <h3>A — Kontrolna tabla</h3>
+          <p>Stranica kao radni dashboard: traka sa brojkama iz posla, kartice „Šta radim / Šta automatizujem / Šta sam napravio”, hladne boje i mono naslovi.</p>
+        </article>
+        <article class="card">
+          <div class="icon">✍️</div>
+          <h3>B — Lična priča</h3>
+          <p>Minimalistički: velik tipografski uvod, puno praznog prostora, jedna topla boja i vremenska linija od posla preko problema do rešenja sa AI-jem.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🧪</div>
+          <h3>C — Laboratorija</h3>
+          <p>Razigran i eksperimentalan stil: kartice koje se pomeraju, „terminal” koji kuca tekst i mini alat u centru stranice.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROMPTOVI 02–04 ================= -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Promptovi 02–04</span>
+        <h2>Od šablona do <span class="hl">mini sajta</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div>
+            <h3>Prompt 02 · Moj identitet <span class="done-tag">GOTOVO</span></h3>
+            <p>Stranica je redizajnirana u stilu kontrolne table: ime, uloga project manager, kratka biografija, tri reči, traka sa brojkama i tri widgeta. Boja naglaska je hladna plava.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Prompt 03 · Mini alat <span class="done-tag">GOTOVO</span></h3>
+            <p>Od tri predložene ideje izabran je <a href="projekti/statusni-izvestaj.html" class="text-link">generator statusnog izveštaja</a>: formular koji slaže nedeljni izveštaj, sa kopiranjem i otvaranjem u mejlu.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Prompt 04 · Mini sajt <span class="done-tag">GOTOVO</span></h3>
+            <p>Dodate su stranice <a href="kako-radim.html" class="text-link">Kako radim</a> i <a href="projekti/index.html" class="text-link">Projekti</a> sa podstranicom projekta, zajednički meni i zajednički stilovi u <code>stil.css</code>. Sve putanje su relativne.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-bottom:4rem">
+    <div class="container">
+      <div class="callout">
+        <span class="emoji">⏭️</span>
+        <div>
+          <p><strong>Sledeće: prompt 05 · Provera i objava</strong> <span class="done-tag todo-tag">ČEKA</span></p>
+          <p>Pregled svih fajlova, commit na grani <code>ivang/moja-stranica</code>, push na GitHub i otvaranje Pull Request-a.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="index.html">← Moja stranica</a>
+      <a href="https://vibecodeacademy.io/" class="brand" target="_blank" rel="noopener"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span></a>
+    </div>
+  </footer>
+
+  <script src="../../assets/main.js"></script>
+</body>
+</html>

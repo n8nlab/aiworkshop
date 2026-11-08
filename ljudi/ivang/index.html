@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ivan Gvozdenović — AI Radionica Beograd</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="stil.css" />
+
+  <!-- =====================================================================
+       👋 ZDRAVO! Ovo je TVOJA stranica. Ovaj fajl slobodno menjaj kako želiš.
+       Pravila: menjaj samo fajlove u folderu ljudi/ivang/,
+       slike stavi u ljudi/ivang/slike/ i nikad ne upisuj lozinke ni API ključeve.
+       ===================================================================== -->
+  <style>
+    /* Zajednički stilovi mog mini sajta su u stil.css. Ovde su samo stilovi mini alata. */
+    /* --- Mini alat: generator statusnog izveštaja --- */
+    .tool { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+    .tool-form, .tool-out { padding: 1.6rem; }
+    .field { display: block; margin-bottom: 1rem; }
+    .field > span {
+      display: block; margin-bottom: .4rem;
+      font-family: var(--mono); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+    }
+    .field small { color: var(--dim); text-transform: none; letter-spacing: 0; font-weight: 500; }
+    .field input[type="text"], .field textarea {
+      width: 100%; padding: .7rem .85rem; border-radius: 10px;
+      border: 1px solid var(--border); background: var(--bg-2); color: var(--text);
+      font-family: var(--sans); font-size: .95rem; outline: none; transition: border-color .2s;
+    }
+    .field textarea { min-height: 84px; resize: vertical; line-height: 1.5; }
+    .field input[type="text"]:focus, .field textarea:focus { border-color: var(--c); }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    .status-pick { display: flex; gap: .4rem; flex-wrap: wrap; }
+    .status-pick label {
+      flex: 1; min-width: 90px; text-align: center; cursor: pointer;
+      padding: .55rem .5rem; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-2);
+      font-size: .88rem; font-weight: 700; color: var(--muted); transition: border-color .2s, color .2s;
+    }
+    .status-pick input { position: absolute; opacity: 0; pointer-events: none; }
+    .status-pick input:checked + span { color: var(--text); }
+    .status-pick label:has(input:checked) { border-color: var(--c); background: var(--c-soft); }
+    .status-pick input:focus-visible + span { outline: 2px solid var(--c); outline-offset: 2px; border-radius: 4px; }
+    .range-row { display: flex; align-items: center; gap: .8rem; }
+    .range-row input[type="range"] { flex: 1; accent-color: var(--c); }
+    .range-row output { font-family: var(--mono); font-weight: 700; color: var(--c); min-width: 3.2rem; text-align: right; }
+    .tool-actions { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .4rem; }
+    .tool-actions .btn { padding: .7rem 1.1rem; font-size: .9rem; border-radius: 12px; }
+    .btn-c.done { background: var(--text); }
+
+    .tool-out { position: sticky; top: 84px; }
+    .report-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+    .report-head h3 { font-size: 1.3rem; overflow-wrap: anywhere; }
+    .report-head .period { color: var(--muted); font-family: var(--mono); font-size: .78rem; margin-top: .25rem; }
+    .rag {
+      flex-shrink: 0; padding: .3rem .7rem; border-radius: 8px;
+      font-family: var(--mono); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .rag.green { background: rgba(213, 255, 69, .12); color: var(--accent); }
+    .rag.amber { background: rgba(255, 211, 61, .12); color: var(--warn); }
+    .rag.red { background: rgba(255, 103, 75, .14); color: var(--danger); }
+    .report-progress { height: 8px; border-radius: 8px; background: var(--border); overflow: hidden; margin-bottom: 1.2rem; }
+    .report-progress i { display: block; height: 100%; background: var(--c); transition: width .3s; }
+    .report-block { margin-bottom: 1rem; }
+    .report-block h4 { font-size: .85rem; font-family: var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--text); margin-bottom: .35rem; }
+    .report-block ul { list-style: none; }
+    .report-block li { color: var(--muted); font-size: .93rem; padding: .12rem 0 .12rem 1.2rem; position: relative; overflow-wrap: anywhere; }
+    .report-block li::before { content: "•"; position: absolute; left: .2rem; color: var(--c); }
+    .report-block li.none { color: var(--dim); font-style: italic; }
+    .report-block li.none::before { content: ""; }
+    .tool-note { color: var(--dim); font-size: .82rem; margin-top: .8rem; }
+
+    /* --- Telefon --- */
+    @media (max-width: 760px) {
+      .tool { grid-template-columns: 1fr; }
+      .tool-out { position: static; }
+      .tool-form, .tool-out { padding: 1.3rem; }
+      .row-2 { grid-template-columns: 1fr; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span><span class="dot"></span>AI radionica · Beograd</span>
+      <span>2 dana · Build + Business</span>
+      <a href="../../zadatak.html">Tvoj zadatak →</a>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../../index.html" class="brand"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span><span class="brand-sub">AI Radionica Beograd</span></a>
+      <div class="nav-links">
+        <a href="../../index.html">Početna</a>
+        <a href="../../zadatak.html">Zadatak</a>
+        <a href="../index.html" class="active">Ljudi</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Meni mog mini sajta — isti na svim mojim stranicama -->
+  <nav class="site-menu" aria-label="Moj mini sajt">
+    <div class="container">
+      <span class="who">Ivan Gvozdenović</span>
+      <a href="index.html" aria-current="page">Dashboard</a>
+      <a href="kako-radim.html">Kako radim</a>
+      <a href="projekti/index.html">Projekti</a>
+      <a href="dnevnik-rada.html">Dnevnik rada</a>
+      <a href="../index.html" class="back">← Svi polaznici</a>
+    </div>
+  </nav>
+
+  <header class="dash-hero">
+    <div class="container">
+      <div class="dash-panel">
+        <div class="panel-bar">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span>dashboard / ivan-gvozdenovic</span>
+          <span class="live">Aktivno</span>
+        </div>
+
+        <div class="panel-body">
+          <div class="avatar">IG</div>
+          <div>
+            <span class="kicker">Project manager</span>
+            <h1>Ivan Gvozdenović</h1>
+            <p class="bio">
+              Ja sam project manager. Moj posao je da projekti stignu do cilja na vreme: planiram, koordiniram tim i pratim rokove.
+              Na AI radionici učim kako da deo tog posla prepustim AI agentima i automatizaciji.
+            </p>
+            <div class="chips">
+              <span>Organizovan</span>
+              <span>Pouzdan</span>
+              <span>Radoznao</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi"><b>2</b><span>Dana radionice</span><div class="bar"><i style="width:50%"></i></div></div>
+          <div class="kpi"><b>5</b><span>Startnih promptova</span><div class="bar"><i style="width:40%"></i></div></div>
+          <div class="kpi"><b>3</b><span>Procesa za automatizaciju</span><div class="bar"><i style="width:15%"></i></div></div>
+          <div class="kpi"><b>1</b><span>Mini alat na stranici</span><div class="bar"><i style="width:100%"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="dash-section">
+    <div class="container">
+      <div class="grid grid-3">
+        <article class="card widget">
+          <div class="icon">📋</div>
+          <span class="widget-label">Widget 01</span>
+          <h2>Šta radim</h2>
+          <p>Vodim projekte od ideje do isporuke.</p>
+          <ul>
+            <li>Planiranje faza, zadataka i rokova</li>
+            <li>Koordinacija tima i dogovori sa klijentima</li>
+            <li>Praćenje napretka i rizika</li>
+            <li>Statusni izveštaji za menadžment</li>
+          </ul>
+        </article>
+
+        <article class="card widget">
+          <div class="icon">⚙️</div>
+          <span class="widget-label">Widget 02</span>
+          <h2>Šta želim da automatizujem</h2>
+          <p>Ponavljajući posao koji može da radi agent.</p>
+          <ul>
+            <li>Nedeljni statusni izveštaj iz zadataka <span class="status-pill plan">Plan</span></li>
+            <li>Zapisnik i lista zadataka posle sastanka <span class="status-pill plan">Plan</span></li>
+            <li>Podsetnici timu pred rokove <span class="status-pill plan">Plan</span></li>
+          </ul>
+        </article>
+
+        <article class="card widget">
+          <div class="icon">🚀</div>
+          <span class="widget-label">Widget 03</span>
+          <h2>Šta sam napravio</h2>
+          <p>Rezultati sa radionice, korak po korak.</p>
+          <ul>
+            <li>Ova stranica <span class="status-pill ok">Gotovo</span></li>
+            <li><a href="dnevnik-rada.html">Dnevnik rada</a> <span class="status-pill ok">Gotovo</span></li>
+            <li><a href="#alat">Generator statusnog izveštaja</a> <span class="status-pill ok">Gotovo</span></li>
+            <li><a href="projekti/index.html">Mini sajt sa projektima</a> <span class="status-pill ok">Gotovo</span></li>
+          </ul>
+          <a href="projekti/index.html" class="more">Svi projekti →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MOJ MINI SAJT ================= -->
+  <section class="dash-section" style="padding-top:0">
+    <div class="container">
+      <h2 class="section-title">Moj mini sajt <span class="c">/ ostale stranice</span></h2>
+      <div class="grid grid-3">
+        <a href="kako-radim.html" class="card widget">
+          <div class="icon">🧭</div>
+          <span class="widget-label">Stranica</span>
+          <h2>Kako radim</h2>
+          <p>Moj pristup vođenju projekata u 5 koraka i gde u tome pomaže AI.</p>
+          <span class="more">Otvori →</span>
+        </a>
+        <a href="projekti/index.html" class="card widget">
+          <div class="icon">🗂️</div>
+          <span class="widget-label">Stranica</span>
+          <h2>Projekti</h2>
+          <p>Šta sam napravio na radionici i šta planiram da automatizujem.</p>
+          <span class="more">Otvori →</span>
+        </a>
+        <a href="dnevnik-rada.html" class="card widget">
+          <div class="icon">📓</div>
+          <span class="widget-label">Stranica</span>
+          <h2>Dnevnik rada</h2>
+          <p>Svaki korak sa AI agentom, od preuzimanja projekta do objave.</p>
+          <span class="more">Otvori →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MINI ALAT: STATUSNI IZVEŠTAJ ================= -->
+  <section id="alat" class="dash-section">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:1.6rem">
+        <span class="label" style="color:var(--c)">Mini alat · Widget 04</span>
+        <h2>Statusni izveštaj <span style="color:var(--c)">za 2 minuta</span></h2>
+        <p>Popuni polja levo i izveštaj se slaže sam desno. Kopiraj ga u mejl ili Teams. Sve ostaje u tvom browseru: ništa se ne šalje na server.</p>
+      </div>
+
+      <div class="tool">
+        <form class="card tool-form" id="report-form" autocomplete="off" onsubmit="return false">
+          <div class="row-2">
+            <label class="field"><span>Projekat</span>
+              <input type="text" name="project" placeholder="npr. Novi web shop" />
+            </label>
+            <label class="field"><span>Period</span>
+              <input type="text" name="period" placeholder="npr. 10–14. novembar" />
+            </label>
+          </div>
+
+          <div class="field"><span>Status</span>
+            <div class="status-pick">
+              <label><input type="radio" name="status" value="green" checked /><span>🟢 Na putu</span></label>
+              <label><input type="radio" name="status" value="amber" /><span>🟡 Rizik</span></label>
+              <label><input type="radio" name="status" value="red" /><span>🔴 Kasni</span></label>
+            </div>
+          </div>
+
+          <label class="field"><span>Napredak</span>
+            <div class="range-row">
+              <input type="range" name="progress" min="0" max="100" step="5" value="50" />
+              <output id="progress-out">50%</output>
+            </div>
+          </label>
+
+          <label class="field"><span>Urađeno <small>· jedna stavka po redu</small></span>
+            <textarea name="done" placeholder="Završen dizajn početne stranice&#10;Dogovoren budžet sa klijentom"></textarea>
+          </label>
+          <label class="field"><span>Sledeće <small>· jedna stavka po redu</small></span>
+            <textarea name="next" placeholder="Integracija plaćanja&#10;Testiranje sa korisnicima"></textarea>
+          </label>
+          <label class="field"><span>Rizici i blokade</span>
+            <textarea name="risks" placeholder="Kasni pristup API-ju dobavljača"></textarea>
+          </label>
+          <label class="field"><span>Potrebno od menadžmenta <small>· opciono</small></span>
+            <textarea name="asks" placeholder="Odobrenje dodatnih 5 dana za testiranje"></textarea>
+          </label>
+
+          <div class="tool-actions">
+            <button type="button" class="btn btn-ghost" id="btn-example">Popuni primer</button>
+            <button type="button" class="btn btn-ghost" id="btn-clear">Očisti</button>
+          </div>
+        </form>
+
+        <div class="card tool-out" aria-live="polite">
+          <div class="report-head">
+            <div>
+              <span class="widget-label">Pregled izveštaja</span>
+              <h3 id="r-title">Statusni izveštaj</h3>
+              <div class="period" id="r-period">Period nije upisan</div>
+            </div>
+            <span class="rag green" id="r-rag">Na putu</span>
+          </div>
+          <div class="report-progress"><i id="r-bar" style="width:50%"></i></div>
+          <div id="r-blocks"></div>
+          <div class="tool-actions">
+            <button type="button" class="btn btn-c" id="btn-copy">Kopiraj izveštaj</button>
+            <a class="btn btn-ghost" id="btn-mail" href="#">Otvori u mejlu</a>
+          </div>
+          <p class="tool-note">Nacrt se pamti samo u ovom browseru, pa ga zatekneš i kad ponovo otvoriš stranicu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Generator statusnog izveštaja — čist JavaScript, bez servera i bez spoljnih biblioteka.
+    (function () {
+      const form = document.getElementById("report-form");
+      const KEY = "ivang-status-izvestaj";
+      const STATUS = {
+        green: { label: "Na putu", emoji: "🟢" },
+        amber: { label: "Rizik", emoji: "🟡" },
+        red:   { label: "Kasni", emoji: "🔴" }
+      };
+      const SECTIONS = [
+        { name: "done",  title: "✅ Urađeno",                 empty: "Nema upisanih stavki." },
+        { name: "next",  title: "➡️ Sledeće",                 empty: "Nema upisanih stavki." },
+        { name: "risks", title: "⚠️ Rizici i blokade",        empty: "Nema rizika." },
+        { name: "asks",  title: "🙋 Potrebno od menadžmenta", empty: null }
+      ];
+      const EXAMPLE = {
+        project: "Novi web shop", period: "10–14. novembar", status: "amber", progress: "65",
+        done: "Završen dizajn početne stranice\nDogovoren budžet sa klijentom\nPostavljeno testno okruženje",
+        next: "Integracija plaćanja\nTestiranje sa 5 korisnika",
+        risks: "Kasni pristup API-ju dobavljača (čekamo od 7.11.)",
+        asks: "Odobrenje dodatnih 5 dana za testiranje"
+      };
+
+      const lines = (v) => v.split("\n").map((s) => s.trim().replace(/^[-•*]\s*/, "")).filter(Boolean);
+
+      function read() {
+        const d = Object.fromEntries(new FormData(form));
+        d.status = d.status || "green";
+        return d;
+      }
+
+      function toText(d) {
+        const st = STATUS[d.status];
+        const p = Number(d.progress);
+        const bar = "█".repeat(Math.round(p / 10)) + "░".repeat(10 - Math.round(p / 10));
+        let out = "STATUSNI IZVEŠTAJ — " + (d.project.trim() || "Projekat") + "\n";
+        if (d.period.trim()) out += "Period: " + d.period.trim() + "\n";
+        out += "Status: " + st.emoji + " " + st.label + "\n";
+        out += "Napredak: " + bar + " " + p + "%\n";
+        SECTIONS.forEach((s) => {
+          const items = lines(d[s.name]);
+          if (!items.length && !s.empty) return;
+          out += "\n" + s.title + "\n";
+          out += items.length ? items.map((i) => "• " + i).join("\n") + "\n" : s.empty + "\n";
+        });
+        return out.trim();
+      }
+
+      function render() {
+        const d = read();
+        const st = STATUS[d.status];
+        document.getElementById("progress-out").textContent = d.progress + "%";
+        document.getElementById("r-title").textContent = d.project.trim() || "Statusni izveštaj";
+        document.getElementById("r-period").textContent = d.period.trim() || "Period nije upisan";
+        const rag = document.getElementById("r-rag");
+        rag.className = "rag " + d.status;
+        rag.textContent = st.label;
+        document.getElementById("r-bar").style.width = d.progress + "%";
+
+        const box = document.getElementById("r-blocks");
+        box.innerHTML = "";
+        SECTIONS.forEach((s) => {
+          const items = lines(d[s.name]);
+          if (!items.length && !s.empty) return;
+          const block = document.createElement("div");
+          block.className = "report-block";
+          const h = document.createElement("h4");
+          h.textContent = s.title;
+          const ul = document.createElement("ul");
+          (items.length ? items : [s.empty]).forEach((t) => {
+            const li = document.createElement("li");
+            li.textContent = t;
+            if (!items.length) li.className = "none";
+            ul.appendChild(li);
+          });
+          block.append(h, ul);
+          box.appendChild(block);
+        });
+
+        const subject = "Status: " + (d.project.trim() || "projekat") + (d.period.trim() ? " (" + d.period.trim() + ")" : "");
+        document.getElementById("btn-mail").href =
+          "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(toText(d));
+
+        try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
+      }
+
+      function fill(d) {
+        ["project", "period", "progress", "done", "next", "risks", "asks"].forEach((k) => {
+          if (d[k] !== undefined) form.elements[k].value = d[k];
+        });
+        const r = form.querySelector('input[name="status"][value="' + (d.status || "green") + '"]');
+        if (r) r.checked = true;
+        render();
+      }
+
+      form.addEventListener("input", render);
+      form.addEventListener("change", render);
+      document.getElementById("btn-example").addEventListener("click", () => fill(EXAMPLE));
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        form.reset();
+        try { localStorage.removeItem(KEY); } catch (e) {}
+        render();
+      });
+
+      const copyBtn = document.getElementById("btn-copy");
+      copyBtn.addEventListener("click", async () => {
+        const text = toText(read());
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (e) {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          ta.remove();
+        }
+        copyBtn.textContent = "Kopirano ✓";
+        copyBtn.classList.add("done");
+        setTimeout(() => { copyBtn.textContent = "Kopiraj izveštaj"; copyBtn.classList.remove("done"); }, 1800);
+      });
+
+      let saved = null;
+      try { saved = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) {}
+      if (saved) fill(saved); else render();
+    })();
+  </script>
+
+  <!-- ================= STARTNI PROMPTOVI ================= -->
+  <section id="promptovi" style="padding-top:2rem">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Moji startni promptovi</span>
+        <h2>Pet promptova. <span class="hl">Jedna stranica koja je samo tvoja.</span></h2>
+        <p>
+          Kopiraj prompt, zalepi ga AI agentu (Claude Code, Copilot, Cursor) i gledaj šta radi. Idi redom — svaki korak se nadovezuje na prethodni.
+          <strong style="color:var(--text)">Žuta polja obavezno zameni svojim podacima</strong> — tu nastaje razlika između tvoje i tuđe stranice.
+        </p>
+        <div class="anatomy">
+          <span><b>01</b>Uloga — ko je agent</span>
+          <span><b>02</b>Kontekst — odakle počinjemo</span>
+          <span><b>03</b>Zadatak — šta tražimo</span>
+          <span><b>04</b>Zahtevi — kako to mora da izgleda</span>
+          <span><b>05</b>Ograničenja — šta ne sme</span>
+          <span><b>06</b>Cilj — zašto sve ovo</span>
+        </div>
+      </div>
+
+      <div class="prompts">
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 01</span>
+              <h3>Upoznaj teren</h3>
+              <p>Pre nego što išta menjaš, neka agent pročita projekat i objasni ti ga. Ovaj prompt ne menja nijedan fajl.</p>
+            </div>
+            <button class="copy" data-target="p1">Kopiraj prompt</button>
+          </div>
+<pre id="p1"><span class="ph"># ULOGA</span>
+Ti si iskusan web developer i mentor koji radi sa početnikom. Objašnjavaj jednostavno i na srpskom.
+
+<span class="ph"># KONTEKST — odakle počinjemo</span>
+Nalazimo se u repozitorijumu sajta "AI Radionica Beograd". Sajt je čist HTML + CSS, bez frameworka i bez build koraka. Objavljuje se na GitHub Pages: https://n8nlab.github.io/aiworkshop/
+- Zajednički stilovi: assets/style.css (njih NE menjamo)
+- Moja stranica: ljudi/ivang/index.html
+- Moj folder: ljudi/ivang/ — ovde smem da pravim nove stranice i dodajem slike
+
+<span class="ph"># ZADATAK</span>
+1. Pročitaj README.md, assets/style.css i ljudi/ivang/index.html.
+2. Objasni mi u 5–7 rečenica kako je sajt organizovan.
+3. Nabroj gotove CSS klase (kartice, dugmad, grid…) koje mogu da koristim na svojoj stranici.
+4. Predloži mi 3 potpuno različita pravca kako bi moja stranica mogla da izgleda.
+
+<span class="ph"># OGRANIČENJA</span>
+- U ovom koraku NE menjaj nijedan fajl. Samo čitaj i objasni.
+
+<span class="ph"># CILJ</span>
+Da razumem teren pre nego što počnem da gradim i da izaberem svoj pravac.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> agent koji prvo pročita projekat pravi mnogo manje grešaka. Uvek prvo kontekst, pa tek onda akcija.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 02</span>
+              <h3>Moj identitet</h3>
+              <p>Pretvori generičku stranicu u svoju: ime, priča, boje i stil. Popuni žuta polja pre slanja.</p>
+            </div>
+            <button class="copy" data-target="p2">Kopiraj prompt</button>
+          </div>
+<pre id="p2"><span class="ph"># ULOGA</span>
+Ti si web dizajner koji pravi lične stranice sa jakim, prepoznatljivim stilom.
+
+<span class="ph"># KONTEKST</span>
+Radim na svojoj stranici: ljudi/ivang/index.html. Trenutno ima privremeno ime, prazne sekcije i generički izgled.
+O meni:
+- Ime i prezime: <span class="fill">[TVOJE IME I PREZIME]</span>
+- Čime se bavim: <span class="fill">[NPR. radim u marketingu / vodim svoj biznis / freelancerka sam]</span>
+- 3 reči koje me opisuju: <span class="fill">[NPR. precizan, kreativan, brz]</span>
+
+<span class="ph"># ZADATAK</span>
+Redizajniraj moju stranicu tako da odražava mene i moj posao.
+
+<span class="ph"># ZAHTEVI</span>
+1. Upiši moje pravo ime, inicijale u avataru i kratku biografiju (2–3 rečenice) na osnovu podataka iznad.
+2. Vizuelni stil: <span class="fill">[IZABERI: minimalistički / retro 80-e / luksuzni crno-zlatni / razigran i šaren / brutalistički / ili opiši svoj]</span>
+3. Promeni boju naglaska (--c) i sve svoje stilove piši u &lt;style&gt; blok na vrhu fajla.
+4. Stranica mora lepo da izgleda i na telefonu.
+5. Ukloni žuti baner "Ova stranica čeka tvoju prvu promenu".
+6. Sekciju "Moji startni promptovi" ostavi na dnu stranice.
+
+<span class="ph"># OGRANIČENJA</span>
+- Menjaj SAMO fajl ljudi/ivang/index.html.
+- Ne menjaj assets/style.css niti tuđe stranice.
+- Ne izmišljaj činjenice o meni — ako ti nešto fali, pitaj me.
+
+<span class="ph"># CILJ</span>
+Kad neko otvori moju stranicu, za 5 sekundi treba da zna ko sam i čime se bavim.
+
+<span class="ph"># NA KRAJU</span>
+Napiši mi kratak spisak svega što si promenio.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> što su podaci o tebi konkretniji, rezultat je ličniji. Žuta polja su razlika između tvoje i tuđe stranice.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 03</span>
+              <h3>Mini alat iz mog posla</h3>
+              <p>Dodaj nešto interaktivno što rešava pravi problem iz tvog posla: kalkulator, kviz, generator ponude…</p>
+            </div>
+            <button class="copy" data-target="p3">Kopiraj prompt</button>
+          </div>
+<pre id="p3"><span class="ph"># ULOGA</span>
+Ti si frontend developer koji pravi male, korisne alate u čistom JavaScript-u.
+
+<span class="ph"># KONTEKST</span>
+Moja stranica je ljudi/ivang/index.html.
+- Čime se bavim: <span class="fill">[NPR. radim u marketingu / vodim svoj biznis / freelancerka sam]</span>
+- Problem koji imam u poslu: <span class="fill">[NPR. svaki dan ručno pravim isti izveštaj]</span>
+
+<span class="ph"># ZADATAK</span>
+Dodaj na moju stranicu novu sekciju sa interaktivnim mini alatom koji rešava taj problem.
+Primeri: kalkulator cene, kviz "šta ti odgovara", generator ponude, forma koja sklapa poruku za WhatsApp ili mejl.
+
+<span class="ph"># ZAHTEVI</span>
+1. PRE pisanja koda predloži mi 3 ideje za alat i sačekaj da izaberem jednu.
+2. Sav JavaScript i CSS stavi u isti fajl (&lt;script&gt; i &lt;style&gt;), bez spoljnih biblioteka.
+3. Alat mora da radi bez servera i bez API ključeva.
+4. Dizajn uskladi sa ostatkom moje stranice.
+5. Objasni mi u 3 rečenice kako alat radi, da mogu da ga pokažem drugima.
+
+<span class="ph"># OGRANIČENJA</span>
+- Menjaj SAMO ljudi/ivang/index.html.
+- Nikakve lozinke, ključevi ni lični podaci u kodu.
+
+<span class="ph"># CILJ</span>
+Da moja stranica ne bude samo vizitkarta, nego nešto što stvarno koristi meni ili mojim klijentima.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> tražiš 3 ideje pre koda. Agent predlaže, ti odlučuješ — tako ostaješ vlasnik rezultata.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 04</span>
+              <h3>Moj mini sajt — više stranica i nivoa</h3>
+              <p>Napravi dodatne stranice u svom folderu, pa i podfoldere (npr. projekti → projekat-1). Ovde se najlakše pokvare linkovi, zato je prompt strožiji.</p>
+            </div>
+            <button class="copy" data-target="p4">Kopiraj prompt</button>
+          </div>
+<pre id="p4"><span class="ph"># ULOGA</span>
+Ti si web developer koji pravi uredne sajtove sa više stranica.
+
+<span class="ph"># KONTEKST</span>
+Moj folder je ljudi/ivang/, a glavna stranica je ljudi/ivang/index.html.
+Sajt živi na podadresi https://n8nlab.github.io/aiworkshop/ — zato su putanje bitne:
+- iz ljudi/ivang/ do zajedničkog CSS-a:        ../../assets/style.css
+- iz ljudi/ivang/podfolder/ do zajedničkog CSS-a: ../../../assets/style.css
+
+<span class="ph"># ZADATAK</span>
+Napravi mi mini sajt unutar mog foldera sa ovim stranicama:
+- ljudi/ivang/<span class="fill">[NPR. usluge]</span>.html — <span class="fill">[ŠTA IDE NA TU STRANICU]</span>
+- ljudi/ivang/<span class="fill">[NPR. projekti]</span>/index.html — <span class="fill">[SPISAK MOJIH PROJEKATA]</span>
+- ljudi/ivang/<span class="fill">[NPR. projekti]</span>/<span class="fill">[NPR. projekat-1]</span>.html — <span class="fill">[DETALJI JEDNOG PROJEKTA]</span>
+
+<span class="ph"># ZAHTEVI</span>
+1. Svaka stranica ima isti meni sa linkovima ka svim mojim stranicama + link "← Svi polaznici" ka ljudi/index.html.
+2. Koristi SAMO relativne putanje (../ i ../../). Nikad putanje koje počinju sa "/".
+3. Zajedničke stilove mog mini sajta stavi u ljudi/ivang/stil.css i poveži ih na svim mojim stranicama.
+4. Na glavnoj stranici dodaj vidljive linkove ka novim stranicama.
+5. Na kraju proveri SVAKI link i napravi mi tabelu: stranica → link → gde vodi → radi / ne radi.
+
+<span class="ph"># OGRANIČENJA</span>
+- Pravi i menjaj fajlove SAMO unutar foldera ljudi/ivang/.
+- Nazivi fajlova i foldera: mala slova, crtice umesto razmaka, bez č/ć/š/ž/đ (npr. moji-projekti.html).
+
+<span class="ph"># CILJ</span>
+Da naučim kako se sajt organizuje u više stranica i nivoa, i da moj deo sajta izgleda kao pravi mali sajt.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> kod sajta sa više nivoa najčešće pucaju putanje. Zato agentu tačno kažeš kako izgledaju putanje i tražiš da na kraju sam proveri svaki link.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 05</span>
+              <h3>Provera i objava na GitHub</h3>
+              <p>Poslednji korak: agent pregleda tvoj rad, proveri da nisi dirao tuđe fajlove, napravi commit i pushuje tvoju granu.</p>
+            </div>
+            <button class="copy" data-target="p5">Kopiraj prompt</button>
+          </div>
+<pre id="p5"><span class="ph"># ULOGA</span>
+Ti si pažljiv code reviewer i pomažeš mi da bezbedno objavim svoje promene.
+
+<span class="ph"># KONTEKST</span>
+Završio/la sam izmene u folderu ljudi/ivang/.
+Radim na grani ivang/moja-stranica (ako ne postoji, napravi je od main).
+
+<span class="ph"># ZADATAK</span>
+1. Pregledaj sve fajlove u ljudi/ivang/: pokvareni linkovi, nezatvoreni tagovi, slike koje ne postoje, izgled na telefonu.
+2. Pokreni `git status`. Ako je izmenjen bilo koji fajl VAN mog foldera, zaustavi se i pitaj me šta da radimo.
+3. Pokaži mi spisak pronađenih problema i popravi ih tek kad potvrdim.
+4. Napravi commit sa jasnom porukom na srpskom, npr. "Ivan G.: nova stranica + mini alat".
+5. Pushuj granu ivang/moja-stranica i daj mi link za otvaranje Pull Request-a.
+
+<span class="ph"># OGRANIČENJA</span>
+- Nikad ne radi push direktno na main.
+- Ne briši i ne menjaj ništa van mog foldera.
+
+<span class="ph"># CILJ</span>
+Da moja promena stigne na GitHub čista, proverena i spremna da je svi vide.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> agent sme da menja stvari, ali ti odobravaš. Tražiš spisak problema pre popravke i zaustavljanje ako nešto nije u redu.</span></div>
+        </article>
+      </div>
+
+      <div class="tips">
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>Rezultat ne valja?</h3>
+          <p>Ne kreći ispočetka. Reci tačno šta ne valja: <em>„Naslov je prevelik na telefonu. Smanji ga, a sve ostalo ostavi isto."</em></p>
+        </div>
+        <div class="card">
+          <div class="icon">🧩</div>
+          <h3>Jedan korak odjednom</h3>
+          <p>Mali, jasni promptovi rade bolje od jednog ogromnog. Proveri rezultat posle svakog koraka.</p>
+        </div>
+        <div class="card">
+          <div class="icon">✍️</div>
+          <h3>Napravi svoj prompt</h3>
+          <p>Kad savladaš ovih pet, napiši svoj po istoj šemi: uloga, kontekst, zadatak, zahtevi, ograničenja, cilj.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="../index.html">← Svi polaznici</a>
+      <a href="https://vibecodeacademy.io/" class="brand" target="_blank" rel="noopener"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span></a>
+    </div>
+  </footer>
+
+  <script src="../../assets/main.js"></script>
+</body>
+</html>
