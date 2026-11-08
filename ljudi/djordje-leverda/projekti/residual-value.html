@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Residual value — Djordje Leverda</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../assets/style.css" />
+  <link rel="stylesheet" href="../stil.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span><span class="dot"></span>AI radionica · Beograd</span>
+      <span>2 dana · Build + Business</span>
+      <a href="../../../zadatak.html">Tvoj zadatak →</a>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../../../index.html" class="brand"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span><span class="brand-sub">AI Radionica Beograd</span></a>
+      <div class="nav-links">
+        <a href="../../../index.html">Početna</a>
+        <a href="../../../zadatak.html">Zadatak</a>
+        <a href="../../index.html" class="active">Ljudi</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="me-nav" aria-label="Moj mini sajt">
+    <div class="container">
+      <a href="../index.html">Moja stranica</a>
+      <a href="../kako-radim.html">Kako radim</a>
+      <a href="index.html">Projekti</a>
+      <a href="residual-value.html" aria-current="page">Residual value</a>
+      <a href="../../index.html" class="back">← Svi polaznici</a>
+    </div>
+  </nav>
+
+  <header class="page-head">
+    <div class="container">
+      <p class="cmd"><b>$</b> cat projekti/residual-value.md</p>
+      <h1>Residual <span class="hl">value</span></h1>
+      <p class="lead">Koliko vrednosti licence ostaje na izabrani datum tokom njenog trajanja.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="../index.html#residual">Otvori kalkulator →</a>
+        <a class="btn btn-ghost" href="index.html">Svi projekti</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-section">
+    <div class="container">
+      <div class="grid grid-2">
+        <article class="card">
+          <h2 class="card-heading">Ulazni podaci</h2>
+          <dl class="calc-rows">
+            <div><dt>List price</dt><dd>po core-u, godišnje</dd></div>
+            <div><dt>Broj core-ova</dt><dd>ceo broj</dd></div>
+            <div><dt>Trajanje licence</dt><dd>u mesecima</dd></div>
+            <div><dt>Popust</dt><dd>0–100%</dd></div>
+            <div><dt>Početak licence</dt><dd>datum</dd></div>
+            <div><dt>Datum preseka</dt><dd>datum</dd></div>
+          </dl>
+        </article>
+
+        <article class="card">
+          <h2 class="card-heading">Primer <span class="chip">demo</span></h2>
+          <dl class="calc-rows">
+            <div><dt>List vrednost</dt><dd>180 × 128 × 3 = 69.120,00 USD</dd></div>
+            <div><dt>Neto (popust 25%)</dt><dd>51.840,00 USD</dd></div>
+            <div><dt>Period</dt><dd>01.03.2025. – 01.03.2028.</dd></div>
+            <div><dt>Datum preseka</dt><dd>15.09.2026.</dd></div>
+            <div><dt>Preostalo</dt><dd>533 od 1096 dana</dd></div>
+            <div><dt>Ostatak vrednosti</dt><dd class="strong">25.210,51 USD</dd></div>
+          </dl>
+        </article>
+      </div>
+
+      <h2 class="card-heading formula-heading">Formula</h2>
+<pre>neto vrednost = list price × core-ovi × (meseci ÷ 12) × (1 − popust)
+ostatak       = neto vrednost × preostali dani ÷ ukupni dani</pre>
+
+      <p class="calc-note">Demo: vrednosti su izmišljene i nisu stvarne Nutanix cene ni pravila.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="../../index.html">← Svi polaznici</a>
+      <a href="https://vibecodeacademy.io/" class="brand" target="_blank" rel="noopener"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span></a>
+    </div>
+  </footer>
+
+</body>
+</html>

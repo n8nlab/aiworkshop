@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Djordje Leverda — AI Radionica Beograd</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/style.css" />
+
+  <!-- =====================================================================
+       👋 ZDRAVO! Ovo je TVOJA stranica. Ovaj fajl slobodno menjaj kako želiš.
+       Pravila: menjaj samo fajlove u folderu ljudi/djordje-leverda/,
+       slike stavi u ljudi/djordje-leverda/slike/ i nikad ne upisuj lozinke ni API ključeve.
+       ===================================================================== -->
+  <link rel="stylesheet" href="stil.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span><span class="dot"></span>AI radionica · Beograd</span>
+      <span>2 dana · Build + Business</span>
+      <a href="../../zadatak.html">Tvoj zadatak →</a>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../../index.html" class="brand"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span><span class="brand-sub">AI Radionica Beograd</span></a>
+      <div class="nav-links">
+        <a href="../../index.html">Početna</a>
+        <a href="../../zadatak.html">Zadatak</a>
+        <a href="../index.html" class="active">Ljudi</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="me-nav" aria-label="Moj mini sajt">
+    <div class="container">
+      <a href="index.html" aria-current="page">Moja stranica</a>
+      <a href="kako-radim.html">Kako radim</a>
+      <a href="projekti/index.html">Projekti</a>
+      <a href="projekti/residual-value.html">Residual value</a>
+      <a href="../index.html" class="back">← Svi polaznici</a>
+    </div>
+  </nav>
+
+  <header class="me-hero">
+    <div class="container">
+      <div class="term-window">
+        <div class="term-bar"><i></i><i></i><i></i><span>ljudi/djordje-leverda</span></div>
+        <div class="term-body">
+          <p class="cmd"><b>$</b> whoami</p>
+          <div class="identity block">
+            <div class="avatar">DL</div>
+            <div>
+              <h1>Djordje Leverda</h1>
+              <p class="role">Pricing and Deal Solutions Business Partner u Nutanixu</p>
+            </div>
+          </div>
+
+          <p class="cmd"><b>$</b> cat osobine.txt</p>
+          <ul class="traits block">
+            <li>ambiciozan</li>
+            <li>nestrpljiv</li>
+            <li>deep-thinker</li>
+          </ul>
+
+          <p class="cmd"><b>$</b> cat o-meni.md</p>
+          <p class="bio block">Radim kao Pricing and Deal Solutions Business Partner u Nutanixu. Ambiciozan sam, nestrpljiv i deep-thinker: želim brz rezultat, ali tek kad je problem dobro promišljen. Ova stranica je moj radni dnevnik automatizacije sa AI radionice u Beogradu.</p>
+
+          <p class="cmd"><b>$</b> ls</p>
+          <ul class="ls block">
+            <li><a href="kako-radim.html">kako-radim</a></li>
+            <li><a href="projekti/index.html">projekti/</a></li>
+            <li><a href="projekti/residual-value.html">projekti/residual-value</a></li>
+          </ul>
+
+          <p class="cmd"><b>$</b> <a href="#dnevnik">tail dnevnik.log</a><span class="cursor"></span></p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="dnevnik" style="padding-top:1.5rem">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">dnevnik.log</span>
+        <h2>Šta želim da <span class="hl">automatizujem</span></h2>
+        <div class="legend">status: <span class="chip">ideja</span><span class="chip">u izradi</span><span class="chip">radi</span></div>
+      </div>
+      <div class="log">
+        <div class="log-row">
+          <span class="log-id">proces-01</span>
+          <div class="log-text">
+            <h3>Nutanix vs VMware</h3>
+            <p>Poređenje funkcionalnosti konkurentskih proizvoda i predlog rešenja koje najviše odgovara zahtevima klijenta.</p>
+          </div>
+          <span class="chip">ideja</span>
+        </div>
+        <div class="log-row">
+          <span class="log-id">proces-02</span>
+          <div class="log-text">
+            <h3>Residual value licence</h3>
+            <p>Računica ostatka vrednosti licence na izabrani datum tokom trajanja, na osnovu list price-a, dužine trajanja, popusta i broja core-ova. <a href="#residual">Otvori kalkulator ↓</a></p>
+          </div>
+          <span class="chip">u izradi</span>
+        </div>
+        <div class="log-row">
+          <span class="log-id">proces-03</span>
+          <div class="log-text">
+            <h3>Automatska ponuda (kvota)</h3>
+            <p>Pravljenje ponude kupcu kao PDF fajla na osnovu proizvoda, cene, količine i dužine trajanja licence.</p>
+          </div>
+          <span class="chip">ideja</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESIDUAL VALUE KALKULATOR ================= -->
+  <section id="residual" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">residual.calc</span>
+        <h2>Residual value <span class="hl">kalkulator</span></h2>
+        <p>Koliko vrednosti licence ostaje na izabrani datum tokom njenog trajanja.</p>
+      </div>
+
+      <div class="calc">
+        <form class="calc-form" id="rv-form" novalidate>
+          <div class="field">
+            <label for="rv-price">List price po core-u / god. (USD)</label>
+            <input id="rv-price" type="number" min="0" step="0.01" inputmode="decimal" value="180" />
+          </div>
+          <div class="field">
+            <label for="rv-cores">Broj core-ova</label>
+            <input id="rv-cores" type="number" min="1" step="1" inputmode="numeric" value="128" />
+          </div>
+          <div class="field">
+            <label for="rv-months">Trajanje licence (meseci)</label>
+            <input id="rv-months" type="number" min="1" step="1" inputmode="numeric" value="36" />
+          </div>
+          <div class="field">
+            <label for="rv-discount">Popust (%)</label>
+            <input id="rv-discount" type="number" min="0" max="100" step="0.01" inputmode="decimal" value="25" />
+          </div>
+          <div class="field">
+            <label for="rv-start">Početak licence</label>
+            <input id="rv-start" type="date" value="2025-03-01" />
+          </div>
+          <div class="field">
+            <label for="rv-cut">Datum preseka</label>
+            <input id="rv-cut" type="date" value="2026-09-15" />
+          </div>
+        </form>
+
+        <div class="calc-result" aria-live="polite">
+          <span class="calc-label">ostatak vrednosti</span>
+          <output id="rv-residual" class="calc-main" for="rv-form">—</output>
+          <div class="bar" aria-hidden="true"><span id="rv-bar"></span></div>
+          <p class="bar-label" id="rv-share"></p>
+          <dl class="calc-rows">
+            <div><dt>List vrednost</dt><dd id="rv-list">—</dd></div>
+            <div><dt>Neto vrednost ugovora</dt><dd id="rv-net">—</dd></div>
+            <div><dt>Iskorišćeno</dt><dd id="rv-used">—</dd></div>
+            <div><dt>Istek licence</dt><dd id="rv-end">—</dd></div>
+          </dl>
+          <p class="calc-formula" id="rv-formula"></p>
+          <p class="calc-msg" id="rv-msg"></p>
+        </div>
+      </div>
+      <p class="calc-note">Demo: unete vrednosti su izmišljene i nisu stvarne Nutanix cene ni pravila. Računica je proporcionalna po danima.</p>
+    </div>
+  </section>
+
+  <!-- ================= STARTNI PROMPTOVI ================= -->
+  <section id="promptovi" style="padding-top:2rem">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Moji startni promptovi</span>
+        <h2>Pet promptova. <span class="hl">Jedna stranica koja je samo tvoja.</span></h2>
+        <p>
+          Kopiraj prompt, zalepi ga AI agentu (Claude Code, Copilot, Cursor) i gledaj šta radi. Idi redom — svaki korak se nadovezuje na prethodni.
+          <strong style="color:var(--text)">Žuta polja obavezno zameni svojim podacima</strong> — tu nastaje razlika između tvoje i tuđe stranice.
+        </p>
+        <div class="anatomy">
+          <span><b>01</b>Uloga — ko je agent</span>
+          <span><b>02</b>Kontekst — odakle počinjemo</span>
+          <span><b>03</b>Zadatak — šta tražimo</span>
+          <span><b>04</b>Zahtevi — kako to mora da izgleda</span>
+          <span><b>05</b>Ograničenja — šta ne sme</span>
+          <span><b>06</b>Cilj — zašto sve ovo</span>
+        </div>
+      </div>
+
+      <div class="prompts">
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 01</span>
+              <h3>Upoznaj teren</h3>
+              <p>Pre nego što išta menjaš, neka agent pročita projekat i objasni ti ga. Ovaj prompt ne menja nijedan fajl.</p>
+            </div>
+            <button class="copy" data-target="p1">Kopiraj prompt</button>
+          </div>
+<pre id="p1"><span class="ph"># ULOGA</span>
+Ti si iskusan web developer i mentor koji radi sa početnikom. Objašnjavaj jednostavno i na srpskom.
+
+<span class="ph"># KONTEKST — odakle počinjemo</span>
+Nalazimo se u repozitorijumu sajta "AI Radionica Beograd". Sajt je čist HTML + CSS, bez frameworka i bez build koraka. Objavljuje se na GitHub Pages: https://n8nlab.github.io/aiworkshop/
+- Zajednički stilovi: assets/style.css (njih NE menjamo)
+- Moja stranica: ljudi/djordje-leverda/index.html
+- Moj folder: ljudi/djordje-leverda/ — ovde smem da pravim nove stranice i dodajem slike
+
+<span class="ph"># ZADATAK</span>
+1. Pročitaj README.md, assets/style.css i ljudi/djordje-leverda/index.html.
+2. Objasni mi u 5–7 rečenica kako je sajt organizovan.
+3. Nabroj gotove CSS klase (kartice, dugmad, grid…) koje mogu da koristim na svojoj stranici.
+4. Predloži mi 3 potpuno različita pravca kako bi moja stranica mogla da izgleda.
+
+<span class="ph"># OGRANIČENJA</span>
+- U ovom koraku NE menjaj nijedan fajl. Samo čitaj i objasni.
+
+<span class="ph"># CILJ</span>
+Da razumem teren pre nego što počnem da gradim i da izaberem svoj pravac.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> agent koji prvo pročita projekat pravi mnogo manje grešaka. Uvek prvo kontekst, pa tek onda akcija.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 02</span>
+              <h3>Moj identitet</h3>
+              <p>Pretvori generičku stranicu u svoju: ime, priča, boje i stil. Popuni žuta polja pre slanja.</p>
+            </div>
+            <button class="copy" data-target="p2">Kopiraj prompt</button>
+          </div>
+<pre id="p2"><span class="ph"># ULOGA</span>
+Ti si web dizajner koji pravi lične stranice sa jakim, prepoznatljivim stilom.
+
+<span class="ph"># KONTEKST</span>
+Radim na svojoj stranici: ljudi/djordje-leverda/index.html. Trenutno ima privremeno ime, prazne sekcije i generički izgled.
+O meni:
+- Ime i prezime: <span class="fill">[TVOJE IME I PREZIME]</span>
+- Čime se bavim: <span class="fill">[NPR. radim u marketingu / vodim svoj biznis / freelancerka sam]</span>
+- 3 reči koje me opisuju: <span class="fill">[NPR. precizan, kreativan, brz]</span>
+
+<span class="ph"># ZADATAK</span>
+Redizajniraj moju stranicu tako da odražava mene i moj posao.
+
+<span class="ph"># ZAHTEVI</span>
+1. Upiši moje pravo ime, inicijale u avataru i kratku biografiju (2–3 rečenice) na osnovu podataka iznad.
+2. Vizuelni stil: <span class="fill">[IZABERI: minimalistički / retro 80-e / luksuzni crno-zlatni / razigran i šaren / brutalistički / ili opiši svoj]</span>
+3. Promeni boju naglaska (--c) i sve svoje stilove piši u &lt;style&gt; blok na vrhu fajla.
+4. Stranica mora lepo da izgleda i na telefonu.
+5. Ukloni žuti baner "Ova stranica čeka tvoju prvu promenu".
+6. Sekciju "Moji startni promptovi" ostavi na dnu stranice.
+
+<span class="ph"># OGRANIČENJA</span>
+- Menjaj SAMO fajl ljudi/djordje-leverda/index.html.
+- Ne menjaj assets/style.css niti tuđe stranice.
+- Ne izmišljaj činjenice o meni — ako ti nešto fali, pitaj me.
+
+<span class="ph"># CILJ</span>
+Kad neko otvori moju stranicu, za 5 sekundi treba da zna ko sam i čime se bavim.
+
+<span class="ph"># NA KRAJU</span>
+Napiši mi kratak spisak svega što si promenio.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> što su podaci o tebi konkretniji, rezultat je ličniji. Žuta polja su razlika između tvoje i tuđe stranice.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 03</span>
+              <h3>Mini alat iz mog posla</h3>
+              <p>Dodaj nešto interaktivno što rešava pravi problem iz tvog posla: kalkulator, kviz, generator ponude…</p>
+            </div>
+            <button class="copy" data-target="p3">Kopiraj prompt</button>
+          </div>
+<pre id="p3"><span class="ph"># ULOGA</span>
+Ti si frontend developer koji pravi male, korisne alate u čistom JavaScript-u.
+
+<span class="ph"># KONTEKST</span>
+Moja stranica je ljudi/djordje-leverda/index.html.
+- Čime se bavim: <span class="fill">[NPR. radim u marketingu / vodim svoj biznis / freelancerka sam]</span>
+- Problem koji imam u poslu: <span class="fill">[NPR. svaki dan ručno pravim isti izveštaj]</span>
+
+<span class="ph"># ZADATAK</span>
+Dodaj na moju stranicu novu sekciju sa interaktivnim mini alatom koji rešava taj problem.
+Primeri: kalkulator cene, kviz "šta ti odgovara", generator ponude, forma koja sklapa poruku za WhatsApp ili mejl.
+
+<span class="ph"># ZAHTEVI</span>
+1. PRE pisanja koda predloži mi 3 ideje za alat i sačekaj da izaberem jednu.
+2. Sav JavaScript i CSS stavi u isti fajl (&lt;script&gt; i &lt;style&gt;), bez spoljnih biblioteka.
+3. Alat mora da radi bez servera i bez API ključeva.
+4. Dizajn uskladi sa ostatkom moje stranice.
+5. Objasni mi u 3 rečenice kako alat radi, da mogu da ga pokažem drugima.
+
+<span class="ph"># OGRANIČENJA</span>
+- Menjaj SAMO ljudi/djordje-leverda/index.html.
+- Nikakve lozinke, ključevi ni lični podaci u kodu.
+
+<span class="ph"># CILJ</span>
+Da moja stranica ne bude samo vizitkarta, nego nešto što stvarno koristi meni ili mojim klijentima.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> tražiš 3 ideje pre koda. Agent predlaže, ti odlučuješ — tako ostaješ vlasnik rezultata.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 04</span>
+              <h3>Moj mini sajt — više stranica i nivoa</h3>
+              <p>Napravi dodatne stranice u svom folderu, pa i podfoldere (npr. projekti → projekat-1). Ovde se najlakše pokvare linkovi, zato je prompt strožiji.</p>
+            </div>
+            <button class="copy" data-target="p4">Kopiraj prompt</button>
+          </div>
+<pre id="p4"><span class="ph"># ULOGA</span>
+Ti si web developer koji pravi uredne sajtove sa više stranica.
+
+<span class="ph"># KONTEKST</span>
+Moj folder je ljudi/djordje-leverda/, a glavna stranica je ljudi/djordje-leverda/index.html.
+Sajt živi na podadresi https://n8nlab.github.io/aiworkshop/ — zato su putanje bitne:
+- iz ljudi/djordje-leverda/ do zajedničkog CSS-a:        ../../assets/style.css
+- iz ljudi/djordje-leverda/podfolder/ do zajedničkog CSS-a: ../../../assets/style.css
+
+<span class="ph"># ZADATAK</span>
+Napravi mi mini sajt unutar mog foldera sa ovim stranicama:
+- ljudi/djordje-leverda/<span class="fill">[NPR. usluge]</span>.html — <span class="fill">[ŠTA IDE NA TU STRANICU]</span>
+- ljudi/djordje-leverda/<span class="fill">[NPR. projekti]</span>/index.html — <span class="fill">[SPISAK MOJIH PROJEKATA]</span>
+- ljudi/djordje-leverda/<span class="fill">[NPR. projekti]</span>/<span class="fill">[NPR. projekat-1]</span>.html — <span class="fill">[DETALJI JEDNOG PROJEKTA]</span>
+
+<span class="ph"># ZAHTEVI</span>
+1. Svaka stranica ima isti meni sa linkovima ka svim mojim stranicama + link "← Svi polaznici" ka ljudi/index.html.
+2. Koristi SAMO relativne putanje (../ i ../../). Nikad putanje koje počinju sa "/".
+3. Zajedničke stilove mog mini sajta stavi u ljudi/djordje-leverda/stil.css i poveži ih na svim mojim stranicama.
+4. Na glavnoj stranici dodaj vidljive linkove ka novim stranicama.
+5. Na kraju proveri SVAKI link i napravi mi tabelu: stranica → link → gde vodi → radi / ne radi.
+
+<span class="ph"># OGRANIČENJA</span>
+- Pravi i menjaj fajlove SAMO unutar foldera ljudi/djordje-leverda/.
+- Nazivi fajlova i foldera: mala slova, crtice umesto razmaka, bez č/ć/š/ž/đ (npr. moji-projekti.html).
+
+<span class="ph"># CILJ</span>
+Da naučim kako se sajt organizuje u više stranica i nivoa, i da moj deo sajta izgleda kao pravi mali sajt.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> kod sajta sa više nivoa najčešće pucaju putanje. Zato agentu tačno kažeš kako izgledaju putanje i tražiš da na kraju sam proveri svaki link.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 05</span>
+              <h3>Provera i objava na GitHub</h3>
+              <p>Poslednji korak: agent pregleda tvoj rad, proveri da nisi dirao tuđe fajlove, napravi commit i pushuje tvoju granu.</p>
+            </div>
+            <button class="copy" data-target="p5">Kopiraj prompt</button>
+          </div>
+<pre id="p5"><span class="ph"># ULOGA</span>
+Ti si pažljiv code reviewer i pomažeš mi da bezbedno objavim svoje promene.
+
+<span class="ph"># KONTEKST</span>
+Završio/la sam izmene u folderu ljudi/djordje-leverda/.
+Radim na grani djordje-leverda/moja-stranica (ako ne postoji, napravi je od main).
+
+<span class="ph"># ZADATAK</span>
+1. Pregledaj sve fajlove u ljudi/djordje-leverda/: pokvareni linkovi, nezatvoreni tagovi, slike koje ne postoje, izgled na telefonu.
+2. Pokreni `git status`. Ako je izmenjen bilo koji fajl VAN mog foldera, zaustavi se i pitaj me šta da radimo.
+3. Pokaži mi spisak pronađenih problema i popravi ih tek kad potvrdim.
+4. Napravi commit sa jasnom porukom na srpskom, npr. "Djordje Leverda: nova stranica + mini alat".
+5. Pushuj granu djordje-leverda/moja-stranica i daj mi link za otvaranje Pull Request-a.
+
+<span class="ph"># OGRANIČENJA</span>
+- Nikad ne radi push direktno na main.
+- Ne briši i ne menjaj ništa van mog foldera.
+
+<span class="ph"># CILJ</span>
+Da moja promena stigne na GitHub čista, proverena i spremna da je svi vide.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> agent sme da menja stvari, ali ti odobravaš. Tražiš spisak problema pre popravke i zaustavljanje ako nešto nije u redu.</span></div>
+        </article>
+      </div>
+
+      <div class="tips">
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>Rezultat ne valja?</h3>
+          <p>Ne kreći ispočetka. Reci tačno šta ne valja: <em>„Naslov je prevelik na telefonu. Smanji ga, a sve ostalo ostavi isto."</em></p>
+        </div>
+        <div class="card">
+          <div class="icon">🧩</div>
+          <h3>Jedan korak odjednom</h3>
+          <p>Mali, jasni promptovi rade bolje od jednog ogromnog. Proveri rezultat posle svakog koraka.</p>
+        </div>
+        <div class="card">
+          <div class="icon">✍️</div>
+          <h3>Napravi svoj prompt</h3>
+          <p>Kad savladaš ovih pet, napiši svoj po istoj šemi: uloga, kontekst, zadatak, zahtevi, ograničenja, cilj.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="../index.html">← Svi polaznici</a>
+      <a href="https://vibecodeacademy.io/" class="brand" target="_blank" rel="noopener"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span></a>
+    </div>
+  </footer>
+
+  <script src="../../assets/main.js"></script>
+  <script>
+    // Residual value kalkulator: ostatak = neto vrednost × preostali dani ÷ ukupni dani
+    (function () {
+      var DAY = 86400000;
+      var form = document.getElementById("rv-form");
+      var ids = ["residual", "bar", "share", "list", "net", "used", "end", "formula", "msg"];
+      var out = {};
+      ids.forEach(function (id) { out[id] = document.getElementById("rv-" + id); });
+
+      var number = new Intl.NumberFormat("sr-Latn-RS", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      function money(v) { return number.format(v) + " USD"; }
+      function pct(v) { return number.format(v) + "%"; }
+
+      function val(id) {
+        var raw = document.getElementById("rv-" + id).value.trim();
+        return raw === "" ? NaN : Number(raw);
+      }
+      function date(id) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(document.getElementById("rv-" + id).value);
+        return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : NaN;
+      }
+      function addMonths(ts, n) {
+        var d = new Date(ts);
+        var first = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + n, 1));
+        var last = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth() + 1, 0)).getUTCDate();
+        return Date.UTC(first.getUTCFullYear(), first.getUTCMonth(), Math.min(d.getUTCDate(), last));
+      }
+      function showDate(ts) {
+        var d = new Date(ts);
+        function two(x) { return String(x).padStart(2, "0"); }
+        return two(d.getUTCDate()) + "." + two(d.getUTCMonth() + 1) + "." + d.getUTCFullYear() + ".";
+      }
+      function clear(message) {
+        out.residual.textContent = "—";
+        out.bar.style.width = "0";
+        ["share", "formula"].forEach(function (k) { out[k].textContent = ""; });
+        ["list", "net", "used", "end"].forEach(function (k) { out[k].textContent = "—"; });
+        out.msg.textContent = message;
+      }
+
+      function calculate() {
+        var price = val("price"), cores = val("cores"), months = val("months"), discount = val("discount");
+        var start = date("start"), cut = date("cut");
+
+        if (!(price >= 0)) return clear("Unesi list price (0 ili više).");
+        if (!(cores >= 1) || !Number.isInteger(cores)) return clear("Broj core-ova mora biti ceo broj, najmanje 1.");
+        if (!(months >= 1) || !Number.isInteger(months)) return clear("Trajanje mora biti ceo broj meseci, najmanje 1.");
+        if (!(discount >= 0 && discount <= 100)) return clear("Popust mora biti između 0 i 100%.");
+        if (isNaN(start) || isNaN(cut)) return clear("Unesi oba datuma.");
+
+        var end = addMonths(start, months);
+        var totalDays = Math.round((end - start) / DAY);
+        var usedDays = Math.min(totalDays, Math.max(0, Math.round((cut - start) / DAY)));
+        var remainingDays = totalDays - usedDays;
+
+        var list = price * cores * (months / 12);
+        var net = list * (1 - discount / 100);
+        var residual = net * remainingDays / totalDays;
+        var usedShare = usedDays / totalDays * 100;
+
+        out.residual.textContent = money(residual);
+        out.bar.style.width = usedShare + "%";
+        out.share.textContent = "Iskorišćeno " + pct(usedShare) + " · preostalo " + remainingDays + " od " + totalDays + " dana";
+        out.list.textContent = money(list);
+        out.net.textContent = money(net);
+        out.used.textContent = money(net - residual);
+        out.end.textContent = showDate(end);
+        out.formula.textContent = "ostatak = " + number.format(net) + " × " + remainingDays + " ÷ " + totalDays;
+        out.msg.textContent = cut < start
+          ? "Datum preseka je pre početka licence, pa je ostatak cela vrednost."
+          : cut >= end ? "Licenca je istekla na datum preseka, pa ostatka nema." : "";
+      }
+
+      form.addEventListener("input", calculate);
+      form.addEventListener("submit", function (e) { e.preventDefault(); });
+      calculate();
+    })();
+  </script>
+</body>
+</html>
