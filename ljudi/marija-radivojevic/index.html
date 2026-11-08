@@ -16,27 +16,56 @@
        slike stavi u ljudi/marija-radivojevic/slike/ i nikad ne upisuj lozinke ni API ključeve.
        ===================================================================== -->
   <style>
-    :root { --c: #ff9a5c; }
+    /* Minimalistička vizitkarta — jedna mirna boja, puno prostora */
+    :root { --c: #7cc4ff; }
 
-    .me-hero { padding: 5rem 0 3rem; }
-    .me-hero .avatar {
-      width: 120px; height: 120px; border-radius: 32px;
-      font-size: 2.4rem; margin-bottom: 1.8rem;
+    .me-hero { padding: 6rem 0 4rem; }
+    .vcard {
+      max-width: 760px; margin: 0 auto;
+      padding: 3.2rem 3rem;
+      border: 1px solid var(--border); border-radius: 28px;
+      background: var(--card);
+      position: relative; overflow: hidden;
     }
-    .me-hero h1 { margin-bottom: .6rem; }
-    .me-hero .role { color: var(--muted); font-size: 1.1rem; }
-
-    .todo-banner {
-      display: inline-flex; align-items: center; gap: .6rem;
-      margin-top: 1.6rem; padding: .6rem 1.1rem;
-      border-radius: 10px; border: 1px dashed var(--warn);
-      color: var(--warn); font-size: .9rem; font-weight: 600;
-      background: rgba(255, 211, 61, .06);
+    .vcard::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: var(--c);
     }
+    .vcard-top { display: flex; align-items: center; gap: 1.6rem; }
+    .vcard .avatar {
+      width: 92px; height: 92px; border-radius: 50%; flex-shrink: 0;
+      font-size: 1.9rem; background: var(--c); color: #0b1620;
+    }
+    .vcard h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-bottom: .5rem; }
+    .vcard .role { color: var(--text); font-size: 1.1rem; font-weight: 600; }
+    .vcard .org {
+      margin-top: .3rem;
+      font-family: var(--mono); font-size: .78rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--c);
+    }
+    .vcard hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+    .vcard .bio { color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 620px; }
+    .traits { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.8rem; list-style: none; padding: 0; }
+    .traits li {
+      padding: .45rem .95rem; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--text);
+      font-size: .9rem; font-weight: 600;
+    }
+    .traits li::before { content: "· "; color: var(--c); font-weight: 900; }
 
+    .me-more { padding-top: 0; }
+    .me-more .card { max-width: 760px; margin: 0 auto; }
     .me-card h2 { font-size: 1.35rem; margin-bottom: .8rem; }
     .me-card p, .me-card li { color: var(--muted); }
     .placeholder { color: var(--dim) !important; font-style: italic; }
+
+    @media (max-width: 640px) {
+      .me-hero { padding: 3rem 0 2.5rem; }
+      .vcard { padding: 2.2rem 1.5rem; border-radius: 22px; }
+      .vcard-top { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+      .vcard .avatar { width: 76px; height: 76px; font-size: 1.6rem; }
+      .vcard hr { margin: 1.6rem 0; }
+    }
   </style>
 </head>
 <body>
@@ -62,32 +91,40 @@
 
   <header class="me-hero">
     <div class="container">
-      <div class="avatar">MR</div>
-      <h1>Marija Radivojević</h1>
-      <p class="role">Polaznica radionice</p>
-      <a href="#promptovi" class="todo-banner">✏️ Ova stranica čeka tvoju prvu promenu — kreni od promptova ispod ↓</a>
+      <article class="vcard reveal">
+        <div class="vcard-top">
+          <div class="avatar">MR</div>
+          <div>
+            <h1>Marija Radivojević</h1>
+            <p class="role">Scrum Master · produkt tim</p>
+            <p class="org">Svetska banka</p>
+          </div>
+        </div>
+        <hr />
+        <p class="bio">
+          Radim u Svetskoj banci kao Scrum Master za jedan od produkt timova.
+          Volim kada tim ima jasan ritam, vidljive prioritete i kada nijedan detalj ne promakne.
+        </p>
+        <ul class="traits" aria-label="Tri reči koje me opisuju">
+          <li>Preduzimljiva</li>
+          <li>Detail-oriented</li>
+          <li>Organizovana</li>
+        </ul>
+      </article>
     </div>
   </header>
 
-  <section style="padding-top:1rem">
+  <section class="me-more">
     <div class="container">
-      <div class="grid grid-2">
-        <article class="card me-card">
-          <div class="icon">🙋</div>
-          <h2>O meni</h2>
-          <p class="placeholder">Ovde napiši 2–3 rečenice o sebi: čime se baviš, gde radiš i zašto si došao/la na radionicu.</p>
-        </article>
-
-        <article class="card me-card">
-          <div class="icon">⚙️</div>
-          <h2>Šta želim da automatizujem</h2>
-          <ul>
-            <li class="placeholder">Ideja 1 — proces koji ti oduzima najviše vremena</li>
-            <li class="placeholder">Ideja 2 — nešto što stalno ručno kopiraš</li>
-            <li class="placeholder">Ideja 3 — nešto što bi agent mogao da radi dok spavaš</li>
-          </ul>
-        </article>
-      </div>
+      <article class="card me-card">
+        <div class="icon">⚙️</div>
+        <h2>Šta želim da automatizujem</h2>
+        <ul>
+          <li class="placeholder">Ideja 1 — proces koji ti oduzima najviše vremena</li>
+          <li class="placeholder">Ideja 2 — nešto što stalno ručno kopiraš</li>
+          <li class="placeholder">Ideja 3 — nešto što bi agent mogao da radi dok spavaš</li>
+        </ul>
+      </article>
     </div>
   </section>
 
