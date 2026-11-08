@@ -2,19 +2,38 @@
   --c: #b8f500;
   --accent: #355619;
   --accent-ink: #202417;
-  --bg: #efe2ca;
-  --bg-2: #e8d9bb;
-  --card: #fff9ed;
-  --border: #d5c5a8;
-  --border-2: #b7a785;
-  --text: #27251d;
-  --muted: #534c3d;
-  --dim: #605746;
+  --bg: #e3dfd8;
+  --bg-2: #dad6ce;
+  --card: #f4f1ec;
+  --border: #c9c4b9;
+  --border-2: #aaa59d;
+  --text: #262723;
+  --muted: #505149;
+  --dim: #5d5e55;
   --max: 1080px;
 }
 
+h1, h2, h3 {
+  font-family: Georgia, Cambria, serif;
+  font-weight: 400;
+  letter-spacing: -.055em;
+}
+
+body {
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 2px 3px, rgba(56, 51, 44, .09) .55px, transparent 1px),
+    radial-gradient(circle at 6px 2px, rgba(255, 255, 255, .32) .55px, transparent 1px),
+    radial-gradient(ellipse at 8% 6%, #f2efeb, transparent 52%),
+    radial-gradient(ellipse at 96% 43%, #cec8be, transparent 55%),
+    radial-gradient(ellipse at 5% 85%, #d2ccc4, transparent 52%),
+    linear-gradient(180deg, #e4e0da, var(--bg) 48%, #e9e5df);
+  background-size: 9px 11px, 13px 9px, auto, auto, auto, auto;
+}
+
 body::after { content: none; }
-.nav { background: var(--bg); }
+.nav { background: rgba(227, 223, 216, .94); }
+.btn { border-radius: 999px; }
 .copy { background: var(--c); }
 .nav-links a:focus-visible, .copy:focus-visible, .btn:focus-visible {
   outline: 2px solid var(--accent);
@@ -22,57 +41,57 @@ body::after { content: none; }
 }
 
 .me-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: clamp(1.5rem, 5vw, 4rem);
-  padding-block: clamp(3rem, 9vw, 7rem);
-  border-bottom: 1px solid var(--border);
+  margin-top: clamp(1.25rem, 4vw, 3rem);
+  padding: clamp(2.4rem, 8vw, 6.5rem) clamp(1rem, 4vw, 3.25rem);
+  border: 1px solid var(--border);
+  border-radius: clamp(1.25rem, 3vw, 2.5rem);
+  background-color: rgba(244, 241, 236, .35);
+  text-align: center;
 }
-.me-hero .role {
-  margin-bottom: 1.2rem;
-  color: var(--accent);
-  font-size: .86rem;
-  font-weight: 800;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
+
 .me-hero h1 {
-  font-size: clamp(2.5rem, 8.7vw, 6.2rem);
-  font-weight: 700;
-  line-height: 1;
-  overflow-wrap: anywhere;
+  font-size: clamp(2.8rem, 9.4vw, 7.5rem);
+  line-height: .96;
 }
-.me-hero h1 span { display: block; }
-.me-hero .avatar {
-  width: clamp(8rem, 23vw, 15rem);
+.me-hero h1 em {
+  display: inline-block;
+  background-image: linear-gradient(var(--c), var(--c));
+  background-position: left 92%;
+  background-repeat: no-repeat;
+  background-size: 100% .055em;
+}
+.hero-summary {
+  max-width: 49ch;
+  margin: 1.25rem auto 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.18rem);
+}
+.hero-profile {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  width: fit-content;
+  margin: clamp(1.5rem, 5vw, 2.75rem) auto 0;
+  text-align: start;
+}
+.hero-name { font-weight: 750; }
+.hero-role { color: var(--muted); font-size: .86rem; }
+.me-hero .portrait {
+  flex: none;
+  width: clamp(3.5rem, 8vw, 5rem);
   height: auto;
   aspect-ratio: 1;
   border-radius: 50%;
-  font-size: clamp(2.7rem, 7vw, 5rem);
-  font-weight: 700;
+  object-fit: cover;
 }
+.hero-contact { margin-top: 1.6rem; padding: .75rem 1.3rem; }
 
 .about { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
 .about h2 { margin-bottom: 1rem; font-size: clamp(1.7rem, 4vw, 2.5rem); }
-.about .lead { max-width: 52ch; }
-.traits {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .6rem;
-  margin-top: 1.4rem;
-  list-style: none;
-}
-.traits li {
-  padding: .35rem .85rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--accent);
-  font-size: .9rem;
-  font-weight: 600;
-}
+.about .lead { max-width: 62ch; }
+.about .lead + .lead { margin-top: .9rem; }
 
-.congress { padding-block: 0 3rem; }
+.congress { margin-top: clamp(2rem, 6vw, 4rem); padding-block: 0; }
 .congress .section-head { margin-bottom: 1.5rem; }
 .congress h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
 .congress-form {
@@ -117,8 +136,7 @@ body::after { content: none; }
 
 @media (max-width: 760px) {
   .site-nav .container { gap: .5rem 1rem; }
-  .me-hero { grid-template-columns: 1fr; }
-  .me-hero .avatar { width: 6rem; font-size: 2.1rem; }
+  .me-hero h1 span { display: block; }
   #kongres-alat { scroll-margin-top: 9rem; }
 }
 
@@ -131,6 +149,7 @@ body::after { content: none; }
 
 .site-name { font-weight: 800; }
 .site-nav a[aria-current="page"] { background: var(--bg-2); }
+.site-nav .language-switch { border: 1px solid var(--border-2); border-radius: 999px; }
 .site-links { padding-block: 0 3rem; }
 .site-links h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
 .site-links .btn { padding: .65rem .9rem; }

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Marija Dimitrijevic — freelance marketing." />
+  <title>Marija Dimitrijevic — AI Workshop Belgrade</title>
+  <link rel="stylesheet" href="../../assets/style.css" />
+
+  <link rel="stylesheet" href="stil.css" />
+</head>
+<body>
+
+  <nav class="nav site-nav" aria-label="Main menu">
+    <div class="container">
+      <span class="site-name">Marija Dimitrijevic</span>
+      <div class="nav-links">
+        <a href="index-en.html" class="active" aria-current="page">Home</a>
+        <a href="usluge.html">Services</a>
+        <a href="projekti/index.html">Projects</a>
+        <a href="../index.html">← All participants</a>
+        <a class="language-switch" href="index.html" hreflang="sr" lang="sr" aria-label="Čitaj na srpskom">SR</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+  <header class="container me-hero">
+    <h1><span>From inbox</span> <em>to action.</em></h1>
+    <p class="hero-summary">I help people and businesses automate their workflows and free up time for the work that matters.</p>
+    <div class="hero-profile">
+      <img class="portrait" src="slike/marija-dimitrijevic.png" alt="Portrait of Marija Dimitrijevic" />
+      <div>
+        <p class="hero-name">Marija Dimitrijevic</p>
+        <p class="hero-role">Freelance marketing</p>
+      </div>
+    </div>
+    <a class="btn btn-primary hero-contact" href="mailto:dimitrijevicm@hotmail.com">Contact <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <section class="container about" aria-labelledby="o-meni">
+    <h2 id="o-meni">My goal</h2>
+    <p class="lead">I want to help people and businesses automate everyday workflows. We start with one question. <strong>What takes up most of your time?</strong></p>
+    <p class="lead">Maybe it’s sorting emails, copying data into spreadsheets or tracking requests that still need a reply. Together, we pick one task you repeat often and find a way to do it with less manual work. That helps you get things done faster and gives you more time for work that needs your attention.</p>
+  </section>
+
+  <section class="container site-links" aria-labelledby="mini-sajt-naslov">
+    <h2 id="mini-sajt-naslov">Explore my work</h2>
+    <div class="cta-row page-actions">
+      <a class="btn btn-primary" href="usluge.html">Services</a>
+      <a class="btn btn-ghost" href="projekti/index.html">Projects</a>
+    </div>
+  </section>
+
+  <!-- ================= STARTER PROMPTS ================= -->
+  <section id="promptovi">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">My starter prompts</span>
+        <h2>Five prompts. <span class="hl">A page of your own.</span></h2>
+        <p>
+          Copy each prompt and paste it into your AI agent, such as Claude Code, Copilot or Cursor. Work through them in order, as each step builds on the previous one.
+          <strong>Replace the highlighted fields with your details</strong> to make the page your own.
+        </p>
+        <div class="anatomy">
+          <span><b>01</b>Role — who the agent is</span>
+          <span><b>02</b>Context — where we start</span>
+          <span><b>03</b>Task — what we want</span>
+          <span><b>04</b>Requirements — what the result needs</span>
+          <span><b>05</b>Constraints — what to avoid</span>
+          <span><b>06</b>Goal — why it matters</span>
+        </div>
+      </div>
+
+      <div class="prompts">
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 01</span>
+              <h3>Get to know the project</h3>
+              <p>Ask the agent to read and explain the project before making any changes.</p>
+            </div>
+            <button class="copy" data-target="p1">Copy prompt</button>
+          </div>
+<pre id="p1"><span class="ph"># ROLE</span>
+You are an experienced web developer and mentor working with a beginner. Explain things simply in English.
+
+<span class="ph"># CONTEXT</span>
+We are in the AI Workshop Belgrade repository. This is a plain HTML and CSS website with no framework or build step. It is published on GitHub Pages at https://n8nlab.github.io/aiworkshop/.
+- Shared styles: assets/style.css. Leave this file alone.
+- My page: ljudi/marija-dimitrijevic/index.html
+- My folder: ljudi/marija-dimitrijevic/. I can create pages and add images here.
+
+<span class="ph"># TASK</span>
+1. Read README.md, assets/style.css and ljudi/marija-dimitrijevic/index.html.
+2. Explain how the site is organized in 5–7 sentences.
+3. List the reusable CSS classes for cards, buttons, grids and other components.
+4. Suggest three distinct visual directions for my page.
+
+<span class="ph"># CONSTRAINTS</span>
+- Read and explain. Leave every file as it is for this step.
+
+<span class="ph"># GOAL</span>
+Understand the site before I start building and choose a visual direction.</pre>
+          <div class="lesson">💡 <span><b>Why this helps:</b> Reading the project first helps the agent understand the structure and avoid mistakes.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 02</span>
+              <h3>Make it your own</h3>
+              <p>Make the page yours through your name, story, colors and style. Fill in the highlighted fields before using the prompt.</p>
+            </div>
+            <button class="copy" data-target="p2">Copy prompt</button>
+          </div>
+<pre id="p2"><span class="ph"># ROLE</span>
+You are a web designer who creates personal pages with a distinctive visual style.
+
+<span class="ph"># CONTEXT</span>
+I am working on ljudi/marija-dimitrijevic/index.html. It currently shows my name, placeholder sections and the starter design.
+- Full name: Marija Dimitrijevic
+- What I do: <span class="fill">[E.G. I WORK IN MARKETING / RUN A BUSINESS / FREELANCE]</span>
+- Three words that describe me: <span class="fill">[E.G. PRECISE, CREATIVE, QUICK]</span>
+
+<span class="ph"># TASK</span>
+Redesign my page so it reflects me and my work.
+
+<span class="ph"># REQUIREMENTS</span>
+1. Add my real name, initials in the avatar and a short bio of two or three sentences using the information above.
+2. Visual style: <span class="fill">[CHOOSE MINIMALIST, 80S RETRO, BLACK AND GOLD, PLAYFUL, BRUTALIST OR DESCRIBE YOUR OWN]</span>
+3. Change the accent color (--c) and put your styles in the &lt;style&gt; block at the top of the file.
+4. Make the page look good on phones.
+5. Remove the yellow starter banner.
+6. Keep the starter prompts section at the bottom.
+
+<span class="ph"># CONSTRAINTS</span>
+- Edit only ljudi/marija-dimitrijevic/index.html.
+- Leave assets/style.css and other participants’ pages alone.
+- Ask me if you need personal details.
+
+<span class="ph"># GOAL</span>
+Help visitors understand who I am and what I do within five seconds.
+
+<span class="ph"># AT THE END</span>
+Give me a brief list of the changes.</pre>
+          <div class="lesson">💡 <span><b>Why this helps:</b> Specific details make the page more personal.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 03</span>
+              <h3>A tool for my work</h3>
+              <p>Add an interactive tool that solves a problem from your work, such as a calculator, quiz or quote generator.</p>
+            </div>
+            <button class="copy" data-target="p3">Copy prompt</button>
+          </div>
+<pre id="p3"><span class="ph"># ROLE</span>
+You are a frontend developer who builds small, useful tools in plain JavaScript.
+
+<span class="ph"># CONTEXT</span>
+My page is ljudi/marija-dimitrijevic/index.html.
+- What I do: <span class="fill">[E.G. I WORK IN MARKETING / RUN A BUSINESS / FREELANCE]</span>
+- A problem I face at work: <span class="fill">[E.G. I MANUALLY CREATE THE SAME REPORT EVERY DAY]</span>
+
+<span class="ph"># TASK</span>
+Add an interactive tool that addresses this problem. It could be a price calculator, a quiz, a quote generator or a form that drafts an email or WhatsApp message.
+
+<span class="ph"># REQUIREMENTS</span>
+1. Suggest three ideas before writing code and wait for me to choose one.
+2. Put the JavaScript and CSS in the same file using &lt;script&gt; and &lt;style&gt;, with no external libraries.
+3. Make the tool work without a server or API keys.
+4. Match the rest of my page.
+5. Explain how the tool works in three sentences so I can show it to others.
+
+<span class="ph"># CONSTRAINTS</span>
+- Edit only ljudi/marija-dimitrijevic/index.html.
+- Keep passwords, keys and personal data out of the code.
+
+<span class="ph"># GOAL</span>
+Give my page something useful for me or my clients.</pre>
+          <div class="lesson">💡 <span><b>Why this helps:</b> You get to choose the idea before the agent builds it.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 04</span>
+              <h3>Build a small site</h3>
+              <p>Add pages and subfolders to your site. Follow the path requirements to keep the links working.</p>
+            </div>
+            <button class="copy" data-target="p4">Copy prompt</button>
+          </div>
+<pre id="p4"><span class="ph"># ROLE</span>
+You are a web developer who builds well-organized sites with multiple pages.
+
+<span class="ph"># CONTEXT</span>
+My folder is ljudi/marija-dimitrijevic/ and my main page is ljudi/marija-dimitrijevic/index.html.
+The site is hosted under https://n8nlab.github.io/aiworkshop/, so relative paths matter:
+- From my folder to shared CSS: ../../assets/style.css
+- From a subfolder to shared CSS: ../../../assets/style.css
+
+<span class="ph"># TASK</span>
+Build a small site within my folder with these pages:
+- ljudi/marija-dimitrijevic/<span class="fill">[E.G. SERVICES]</span>.html — <span class="fill">[WHAT BELONGS ON THIS PAGE]</span>
+- ljudi/marija-dimitrijevic/<span class="fill">[E.G. PROJECTS]</span>/index.html — <span class="fill">[MY PROJECT LIST]</span>
+- ljudi/marija-dimitrijevic/<span class="fill">[E.G. PROJECTS]</span>/<span class="fill">[E.G. PROJECT-1]</span>.html — <span class="fill">[DETAILS OF ONE PROJECT]</span>
+
+<span class="ph"># REQUIREMENTS</span>
+1. Use the same menu on each page, with links to my pages and a link to all participants at ljudi/index.html.
+2. Use relative paths only. Paths must never begin with a slash.
+3. Put the shared styles for my pages in ljudi/marija-dimitrijevic/stil.css and link it on each page.
+4. Add visible links to the new pages on my main page.
+5. Check every link and list each page, link, destination and result in a table.
+
+<span class="ph"># CONSTRAINTS</span>
+- Create and edit files only inside ljudi/marija-dimitrijevic/.
+- Use lowercase file and folder names with hyphens and no diacritics.
+
+<span class="ph"># GOAL</span>
+Learn how to organize a site with several pages and folders.</pre>
+          <div class="lesson">💡 <span><b>Why this helps:</b> Explicit relative paths and a final link check help keep a multi-page site working.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 05</span>
+              <h3>Review and publish on GitHub</h3>
+              <p>Ask the agent to review your work, check the scope of your changes, make a commit and push your branch.</p>
+            </div>
+            <button class="copy" data-target="p5">Copy prompt</button>
+          </div>
+<pre id="p5"><span class="ph"># ROLE</span>
+You are a careful code reviewer helping me publish my changes.
+
+<span class="ph"># CONTEXT</span>
+I have finished editing ljudi/marija-dimitrijevic/.
+My branch is marija-dimitrijevic/moja-stranica. If it does not exist, create it from main.
+
+<span class="ph"># TASK</span>
+1. Check every file in my folder for broken links, unclosed tags, missing images and problems on phones.
+2. Run git status. If there are changes outside my folder, stop and ask me how to proceed.
+3. Show me the issues and fix them only after I approve.
+4. Commit the changes with a clear message in Serbian.
+5. Push marija-dimitrijevic/moja-stranica and give me a link to open a pull request.
+
+<span class="ph"># CONSTRAINTS</span>
+- Never push directly to main.
+- Leave files outside my folder alone.
+
+<span class="ph"># GOAL</span>
+Get my reviewed changes onto GitHub so others can see them.</pre>
+          <div class="lesson">💡 <span><b>Why this helps:</b> A review gives you a chance to approve fixes before publishing.</span></div>
+        </article>
+      </div>
+
+      <div class="tips">
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>Want a better result?</h3>
+          <p>Describe what needs to change. <em>“The heading is too large on phones. Make it smaller and keep the rest as it is.”</em></p>
+        </div>
+        <div class="card">
+          <div class="icon">🧩</div>
+          <h3>One step at a time</h3>
+          <p>Use short, clear prompts and check the result after each step.</p>
+        </div>
+        <div class="card">
+          <div class="icon">✍️</div>
+          <h3>Write your own prompt</h3>
+          <p>Once you have worked through these five, write your own using the same structure: role, context, task, requirements, constraints and goal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="container"><span>Marija Dimitrijevic · AI Workshop Belgrade</span></div>
+  </footer>
+
+  <script>
+    for (const button of document.querySelectorAll(".copy")) {
+      button.addEventListener("click", async () => {
+        const prompt = document.getElementById(button.dataset.target).textContent.trim();
+        let copied = true;
+        try {
+          await navigator.clipboard.writeText(prompt);
+        } catch {
+          const field = document.createElement("textarea");
+          field.value = prompt;
+          document.body.append(field);
+          field.select();
+          try {
+            copied = document.execCommand("copy");
+          } catch {
+            copied = false;
+          } finally {
+            field.remove();
+            button.focus();
+          }
+        }
+        button.textContent = copied ? "Copied ✓" : "Copy failed";
+        button.classList.toggle("done", copied);
+        clearTimeout(button.copyFeedback);
+        button.copyFeedback = setTimeout(() => {
+          button.textContent = "Copy prompt";
+          button.classList.remove("done");
+        }, 1800);
+      });
+    }
+  </script>
+  <script>
+    if (location.hash === '#kongres-alat') {
+      location.replace('projekti/cd-travel-kongres.html#kongres-alat');
+    }
+  </script>
+</body>
+</html>

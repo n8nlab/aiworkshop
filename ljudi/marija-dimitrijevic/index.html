@@ -23,8 +23,8 @@
         <a href="index.html" class="active" aria-current="page">Početna</a>
         <a href="usluge.html">Usluge</a>
         <a href="projekti/index.html">Projekti</a>
-        <a href="projekti/cd-travel-kongres.html">CD Travel</a>
         <a href="../index.html">← Svi polaznici</a>
+        <a class="language-switch" href="index-en.html" hreflang="en" lang="en" aria-label="Read in English">EN</a>
       </div>
     </div>
   </nav>
@@ -32,21 +32,22 @@
   <main>
 
   <header class="container me-hero">
-    <div>
-      <p class="role">Freelance marketing</p>
-      <h1>Marija <span>Dimitrijevic</span></h1>
+    <h1><span>Od mejla</span> <em>do dela.</em></h1>
+    <p class="hero-summary">Pomažem ljudima i firmama da automatizuju procese i oslobode vreme za važniji posao.</p>
+    <div class="hero-profile">
+      <img class="portrait" src="slike/marija-dimitrijevic.png" alt="Portret Marije Dimitrijevic" />
+      <div>
+        <p class="hero-name">Marija Dimitrijevic</p>
+        <p class="hero-role">Freelance marketing</p>
+      </div>
     </div>
-    <div class="avatar" aria-hidden="true">MD</div>
+    <a class="btn btn-primary hero-contact" href="mailto:dimitrijevicm@hotmail.com">Kontakt <span aria-hidden="true">↗</span></a>
   </header>
 
   <section class="container about" aria-labelledby="o-meni">
-    <h2 id="o-meni">O meni</h2>
-    <p class="lead">Bavim se freelance marketingom. U radu spajam radoznalost i energiju sa preciznošću.</p>
-    <ul class="traits">
-      <li>Radoznala</li>
-      <li>Energična</li>
-      <li>Precizna</li>
-    </ul>
+    <h2 id="o-meni">Cilj</h2>
+    <p class="lead">Želim da pomognem ljudima i firmama da automatizuju svakodnevne procese. Krećemo od jednog pitanja. <strong>Na šta vam odlazi najviše vremena?</strong></p>
+    <p class="lead">Možda je to razvrstavanje mejlova, prepisivanje podataka u tabele ili praćenje zahteva koji još čekaju odgovor. Zajedno biramo jedan zadatak koji se često ponavlja i tražimo način da ga završite uz manje ručnog rada. Tako posao ide brže, a vama ostaje više vremena za ono što traži vašu pažnju.</p>
   </section>
 
   <section class="container site-links" aria-labelledby="mini-sajt-naslov">
@@ -54,62 +55,6 @@
     <div class="cta-row page-actions">
       <a class="btn btn-primary" href="usluge.html">Usluge</a>
       <a class="btn btn-ghost" href="projekti/index.html">Projekti</a>
-      <a class="btn btn-ghost" href="projekti/cd-travel-kongres.html">CD Travel — detalji projekta</a>
-    </div>
-  </section>
-
-  <section id="kongres-alat" class="container congress" aria-labelledby="kongres-naslov">
-    <div class="section-head">
-      <span class="label">CD Travel · Mini alat</span>
-      <h2 id="kongres-naslov">Obrada prijave za kongres</h2>
-      <p>Iz probne prijave pripremi podatke za Excel, nacrt predračuna za kotizaciju i tekst mejla učesniku.</p>
-    </div>
-
-    <form class="congress-form" id="kongres-forma" autocomplete="off">
-      <label for="kongres-prijava">Tekst probne prijave
-        <textarea id="kongres-prijava" rows="5" maxlength="12000" aria-describedby="kongres-uputstvo" placeholder="Ime i prezime: …&#10;E-mail: …&#10;Organizacija: …&#10;Kongres: …"></textarea>
-      </label>
-      <p class="congress-note" id="kongres-uputstvo">Koristi izmišljene podatke. Za izdvajanje upiši svako polje u poseban red u formatu „Naziv: vrednost“. Podatke možeš uneti i ručno.</p>
-      <div class="cta-row">
-        <button type="button" class="btn btn-ghost" id="kongres-primer">Učitaj primer</button>
-        <button type="button" class="btn btn-ghost" id="kongres-izdvoji">Izdvoj podatke</button>
-      </div>
-      <div class="grid grid-2">
-        <label>Ime i prezime <input name="participant" type="text" maxlength="120" required /></label>
-        <label>E-mail <input name="email" type="email" maxlength="254" required /></label>
-        <label>Organizacija (opciono) <input name="organization" type="text" maxlength="160" /></label>
-        <label>Naziv kongresa <input name="event" type="text" maxlength="160" required /></label>
-        <label>Kotizacija <input name="fee" type="number" min="0.01" max="999999999.99" step="0.01" inputmode="decimal" required /></label>
-        <label>Valuta
-          <select name="currency"><option value="RSD">RSD</option><option value="EUR">EUR</option></select>
-        </label>
-      </div>
-      <div class="cta-row">
-        <button type="submit" class="btn btn-primary">Pripremi dokumente</button>
-      </div>
-      <p class="congress-note" id="kongres-status" role="status"></p>
-    </form>
-
-    <div class="congress-results" id="kongres-rezultati" hidden>
-      <div class="grid grid-3">
-        <article class="card">
-          <h3>Red za Excel</h3>
-          <p>Nalepi u prvi slobodan red. Redosled kolona je ime i prezime, e-mail, organizacija, kongres, kotizacija, valuta i status.</p>
-          <pre id="kongres-excel"></pre>
-          <button type="button" class="copy" data-target="kongres-excel">Kopiraj za Excel</button>
-        </article>
-        <article class="card">
-          <h3>Nacrt predračuna</h3>
-          <pre id="kongres-predracun"></pre>
-          <button type="button" class="copy" data-target="kongres-predracun">Kopiraj nacrt</button>
-        </article>
-        <article class="card">
-          <h3>Tekst mejla</h3>
-          <p>Pre slanja priloži izdati predračun.</p>
-          <pre id="kongres-mejl"></pre>
-          <button type="button" class="copy" data-target="kongres-mejl">Kopiraj mejl</button>
-        </article>
-      </div>
     </div>
   </section>
 
@@ -343,114 +288,8 @@ Da moja promena stigne na GitHub čista, proverena i spremna da je svi vide.</pr
 
   <script src="../../assets/main.js"></script>
   <script>
-    {
-      const form = document.getElementById('kongres-forma');
-      const fields = form.elements;
-      const application = document.getElementById('kongres-prijava');
-      const status = document.getElementById('kongres-status');
-      const results = document.getElementById('kongres-rezultati');
-      const labels = new Map([
-        ['ime i prezime', 'participant'], ['ucesnik', 'participant'],
-        ['e-mail', 'email'], ['email', 'email'], ['mejl', 'email'],
-        ['organizacija', 'organization'], ['firma', 'organization'], ['ustanova', 'organization'],
-        ['kongres', 'event'], ['naziv kongresa', 'event'], ['dogadjaj', 'event']
-      ]);
-      const example = [
-        'Ime i prezime: Demo Učesnik',
-        'E-mail: ucesnik@example.invalid',
-        'Organizacija: Demo organizacija',
-        'Kongres: Probni kongres'
-      ].join('\n');
-
-      form.addEventListener('input', () => {
-        results.hidden = true;
-        status.textContent = '';
-      });
-
-      document.getElementById('kongres-primer').addEventListener('click', () => {
-        application.value = example;
-        results.hidden = true;
-        status.textContent = 'Primer je učitan. Klikni na „Izdvoj podatke“.';
-      });
-
-      document.getElementById('kongres-izdvoji').addEventListener('click', () => {
-        const extracted = new Map();
-        for (const line of application.value.split(/\r?\n/)) {
-          const match = line.match(/^\s*([^:]+):\s*(.+)$/);
-          if (!match) continue;
-          const label = match[1].trim().toLowerCase().replaceAll('đ', 'dj')
-            .normalize('NFD').replace(/\p{M}/gu, '').replace(/\s+/g, ' ');
-          const field = labels.get(label);
-          const value = match[2].trim();
-          if (field && value && !extracted.has(field)) extracted.set(field, value);
-        }
-
-        results.hidden = true;
-        if (extracted.size === 0) {
-          status.textContent = 'Nema prepoznatih polja. Učitaj primer ili popuni obrazac ručno.';
-          return;
-        }
-        for (const field of new Set(labels.values())) {
-          fields[field].value = (extracted.get(field) ?? '').slice(0, fields[field].maxLength);
-        }
-        status.textContent = 'Proveri izdvojene podatke, dopuni prazna obavezna polja i unesi kotizaciju.';
-      });
-
-      function excelCell(value) {
-        const clean = value.replace(/[\t\r\n]+/g, ' ');
-        return /^[=+\-@]/.test(clean) ? "'" + clean : clean;
-      }
-
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const participant = fields.participant.value.trim();
-        const email = fields.email.value.trim();
-        const organization = fields.organization.value.trim();
-        const congress = fields.event.value.trim();
-        const currency = fields.currency.value;
-        if (!participant || !congress) {
-          status.textContent = 'Upiši ime i prezime i naziv kongresa.';
-          (participant ? fields.event : fields.participant).focus();
-          return;
-        }
-
-        const fee = fields.fee.valueAsNumber;
-        const amount = new Intl.NumberFormat('sr-Latn-RS', {
-          minimumFractionDigits: 2, maximumFractionDigits: 2
-        }).format(fee) + ' ' + currency;
-        const excelAmount = fee.toFixed(2).replace('.', ',');
-        document.getElementById('kongres-excel').textContent = [
-          participant, email, organization, congress, excelAmount, currency, 'Prijavljen'
-        ].map(excelCell).join('\t');
-
-        document.getElementById('kongres-predracun').textContent = [
-          'CD Travel',
-          'NACRT PREDRAČUNA ZA KOTIZACIJU',
-          '',
-          'Učesnik: ' + participant,
-          'E-mail: ' + email,
-          'Organizacija: ' + (organization || '—'),
-          'Kongres: ' + congress,
-          'Iznos kotizacije: ' + amount,
-          '',
-          'Pre izdavanja dopuniti zvanične podatke, broj, datum i instrukcije za uplatu.'
-        ].join('\n');
-
-        document.getElementById('kongres-mejl').textContent = [
-          'Za: ' + email,
-          'Predmet: Kotizacija za kongres — ' + congress,
-          '',
-          'Poštovani,',
-          '',
-          'Hvala na prijavi za kongres „' + congress + '“. Kotizacija iznosi ' + amount + '.',
-          'U prilogu je predračun sa instrukcijama za uplatu.',
-          '',
-          'Srdačan pozdrav,',
-          'CD Travel'
-        ].join('\n');
-        results.hidden = false;
-        status.textContent = 'Red za Excel, nacrt predračuna i tekst mejla su spremni za kopiranje.';
-      });
+    if (location.hash === '#kongres-alat') {
+      location.replace('projekti/cd-travel-kongres.html#kongres-alat');
     }
   </script>
 </body>
