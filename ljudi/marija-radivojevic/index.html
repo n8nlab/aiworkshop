@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marija Radivojević — AI Radionica Beograd</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="stil.css" />
+
+  <!-- =====================================================================
+       👋 ZDRAVO! Ovo je TVOJA stranica. Ovaj fajl slobodno menjaj kako želiš.
+       Pravila: menjaj samo fajlove u folderu ljudi/marija-radivojevic/,
+       slike stavi u ljudi/marija-radivojevic/slike/ i nikad ne upisuj lozinke ni API ključeve.
+       ===================================================================== -->
+  <style>
+    /* Minimalistička vizitkarta — jedna mirna boja, puno prostora */
+    :root { --c: #7cc4ff; }
+
+    .me-hero { padding: 6rem 0 4rem; }
+    .vcard {
+      max-width: 760px; margin: 0 auto;
+      padding: 3.2rem 3rem;
+      border: 1px solid var(--border); border-radius: 28px;
+      background: var(--card);
+      position: relative; overflow: hidden;
+    }
+    .vcard::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: var(--c);
+    }
+    .vcard-top { display: flex; align-items: center; gap: 1.6rem; }
+    .vcard .avatar {
+      width: 92px; height: 92px; border-radius: 50%; flex-shrink: 0;
+      font-size: 1.9rem; background: var(--c); color: #0b1620;
+    }
+    .vcard h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-bottom: .5rem; }
+    .vcard .role { color: var(--text); font-size: 1.1rem; font-weight: 600; }
+    .vcard .org {
+      margin-top: .3rem;
+      font-family: var(--mono); font-size: .78rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--c);
+    }
+    .vcard hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+    .vcard .bio { color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 620px; }
+    .traits { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.8rem; list-style: none; padding: 0; }
+    .traits li {
+      padding: .45rem .95rem; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--text);
+      font-size: .9rem; font-weight: 600;
+    }
+    .traits li::before { content: "· "; color: var(--c); font-weight: 900; }
+
+    .me-more { padding-top: 0; }
+    .me-more .card { max-width: 760px; margin: 0 auto; }
+    .me-card h2 { font-size: 1.35rem; margin-bottom: .8rem; }
+    .me-card p, .me-card li { color: var(--muted); }
+    .placeholder { color: var(--dim) !important; font-style: italic; }
+
+    /* Mini alat: generator dnevnog reda za retrospektivu */
+    .retro { max-width: 760px; margin: 0 auto; }
+    .retro .eyebrow-c {
+      font-family: var(--mono); font-size: .75rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--c);
+    }
+    .retro h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); margin: .5rem 0 .8rem; }
+    .retro .intro { color: var(--muted); margin-bottom: 1.8rem; }
+    .retro-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 1.2rem; }
+    .retro-form label { display: flex; flex-direction: column; gap: .45rem; font-size: .88rem; font-weight: 600; color: var(--muted); }
+    .retro-form input, .retro-form select {
+      font: inherit; font-size: 1rem; color: var(--text);
+      background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px;
+      padding: .75rem .9rem; min-width: 0;
+    }
+    .retro-form input:focus, .retro-form select:focus { outline: 2px solid var(--c); outline-offset: 1px; border-color: transparent; }
+    .retro-form .full { grid-column: 1 / -1; }
+    .retro-format-desc { color: var(--dim); font-size: .85rem; font-weight: 500; }
+    .retro-out-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: 2rem 0 .8rem; }
+    .retro-out-head h3 { font-size: 1.05rem; }
+    .retro .copy { border-color: var(--c); }
+    .retro-agenda { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border); }
+    .retro-agenda li {
+      display: grid; grid-template-columns: 6.5rem 1fr auto; gap: 1rem; align-items: baseline;
+      padding: .9rem 0; border-bottom: 1px solid var(--border);
+    }
+    .retro-agenda .t { font-family: var(--mono); font-size: .85rem; color: var(--c); }
+    .retro-agenda b { color: var(--text); display: block; }
+    .retro-agenda small { color: var(--muted); font-size: .88rem; }
+    .retro-agenda .m { font-family: var(--mono); font-size: .85rem; color: var(--muted); white-space: nowrap; }
+    #retro-text { display: none; }
+
+    @media (max-width: 640px) {
+      .retro-form { grid-template-columns: 1fr; }
+      .retro-out-head { flex-direction: column; align-items: flex-start; }
+      .retro-agenda li { grid-template-columns: 1fr auto; }
+      .retro-agenda .t { grid-column: 1 / -1; }
+      .me-hero { padding: 3rem 0 2.5rem; }
+      .vcard { padding: 2.2rem 1.5rem; border-radius: 22px; }
+      .vcard-top { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+      .vcard .avatar { width: 76px; height: 76px; font-size: 1.6rem; }
+      .vcard hr { margin: 1.6rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span><span class="dot"></span>AI radionica · Beograd</span>
+      <span>2 dana · Build + Business</span>
+      <a href="../../zadatak.html">Tvoj zadatak →</a>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="../../index.html" class="brand"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span><span class="brand-sub">AI Radionica Beograd</span></a>
+      <div class="nav-links">
+        <a href="../../index.html">Početna</a>
+        <a href="../../zadatak.html">Zadatak</a>
+        <a href="../index.html" class="active">Ljudi</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="my-nav">
+    <div class="container">
+      <a href="../index.html" class="my-nav-back">← Svi polaznici</a>
+      <div class="my-nav-links" aria-label="Moje stranice">
+        <a href="index.html" class="active" aria-current="page">Vizitkarta</a>
+        <a href="index.html#retro-alat">Alat za retro</a>
+        <a href="retro-biblioteka/index.html">Retro biblioteka</a>
+        <a href="retro-biblioteka/start-stop-continue.html">Start / Stop / Continue</a>
+        <a href="retro-biblioteka/mad-sad-glad.html">Mad / Sad / Glad</a>
+        <a href="retro-biblioteka/4l.html">4L</a>
+        <a href="retro-biblioteka/sailboat.html">Sailboat</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="me-hero">
+    <div class="container">
+      <article class="vcard reveal">
+        <div class="vcard-top">
+          <div class="avatar">MR</div>
+          <div>
+            <h1>Marija Radivojević</h1>
+            <p class="role">Scrum Master · produkt tim</p>
+            <p class="org">Svetska banka</p>
+          </div>
+        </div>
+        <hr />
+        <p class="bio">
+          Radim u Svetskoj banci kao Scrum Master za jedan od produkt timova.
+          Volim kada tim ima jasan ritam, vidljive prioritete i kada nijedan detalj ne promakne.
+        </p>
+        <ul class="traits" aria-label="Tri reči koje me opisuju">
+          <li>Preduzimljiva</li>
+          <li>Detail-oriented</li>
+          <li>Organizovana</li>
+        </ul>
+      </article>
+    </div>
+  </header>
+
+  <section class="me-more">
+    <div class="container">
+      <article class="card me-card">
+        <div class="icon">⚙️</div>
+        <h2>Šta želim da automatizujem</h2>
+        <ul>
+          <li class="placeholder">Ideja 1 — proces koji ti oduzima najviše vremena</li>
+          <li class="placeholder">Ideja 2 — nešto što stalno ručno kopiraš</li>
+          <li class="placeholder">Ideja 3 — nešto što bi agent mogao da radi dok spavaš</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= MINI ALAT: DNEVNI RED ZA RETROSPEKTIVU ================= -->
+  <section class="me-more" id="retro-alat">
+    <div class="container">
+      <article class="card retro">
+        <span class="eyebrow-c">Mini alat · Scrum</span>
+        <h2>Dnevni red za retrospektivu</h2>
+        <p class="intro">Unesi podatke o sprintu, izaberi format i dobićeš dnevni red sa vremenom za svaki blok — spreman za kopiranje u mejl, Teams ili Confluence.</p>
+
+        <form class="retro-form" id="retro-form" onsubmit="return false">
+          <label>Broj sprinta
+            <input type="number" id="r-sprint" min="1" value="1" />
+          </label>
+          <label>Početak sastanka
+            <input type="time" id="r-start" value="10:00" />
+          </label>
+          <label>Trajanje
+            <select id="r-duration">
+              <option value="45">45 min</option>
+              <option value="60" selected>60 min</option>
+              <option value="90">90 min</option>
+              <option value="120">120 min</option>
+            </select>
+          </label>
+          <label>Broj učesnika
+            <input type="number" id="r-people" min="2" max="30" value="7" />
+          </label>
+          <label class="full">Format
+            <select id="r-format"></select>
+            <span class="retro-format-desc" id="r-format-desc"></span>
+          </label>
+        </form>
+
+        <div class="retro-out-head">
+          <h3 id="r-title">Dnevni red</h3>
+          <button class="copy" data-target="retro-text" type="button">Kopiraj dnevni red</button>
+        </div>
+        <ol class="retro-agenda" id="r-agenda"></ol>
+        <pre id="retro-text"></pre>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= RETRO BIBLIOTEKA ================= -->
+  <section class="me-more lib-teaser" id="retro-biblioteka">
+    <div class="container narrow">
+      <span class="eyebrow-c">Retro biblioteka</span>
+      <h2 class="sub" style="font-size:clamp(1.6rem,3.4vw,2.3rem);margin:.5rem 0 1.2rem">Formati retrospektive</h2>
+      <div class="lib-grid">
+        <a href="retro-biblioteka/start-stop-continue.html" class="card lib-card"><span class="lib-emoji">🚦</span><h3>Start / Stop / Continue</h3><span class="lib-go">Otvori →</span></a>
+        <a href="retro-biblioteka/mad-sad-glad.html" class="card lib-card"><span class="lib-emoji">🎭</span><h3>Mad / Sad / Glad</h3><span class="lib-go">Otvori →</span></a>
+        <a href="retro-biblioteka/4l.html" class="card lib-card"><span class="lib-emoji">🍀</span><h3>4L</h3><span class="lib-go">Otvori →</span></a>
+        <a href="retro-biblioteka/sailboat.html" class="card lib-card"><span class="lib-emoji">⛵</span><h3>Sailboat</h3><span class="lib-go">Otvori →</span></a>
+      </div>
+      <p style="margin-top:1.2rem"><a href="retro-biblioteka/index.html" class="btn btn-c">Cela Retro biblioteka →</a></p>
+    </div>
+  </section>
+
+  <!-- ================= STARTNI PROMPTOVI ================= -->
+  <section id="promptovi" style="padding-top:2rem">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Moji startni promptovi</span>
+        <h2>Pet promptova. <span class="hl">Jedna stranica koja je samo tvoja.</span></h2>
+        <p>
+          Kopiraj prompt, zalepi ga AI agentu (Claude Code, Copilot, Cursor) i gledaj šta radi. Idi redom — svaki korak se nadovezuje na prethodni.
+          <strong style="color:var(--text)">Žuta polja obavezno zameni svojim podacima</strong> — tu nastaje razlika između tvoje i tuđe stranice.
+        </p>
+        <div class="anatomy">
+          <span><b>01</b>Uloga — ko je agent</span>
+          <span><b>02</b>Kontekst — odakle počinjemo</span>
+          <span><b>03</b>Zadatak — šta tražimo</span>
+          <span><b>04</b>Zahtevi — kako to mora da izgleda</span>
+          <span><b>05</b>Ograničenja — šta ne sme</span>
+          <span><b>06</b>Cilj — zašto sve ovo</span>
+        </div>
+      </div>
+
+      <div class="prompts">
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 01</span>
+              <h3>Upoznaj teren</h3>
+              <p>Pre nego što išta menjaš, neka agent pročita projekat i objasni ti ga. Ovaj prompt ne menja nijedan fajl.</p>
+            </div>
+            <button class="copy" data-target="p1">Kopiraj prompt</button>
+          </div>
+<pre id="p1"><span class="ph"># ULOGA</span>
+Ti si iskusan web developer i mentor koji radi sa početnikom. Objašnjavaj jednostavno i na srpskom.
+
+<span class="ph"># KONTEKST — odakle počinjemo</span>
+Nalazimo se u repozitorijumu sajta "AI Radionica Beograd". Sajt je čist HTML + CSS, bez frameworka i bez build koraka. Objavljuje se na GitHub Pages: https://n8nlab.github.io/aiworkshop/
+- Zajednički stilovi: assets/style.css (njih NE menjamo)
+- Moja stranica: ljudi/marija-radivojevic/index.html
+- Moj folder: ljudi/marija-radivojevic/ — ovde smem da pravim nove stranice i dodajem slike
+
+<span class="ph"># ZADATAK</span>
+1. Pročitaj README.md, assets/style.css i ljudi/marija-radivojevic/index.html.
+2. Objasni mi u 5–7 rečenica kako je sajt organizovan.
+3. Nabroj gotove CSS klase (kartice, dugmad, grid…) koje mogu da koristim na svojoj stranici.
+4. Predloži mi 3 potpuno različita pravca kako bi moja stranica mogla da izgleda.
+
+<span class="ph"># OGRANIČENJA</span>
+- U ovom koraku NE menjaj nijedan fajl. Samo čitaj i objasni.
+
+<span class="ph"># CILJ</span>
+Da razumem teren pre nego što počnem da gradim i da izaberem svoj pravac.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> agent koji prvo pročita projekat pravi mnogo manje grešaka. Uvek prvo kontekst, pa tek onda akcija.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 02</span>
+              <h3>Moj identitet</h3>
+              <p>Pretvori generičku stranicu u svoju: ime, priča, boje i stil. Popuni žuta polja pre slanja.</p>
+            </div>
+            <button class="copy" data-target="p2">Kopiraj prompt</button>
+          </div>
+<pre id="p2"><span class="ph"># ULOGA</span>
+Ti si web dizajner koji pravi lične stranice sa jakim, prepoznatljivim stilom.
+
+<span class="ph"># KONTEKST</span>
+Radim na svojoj stranici: ljudi/marija-radivojevic/index.html. Trenutno ima privremeno ime, prazne sekcije i generički izgled.
+O meni:
+- Ime i prezime: <span class="fill">[TVOJE IME I PREZIME]</span>
+- Čime se bavim: <span class="fill">[NPR. radim u marketingu / vodim svoj biznis / freelancerka sam]</span>
+- 3 reči koje me opisuju: <span class="fill">[NPR. precizan, kreativan, brz]</span>
+
+<span class="ph"># ZADATAK</span>
+Redizajniraj moju stranicu tako da odražava mene i moj posao.
+
+<span class="ph"># ZAHTEVI</span>
+1. Upiši moje pravo ime, inicijale u avataru i kratku biografiju (2–3 rečenice) na osnovu podataka iznad.
+2. Vizuelni stil: <span class="fill">[IZABERI: minimalistički / retro 80-e / luksuzni crno-zlatni / razigran i šaren / brutalistički / ili opiši svoj]</span>
+3. Promeni boju naglaska (--c) i sve svoje stilove piši u &lt;style&gt; blok na vrhu fajla.
+4. Stranica mora lepo da izgleda i na telefonu.
+5. Ukloni žuti baner "Ova stranica čeka tvoju prvu promenu".
+6. Sekciju "Moji startni promptovi" ostavi na dnu stranice.
+
+<span class="ph"># OGRANIČENJA</span>
+- Menjaj SAMO fajl ljudi/marija-radivojevic/index.html.
+- Ne menjaj assets/style.css niti tuđe stranice.
+- Ne izmišljaj činjenice o meni — ako ti nešto fali, pitaj me.
+
+<span class="ph"># CILJ</span>
+Kad neko otvori moju stranicu, za 5 sekundi treba da zna ko sam i čime se bavim.
+
+<span class="ph"># NA KRAJU</span>
+Napiši mi kratak spisak svega što si promenio.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> što su podaci o tebi konkretniji, rezultat je ličniji. Žuta polja su razlika između tvoje i tuđe stranice.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 03</span>
+              <h3>Mini alat iz mog posla</h3>
+              <p>Dodaj nešto interaktivno što rešava pravi problem iz tvog posla: kalkulator, kviz, generator ponude…</p>
+            </div>
+            <button class="copy" data-target="p3">Kopiraj prompt</button>
+          </div>
+<pre id="p3"><span class="ph"># ULOGA</span>
+Ti si frontend developer koji pravi male, korisne alate u čistom JavaScript-u.
+
+<span class="ph"># KONTEKST</span>
+Moja stranica je ljudi/marija-radivojevic/index.html.
+- Čime se bavim: <span class="fill">[NPR. radim u marketingu / vodim svoj biznis / freelancerka sam]</span>
+- Problem koji imam u poslu: <span class="fill">[NPR. svaki dan ručno pravim isti izveštaj]</span>
+
+<span class="ph"># ZADATAK</span>
+Dodaj na moju stranicu novu sekciju sa interaktivnim mini alatom koji rešava taj problem.
+Primeri: kalkulator cene, kviz "šta ti odgovara", generator ponude, forma koja sklapa poruku za WhatsApp ili mejl.
+
+<span class="ph"># ZAHTEVI</span>
+1. PRE pisanja koda predloži mi 3 ideje za alat i sačekaj da izaberem jednu.
+2. Sav JavaScript i CSS stavi u isti fajl (&lt;script&gt; i &lt;style&gt;), bez spoljnih biblioteka.
+3. Alat mora da radi bez servera i bez API ključeva.
+4. Dizajn uskladi sa ostatkom moje stranice.
+5. Objasni mi u 3 rečenice kako alat radi, da mogu da ga pokažem drugima.
+
+<span class="ph"># OGRANIČENJA</span>
+- Menjaj SAMO ljudi/marija-radivojevic/index.html.
+- Nikakve lozinke, ključevi ni lični podaci u kodu.
+
+<span class="ph"># CILJ</span>
+Da moja stranica ne bude samo vizitkarta, nego nešto što stvarno koristi meni ili mojim klijentima.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> tražiš 3 ideje pre koda. Agent predlaže, ti odlučuješ — tako ostaješ vlasnik rezultata.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 04</span>
+              <h3>Moj mini sajt — više stranica i nivoa</h3>
+              <p>Napravi dodatne stranice u svom folderu, pa i podfoldere (npr. projekti → projekat-1). Ovde se najlakše pokvare linkovi, zato je prompt strožiji.</p>
+            </div>
+            <button class="copy" data-target="p4">Kopiraj prompt</button>
+          </div>
+<pre id="p4"><span class="ph"># ULOGA</span>
+Ti si web developer koji pravi uredne sajtove sa više stranica.
+
+<span class="ph"># KONTEKST</span>
+Moj folder je ljudi/marija-radivojevic/, a glavna stranica je ljudi/marija-radivojevic/index.html.
+Sajt živi na podadresi https://n8nlab.github.io/aiworkshop/ — zato su putanje bitne:
+- iz ljudi/marija-radivojevic/ do zajedničkog CSS-a:        ../../assets/style.css
+- iz ljudi/marija-radivojevic/podfolder/ do zajedničkog CSS-a: ../../../assets/style.css
+
+<span class="ph"># ZADATAK</span>
+Napravi mi mini sajt unutar mog foldera sa ovim stranicama:
+- ljudi/marija-radivojevic/<span class="fill">[NPR. usluge]</span>.html — <span class="fill">[ŠTA IDE NA TU STRANICU]</span>
+- ljudi/marija-radivojevic/<span class="fill">[NPR. projekti]</span>/index.html — <span class="fill">[SPISAK MOJIH PROJEKATA]</span>
+- ljudi/marija-radivojevic/<span class="fill">[NPR. projekti]</span>/<span class="fill">[NPR. projekat-1]</span>.html — <span class="fill">[DETALJI JEDNOG PROJEKTA]</span>
+
+<span class="ph"># ZAHTEVI</span>
+1. Svaka stranica ima isti meni sa linkovima ka svim mojim stranicama + link "← Svi polaznici" ka ljudi/index.html.
+2. Koristi SAMO relativne putanje (../ i ../../). Nikad putanje koje počinju sa "/".
+3. Zajedničke stilove mog mini sajta stavi u ljudi/marija-radivojevic/stil.css i poveži ih na svim mojim stranicama.
+4. Na glavnoj stranici dodaj vidljive linkove ka novim stranicama.
+5. Na kraju proveri SVAKI link i napravi mi tabelu: stranica → link → gde vodi → radi / ne radi.
+
+<span class="ph"># OGRANIČENJA</span>
+- Pravi i menjaj fajlove SAMO unutar foldera ljudi/marija-radivojevic/.
+- Nazivi fajlova i foldera: mala slova, crtice umesto razmaka, bez č/ć/š/ž/đ (npr. moji-projekti.html).
+
+<span class="ph"># CILJ</span>
+Da naučim kako se sajt organizuje u više stranica i nivoa, i da moj deo sajta izgleda kao pravi mali sajt.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> kod sajta sa više nivoa najčešće pucaju putanje. Zato agentu tačno kažeš kako izgledaju putanje i tražiš da na kraju sam proveri svaki link.</span></div>
+        </article>
+        <article class="prompt">
+          <div class="prompt-head">
+            <div>
+              <span class="num">Prompt 05</span>
+              <h3>Provera i objava na GitHub</h3>
+              <p>Poslednji korak: agent pregleda tvoj rad, proveri da nisi dirao tuđe fajlove, napravi commit i pushuje tvoju granu.</p>
+            </div>
+            <button class="copy" data-target="p5">Kopiraj prompt</button>
+          </div>
+<pre id="p5"><span class="ph"># ULOGA</span>
+Ti si pažljiv code reviewer i pomažeš mi da bezbedno objavim svoje promene.
+
+<span class="ph"># KONTEKST</span>
+Završio/la sam izmene u folderu ljudi/marija-radivojevic/.
+Radim na grani marija-radivojevic/moja-stranica (ako ne postoji, napravi je od main).
+
+<span class="ph"># ZADATAK</span>
+1. Pregledaj sve fajlove u ljudi/marija-radivojevic/: pokvareni linkovi, nezatvoreni tagovi, slike koje ne postoje, izgled na telefonu.
+2. Pokreni `git status`. Ako je izmenjen bilo koji fajl VAN mog foldera, zaustavi se i pitaj me šta da radimo.
+3. Pokaži mi spisak pronađenih problema i popravi ih tek kad potvrdim.
+4. Napravi commit sa jasnom porukom na srpskom, npr. "Marija Radivojević: nova stranica + mini alat".
+5. Pushuj granu marija-radivojevic/moja-stranica i daj mi link za otvaranje Pull Request-a.
+
+<span class="ph"># OGRANIČENJA</span>
+- Nikad ne radi push direktno na main.
+- Ne briši i ne menjaj ništa van mog foldera.
+
+<span class="ph"># CILJ</span>
+Da moja promena stigne na GitHub čista, proverena i spremna da je svi vide.</pre>
+          <div class="lesson">💡 <span><b>Zašto ovako:</b> agent sme da menja stvari, ali ti odobravaš. Tražiš spisak problema pre popravke i zaustavljanje ako nešto nije u redu.</span></div>
+        </article>
+      </div>
+
+      <div class="tips">
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>Rezultat ne valja?</h3>
+          <p>Ne kreći ispočetka. Reci tačno šta ne valja: <em>„Naslov je prevelik na telefonu. Smanji ga, a sve ostalo ostavi isto."</em></p>
+        </div>
+        <div class="card">
+          <div class="icon">🧩</div>
+          <h3>Jedan korak odjednom</h3>
+          <p>Mali, jasni promptovi rade bolje od jednog ogromnog. Proveri rezultat posle svakog koraka.</p>
+        </div>
+        <div class="card">
+          <div class="icon">✍️</div>
+          <h3>Napravi svoj prompt</h3>
+          <p>Kad savladaš ovih pet, napiši svoj po istoj šemi: uloga, kontekst, zadatak, zahtevi, ograničenja, cilj.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="../index.html">← Svi polaznici</a>
+      <a href="https://vibecodeacademy.io/" class="brand" target="_blank" rel="noopener"><span class="brandmark"><i></i><i></i></span><span class="brandtype">VibeCode<small>ACADEMY</small></span></a>
+    </div>
+  </footer>
+
+  <script>
+    // Generator dnevnog reda za retrospektivu — radi samo u pretraživaču, bez servera
+    (function () {
+      const FORMATS = {
+        ssc:  { name: "Start / Stop / Continue", cols: "Šta da počnemo · Šta da prestanemo · Šta da nastavimo", desc: "Klasika: jasno i brzo vodi ka konkretnim akcijama." },
+        msg:  { name: "Mad / Sad / Glad", cols: "Šta nas ljuti · Šta nas rastužuje · Šta nas raduje", desc: "Fokus na emocije — dobar kad je sprint bio naporan." },
+        "4l": { name: "4L", cols: "Liked · Learned · Lacked · Longed for", desc: "Šira slika: šta nam se dopalo, šta smo naučili, šta je falilo, šta želimo." },
+        sail: { name: "Sailboat (Jedrilica)", cols: "Vetar (šta nas gura) · Sidro (šta nas koči) · Stene (rizici) · Ostrvo (cilj)", desc: "Vizuelna metafora — osveži tim kome su dosadili standardni formati." }
+      };
+      // Udeo vremena po bloku (zbir = 1)
+      const BLOCKS = [
+        { key: "intro",   share: .08, title: "Uvod i check-in", note: "Cilj sastanka, pravila (Prime Directive) i kratak check-in: jedna reč o sprintu." },
+        { key: "review",  share: .10, title: "Pregled akcija iz prošlog sprinta", note: "Šta smo uradili, šta nije i zašto." },
+        { key: "gather",  share: .22, title: "Prikupljanje utisaka", note: "" },
+        { key: "group",   share: .10, title: "Grupisanje i glasanje", note: "" },
+        { key: "discuss", share: .32, title: "Diskusija o najvažnijim temama", note: "" },
+        { key: "actions", share: .12, title: "Dogovor o akcijama", note: "Najviše 2–3 akcije, svaka sa vlasnikom i rokom." },
+        { key: "close",   share: .06, title: "Zatvaranje", note: "Kratka ocena retrospektive (1–5) i zahvalnica timu." }
+      ];
+      const $ = (id) => document.getElementById(id);
+      const fmtSel = $("r-format");
+      Object.entries(FORMATS).forEach(([k, f]) => fmtSel.add(new Option(f.name, k)));
+      // Link iz Retro biblioteke (?format=sail) unapred bira format
+      const pre = new URLSearchParams(location.search).get("format");
+      if (FORMATS[pre]) fmtSel.value = pre;
+
+      const clock = (start, addMin) => {
+        const [h, m] = (start || "10:00").split(":").map(Number);
+        const t = (h * 60 + m + addMin) % (24 * 60);
+        return String(Math.floor(t / 60)).padStart(2, "0") + ":" + String(t % 60).padStart(2, "0");
+      };
+
+      function render() {
+        const sprint = Math.max(1, parseInt($("r-sprint").value, 10) || 1);
+        const total = parseInt($("r-duration").value, 10);
+        const people = Math.min(30, Math.max(2, parseInt($("r-people").value, 10) || 2));
+        const f = FORMATS[fmtSel.value];
+        $("r-format-desc").textContent = f.desc;
+
+        // Minuti po bloku; ostatak od zaokruživanja ide u diskusiju
+        const mins = BLOCKS.map((b) => Math.max(3, Math.round(total * b.share)));
+        const diff = total - mins.reduce((a, b) => a + b, 0);
+        mins[BLOCKS.findIndex((b) => b.key === "discuss")] += diff;
+
+        const votes = people <= 5 ? 3 : people <= 10 ? 4 : 5;
+        const topics = total >= 90 ? 4 : total >= 60 ? 3 : 2;
+        const notes = {
+          gather: "Format " + f.name + ": " + f.cols + ". Svako tiho piše kartice, zatim ih kratko predstavi (~" + Math.max(1, Math.round(mins[2] / people)) + " min po osobi).",
+          group: "Slične kartice spajamo u teme. Svako ima " + votes + (votes >= 5 ? " glasova." : " glasa."),
+          discuss: "Prolazimo kroz " + topics + " teme sa najviše glasova (~" + Math.round(mins[4] / topics) + " min po temi)."
+        };
+
+        const title = "Retrospektiva — Sprint " + sprint;
+        $("r-title").textContent = title + " · " + total + " min · " + people + " učesnika";
+        const list = $("r-agenda");
+        list.innerHTML = "";
+        const lines = [title, "Trajanje: " + total + " min · Učesnika: " + people + " · Format: " + f.name, ""];
+        let elapsed = 0;
+        BLOCKS.forEach((b, i) => {
+          const from = clock($("r-start").value, elapsed);
+          elapsed += mins[i];
+          const to = clock($("r-start").value, elapsed);
+          const note = b.note || notes[b.key];
+          const li = document.createElement("li");
+          const t = document.createElement("span"); t.className = "t"; t.textContent = from + "–" + to;
+          const d = document.createElement("div");
+          const bt = document.createElement("b"); bt.textContent = b.title;
+          const sm = document.createElement("small"); sm.textContent = note;
+          d.append(bt, sm);
+          const m = document.createElement("span"); m.className = "m"; m.textContent = mins[i] + " min";
+          li.append(t, d, m);
+          list.append(li);
+          lines.push((i + 1) + ". " + from + "–" + to + "  " + b.title + " (" + mins[i] + " min)", "   " + note);
+        });
+        $("retro-text").textContent = lines.join("\n");
+      }
+
+      $("retro-form").addEventListener("input", render);
+      $("retro-form").addEventListener("change", render);
+      render();
+    })();
+  </script>
+  <script src="../../assets/main.js"></script>
+</body>
+</html>
