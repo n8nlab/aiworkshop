@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Univerzitet Metropolitan — Marija Dimitrijevic</title>
+  <link rel="stylesheet" href="../../../assets/style.css" />
+  <link rel="stylesheet" href="../stil.css" />
+  <style>
+    .triage { display: grid; gap: 1rem; }
+    .triage label { font-weight: 700; }
+    .triage textarea {
+      display: block;
+      width: 100%;
+      margin-top: .4rem;
+      padding: .8rem;
+      border: 1px solid var(--border-2);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      font: inherit;
+      resize: vertical;
+    }
+    .triage :is(textarea, input, select):focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .triage-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-block: 1.5rem .75rem;
+    }
+    .triage-controls select {
+      max-width: 100%;
+      padding: .45rem;
+      border: 1px solid var(--border-2);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--text);
+      font: inherit;
+    }
+    .triage-queue { display: grid; gap: .75rem; list-style: none; }
+    .triage-queue .card { padding: 1rem 1.25rem; overflow-wrap: anywhere; }
+    .triage-badge { color: var(--accent); font-weight: 800; }
+    .triage-queue details { margin-block: .6rem; }
+    .triage-queue summary { cursor: pointer; }
+    .triage-message { white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <nav class="nav site-nav" aria-label="Glavni meni">
+    <div class="container">
+      <span class="site-name">Marija Dimitrijevic</span>
+      <div class="nav-links">
+        <a href="../index.html">Početna</a>
+        <a href="../usluge.html">Usluge</a>
+        <a href="index.html" class="active">Projekti</a>
+        <a href="../../index.html">← Svi polaznici</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container page-content">
+    <header class="section-head page-heading">
+      <p class="label">Projekat sa radionice</p>
+      <h1>Univerzitet Metropolitan</h1>
+      <p class="lead">Studentski upiti lako ostanu bez odgovora kada stigne mnogo mejlova odjednom. Ovaj prototip izdvaja poruke za odgovor danas, za prosleđivanje timu i za pregled.</p>
+    </header>
+
+    <form class="card triage" id="trijaza-forma" aria-labelledby="trijaza-naslov">
+      <h2 id="trijaza-naslov">Trijaža studentskih mejlova</h2>
+      <label for="trijaza-mejlovi">Tekst probnih mejlova
+        <textarea id="trijaza-mejlovi" rows="8" maxlength="24000" required aria-describedby="trijaza-uputstvo" placeholder="Predmet: Upit o upisu&#10;Kako da započnem prijavu?&#10;---&#10;Predmet: Studentski portal&#10;Prijava na portal mi ne radi."></textarea>
+      </label>
+      <p id="trijaza-uputstvo">Koristi izmišljene podatke. Odvoji mejlove redom sa tri crtice (<code>---</code>). Oznake „Odgovoreno“ važe do zatvaranja ili osvežavanja stranice.</p>
+      <div class="cta-row">
+        <button type="button" class="btn btn-ghost" id="trijaza-primer">Učitaj primer</button>
+        <button type="submit" class="btn btn-primary">Razvrstaj upite</button>
+      </div>
+    </form>
+
+    <div class="triage-controls">
+      <p id="trijaza-status" role="status"></p>
+      <label id="trijaza-filter-omot" hidden>Prikaži
+        <select id="trijaza-filter">
+          <option value="waiting">Čekaju odgovor</option>
+          <option value="all">Sve poruke</option>
+          <option value="answered">Odgovoreno</option>
+        </select>
+      </label>
+    </div>
+    <p id="trijaza-prazno" hidden>Nema poruka za izabrani prikaz.</p>
+    <ul class="triage-queue" id="trijaza-lista" aria-label="Razvrstani upiti"></ul>
+    <p class="page-actions"><a class="btn btn-ghost" href="index.html">Nazad na projekte</a></p>
+
+    <template id="trijaza-stavka">
+      <li class="card">
+        <h3></h3>
+        <div><span class="triage-badge"></span> <span class="triage-topic"></span></div>
+        <p class="triage-reason"></p>
+        <details><summary>Pročitaj mejl</summary><p class="triage-message"></p></details>
+        <label><input type="checkbox" /> Odgovoreno</label>
+      </li>
+    </template>
+  </main>
+
+  <footer>
+    <div class="container"><span>Marija Dimitrijevic · AI Radionica Beograd</span></div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('trijaza-forma');
+    const source = document.getElementById('trijaza-mejlovi');
+    const queue = document.getElementById('trijaza-lista');
+    const status = document.getElementById('trijaza-status');
+    const filter = document.getElementById('trijaza-filter');
+    const empty = document.getElementById('trijaza-prazno');
+    const template = document.getElementById('trijaza-stavka');
+    const urgent = /\b(hitno|urgentno|rok je danas|rok danas|rok je sutra|rok sutra|ispit je sutra|ispit sutra)\b/;
+    const topics = [
+      { name: 'Tehnička podrška', pattern: /\b(portal\w*|lozink\w*|pristup\w*|gresk\w*)\b/, forward: true },
+      { name: 'Školarina i uplate', pattern: /\b(skolarin\w*|uplat\w*|racun\w*|kotizacij\w*)\b/, forward: true },
+      { name: 'Studentska služba', pattern: /\b(potvrd\w*|uverenj\w*|transkript\w*|dokument\w*)\b/, forward: true },
+      { name: 'Ispiti i nastava', pattern: /\b(ispit\w*|raspored\w*|predavanj\w*|nastav\w*)\b/ },
+      { name: 'Upis', pattern: /\b(upis\w*|prijemn\w*|smer\w*|konkurs\w*)\b/ }
+    ];
+    const cyrillic = 'абвгдђежзијклљмнњопрстћуфхцчџш';
+    const latin = 'a b v g d dj e z z i j k l lj m n nj o p r s t c u f h c c dz s'.split(' ');
+    let rows = [];
+
+    function normalize(text) {
+      return text.toLowerCase().replace(/đ/g, 'dj').normalize('NFD').replace(/\p{M}/gu, '')
+        .replace(/[абвгдђежзијклљмнњопрстћуфхцчџш]/g, letter => latin[cyrillic.indexOf(letter)]);
+    }
+
+    function classify(message) {
+      const text = normalize(message);
+      const urgency = text.match(urgent);
+      const topic = topics.find(rule => rule.pattern.test(text));
+      const reason = topic ? 'Tema po ključnoj reči „' + text.match(topic.pattern)[0] + '“. ' : '';
+      return {
+        topic: topic?.name ?? 'Ostalo',
+        label: urgency ? 'Odgovori danas' : topic?.forward ? 'Prosledi timu' : 'Za pregled',
+        reason: reason + (urgency ? 'Prepoznat izraz „' + urgency[0] + '“.' : topic?.forward ? 'Predlog za prosleđivanje nadležnom timu.' : 'Proveri sadržaj i odredi sledeći korak.'),
+        priority: urgency ? 0 : topic?.forward ? 1 : 2
+      };
+    }
+
+    function updateQueue() {
+      let waiting = 0;
+      let today = 0;
+      let visible = 0;
+      for (const row of rows) {
+        const answered = row.checkbox.checked;
+        if (!answered) {
+          waiting++;
+          if (row.priority === 0) today++;
+        }
+        row.item.hidden = filter.value !== 'all' && answered !== (filter.value === 'answered');
+        if (!row.item.hidden) visible++;
+      }
+      status.textContent = 'Ukupno: ' + rows.length + ' · Čekaju odgovor: ' + waiting + ' · Za danas: ' + today + ' · Odgovoreno: ' + (rows.length - waiting);
+      empty.hidden = visible > 0;
+    }
+
+    document.getElementById('trijaza-primer').addEventListener('click', () => {
+      source.value = [
+        'Predmet: Ispit sutra\nHitno, da li se promenila sala za ispit?',
+        'Predmet: Pristup portalu\nZaboravljena je lozinka za studentski portal.',
+        'Predmet: Upis\nKada počinje upis za sledeći semestar?'
+      ].join('\n---\n');
+      source.focus();
+    });
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const messages = source.value.split(/^\s*---\s*$/m).map(message => message.trim()).filter(Boolean);
+      if (!messages.length) {
+        status.textContent = 'Nalepi bar jedan probni mejl ili učitaj primer.';
+        source.focus();
+        return;
+      }
+
+      const answeredKeys = new Set(rows.filter(row => row.checkbox.checked).map(row => row.key));
+      const occurrences = new Map();
+      rows = messages.map((message, index) => {
+        const occurrence = (occurrences.get(message) ?? 0) + 1;
+        occurrences.set(message, occurrence);
+        const key = JSON.stringify([message, occurrence]);
+        const subject = message.match(/^\s*predmet:\s*([^\r\n]+)/im)?.[1]?.trim() || 'Upit ' + (index + 1);
+        const result = classify(message);
+        const item = template.content.firstElementChild.cloneNode(true);
+        item.querySelector('h3').textContent = subject;
+        item.querySelector('.triage-badge').textContent = result.label;
+        item.querySelector('.triage-topic').textContent = '· ' + result.topic;
+        item.querySelector('.triage-reason').textContent = result.reason;
+        item.querySelector('.triage-message').textContent = message;
+        const checkbox = item.querySelector('input');
+        checkbox.checked = answeredKeys.has(key);
+        checkbox.setAttribute('aria-label', 'Odgovoreno: ' + subject);
+        return { key, item, checkbox, priority: result.priority };
+      }).sort((first, second) => first.priority - second.priority);
+
+      queue.replaceChildren(...rows.map(row => row.item));
+      document.getElementById('trijaza-filter-omot').hidden = false;
+      updateQueue();
+    });
+
+    queue.addEventListener('change', updateQueue);
+    filter.addEventListener('change', updateQueue);
+  </script>
+</body>
+</html>

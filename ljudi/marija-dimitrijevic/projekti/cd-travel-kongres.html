@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CD Travel — Obrada prijave za kongres — Marija Dimitrijevic</title>
+  <title>CD Travel — detalji projekta — Marija Dimitrijevic</title>
   <link rel="stylesheet" href="../../../assets/style.css" />
   <link rel="stylesheet" href="../stil.css" />
 </head>
@@ -14,8 +14,7 @@
       <div class="nav-links">
         <a href="../index.html">Početna</a>
         <a href="../usluge.html">Usluge</a>
-        <a href="index.html">Projekti</a>
-        <a href="cd-travel-kongres.html" class="active" aria-current="page">CD Travel</a>
+        <a href="index.html" class="active">Projekti</a>
         <a href="../../index.html">← Svi polaznici</a>
       </div>
     </div>
@@ -24,7 +23,7 @@
   <main class="container page-content">
     <header class="section-head page-heading">
       <p class="label">Projekat sa radionice</p>
-      <h1>CD Travel — Obrada prijave za kongres</h1>
+      <h1>CD Travel — detalji projekta</h1>
       <p class="lead">Prototip za pripremu evidencije i komunikacije sa učesnicima kongresa iz jedne probne prijave.</p>
     </header>
 
@@ -42,13 +41,180 @@
         <p>Za demonstraciju koristi izmišljene podatke. Zvanični predračun se dopunjava i šalje ručno.</p>
       </div>
       <div class="cta-row page-actions">
-        <a class="btn btn-primary" href="../index.html#kongres-alat">Isprobaj mini alat</a>
+        <a class="btn btn-primary" href="#kongres-alat">Isprobaj mini alat</a>
         <a class="btn btn-ghost" href="index.html">Nazad na projekte</a>
       </div>
+
+    <section id="kongres-alat" class="congress" aria-labelledby="kongres-naslov">
+      <div class="section-head">
+        <span class="label">CD Travel · Mini alat</span>
+        <h2 id="kongres-naslov">Obrada prijave za kongres</h2>
+        <p>Iz probne prijave pripremi podatke za Excel, nacrt predračuna za kotizaciju i tekst mejla učesniku.</p>
+      </div>
+
+      <form class="congress-form" id="kongres-forma" autocomplete="off">
+        <label for="kongres-prijava">Tekst probne prijave
+          <textarea id="kongres-prijava" rows="5" maxlength="12000" aria-describedby="kongres-uputstvo" placeholder="Ime i prezime: …&#10;E-mail: …&#10;Organizacija: …&#10;Kongres: …"></textarea>
+        </label>
+        <p class="congress-note" id="kongres-uputstvo">Koristi izmišljene podatke. Za izdvajanje upiši svako polje u poseban red u formatu „Naziv: vrednost“. Podatke možeš uneti i ručno.</p>
+        <div class="cta-row">
+          <button type="button" class="btn btn-ghost" id="kongres-primer">Učitaj primer</button>
+          <button type="button" class="btn btn-ghost" id="kongres-izdvoji">Izdvoj podatke</button>
+        </div>
+        <div class="grid grid-2">
+          <label>Ime i prezime <input name="participant" type="text" maxlength="120" required /></label>
+          <label>E-mail <input name="email" type="email" maxlength="254" required /></label>
+          <label>Organizacija (opciono) <input name="organization" type="text" maxlength="160" /></label>
+          <label>Naziv kongresa <input name="event" type="text" maxlength="160" required /></label>
+          <label>Kotizacija <input name="fee" type="number" min="0.01" max="999999999.99" step="0.01" inputmode="decimal" required /></label>
+          <label>Valuta
+            <select name="currency"><option value="RSD">RSD</option><option value="EUR">EUR</option></select>
+          </label>
+        </div>
+        <div class="cta-row">
+          <button type="submit" class="btn btn-primary">Pripremi dokumente</button>
+        </div>
+        <p class="congress-note" id="kongres-status" role="status"></p>
+      </form>
+
+      <div class="congress-results" id="kongres-rezultati" hidden>
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Red za Excel</h3>
+            <p>Nalepi u prvi slobodan red. Redosled kolona je ime i prezime, e-mail, organizacija, kongres, kotizacija, valuta i status.</p>
+            <pre id="kongres-excel"></pre>
+            <button type="button" class="copy" data-target="kongres-excel">Kopiraj za Excel</button>
+          </article>
+          <article class="card">
+            <h3>Nacrt predračuna</h3>
+            <pre id="kongres-predracun"></pre>
+            <button type="button" class="copy" data-target="kongres-predracun">Kopiraj nacrt</button>
+          </article>
+          <article class="card">
+            <h3>Tekst mejla</h3>
+            <p>Pre slanja priloži izdati predračun.</p>
+            <pre id="kongres-mejl"></pre>
+            <button type="button" class="copy" data-target="kongres-mejl">Kopiraj mejl</button>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="container"><span>Marija Dimitrijevic · AI Radionica Beograd</span></div>
   </footer>
+  <script src="../../../assets/main.js"></script>
+  <script>
+    {
+      const form = document.getElementById('kongres-forma');
+      const fields = form.elements;
+      const application = document.getElementById('kongres-prijava');
+      const status = document.getElementById('kongres-status');
+      const results = document.getElementById('kongres-rezultati');
+      const labels = new Map([
+        ['ime i prezime', 'participant'], ['ucesnik', 'participant'],
+        ['e-mail', 'email'], ['email', 'email'], ['mejl', 'email'],
+        ['organizacija', 'organization'], ['firma', 'organization'], ['ustanova', 'organization'],
+        ['kongres', 'event'], ['naziv kongresa', 'event'], ['dogadjaj', 'event']
+      ]);
+      const example = [
+        'Ime i prezime: Demo Učesnik',
+        'E-mail: ucesnik@example.invalid',
+        'Organizacija: Demo organizacija',
+        'Kongres: Probni kongres'
+      ].join('\n');
+
+      form.addEventListener('input', () => {
+        results.hidden = true;
+        status.textContent = '';
+      });
+
+      document.getElementById('kongres-primer').addEventListener('click', () => {
+        application.value = example;
+        results.hidden = true;
+        status.textContent = 'Primer je učitan. Klikni na „Izdvoj podatke“.';
+      });
+
+      document.getElementById('kongres-izdvoji').addEventListener('click', () => {
+        const extracted = new Map();
+        for (const line of application.value.split(/\r?\n/)) {
+          const match = line.match(/^\s*([^:]+):\s*(.+)$/);
+          if (!match) continue;
+          const label = match[1].trim().toLowerCase().replaceAll('đ', 'dj')
+            .normalize('NFD').replace(/\p{M}/gu, '').replace(/\s+/g, ' ');
+          const field = labels.get(label);
+          const value = match[2].trim();
+          if (field && value && !extracted.has(field)) extracted.set(field, value);
+        }
+
+        results.hidden = true;
+        if (extracted.size === 0) {
+          status.textContent = 'Nema prepoznatih polja. Učitaj primer ili popuni obrazac ručno.';
+          return;
+        }
+        for (const field of new Set(labels.values())) {
+          fields[field].value = (extracted.get(field) ?? '').slice(0, fields[field].maxLength);
+        }
+        status.textContent = 'Proveri izdvojene podatke, dopuni prazna obavezna polja i unesi kotizaciju.';
+      });
+
+      function excelCell(value) {
+        const clean = value.replace(/[\t\r\n]+/g, ' ');
+        return /^[=+\-@]/.test(clean) ? "'" + clean : clean;
+      }
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const participant = fields.participant.value.trim();
+        const email = fields.email.value.trim();
+        const organization = fields.organization.value.trim();
+        const congress = fields.event.value.trim();
+        const currency = fields.currency.value;
+        if (!participant || !congress) {
+          status.textContent = 'Upiši ime i prezime i naziv kongresa.';
+          (participant ? fields.event : fields.participant).focus();
+          return;
+        }
+
+        const fee = fields.fee.valueAsNumber;
+        const amount = new Intl.NumberFormat('sr-Latn-RS', {
+          minimumFractionDigits: 2, maximumFractionDigits: 2
+        }).format(fee) + ' ' + currency;
+        const excelAmount = fee.toFixed(2).replace('.', ',');
+        document.getElementById('kongres-excel').textContent = [
+          participant, email, organization, congress, excelAmount, currency, 'Prijavljen'
+        ].map(excelCell).join('\t');
+
+        document.getElementById('kongres-predracun').textContent = [
+          'CD Travel',
+          'NACRT PREDRAČUNA ZA KOTIZACIJU',
+          '',
+          'Učesnik: ' + participant,
+          'E-mail: ' + email,
+          'Organizacija: ' + (organization || '—'),
+          'Kongres: ' + congress,
+          'Iznos kotizacije: ' + amount,
+          '',
+          'Pre izdavanja dopuniti zvanične podatke, broj, datum i instrukcije za uplatu.'
+        ].join('\n');
+
+        document.getElementById('kongres-mejl').textContent = [
+          'Za: ' + email,
+          'Predmet: Kotizacija za kongres — ' + congress,
+          '',
+          'Poštovani,',
+          '',
+          'Hvala na prijavi za kongres „' + congress + '“. Kotizacija iznosi ' + amount + '.',
+          'U prilogu je predračun sa instrukcijama za uplatu.',
+          '',
+          'Srdačan pozdrav,',
+          'CD Travel'
+        ].join('\n');
+        results.hidden = false;
+        status.textContent = 'Red za Excel, nacrt predračuna i tekst mejla su spremni za kopiranje.';
+      });
+    }
+  </script>
 </body>
 </html>
