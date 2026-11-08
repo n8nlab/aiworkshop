@@ -59,7 +59,43 @@
     .me-card p, .me-card li { color: var(--muted); }
     .placeholder { color: var(--dim) !important; font-style: italic; }
 
+    /* Mini alat: generator dnevnog reda za retrospektivu */
+    .retro { max-width: 760px; margin: 0 auto; }
+    .retro .eyebrow-c {
+      font-family: var(--mono); font-size: .75rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--c);
+    }
+    .retro h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); margin: .5rem 0 .8rem; }
+    .retro .intro { color: var(--muted); margin-bottom: 1.8rem; }
+    .retro-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 1.2rem; }
+    .retro-form label { display: flex; flex-direction: column; gap: .45rem; font-size: .88rem; font-weight: 600; color: var(--muted); }
+    .retro-form input, .retro-form select {
+      font: inherit; font-size: 1rem; color: var(--text);
+      background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px;
+      padding: .75rem .9rem; min-width: 0;
+    }
+    .retro-form input:focus, .retro-form select:focus { outline: 2px solid var(--c); outline-offset: 1px; border-color: transparent; }
+    .retro-form .full { grid-column: 1 / -1; }
+    .retro-format-desc { color: var(--dim); font-size: .85rem; font-weight: 500; }
+    .retro-out-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: 2rem 0 .8rem; }
+    .retro-out-head h3 { font-size: 1.05rem; }
+    .retro .copy { border-color: var(--c); }
+    .retro-agenda { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border); }
+    .retro-agenda li {
+      display: grid; grid-template-columns: 6.5rem 1fr auto; gap: 1rem; align-items: baseline;
+      padding: .9rem 0; border-bottom: 1px solid var(--border);
+    }
+    .retro-agenda .t { font-family: var(--mono); font-size: .85rem; color: var(--c); }
+    .retro-agenda b { color: var(--text); display: block; }
+    .retro-agenda small { color: var(--muted); font-size: .88rem; }
+    .retro-agenda .m { font-family: var(--mono); font-size: .85rem; color: var(--muted); white-space: nowrap; }
+    #retro-text { display: none; }
+
     @media (max-width: 640px) {
+      .retro-form { grid-template-columns: 1fr; }
+      .retro-out-head { flex-direction: column; align-items: flex-start; }
+      .retro-agenda li { grid-template-columns: 1fr auto; }
+      .retro-agenda .t { grid-column: 1 / -1; }
       .me-hero { padding: 3rem 0 2.5rem; }
       .vcard { padding: 2.2rem 1.5rem; border-radius: 22px; }
       .vcard-top { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
@@ -124,6 +160,48 @@
           <li class="placeholder">Ideja 2 — nešto što stalno ručno kopiraš</li>
           <li class="placeholder">Ideja 3 — nešto što bi agent mogao da radi dok spavaš</li>
         </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= MINI ALAT: DNEVNI RED ZA RETROSPEKTIVU ================= -->
+  <section class="me-more" id="retro-alat">
+    <div class="container">
+      <article class="card retro">
+        <span class="eyebrow-c">Mini alat · Scrum</span>
+        <h2>Dnevni red za retrospektivu</h2>
+        <p class="intro">Unesi podatke o sprintu, izaberi format i dobićeš dnevni red sa vremenom za svaki blok — spreman za kopiranje u mejl, Teams ili Confluence.</p>
+
+        <form class="retro-form" id="retro-form" onsubmit="return false">
+          <label>Broj sprinta
+            <input type="number" id="r-sprint" min="1" value="1" />
+          </label>
+          <label>Početak sastanka
+            <input type="time" id="r-start" value="10:00" />
+          </label>
+          <label>Trajanje
+            <select id="r-duration">
+              <option value="45">45 min</option>
+              <option value="60" selected>60 min</option>
+              <option value="90">90 min</option>
+              <option value="120">120 min</option>
+            </select>
+          </label>
+          <label>Broj učesnika
+            <input type="number" id="r-people" min="2" max="30" value="7" />
+          </label>
+          <label class="full">Format
+            <select id="r-format"></select>
+            <span class="retro-format-desc" id="r-format-desc"></span>
+          </label>
+        </form>
+
+        <div class="retro-out-head">
+          <h3 id="r-title">Dnevni red</h3>
+          <button class="copy" data-target="retro-text" type="button">Kopiraj dnevni red</button>
+        </div>
+        <ol class="retro-agenda" id="r-agenda"></ol>
+        <pre id="retro-text"></pre>
       </article>
     </div>
   </section>
@@ -357,6 +435,85 @@ Da moja promena stigne na GitHub čista, proverena i spremna da je svi vide.</pr
     </div>
   </footer>
 
+  <script>
+    // Generator dnevnog reda za retrospektivu — radi samo u pretraživaču, bez servera
+    (function () {
+      const FORMATS = {
+        ssc:  { name: "Start / Stop / Continue", cols: "Šta da počnemo · Šta da prestanemo · Šta da nastavimo", desc: "Klasika: jasno i brzo vodi ka konkretnim akcijama." },
+        msg:  { name: "Mad / Sad / Glad", cols: "Šta nas ljuti · Šta nas rastužuje · Šta nas raduje", desc: "Fokus na emocije — dobar kad je sprint bio naporan." },
+        "4l": { name: "4L", cols: "Liked · Learned · Lacked · Longed for", desc: "Šira slika: šta nam se dopalo, šta smo naučili, šta je falilo, šta želimo." },
+        sail: { name: "Sailboat (Jedrilica)", cols: "Vetar (šta nas gura) · Sidro (šta nas koči) · Stene (rizici) · Ostrvo (cilj)", desc: "Vizuelna metafora — osveži tim kome su dosadili standardni formati." }
+      };
+      // Udeo vremena po bloku (zbir = 1)
+      const BLOCKS = [
+        { key: "intro",   share: .08, title: "Uvod i check-in", note: "Cilj sastanka, pravila (Prime Directive) i kratak check-in: jedna reč o sprintu." },
+        { key: "review",  share: .10, title: "Pregled akcija iz prošlog sprinta", note: "Šta smo uradili, šta nije i zašto." },
+        { key: "gather",  share: .22, title: "Prikupljanje utisaka", note: "" },
+        { key: "group",   share: .10, title: "Grupisanje i glasanje", note: "" },
+        { key: "discuss", share: .32, title: "Diskusija o najvažnijim temama", note: "" },
+        { key: "actions", share: .12, title: "Dogovor o akcijama", note: "Najviše 2–3 akcije, svaka sa vlasnikom i rokom." },
+        { key: "close",   share: .06, title: "Zatvaranje", note: "Kratka ocena retrospektive (1–5) i zahvalnica timu." }
+      ];
+      const $ = (id) => document.getElementById(id);
+      const fmtSel = $("r-format");
+      Object.entries(FORMATS).forEach(([k, f]) => fmtSel.add(new Option(f.name, k)));
+
+      const clock = (start, addMin) => {
+        const [h, m] = (start || "10:00").split(":").map(Number);
+        const t = (h * 60 + m + addMin) % (24 * 60);
+        return String(Math.floor(t / 60)).padStart(2, "0") + ":" + String(t % 60).padStart(2, "0");
+      };
+
+      function render() {
+        const sprint = Math.max(1, parseInt($("r-sprint").value, 10) || 1);
+        const total = parseInt($("r-duration").value, 10);
+        const people = Math.min(30, Math.max(2, parseInt($("r-people").value, 10) || 2));
+        const f = FORMATS[fmtSel.value];
+        $("r-format-desc").textContent = f.desc;
+
+        // Minuti po bloku; ostatak od zaokruživanja ide u diskusiju
+        const mins = BLOCKS.map((b) => Math.max(3, Math.round(total * b.share)));
+        const diff = total - mins.reduce((a, b) => a + b, 0);
+        mins[BLOCKS.findIndex((b) => b.key === "discuss")] += diff;
+
+        const votes = people <= 5 ? 3 : people <= 10 ? 4 : 5;
+        const topics = total >= 90 ? 4 : total >= 60 ? 3 : 2;
+        const notes = {
+          gather: "Format " + f.name + ": " + f.cols + ". Svako tiho piše kartice, zatim ih kratko predstavi (~" + Math.max(1, Math.round(mins[2] / people)) + " min po osobi).",
+          group: "Slične kartice spajamo u teme. Svako ima " + votes + (votes >= 5 ? " glasova." : " glasa."),
+          discuss: "Prolazimo kroz " + topics + " teme sa najviše glasova (~" + Math.round(mins[4] / topics) + " min po temi)."
+        };
+
+        const title = "Retrospektiva — Sprint " + sprint;
+        $("r-title").textContent = title + " · " + total + " min · " + people + " učesnika";
+        const list = $("r-agenda");
+        list.innerHTML = "";
+        const lines = [title, "Trajanje: " + total + " min · Učesnika: " + people + " · Format: " + f.name, ""];
+        let elapsed = 0;
+        BLOCKS.forEach((b, i) => {
+          const from = clock($("r-start").value, elapsed);
+          elapsed += mins[i];
+          const to = clock($("r-start").value, elapsed);
+          const note = b.note || notes[b.key];
+          const li = document.createElement("li");
+          const t = document.createElement("span"); t.className = "t"; t.textContent = from + "–" + to;
+          const d = document.createElement("div");
+          const bt = document.createElement("b"); bt.textContent = b.title;
+          const sm = document.createElement("small"); sm.textContent = note;
+          d.append(bt, sm);
+          const m = document.createElement("span"); m.className = "m"; m.textContent = mins[i] + " min";
+          li.append(t, d, m);
+          list.append(li);
+          lines.push((i + 1) + ". " + from + "–" + to + "  " + b.title + " (" + mins[i] + " min)", "   " + note);
+        });
+        $("retro-text").textContent = lines.join("\n");
+      }
+
+      $("retro-form").addEventListener("input", render);
+      $("retro-form").addEventListener("change", render);
+      render();
+    })();
+  </script>
   <script src="../../assets/main.js"></script>
 </body>
 </html>
