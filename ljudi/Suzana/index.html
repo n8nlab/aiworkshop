@@ -8,6 +8,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&amp;family=Geist+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    /* Svetla tema samo za moju stranicu (zajednički style.css se ne menja) */
+    :root {
+      --bg: #f7f6f1;
+      --bg-2: #efeee6;
+      --card: #ffffff;
+      --card-hover: #f4f3ed;
+      --border: #e0ded3;
+      --border-2: #c9c6b8;
+      --text: #1b1d18;
+      --muted: #565a51;
+      --dim: #85897f;
+      --accent-text: #4a6600;
+    }
+    body::after {
+      background-image:
+        linear-gradient(rgba(27,29,24,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(27,29,24,0.04) 1px, transparent 1px);
+    }
+    .nav { background: rgba(247, 246, 241, 0.88); }
+    .brandmark { box-shadow: inset 0 0 0 1px rgba(27,29,24,.12); }
+    .hl, .gradient-text, .section-head .label, .card ul li::before { color: var(--accent-text); }
+    .eyebrow { color: var(--accent-text); border-color: rgba(74, 102, 0, .35); }
+    .eyebrow .dot { background: var(--accent-text); }
+    .card { box-shadow: 0 1px 2px rgba(27,29,24,.04), 0 8px 24px rgba(27,29,24,.04); }
+  </style>
 </head>
 <body>
   <div class="topbar">
@@ -34,13 +60,67 @@
       <div class="container">
         <span class="eyebrow"><span class="dot"></span> AI radionica · Beograd</span>
         <h1><span class="hl">Suzana Nikolić</span></h1>
-        <p class="lead">Moja stranica za AI radionicu u Beogradu.</p>
+        <p class="lead">Konsultant u RCL Nova. Na radionici učim kako da povežem sve svoje alate sa AI-jem i budem produktivnija.</p>
         <div class="cta-row">
-          <a href="../../index.html" class="btn btn-primary">Početna strana radionice</a>
-          <a href="../index.html" class="btn btn-ghost">Spisak polaznika</a>
+          <a href="#o-meni" class="btn btn-primary">O meni</a>
+          <a href="#vestine" class="btn btn-ghost">Veštine i alati</a>
         </div>
       </div>
     </header>
+
+    <!-- ===== O MENI ===== -->
+    <section id="o-meni">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">01 · O meni</span>
+          <h2>Ko sam i čime se bavim</h2>
+          <p>Radim u RCL Nova na poziciji konsultanta. Imam više od 19 godina iskustva u podršci i poslovnim sistemima, od Microsoft korisničke podrške, preko maloprodaje i POS rešenja, do ERP konsaltinga. Najveće iskustvo imam u modulima kadrovi i zarade.</p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="icon">💼</div>
+            <h3>Posao</h3>
+            <p>Konsultant u RCL Nova</p>
+          </div>
+          <div class="card">
+            <div class="icon">🚀</div>
+            <h3>Cilj na radionici</h3>
+            <p>Da naučim da povežem sve svoje alate sa AI-jem kako bih bila produktivnija.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VEŠTINE I ALATI ===== -->
+    <section id="vestine">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">02 · Veštine i alati</span>
+          <h2>S čim radim</h2>
+          <p>[Rečenica-dve o tome kakav je tvoj svakodnevni tehnički alat.]</p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <span class="tag">Veštine</span>
+            <h3>Šta znam da radim</h3>
+            <ul>
+              <li>[Veština 1]</li>
+              <li>[Veština 2]</li>
+              <li>[Veština 3]</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="tag">Alati</span>
+            <h3>Alati koje koristim</h3>
+            <ul>
+              <li>Jira</li>
+              <li>[Alat 2]</li>
+              <li>[Alat 3]</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </body>
 </html>
